@@ -2,15 +2,6 @@
 title: "My First Post"
 date: 2022-02-06T20:42:28+01:00
 ---
-<head>
-<style>
-#example1 {
-  border: 1px solid;
-  padding: 5px;
-  box-shadow: 5px 10px;
-}
-</style>
-</head>
 
 In this post, my aims are:
 * Introduce Bayesian inference in state space models
@@ -51,9 +42,7 @@ Suprisingly to me, it turns out for **a lot** of applications it just needs to d
 In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on $\mathbf{s}_{t-1}$: <br>
 
 $$
-
 \color{blue}{\text{Transition density}}: \qquad \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} \mid \mathbf{s}_{t-1})
-
 \tag{1}\label{eq1}
 $$
 
