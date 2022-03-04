@@ -6,7 +6,7 @@ date: 2022-02-06T20:42:28+01:00
 In this post, my aims are:
 - Introduce Bayesian inference in state space models
 - Introduce approximate inference using importance sampling, in state space models. I will try to present and compare different ways of deriving the algorithms that I found in the literature, trying to unify them in a way that I have not seen explicitly elsewhere.
-- Finally, describe the Auxiliary Particle Filter, its diverse intepretations and the recent Improved Auxiliary Particle Filter by Elvira et al [1]. I will illustrate the IAPF by reproducing the results of Elvira et al. [3].
+- Finally, describe the Auxiliary Particle Filter, its diverse intepretations and the recent Improved Auxiliary Particle Filter by Elvira et al [ 1 ]. I will illustrate the IAPF by reproducing the results of Elvira et al. [3].
 
 The somewhat comprehensive "tutorial" and introduction to the topic arose from my feeling that the only content online that covers particle filters is either very theoretical material , or programming-oriented tutorials that completely lack motivation for how and why the algorithms are constructed as they are.
 
@@ -40,14 +40,10 @@ Now we have to start making more assumptions. What does our belief on $\mathbf{s
 
 Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$tate at the previous timestep.
 In other words, we can say that \( \mathbf{s}_{t} \) is sampled from some density \(f\) conditional on \( \mathbf{s}_{t-1} \):
-[
-\color{blue}{\text{Transition density}}: \qquad \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} \mid \mathbf{s}_{t-1})
-\tag{1}\label{eq1}
-]
+[\color{blue}{\text{Transition density}}: \qquad \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} \mid \mathbf{s}_{t-1})
+\tag{1}\label{eq1}]
 Further, usually the observation or $\mathbf{v}$isible is sampled according to the current state:
-[
-\color{green}{\text{Observation density}}: \mathbf{v}_{t} \sim \color{green}{g}(\mathbf{v}_{t} \mid \mathbf{s}_{t}) \tag{2}\label{eq2}
-]
+[\color{green}{\text{Observation density}}: \mathbf{v}_{t} \sim \color{green}{g}(\mathbf{v}_{t} \mid \mathbf{s}_{t}) \tag{2}\label{eq2}]
 
 It is reasonable to assume this: if we take a measurement, we don't expect its outcome to be dependent on previous states of the system, just the current one ($\color{blue}{f}$ and $\color{green}{g}$ seem arbitrary but they are common in the literature). For example, a classic Gaussian likelihood for would imply that the belief over $\mathbf{v}_{t}$ is a Normal , with the mean being a linear combination of the state's coordinates.
 
