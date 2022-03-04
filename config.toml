@@ -1,6 +1,6 @@
-baseURL = 'https://per-nic-amo.vercel.app/'
+baseURL = 'https://personal-site-lemon-seven.vercel.app/' 
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'PD'
 theme = "ezhil"
 
 copyright = "© Copyright notice"
