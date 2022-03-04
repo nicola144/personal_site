@@ -31,7 +31,7 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 3. [Propagating particles by incoporating the current measurement](#apf)
     1. [The effect of using the locally optimal proposal](#optimalproposal)
     2. [The Auxiliary Particle Filter](#apf2)
-        1. [A first intepretation: a standard SMC algorithm with a different $$\gamma$$](#firstapf)
+        1. [A first intepretation: a standard SMC algorithm with a different $\gamma$](#firstapf)
         2. [The original intepretation of APF and Marginal Particle Filters](#marginalpf)
 4. [The Multiple Importance Sampling Interpretation of PF](#mis)
     1. [The Improved Auxiliary Particle Filter](#iapf)
@@ -47,8 +47,8 @@ We observe this state through a (noisy) measurement $\mathbf{v}_{t}$ (where v st
 
 Now we have to start making more assumptions. What does our belief on $\mathbf{s}_{t}$ depend on ?
 
-Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $$\mathbf{s}$$tate at the previous timestep.
-In other words, we can say that $$\mathbf{s}_{t}$$ is sampled from some density $$f$$ conditional on $$\mathbf{s}_{t-1}$$: <br>
+Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$tate at the previous timestep.
+In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on $\mathbf{s}_{t-1}$: <br>
 
 $$
 
@@ -57,13 +57,13 @@ $$
 \tag{1}\label{eq1}
 $$
 
-Further, usually the observation or $$\mathbf{v}$$isible is sampled according to the current state:
+Further, usually the observation or $\mathbf{v}$isible is sampled according to the current state:
 
 $$
 \color{green}{\text{Observation density}}: \mathbf{v}_{t} \sim \color{green}{g}(\mathbf{v}_{t} \mid \mathbf{s}_{t}) \tag{2}\label{eq2}
 $$
 
-It is reasonable to assume this: if we take a measurement, we don't expect its outcome to be dependent on previous states of the system, just the current one ($$\color{blue}{f}$$ and $$\color{green}{g}$$ seem arbitrary but they are common in the literature). For example, a classic Gaussian likelihood for would imply that the belief over $$\mathbf{v}_{t}$$ is a Normal , with the mean being a linear combination of the state's coordinates.
+It is reasonable to assume this: if we take a measurement, we don't expect its outcome to be dependent on previous states of the system, just the current one ($\color{blue}{f}$ and $\color{green}{g}$ seem arbitrary but they are common in the literature). For example, a classic Gaussian likelihood for would imply that the belief over $\mathbf{v}_{t}$ is a Normal , with the mean being a linear combination of the state's coordinates.
 
 This collection of random variables and densities defines the state space model completely. It is worth, if you see this for the first time, reflecting on the particular assumptions we are making. How the belief on $\mathbf{s}$ evolves with time could depend on many previous states; the measurement could depend on previous measurements, if we had a sensor that degrades over time, etc... I am not great at giving practical examples, but if you are reading this, you should be able to see that this can be generalized in several ways.
 Note that a lot of the structure comes from assuming some variables are (conditionally) independent from others. The field of probabilistic graphical models is dedicated to representing statistical independencies in the form of graphs (nodes and edges). One benefit of the graphical representation is that it makes immediately clear how flexible we could be. I am showing the graphical model for the described state space model in Figure 1, below.
