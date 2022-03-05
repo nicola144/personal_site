@@ -69,7 +69,7 @@ There are several tasks that we can perform on the state space model described a
 
   - **Parameter Estimation**: The target distributions are of the form: $p\left(\boldsymbol{\theta} | \mathbf{v}\_{1: T}\right)= \int p\left(\mathbf{s}\_{0:T}, \boldsymbol{\theta} | \mathbf{v}\_{1: T}\right) \mathrm{d} \mathbf{s}\_{0: T}$. The parameters $\boldsymbol{\theta}$ represent all the parameters of any parametric densities in the state space model. In the case that the transition and/or observation densities are parametric, and parameters are unknown, we can learn them from data by choosing those that both explain the observations well and also agree with our prior beliefs. Parameter estimation is sometimes referred to as <i>learning</i>, because parameters describe properties of sensors that can be estimated from data with machine learning methods. In other words, it is called learning just because it is cool.
 
-  ### General Bayesian Filtering <a name="generalfilter"></a>
+  ### General Bayesian Filtering 
 
   #### Some notation/terminology
   - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$
@@ -78,7 +78,7 @@ There are several tasks that we can perform on the state space model described a
   - Integrating $ \int p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i:j}$ means $ \underbrace{\int \dots \int}\_{j-i+1} p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i} \mathrm{d}\mathbf{x}\_{i+1} \dots \mathrm{d}\mathbf{x}\_{j} $
   - The symbol $:=$ denotes a definition.
 
-  In this post, I am only concerned with filtering, and will always assume that any parameters of <span style="color:blue">transition</span> or <span style="color:LimeGreen">observation</span> densities are known in advance. There are classes of algorithms that learn the parameters and perform inference at the same time, such as Particle Markov Chain Monte Carlo or SMC2.
+  In this post, I am only concerned with filtering, and will always assume that any parameters of <span style="color:cyan">transition</span> or <span style="color:LimeGreen">observation</span> densities are known in advance. There are classes of algorithms that learn the parameters and perform inference at the same time, such as Particle Markov Chain Monte Carlo or SMC2.
 
   Let's start by deriving the filtering distribution in the state space model described without many assumption on the distributions.
   Recall that the aim is to compute: $ p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1: t}\right)$. Apply Bayes rule:  
@@ -101,7 +101,7 @@ There are several tasks that we can perform on the state space model described a
   \begin{equation}\begin{aligned}
     &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1}, \cancel{\mathbf{v}\_{1:t-1}} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\
     &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\
-    &= \int \color{blue}{f}\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1}
+    &= \int \color{cyan}{f}\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1}
   \end{aligned}\end{equation}\tag{4}\label{eq4}$$
 
 
