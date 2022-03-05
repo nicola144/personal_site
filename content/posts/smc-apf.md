@@ -337,7 +337,7 @@ $$
 In other words, to obtain a sample from the full proposal at time $t$, we can just take the previous trajectory that was sampled up to $t-1$ and append a sample from $ q_t\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}\right)$. We can now exploit this proposal structure to express the weights at time $t$ as a product between the previous weights at $t-1$ with a factor. The algebraic trick uses multiplying and dividing by the target at $t-1$ to artificially obtain the weights at $t-1$:
 
 $$\begin{equation}\begin{aligned}
- \tilde{w}\_{t}\left(\mathbf{s}\_{1:t}\right) &=\frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t}\right)} \\ &=\frac{1}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\ &=\frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\
+ \tilde{w}\_{t}\left(\mathbf{s}\_{1:t}\right) &=\frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t}\right)} \\\\\\ &=\frac{1}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\\\\\ &=\frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\\\\\
  &= \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1})} := \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}_t)
 \end{aligned}\end{equation}\tag{20}\label{eq20}$$
 
@@ -361,9 +361,9 @@ This is the essence of SIS (Sequential Importance Sampling). Important note: thi
 Ok, now it's time to apply SIS to the state space model we covered earlier. In this context, what we want is again $\left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t} $ , hence our target $\gamma$ is the unnormalized posterior: $\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$. Keep in mind that we can always get the filtering distribution from $\left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t} $. Now the recursion that we developed earlier in the post for the joint $ p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$ becomes useful in deriving the weight update for SIS:
 
 $$\begin{equation}\begin{aligned}
-\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\
-&=  \frac{\color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \overbrace{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}^{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})}}}{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})} \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\
-&=  \frac{\color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})}
+\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
+&=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \overbrace{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}^{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})}}}{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})} \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
+&=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})}
 \end{aligned}\end{equation}\tag{22}\label{eq22}$$
 
 
@@ -374,13 +374,13 @@ Closed this brief tangent, the exponentially increasing is due to SIS being a sp
 To check this , consider the variance of $\widehat{Z}/ Z_t $ known as "relative variance" under simple IS:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &=  \frac{\mathbb{V}_q[\widehat{Z}_t]}{Z\_{t}^{2}} \qquad \text{since}~Z_t~ \text{a constant} \\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q \left [\frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\
-&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}_q \left [ \left ( \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}_q \left [ \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{(q_t(\mathbf{s}\_{1:t}))^2}  q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\
-&=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\
+\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &=  \frac{\mathbb{V}_q[\widehat{Z}_t]}{Z\_{t}^{2}} \qquad \text{since}~Z_t~ \text{a constant} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q \left [\frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
+&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}_q \left [ \left ( \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}_q \left [ \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{(q_t(\mathbf{s}\_{1:t}))^2}  q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
+&=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\\\\\
 &= \frac{1}{N}\left (  \int  \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{Z\_{t}^{2} q_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) = \frac{1}{N}\left (  \int  \frac{(\pi_t(\mathbf{s}\_{1:t}))^2}{ q_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right )
 \end{aligned}\end{equation}\tag{23}\label{eq23}$$
 
@@ -398,14 +398,14 @@ $$
 
 Then, :
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\
-&= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right ) \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left\{ -\frac{1}{2\sigma^2} s\_{k}^2 \right\}} \mathrm{d}s\_{1:t} - 1\right] \\
-&= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left\{ -\sum\_{k=1}^{t}s\_{k}^2 \right\} }{\exp \left\{ -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right\}} \mathrm{d}s\_{1:t} - 1\right] \\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right\} \mathrm{d}s\_{1:t} - 1\right] \\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right\} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ] \\
-&= \frac{1}{N} \left [\frac{\cancel{(2\pi)^{t/2}} \sigma^t }{\cancel{(2\pi)^t}} \cdot  \cancel{(2\pi)^{t/2}} \left ( \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\
-&= \frac{1}{N} \left [(\sigma^2)^{t/2} \cdot   \left ( \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\
+\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
+&= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right ) \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left\{ -\frac{1}{2\sigma^2} s\_{k}^2 \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left\{ -\sum\_{k=1}^{t}s\_{k}^2 \right\} }{\exp \left\{ -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right\} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right\} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ] \\\\\\
+&= \frac{1}{N} \left [\frac{\cancel{(2\pi)^{t/2}} \sigma^t }{\cancel{(2\pi)^t}} \cdot  \cancel{(2\pi)^{t/2}} \left ( \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
+&= \frac{1}{N} \left [(\sigma^2)^{t/2} \cdot   \left ( \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\left ( \frac{\sigma^4}{2\sigma^2 -1 } \right)^{t/2} - 1\right]
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
