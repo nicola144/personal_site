@@ -69,9 +69,10 @@ There are several tasks that we can perform on the state space model described a
 
   - **Parameter Estimation**: The target distributions are of the form: $p\left(\boldsymbol{\theta} | \mathbf{v}\_{1: T}\right)= \int p\left(\mathbf{s}\_{0:T}, \boldsymbol{\theta} | \mathbf{v}\_{1: T}\right) \mathrm{d} \mathbf{s}\_{0: T}$. The parameters $\boldsymbol{\theta}$ represent all the parameters of any parametric densities in the state space model. In the case that the transition and/or observation densities are parametric, and parameters are unknown, we can learn them from data by choosing those that both explain the observations well and also agree with our prior beliefs. Parameter estimation is sometimes referred to as <i>learning</i>, because parameters describe properties of sensors that can be estimated from data with machine learning methods. In other words, it is called learning just because it is cool.
 
-  ### General Bayesian Filtering 
 
-  #### Some notation/terminology
+### General Bayesian Filtering <a name="generalfilter"></a>
+
+#### Some notation/terminology
   - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$
   - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right \}$
   - Therefore, $ p\left ( \mathbf{v}\_{1:t} \right )$ is a joint distribution: $p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right ) $
