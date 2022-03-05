@@ -74,8 +74,8 @@ There are several tasks that we can perform on the state space model described a
 
 #### Some notation/terminology
   - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$
-  - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right \}$
-  - Therefore, $ p\left ( \mathbf{v}\_{1:t} \right )$ is a joint distribution: $p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right ) $
+  - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}\_t \right \}$
+  - Therefore, $ p\left ( \mathbf{v}\_{1:t} \right )$ is a joint distribution: $p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}\_t \right ) $
   - Integrating $ \int p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i:j}$ means $ \underbrace{\int \dots \int}\_{j-i+1} p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i} \mathrm{d}\mathbf{x}\_{i+1} \dots \mathrm{d}\mathbf{x}\_{j} $
   - The symbol $:=$ denotes a definition.
 
@@ -86,11 +86,11 @@ There are several tasks that we can perform on the state space model described a
 
   $$
   \require{cancel}
-  p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) = \frac{ \overbrace{p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \cancel{\mathbf{v}\_{1:t-1}} \right )}^{\mathbf{v}_t ~ \text{only dep. on} ~ \mathbf{s}_t} p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} = \frac{  \color{LimeGreen}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} \tag{3}\label{eq3}
+  p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) = \frac{ \overbrace{p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \cancel{\mathbf{v}\_{1:t-1}} \right )}^{\mathbf{v}\_t ~ \text{only dep. on} ~ \mathbf{s}\_t} p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}\_t \mid \mathbf{v}\_{1:t-1} \right )} = \frac{  \color{LimeGreen}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}\_t \mid \mathbf{v}\_{1:t-1} \right )} \tag{3}\label{eq3}
   $$
 
   If this equation is confusing, think of the previous measurements $\mathbf{v}\_{1:t-1}$ as just a "context", that is always on the conditioning side, a required "input" to all densities involved, with Bayes rule being applied to $\mathbf{s}\_{t}$ and $\mathbf{v}\_{t}$.
-  We know the current measurements only depends on the state, therefore $p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{v}\_{1:t-1} \right ) = p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) = \color{LimeGreen}{g}( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} )$, and only the term on the right side of the numerator is left to compute. This term is a marginal of $ \mathbf{s}_t$, which means we have to integrate out anything else. If we were doing this very naively, each time we would integrate out all previous states, but by caching results a.k.a. Dynamic Programming, we only need to marginalize the previous state:
+  We know the current measurements only depends on the state, therefore $p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{v}\_{1:t-1} \right ) = p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) = \color{LimeGreen}{g}( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} )$, and only the term on the right side of the numerator is left to compute. This term is a marginal of $ \mathbf{s}\_t$, which means we have to integrate out anything else. If we were doing this very naively, each time we would integrate out all previous states, but by caching results a.k.a. Dynamic Programming, we only need to marginalize the previous state:
 
   $$
     p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) = \int p\left( \mathbf{s}\_{t}, \mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1} \right ) \mathrm{d}\mathbf{s}\_{t-1}
@@ -303,16 +303,16 @@ which indeed gives the same expression and thus shows that the bound is tight.
 Let us now go back to the task of sequentially estimating a distribution of the form $ \left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t}$. This time however, we estimate any distribution by a set of weighted samples, a.k.a particles.
 Firstly, I am going to explain necessary notation. Note that the treatment in this section is very general and not specific to any particular state space model (hence not to the first order Markov one described earlier).  
 
-* Let $\gamma\_{t}(\mathbf{s}\_{1:t})$ be the "target" distribution at time $t$ for states $\mathbf{s}\_{1:t}$. Always keep track of all indices. For example, $\gamma\_{t}(\mathbf{s}\_{1:t-1})$ is a different object, namely $\int \gamma\_{t}(\mathbf{s}\_{1:t}) \mathrm{d} \mathbf{s}_t $. It is also different of course from $\gamma\_{t-1}(\mathbf{s}\_{1:t-1})$, which is simply the target at $t-1$. Importantly, note that the usual "target" is **the unnormalized version** of whatever our distribution of interest is ($ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ or $p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) $ The reason we can ignore normalizing constants is that since these algorithms are IS based, we can always normalize the weights.
-* Then, let $\pi(\mathbf{s}\_{1:t})$ be the normalized version of the target $\gamma\_{t}(\mathbf{s}\_{1:t})$, i.e. : $ \pi(\mathbf{s}\_{1:t}) = \gamma\_{t}(\mathbf{s}\_{1:t}) / Z_t$ with $Z_t = \int \gamma\_{t}(\mathbf{s}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t} $
-* The Dirac delta mass for multiple elements is defined naturally as $\delta\_{\mathbf{x}\_{1:t}^{n}}(\mathbf{x}\_{1:t}) :=  \delta\_{\mathbf{x}\_{1}^{n}}(\mathbf{x}_1) \delta\_{\mathbf{x}\_{2}^{n}}(\mathbf{x}_2) \dots \delta\_{\mathbf{x}\_{t}^{n}}(\mathbf{x}_t) $
+* Let $\gamma\_{t}(\mathbf{s}\_{1:t})$ be the "target" distribution at time $t$ for states $\mathbf{s}\_{1:t}$. Always keep track of all indices. For example, $\gamma\_{t}(\mathbf{s}\_{1:t-1})$ is a different object, namely $\int \gamma\_{t}(\mathbf{s}\_{1:t}) \mathrm{d} \mathbf{s}\_t $. It is also different of course from $\gamma\_{t-1}(\mathbf{s}\_{1:t-1})$, which is simply the target at $t-1$. Importantly, note that the usual "target" is **the unnormalized version** of whatever our distribution of interest is ($ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ or $p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) $ The reason we can ignore normalizing constants is that since these algorithms are IS based, we can always normalize the weights.
+* Then, let $\pi(\mathbf{s}\_{1:t})$ be the normalized version of the target $\gamma\_{t}(\mathbf{s}\_{1:t})$, i.e. : $ \pi(\mathbf{s}\_{1:t}) = \gamma\_{t}(\mathbf{s}\_{1:t}) / Z\_t$ with $Z\_t = \int \gamma\_{t}(\mathbf{s}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t} $
+* The Dirac delta mass for multiple elements is defined naturally as $\delta\_{\mathbf{x}\_{1:t}^{n}}(\mathbf{x}\_{1:t}) :=  \delta\_{\mathbf{x}\_{1}^{n}}(\mathbf{x}_1) \delta\_{\mathbf{x}\_{2}^{n}}(\mathbf{x}_2) \dots \delta\_{\mathbf{x}\_{t}^{n}}(\mathbf{x}\_t) $
 * While everything should be defined at some point, it is useful to keep in mind general principles such as whenever a symbol has a "hat" , that denotes an approximation, a "tilde" denotes an unnormalized quantity, and a $\pi$ a posterior.
-* Useful to keep in mind: sometimes I will juggle between an importance weight $w\_{t}^{n}$ that is specific to particle $n$ and what shoul really be called an importance weight *function* , that is the importance weight as a function of the state $w_t = w_t(\mathbf{s}_t)$. I will probably just call both "importance weight".
+* Useful to keep in mind: sometimes I will juggle between an importance weight $w\_{t}^{n}$ that is specific to particle $n$ and what shoul really be called an importance weight *function* , that is the importance weight as a function of the state $w\_t = w\_t(\mathbf{s}\_t)$. I will probably just call both "importance weight".
 
 So, let's suppose then that we are trying to find a particle approximation for our target at iteration $t$: $\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$. We can use IS directly with a proposal distribution that also depends on $\mathbf{s}\_{1:t}$ and find the  (unnormalized) importance weights:
 
 $$\begin{equation}\begin{aligned}
-\tilde{w}\_{t} = \frac{\gamma_t(\mathbf{s}\_{1:t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{1:t})}
+\tilde{w}\_{t} = \frac{\gamma\_t(\mathbf{s}\_{1:t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{1:t})}
 \end{aligned}\end{equation}\tag{18}\label{eq18}$$
 
 With these , we can build the self-normalized importance sampling estimator as we have seen in the previous section. As we have seen in the discussion of IS, we can approximate the normalized posterior using normalized weights:
@@ -321,10 +321,10 @@ $$\begin{equation}\begin{aligned}
  p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \approx \sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{1:t}}(\mathbf{s}\_{1:t}^{n}) \qquad \mathbf{s}\_{1:t}^{n} \sim \color{#FF8000}{q}\_{t}(\mathbf{s}\_{1:t})
 \end{aligned}\end{equation}\tag{19}\label{eq19}$$
 
-where $w\_{t}^{n}$ are the normalized weights, and we are using $N$ sample *trajectories* for our proposal. If we were only interested in $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) $, we can simply discard previous samples: this is because  $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) $ is just a marginal of $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) $. Therefore, we can approximate the filtering distribution:
+where $w\_{t}^{n}$ are the normalized weights, and we are using $N$ sample *trajectories* for our proposal. If we were only interested in $p(\mathbf{s}\_t \mid \mathbf{v}\_{1:t}) $, we can simply discard previous samples: this is because  $p(\mathbf{s}\_t \mid \mathbf{v}\_{1:t}) $ is just a marginal of $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) $. Therefore, we can approximate the filtering distribution:
 
 $$
-p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) \approx \sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{t}^{n}}(\mathbf{s}_t)
+p(\mathbf{s}\_t \mid \mathbf{v}\_{1:t}) \approx \sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{t}^{n}}(\mathbf{s}\_t)
 $$
 
 So, how is this different to non-sequential importance sampling? The problem is that without explicitly stating any assumptions/constraints on the proposal these calculations scale linearly with the dimension of the state space $t$. It is intuitively unnecessary to propose a whole trajectory of samples at each iteration. Let's see how it is possible to avoid this by simply imposing a simple autoregressive (time series jargon) structure on the proposal.
@@ -334,14 +334,14 @@ $$
 q\_{t}\left(\mathbf{s}\_{1:t}\right)=q\_{t-1}\left(\mathbf{s}\_{1:t-1}\right) q\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)
 $$
 
-In other words, to obtain a sample from the full proposal at time $t$, we can just take the previous trajectory that was sampled up to $t-1$ and append a sample from $ q_t\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}\right)$. We can now exploit this proposal structure to express the weights at time $t$ as a product between the previous weights at $t-1$ with a factor. The algebraic trick uses multiplying and dividing by the target at $t-1$ to artificially obtain the weights at $t-1$:
+In other words, to obtain a sample from the full proposal at time $t$, we can just take the previous trajectory that was sampled up to $t-1$ and append a sample from $ q\_t\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}\right)$. We can now exploit this proposal structure to express the weights at time $t$ as a product between the previous weights at $t-1$ with a factor. The algebraic trick uses multiplying and dividing by the target at $t-1$ to artificially obtain the weights at $t-1$:
 
 $$\begin{equation}\begin{aligned}
  \tilde{w}\_{t}\left(\mathbf{s}\_{1:t}\right) &=\frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t}\right)} \\\\\\ &=\frac{1}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\\\\\ &=\frac{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)}{\color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1}\right)} \frac{\gamma\_{t}\left(\mathbf{s}\_{1:t}\right)}{\gamma\_{t-1}\left(\mathbf{s}\_{1:t-1}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} | \mathbf{s}\_{1:t-1}\right)} \\\\\\
- &= \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1})} := \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}_t)
+ &= \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1})} := \tilde{w}\_{t-1}(\mathbf{s}\_{1:t-1}) \cdot \varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_t)
 \end{aligned}\end{equation}\tag{20}\label{eq20}$$
 
-Where we define the *incremental importance weight* $\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}_t)$. It is a function of only current and previous states because, as we will see soon, $\gamma_t$ decomposes recursively and the $\gamma\_{t-1}$ terms cancel, leaving only terms that depend on $\mathbf{s}_t,\mathbf{s}\_{t-1}$. Therefore, we can approximate our desired distribution as:
+Where we define the *incremental importance weight* $\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_t)$. It is a function of only current and previous states because, as we will see soon, $\gamma\_t$ decomposes recursively and the $\gamma\_{t-1}$ terms cancel, leaving only terms that depend on $\mathbf{s}\_t,\mathbf{s}\_{t-1}$. Therefore, we can approximate our desired distribution as:
 
 $$\begin{equation}\begin{aligned}
 p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \approx \sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{1:t}}(\mathbf{s}\_{1:t}^{n})
@@ -353,7 +353,7 @@ It is very important to notice that in the key equation defining SMC algorithms 
 As shown in the IS section, we can approximate the normalizing constant as:
 
 $$
-Z = p(\mathbf{v}\_{1:t}) \approx \widehat{Z}_t = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}\_{t}^{n} = \frac{1}{N} \sum\_{n=1}^{N} \prod\_{k=1}^{t} \varpi_k(\mathbf{s}\_{k-1}^{n}, \mathbf{s}\_{k}^{n})
+Z = p(\mathbf{v}\_{1:t}) \approx \widehat{Z}\_t = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}\_{t}^{n} = \frac{1}{N} \sum\_{n=1}^{N} \prod\_{k=1}^{t} \varpi_k(\mathbf{s}\_{k-1}^{n}, \mathbf{s}\_{k}^{n})
 $$
 
 This is the essence of SIS (Sequential Importance Sampling). Important note: this is a standard presentation you can find e.g. from Doucet et al [2]. However, you should note that for example, if we put this into context of state space models say, then the proposal can depend on measurements too. Crucially, although it would be natural to split the proposal as: $ \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}\right)= \color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:\color{red}{t-1}}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:\color{red}{t}}\right)$ this is usually a *choice*, and we could make both terms dependent on the current measurements! We will come back to this when discussing the Auxiliary Particle Filter.
@@ -371,34 +371,34 @@ Where in the conditioning of the proposal we introduce dependence on all measure
 An important tangent is necessary at this point. In IS, we analysed the variance of estimators for integrals under the distribution of interest. In SIS, it makes more sense to focus on the variance of the importance weights, rather than the variance of some moments (integrals) under the TFD or SFD. This is because we don't know exactly which integrals we would be interested in, and it is easy to derive cases where the variance of some specific moment is low, but higher on any other.
 
 Closed this brief tangent, the exponentially increasing is due to SIS being a special case of IS.
-To check this , consider the variance of $\widehat{Z}/ Z_t $ known as "relative variance" under simple IS:
+To check this , consider the variance of $\widehat{Z}/ Z\_t $ known as "relative variance" under simple IS:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &=  \frac{\mathbb{V}_q[\widehat{Z}_t]}{Z\_{t}^{2}} \qquad \text{since}~Z_t~ \text{a constant} \\\\\\
+\mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &=  \frac{\mathbb{V}_q[\widehat{Z}\_t]}{Z\_{t}^{2}} \qquad \text{since}~Z\_t~ \text{a constant} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q \left [\frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
-&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}_q \left [ \left ( \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}_q \left [ \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{(q_t(\mathbf{s}\_{1:t}))^2}  q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma_t(\mathbf{s}\_{1:t})}{q_t(\mathbf{s}\_{1:t})} q_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
-&=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{q_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\\\\\
-&= \frac{1}{N}\left (  \int  \frac{(\gamma_t(\mathbf{s}\_{1:t}))^2}{Z\_{t}^{2} q_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) = \frac{1}{N}\left (  \int  \frac{(\pi_t(\mathbf{s}\_{1:t}))^2}{ q_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right )
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q \left [\frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
+&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}_q \left [ \left ( \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}_q \left [ \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{(q\_t(\mathbf{s}\_{1:t}))^2}  q\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} q\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{q\_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
+&=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{q\_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\\\\\
+&= \frac{1}{N}\left (  \int  \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{Z\_{t}^{2} q\_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) = \frac{1}{N}\left (  \int  \frac{(\pi\_t(\mathbf{s}\_{1:t}))^2}{ q\_t(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right )
 \end{aligned}\end{equation}\tag{23}\label{eq23}$$
 
 We now show that even for an extremely simple model, this expression is exponential in $t$. This example is taken from Doucet et al. [2]. Consider a univariate state space model where the TFD at each timestep is a Gaussian. Then, the sequence of normalized and unnormalized target distributions, and normalizing constant at time $t$ are:  
 
 $$
-\gamma_t(s\_{1:t}) = \prod\_{k=1}^{t} \exp \left ( -\frac{1}{2} s\_{k}^{2}  \right ) \qquad Z_t = (2\pi)^{t/2}
+\gamma\_t(s\_{1:t}) = \prod\_{k=1}^{t} \exp \left ( -\frac{1}{2} s\_{k}^{2}  \right ) \qquad Z\_t = (2\pi)^{t/2}
 $$
 
-Or in other words $\pi_t(s\_{1:t}) = \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0, 1) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \mathbf{I})$. Suppose we select a simple proposal distribution as a factorised Gaussian with unknown variance:
+Or in other words $\pi\_t(s\_{1:t}) = \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0, 1) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \mathbf{I})$. Suppose we select a simple proposal distribution as a factorised Gaussian with unknown variance:
 
 $$
-q_t(s\_{1:t}) = \prod\_{k=1}^{t} q\_{k}(s_k) = \prod\_{k}^{t} \mathcal{N}(s_k \mid 0, \sigma^2) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \sigma^2 \mathbf{I})
+q\_t(s\_{1:t}) = \prod\_{k=1}^{t} q\_{k}(s_k) = \prod\_{k}^{t} \mathcal{N}(s_k \mid 0, \sigma^2) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \sigma^2 \mathbf{I})
 $$
 
 Then, :
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
+\mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
 &= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right ) \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left\{ -\frac{1}{2\sigma^2} s\_{k}^2 \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left\{ -\sum\_{k=1}^{t}s\_{k}^2 \right\} }{\exp \left\{ -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right\} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
@@ -409,6 +409,6 @@ $$\begin{equation}\begin{aligned}
 &= \frac{1}{N} \left [\left ( \frac{\sigma^4}{2\sigma^2 -1 } \right)^{t/2} - 1\right]
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
-For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}_q\left[ \frac{\widehat{Z}_t}{Z_t} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
+For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
 
 The exponentially increasing variance has other negative consequences, the first of which is known under the names of *sample degeneracy* or *weight degeneracy*. Basically, if you actually run this after not-so-many iterations there will be one weight $\approx 1$ and all other will be zero, which equates to approximate the target with one sample.
