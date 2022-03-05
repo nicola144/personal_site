@@ -241,9 +241,7 @@ $$
 Using normalized weights. If the normalizing constant was known exactly, then we could build a *non-normalized* IS estimator which is actually unbiased (with an almost equivalent derivation, omitted):  
 
 $$
-
 \widehat{\mathcal{I}}\_{NN} := \frac{1}{N} \cdot \frac{1}{Z} \sum\_{n=1}^{N}  f(\mathbf{x}_n) \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} = \frac{1}{N} \sum\_{n=1}^{N}  f(\mathbf{x}_n) \frac{\pi(\mathbf{x}_n)}{q(\mathbf{x}_n)}
-
 $$
 
 Where $Z$ is the normalizing constant of the posterior distribution $\pi(\mathbf{x})$. In this post we are only concerned with self-normalized estimators which, while biased, turn out to have lower variance in several settings.
