@@ -235,7 +235,7 @@ $$\begin{equation}\begin{aligned}
 Where the ratio $ \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} := \tilde{w}(\mathbf{x}_n)$ plays the role of the (unnormalized) importance weight. The estimator $\widehat{\mathcal{I}}\_{SN}$ can be shown to be biased. An important observation that is useful in particle filtering is that the normalizing constant estimate $ Z \approx  \widehat{Z} = \frac{1}{N} \sum\_{n=1}^{N} \frac{p(\mathbf{x}_n , \mathcal{D})}{q(\mathbf{x}_n)} = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}(\mathbf{x}_n) $ is unbiased. Even more importantly, the approximate posterior is :
 
 $$
-\pi(\mathbf{x}) \approx \sum\_{n=1}^{N} w(\mathbf{x}_n)\delta\_{\mathbf{x}_n}(\mathbf{x}) \qquad w(\mathbf{x}_n) = \frac{\tilde{w}(\mathbf{x}_n)}{\sum\_{k=1}^{N} \tilde{w}(\mathbf{x}_k)}
+\pi(\mathbf{x}) \approx \sum\_{n=1}^{N} w(\mathbf{x}_n)\delta\_{\mathbf{x}_n}(\mathbf{x}) \qquad w(\mathbf{x}_n) = \frac{\tilde{w}(\mathbf{x}_n)}{\sum\_{k=1}^{N} \tilde{w}(\mathbf{x}\_{k})}
 $$
 
 Using normalized weights. If the normalizing constant was known exactly, then we could build a *non-normalized* IS estimator which is actually unbiased (with an almost equivalent derivation, omitted):  
@@ -353,7 +353,7 @@ It is very important to notice that in the key equation defining SMC algorithms 
 As shown in the IS section, we can approximate the normalizing constant as:
 
 $$
-Z = p(\mathbf{v}\_{1:t}) \approx \widehat{Z}\_{t} = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}\_{t}^{n} = \frac{1}{N} \sum\_{n=1}^{N} \prod\_{k=1}^{t} \varpi_k(\mathbf{s}\_{k-1}^{n}, \mathbf{s}\_{k}^{n})
+Z = p(\mathbf{v}\_{1:t}) \approx \widehat{Z}\_{t} = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}\_{t}^{n} = \frac{1}{N} \sum\_{n=1}^{N} \prod\_{k=1}^{t} \varpi\_{k}(\mathbf{s}\_{k-1}^{n}, \mathbf{s}\_{k}^{n})
 $$
 
 This is the essence of SIS (Sequential Importance Sampling). Important note: this is a standard presentation you can find e.g. from Doucet et al [2]. However, you should note that for example, if we put this into context of state space models say, then the proposal can depend on measurements too. Crucially, although it would be natural to split the proposal as: $ \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}\right)= \color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:\color{red}{t-1}}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:\color{red}{t}}\right)$ this is usually a *choice*, and we could make both terms dependent on the current measurements! We will come back to this when discussing the Auxiliary Particle Filter.
@@ -390,15 +390,15 @@ $$
 \gamma\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \exp \left ( -\frac{1}{2} s\_{k}^{2}  \right ) \qquad Z\_{t} = (2\pi)^{t/2}
 $$
 
-Or in other words $\pi\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0, 1) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \mathbf{I})$. Suppose we select a simple proposal distribution as a factorised Gaussian with unknown variance:
+Or in other words $\pi\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0, 1) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \mathbf{I})$. Suppose we select a simple proposal distribution as a factorised Gaussian with unknown variance:
 
 $$
-q\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} q\_{k}(s_k) = \prod\_{k}^{t} \mathcal{N}(s_k \mid 0, \sigma^2) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \sigma^2 \mathbf{I})
+q\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} q\_{k}(s\_{k}) = \prod\_{k}^{t} \mathcal{N}(s\_{k} \mid 0, \sigma^2) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \sigma^2 \mathbf{I})
 $$
 
 Then, :
 $$\begin{equation}\begin{aligned}
-\mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
+\mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
 &= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right ) \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left( -\frac{1}{2\sigma^2} s\_{k}^2 \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left( -\sum\_{k=1}^{t}s\_{k}^2 \right) }{\exp \left( -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left( -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right) \mathrm{d}s\_{1:t} - 1\right] \\\\\\
