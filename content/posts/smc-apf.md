@@ -74,7 +74,7 @@ There are several tasks that we can perform on the state space model described a
 
 #### Some notation/terminology
   - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$
-  - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}\_{t} \right \}$
+  - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}\_{t} \right )$
   - Therefore, $ p\left ( \mathbf{v}\_{1:t} \right )$ is a joint distribution: $p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}\_{t} \right ) $
   - Integrating $ \int p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i:j}$ means $ \underbrace{\int \dots \int}\_{j-i+1} p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i} \mathrm{d}\mathbf{x}\_{i+1} \dots \mathrm{d}\mathbf{x}\_{j} $
   - The symbol $:=$ denotes a definition.
@@ -300,7 +300,7 @@ which indeed gives the same expression and thus shows that the bound is tight.
 
 ### Sequential Importance Sampling <a name="sis"></a>
 
-Let us now go back to the task of sequentially estimating a distribution of the form $ \left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t}$. This time however, we estimate any distribution by a set of weighted samples, a.k.a particles.
+Let us now go back to the task of sequentially estimating a distribution of the form $ \left ( p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right )\_{t}$. This time however, we estimate any distribution by a set of weighted samples, a.k.a particles.
 Firstly, I am going to explain necessary notation. Note that the treatment in this section is very general and not specific to any particular state space model (hence not to the first order Markov one described earlier).  
 
 * Let $\gamma\_{t}(\mathbf{s}\_{1:t})$ be the "target" distribution at time $t$ for states $\mathbf{s}\_{1:t}$. Always keep track of all indices. For example, $\gamma\_{t}(\mathbf{s}\_{1:t-1})$ is a different object, namely $\int \gamma\_{t}(\mathbf{s}\_{1:t}) \mathrm{d} \mathbf{s}\_{t} $. It is also different of course from $\gamma\_{t-1}(\mathbf{s}\_{1:t-1})$, which is simply the target at $t-1$. Importantly, note that the usual "target" is **the unnormalized version** of whatever our distribution of interest is ($ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ or $p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) $ The reason we can ignore normalizing constants is that since these algorithms are IS based, we can always normalize the weights.
@@ -358,7 +358,7 @@ $$
 
 This is the essence of SIS (Sequential Importance Sampling). Important note: this is a standard presentation you can find e.g. from Doucet et al [2]. However, you should note that for example, if we put this into context of state space models say, then the proposal can depend on measurements too. Crucially, although it would be natural to split the proposal as: $ \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}\right)= \color{#FF8000}{q}\_{t-1}\left(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:\color{red}{t-1}}\right) \color{#FF8000}{q}\_{t}\left(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:\color{red}{t}}\right)$ this is usually a *choice*, and we could make both terms dependent on the current measurements! We will come back to this when discussing the Auxiliary Particle Filter.
 
-Ok, now it's time to apply SIS to the state space model we covered earlier. In this context, what we want is again $\left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t} $ , hence our target $\gamma$ is the unnormalized posterior: $\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$. Keep in mind that we can always get the filtering distribution from $\left \{ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right \}\_{t} $. Now the recursion that we developed earlier in the post for the joint $ p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$ becomes useful in deriving the weight update for SIS:
+Ok, now it's time to apply SIS to the state space model we covered earlier. In this context, what we want is again $\left ( p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right )\_{t} $ , hence our target $\gamma$ is the unnormalized posterior: $\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$. Keep in mind that we can always get the filtering distribution from $\left ( p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \right )\_{t} $. Now the recursion that we developed earlier in the post for the joint $ p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})$ becomes useful in deriving the weight update for SIS:
 
 $$\begin{equation}\begin{aligned}
 \varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
@@ -377,7 +377,8 @@ $$\begin{equation}\begin{aligned}
 \mathbb{V}\_{q} \left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &=  \frac{\mathbb{V}\_{q}[\widehat{Z}\_{t}]}{Z\_{t}^{2}} \qquad \text{since}~Z\_{t}~ \text{a constant} \\\\\\
 &= \frac{\frac{1}{N^{2}}\sum\_{n=1}^{N} \mathbb{V}\_{q}[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_{q} \left [\frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
-&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \( \mathbb{E}\_{q} \left [ \left ( \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}\_{q} \left [ \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ] \right )^2 \right ) }{Z\_{t}^{2}} 
+&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \( \mathbb{E}\_{q} \left [ \left ( \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}\_{q} \left [ \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ] \right )^2 \right ) }{Z\_{t}^{2}} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left ( \int \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{(q\_{t}(\mathbf{s}\_{1:t}))^2}  q\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} q\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right )}{Z\_{t}^{2}}
 \end{aligned}\end{equation}\tag{23}\label{eq23}$$
 
 We now show that even for an extremely simple model, this expression is exponential in $t$. This example is taken from Doucet et al. [2]. Consider a univariate state space model where the TFD at each timestep is a Gaussian. Then, the sequence of normalized and unnormalized target distributions, and normalizing constant at time $t$ are:  
@@ -395,10 +396,10 @@ $$
 Then, :
 $$\begin{equation}\begin{aligned}
 \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
-&= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right ) \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left\{ -\frac{1}{2\sigma^2} s\_{k}^2 \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left\{ -\sum\_{k=1}^{t}s\_{k}^2 \right\} }{\exp \left\{ -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right\} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right\} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\\\\\
+&= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right ) \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left( -\frac{1}{2\sigma^2} s\_{k}^2 \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left( -\sum\_{k=1}^{t}s\_{k}^2 \right) }{\exp \left( -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left( -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right) \mathrm{d}s\_{1:t} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left( \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right) \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ] \\\\\\
 &= \frac{1}{N} \left [\frac{\cancel{(2\pi)^{t/2}} \sigma^t }{\cancel{(2\pi)^t}} \cdot  \cancel{(2\pi)^{t/2}} \left ( \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
 &= \frac{1}{N} \left [(\sigma^2)^{t/2} \cdot   \left ( \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
