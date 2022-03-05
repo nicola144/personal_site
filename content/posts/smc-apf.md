@@ -100,8 +100,8 @@ There are several tasks that we can perform on the state space model described a
 
   $$
   \begin{equation}\begin{aligned}
-    &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1}, \cancel{\mathbf{v}\_{1:t-1}} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\
-    &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\
+    &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1}, \cancel{\mathbf{v}\_{1:t-1}} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\\\\\
+    &= \int p\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1} \\\\\\
     &= \int \color{cyan}{f}\left( \mathbf{s}\_{t} \mid  \mathbf{s}\_{t-1} \right ) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d}\mathbf{s}\_{t-1}
   \end{aligned}\end{equation}\tag{4}\label{eq4}$$
 
@@ -137,19 +137,19 @@ Hopefully this convinces you that \eqref{eq6} is true. Then, let's return to the
 
 
 $$\begin{equation}\begin{aligned}
-p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) &= \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{p(\mathbf{v}\_{1:t})} \\
-&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{1:t})} \\
-&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}{p(\mathbf{v}\_{1:t-1})} \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \\
+p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) &= \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{p(\mathbf{v}\_{1:t})} \\\\\\
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{1:t})} \\\\\\
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}{p(\mathbf{v}\_{1:t-1})} \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \\\\\\
 &= p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
 Now that we've gone through all this, we are ready to show how to get the filtering distribution by simple marginalization of the expression we just found:
 
 $$\begin{equation}\begin{aligned}
-p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) &= \int p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
-&= \int p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \mathrm{d} \mathbf{s}\_{1:t-1}\\
-&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \int p(\mathbf{s}\_{1:\color{red}{t-1}} \mid \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
-&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \overbrace{\int p(\mathbf{s}\_{1:\color{red}{t}} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{1:t-1}}^{= p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) ~ \text{by marginalization}} \\
+p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) &= \int p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t-1} \\\\\\
+&= \int p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \mathrm{d} \mathbf{s}\_{1:t-1}\\\\\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \int p(\mathbf{s}\_{1:\color{red}{t-1}} \mid \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_{1:t-1} \\\\\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \overbrace{\int p(\mathbf{s}\_{1:\color{red}{t}} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{1:t-1}}^{= p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) ~ \text{by marginalization}} \\\\\\
 &= \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{8}\label{eq8}$$
 
@@ -202,9 +202,9 @@ This should be interpreted as an approximation to the underlying distribution an
 Often it is not possible to sample from the distribution of interest. Therefore we can use importance sampling, which is a technique based on the simple observation that we can sample from another, known distribution and assign a weight to the samples to represent their "importance" under the real target:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})] &= \int f(\mathbf{x}) \cdot p(\mathbf{x}) \mathrm{d}\mathbf{x} \\
-&= \int \frac{f(\mathbf{x}) \cdot p(\mathbf{x})}{q(\mathbf{x})} \cdot q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&= \mathbb{E}\_{q(\mathbf{x})} \left [ f(\mathbf{x}) \cdot \frac{p(\mathbf{x})}{q(\mathbf{x})} \right ] \\
+\mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})] &= \int f(\mathbf{x}) \cdot p(\mathbf{x}) \mathrm{d}\mathbf{x} \\\\\\
+&= \int \frac{f(\mathbf{x}) \cdot p(\mathbf{x})}{q(\mathbf{x})} \cdot q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&= \mathbb{E}\_{q(\mathbf{x})} \left [ f(\mathbf{x}) \cdot \frac{p(\mathbf{x})}{q(\mathbf{x})} \right ] \\\\\\
 &= \mathbb{E}\_{q(\mathbf{x})} \left [ f(\mathbf{x}) \cdot w(\mathbf{x}) \right ]
 \end{aligned}\end{equation}\tag{12}\label{eq12}$$
 
@@ -220,14 +220,14 @@ $$\begin{equation}\begin{aligned}
 We can estimate this integral in two main ways with IS: the former which assumes that we know the normalizing constant of the posterior $ \pi(\mathbf{x})$, and the latter estimates the normalizing constant too by IS, with the same set of samples. Since in Bayesian inference we usually can only evaluate $\pi(\mathbf{x})$ up to a normalizing constant, let's examine the latter option, called *self-normalized* IS estimator:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{\pi} \left [ f(\mathbf{x}) \right ] &= \int f(\mathbf{x}) \pi(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&= \int  f(\mathbf{x})\frac{\pi(\mathbf{x})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&= \int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{p(\mathcal{D})q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&=  \frac{1}{p(\mathcal{D})}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&=  \frac{1}{\int p(\mathbf{x}, \mathcal{D}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&=  \frac{1}{\int \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})}  q(\mathbf{x}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+\mathbb{E}\_{\pi} \left [ f(\mathbf{x}) \right ] &= \int f(\mathbf{x}) \pi(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&= \int  f(\mathbf{x})\frac{\pi(\mathbf{x})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&= \int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{p(\mathcal{D})q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&=  \frac{1}{p(\mathcal{D})}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&=  \frac{1}{\int p(\mathbf{x}, \mathcal{D}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&=  \frac{1}{\int \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})}  q(\mathbf{x}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
 &= \frac{1}{\mathbb{E}\_{q}\left [ \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} \right ]}
-\cdot \mathbb{E}\_{q}\left [ f(\mathbf{x}) \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} \right ] \\
+\cdot \mathbb{E}\_{q}\left [ f(\mathbf{x}) \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} \right ] \\\\\\
 &\approx \frac{1}{\cancel{\frac{1}{N}}\sum\_{n=1}^{N} \frac{p(\mathbf{x}_n , \mathcal{D})}{q(\mathbf{x}_n)}}
 \cdot ~ \cancel{\frac{1}{N}} \sum\_{n=1}^{N} f(\mathbf{x}_n) \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} := \widehat{\mathcal{I}}\_{SN}
 \end{aligned}\end{equation}\tag{14}\label{eq14}$$
@@ -264,8 +264,8 @@ $$
 Notice that the term on the right in this expression is just $\mathcal{I}^2$ and thus does not involve $q$. We only need to minimize the first term with respect to $q$. Expanding this term on the left builds some intuition on what the form of the minimizing proposal looks like:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ]  &=  \int \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
-&=  \int \frac{(f(\mathbf{x})\pi(\mathbf{x}))^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} \\
+\mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ]  &=  \int \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+&=  \int \frac{(f(\mathbf{x})\pi(\mathbf{x}))^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} \\\\\\
 &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q(\mathbf{x})} \mathrm{d} \mathbf{x}
 \end{aligned}\end{equation}\tag{15}\label{eq15}$$
 
@@ -284,15 +284,15 @@ $$
 wich follows from the Cauchy-Schwartz inequality. We show that this bound is tight when using the optimal proposal. Plugging in the optimal proposal gives:
 
 $$\begin{equation}\begin{aligned}
- \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{*}(\mathbf{x})} \mathrm{d} \mathbf{x} \\
- &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x} \\
+ \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{*}(\mathbf{x})} \mathrm{d} \mathbf{x} \\\\\\
+ &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x} \\\\\\
  &=  \left ( \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d} \mathbf{x} \right )^2
 \end{aligned}\end{equation}\tag{16}\label{eq16}$$
 
 which gives an expression for $ \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] $. Further:
 
 $$\begin{equation}\begin{aligned}
- \mathbb{E}\_{q^{*}} \left [ \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right |^2 \right ] &= \left ( \int \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right | q^{*}(\mathbf{x}) \mathrm{d} \mathbf{x}  \right )^2 \\
+ \mathbb{E}\_{q^{*}} \left [ \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right |^2 \right ] &= \left ( \int \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right | q^{*}(\mathbf{x}) \mathrm{d} \mathbf{x}  \right )^2 \\\\\\
  &= \left ( \int \left | f(\mathbf{x})\pi(\mathbf{x}) \right |  \mathrm{d} \mathbf{x}  \right )^2
 \end{aligned}\end{equation}\tag{17}\label{eq17}$$
 
