@@ -27,24 +27,23 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 4. [The Multiple Importance Sampling Interpretation of PF](#mis)
     1. [The Improved Auxiliary Particle Filter](#iapf)
 
-    ## Brief introduction to sequential inference <a name="introduction"></a>
+## Brief introduction to sequential inference <a name="introduction"></a>
 
-    In Bayesian inference we want to update our beliefs on the state of some random variables, which could represent parameters of a parametric statistical model or represent some unobserved data generating process. Focussing on the "updating" perspective, the step to using Bayesian methods to represent dynamical systems is quite natural. The field of statistical signal processing has been using the rules of probabilities to model object tracking, navigation and even.. spread of infectious diseases.
-    The probabilistic evolution of a dynamical system is often called a *state space model*. This is just an abstraction of how we think the state of the system evolves over time. Imagine we are tracking a robot's position (x,y coordinates) and bearing: these constitute a three dimensional vector. At some specific timestep, we can have a belief, i.e. a probability distribution that represents how likely we think the robot is currently assuming a certain bearing etc. If we start with a prior, and define some likelihood function/ sampling process that we believe generates what we observe, we can update our belief over the system's state with the rules of probabilty.
-    Let the (uknown) state of the system at time $t$ be the vector valued random variable $\mathbf{s}_{t}$.
+In Bayesian inference we want to update our beliefs on the state of some random variables, which could represent parameters of a parametric statistical model or represent some unobserved data generating process. Focussing on the "updating" perspective, the step to using Bayesian methods to represent dynamical systems is quite natural. The field of statistical signal processing has been using the rules of probabilities to model object tracking, navigation and even.. spread of infectious diseases.
+The probabilistic evolution of a dynamical system is often called a *state space model*. This is just an abstraction of how we think the state of the system evolves over time. Imagine we are tracking a robot's position (x,y coordinates) and bearing: these constitute a three dimensional vector. At some specific timestep, we can have a belief, i.e. a probability distribution that represents how likely we think the robot is currently assuming a certain bearing etc. If we start with a prior, and define some likelihood function/ sampling process that we believe generates what we observe, we can update our belief over the system's state with the rules of probabilty.
+Let the (uknown) state of the system at time $t$ be the vector valued random variable $\mathbf{s}_{t}$.
 
-    We observe this state through a (noisy) measurement $\mathbf{v}_{t}$ (where v stands for visible).
+We observe this state through a (noisy) measurement $\mathbf{v}_{t}$ (where v stands for visible).
 
-    Now we have to start making more assumptions. What does our belief on $\mathbf{s}_{t}$ depend on ?
+Now we have to start making more assumptions. What does our belief on $\mathbf{s}_{t}$ depend on ?
 
-    Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$ tate at the previous timestep.
+Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$ tate at the previous timestep.
 
-    In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
-   :
+In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
+:
 
-   $$
+$$
 
-\color{blue}{\text{Transition density}}: \qquad \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} \mid \mathbf{s}_{t-1})
+\color{blue}{\text{Transition density}}: \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} )
 
-\tag{1}\label{eq1}
 $$
