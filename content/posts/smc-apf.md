@@ -398,15 +398,7 @@ $$
 
 Then, :
 $$\begin{equation}\begin{aligned}
-\mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
-&= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right ) \left (\prod\_{k=1}^{t}  \exp \left( -\frac{1}{2}s\_{k}^{2} \right)\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left( -\frac{1}{2\sigma^2} s\_{k}^2 \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left( -\sum\_{k=1}^{t}s\_{k}^2 \right) }{\exp \left( -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left( -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right) \mathrm{d}s\_{1:t} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left( \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right) \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ] \\\\\\
-&= \frac{1}{N} \left [\frac{\cancel{(2\pi)^{t/2}} \sigma^t }{\cancel{(2\pi)^t}} \cdot  \cancel{(2\pi)^{t/2}} \left ( \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
-&= \frac{1}{N} \left [(\sigma^2)^{t/2} \cdot   \left ( \frac{\sigma^2}{2\sigma^2 -1 } \right)^{t/2} - 1\right] \\\\\\
-&= \frac{1}{N} \left [\left ( \frac{\sigma^4}{2\sigma^2 -1 } \right)^{t/2} - 1\right]
+\mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] = \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,\sigma^{2})} \mathrm{d}s\_{1:t} - 1 \right] \qquad \text{directly from 23} 
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
 For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
