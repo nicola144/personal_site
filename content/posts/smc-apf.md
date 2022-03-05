@@ -272,7 +272,7 @@ $$\begin{equation}\begin{aligned}
 Clearly, if we want this quantity to be small, then whenever the numerator is high $q$ should be at least as high. That is, when $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $ is high, then $q(\mathbf{x})$ should be high, or at least it should definitely not be small. That is, we need  $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $  large   $\Rightarrow q(\mathbf{x})$ large. In fact, the proposal that minimizes the variance turns out to be a normalized version of $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $  :
 
 $$
-q^{*}(\mathbf{x}) = \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right | }{\int \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x}}
+q^{\star}(\mathbf{x}) = \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right | }{\int \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x}}
 $$
 
 Unfortunately deriving this from scratch, by explicitly minimizing the second moment turns out to require some (basic) functional analysis. However, given knowledge of the optimal solution, we can verify that it is indeed minimizing the variance by making use of the following inequality:
@@ -284,5 +284,6 @@ $$
 wich follows from the Cauchy-Schwartz inequality. We show that this bound is tight when using the optimal proposal. Plugging in the optimal proposal gives:
 
 $$\begin{equation}\begin{aligned}
- \mathbb{E}\_{q^{\star}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right )^2 \right ] =  \int   \left | f(\mathbf{x}) \pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{\star}(\mathbf{x})} \mathrm{d} \mathbf{x}
+ \mathbb{E}\_{q^{\star}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x}) \pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{\star}(\mathbf{x})} \mathrm{d} \mathbf{x} \\\\\\
+ &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x}
 \end{aligned}\end{equation}\tag{16}\label{eq16}$$
