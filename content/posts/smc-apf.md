@@ -72,24 +72,24 @@ There are several tasks that we can perform on the state space model described a
   ### General Bayesian Filtering <a name="generalfilter"></a>
 
   #### Some notation/terminology
-  - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $$p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$$
-  - The notation $$\mathbf{v}\_{1:t}$$ means a collection of vectors $$ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right \}$$
-  - Therefore, $$ p\left ( \mathbf{v}\_{1:t} \right )$$ is a joint distribution: $$p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right ) $$
-  - Integrating $$ \int p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i:j}$$ means $$ \underbrace{\int \dots \int}\_{j-i+1} p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i} \mathrm{d}\mathbf{x}\_{i+1} \dots \mathrm{d}\mathbf{x}\_{j} $$
-  - The symbol $$:=$$ denotes a definition.
+  - As common in this field, I use the overloaded term of "distribution" to refer to densities, mass functions and distributions. Moreover the same notation is used for random variables and their realization ie. $p(\mathbf{X} = \mathbf{x} \mid \mathbf{Z} = \mathbf{z}) = p(\mathbf{x} \mid \mathbf{z})$
+  - The notation $\mathbf{v}\_{1:t}$ means a collection of vectors $ \left \{ \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right \}$
+  - Therefore, $ p\left ( \mathbf{v}\_{1:t} \right )$ is a joint distribution: $p\left ( \mathbf{v}_1, \mathbf{v}_2, \dots, \mathbf{v}_t \right ) $
+  - Integrating $ \int p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i:j}$ means $ \underbrace{\int \dots \int}\_{j-i+1} p(\mathbf{x}\_{1:t}) \mathrm{d}\mathbf{x}\_{i} \mathrm{d}\mathbf{x}\_{i+1} \dots \mathrm{d}\mathbf{x}\_{j} $
+  - The symbol $:=$ denotes a definition.
 
-  In this post, I am only concerned with filtering, and will always assume that any parameters of <span style="color:blue">transition</span> or <span style="color:green">observation</span> densities are known in advance. There are classes of algorithms that learn the parameters and perform inference at the same time, such as Particle Markov Chain Monte Carlo or SMC2.
+  In this post, I am only concerned with filtering, and will always assume that any parameters of <span style="color:blue">transition</span> or <span style="color:LimeGreen">observation</span> densities are known in advance. There are classes of algorithms that learn the parameters and perform inference at the same time, such as Particle Markov Chain Monte Carlo or SMC2.
 
   Let's start by deriving the filtering distribution in the state space model described without many assumption on the distributions.
-  Recall that the aim is to compute: $$ p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1: t}\right)$$. Apply Bayes rule:  
+  Recall that the aim is to compute: $ p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1: t}\right)$. Apply Bayes rule:  
 
   $$
   \require{cancel}
-  p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) = \frac{ \overbrace{p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \cancel{\mathbf{v}\_{1:t-1}} \right )}^{\mathbf{v}_t ~ \text{only dep. on} ~ \mathbf{s}_t} p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} = \frac{  \color{green}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} \tag{3}\label{eq3}
+  p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) = \frac{ \overbrace{p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \cancel{\mathbf{v}\_{1:t-1}} \right )}^{\mathbf{v}_t ~ \text{only dep. on} ~ \mathbf{s}_t} p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} = \frac{  \color{LimeGreen}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) }{p\left( \mathbf{v}_t \mid \mathbf{v}\_{1:t-1} \right )} \tag{3}\label{eq3}
   $$
 
-  If this equation is confusing, think of the previous measurements $$\mathbf{v}\_{1:t-1}$$ as just a "context", that is always on the conditioning side, a required "input" to all densities involved, with Bayes rule being applied to $$\mathbf{s}\_{t}$$ and $$\mathbf{v}\_{t}$$.
-  We know the current measurements only depends on the state, therefore $$p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{v}\_{1:t-1} \right ) = p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) = \color{green}{g}( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} )$$, and only the term on the right side of the numerator is left to compute. This term is a marginal of $$ \mathbf{s}_t$$, which means we have to integrate out anything else. If we were doing this very naively, each time we would integrate out all previous states, but by caching results a.k.a. Dynamic Programming, we only need to marginalize the previous state:
+  If this equation is confusing, think of the previous measurements $\mathbf{v}\_{1:t-1}$ as just a "context", that is always on the conditioning side, a required "input" to all densities involved, with Bayes rule being applied to $\mathbf{s}\_{t}$ and $\mathbf{v}\_{t}$.
+  We know the current measurements only depends on the state, therefore $p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{v}\_{1:t-1} \right ) = p \left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) = \color{LimeGreen}{g}( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} )$, and only the term on the right side of the numerator is left to compute. This term is a marginal of $ \mathbf{s}_t$, which means we have to integrate out anything else. If we were doing this very naively, each time we would integrate out all previous states, but by caching results a.k.a. Dynamic Programming, we only need to marginalize the previous state:
 
   $$
     p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right ) = \int p\left( \mathbf{s}\_{t}, \mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1} \right ) \mathrm{d}\mathbf{s}\_{t-1}
@@ -105,8 +105,8 @@ There are several tasks that we can perform on the state space model described a
   \end{aligned}\end{equation}\tag{4}\label{eq4}$$
 
 
-  And we are done, if you notice that the right side term in the integral is the filtering distribution at $$t-1$$, which we have already computed recursively.
-  In the literature names are given to the step that requires computing $$ p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right )$$ called *prediction*, because it's our belief on $$ \mathbf{s}\_{t}$$ before observing the currrent measurement, and *correction* is the name given to the step $$ p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) \propto \color{green}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) \cdot p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right )$$, because we "correct" our prediction by taking into account the measurement.
+  And we are done, if you notice that the right side term in the integral is the filtering distribution at $t-1$, which we have already computed recursively.
+  In the literature names are given to the step that requires computing $ p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right )$ called *prediction*, because it's our belief on $ \mathbf{s}\_{t}$ before observing the currrent measurement, and *correction* is the name given to the step $ p\left(\mathbf{s}\_{t} | \mathbf{v}\_{1:t}\right) \propto \color{LimeGreen}{g}\left( \mathbf{v}\_{t} \mid \mathbf{s}\_{t} \right ) \cdot p\left( \mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1} \right )$, because we "correct" our prediction by taking into account the measurement.
 
   In a LDS all computations have closed form solutions, and this algorithm instantiates into the *Kalman Filter*. For discrete  valued random variables, if the dimensionalities are small we can also do exact computations and the label this time is *Forward-Backward* algorithm for HMMs.
   When variables are non-Gaussian and/or transition/observation densities are nonlinear function of their inputs, we have to perform approximate inference.
