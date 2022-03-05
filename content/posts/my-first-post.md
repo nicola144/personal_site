@@ -42,4 +42,4 @@ Suprisingly to me, it turns out for **a lot** of applications it just needs to d
 In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
 :
 
-$$ \int a $$
+$$ \text{Transition density}: \qquad \mathbf{s}_{t} \sim f(\mathbf{s}_{t} $$
