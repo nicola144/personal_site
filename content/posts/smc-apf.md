@@ -258,7 +258,6 @@ $$
 Which follows by simply applying the definition of variance (recalling that our samples are obtained through the proposal $q$ so that all expectations are under $q$). In order to derive the proposal that minimizes the variance, it is easier to inspect a different expression for the variance $\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] $, which uses the identity that variance equals second moment minus first moment squared, instead of the definition:
 
 $$
-
 \mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] = \frac{1}{N} \mathbb{V}\_{q} \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] = \frac{1}{N} \mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ] - \frac{1}{N}  \underbrace{\left (  \mathbb{E}_q \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] \right )^2}\_{=(\mathcal{I})^2}
 $$
 
