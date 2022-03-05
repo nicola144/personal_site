@@ -374,14 +374,14 @@ Closed this brief tangent, the exponentially increasing is due to SIS being a sp
 To check this , consider the variance of $\widehat{Z}/ Z\_{t} $ known as "relative variance" under simple IS:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{V}\_{q} \left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &=  \frac{\mathbb{V}\_{q}[\widehat{Z}\_{t}]}{Z\_{t}^{2}} \qquad \text{since}~Z\_{t}~ \text{a constant} 
-<!-- &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_{q}[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
+\mathbb{V}\_{q} \left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &=  \frac{\mathbb{V}\_{q}[\widehat{Z}\_{t}]}{Z\_{t}^{2}} \qquad \text{since}~Z\_{t}~ \text{a constant} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_{q}[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_{q} \left [\frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
 &=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}\_{q} \left [ \left ( \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}\_{q} \left [ \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{(q\_{t}(\mathbf{s}\_{1:t}))^2}  q\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} q\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{q\_{t}(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
 &=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{q\_{t}(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma\_{t}(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\\\\\
-&= \frac{1}{N}\left (  \int  \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{Z\_{t}^{2} q\_{t}(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) = \frac{1}{N}\left (  \int  \frac{(\pi\_{t}(\mathbf{s}\_{1:t}))^2}{ q\_{t}(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) -->
+&= \frac{1}{N}\left (  \int  \frac{(\gamma\_{t}(\mathbf{s}\_{1:t}))^2}{Z\_{t}^{2} q\_{t}(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right ) = \frac{1}{N}\left (  \int  \frac{(\pi\_{t}(\mathbf{s}\_{1:t}))^2}{ q\_{t}(\mathbf{s}\_{1:t})}  \mathrm{d}\mathbf{s}\_{1:t} - 1 \right )
 \end{aligned}\end{equation}\tag{23}\label{eq23}$$
 
 We now show that even for an extremely simple model, this expression is exponential in $t$. This example is taken from Doucet et al. [2]. Consider a univariate state space model where the TFD at each timestep is a Gaussian. Then, the sequence of normalized and unnormalized target distributions, and normalizing constant at time $t$ are:  
