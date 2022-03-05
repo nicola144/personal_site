@@ -285,5 +285,15 @@ wich follows from the Cauchy-Schwartz inequality. We show that this bound is tig
 
 $$\begin{equation}\begin{aligned}
  \mathbb{E}\_{q^{\star}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x}) \pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{\star}(\mathbf{x})} \mathrm{d} \mathbf{x} \\\\\\
- &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x}
+ &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x} \\\\\\
+ &=  \left ( \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d} \mathbf{x} \right )^2
 \end{aligned}\end{equation}\tag{16}\label{eq16}$$
+
+which gives an expression for $$ \mathbb{E}\_{q^{\star}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right )^2 \right ] $$. Further:
+
+$$\begin{equation}\begin{aligned}
+ \mathbb{E}\_{q^{\star}} \left [ \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right |^2 \right ] &= \left ( \int \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{\star}(\mathbf{x})} \right | q^{\star}(\mathbf{x}) \mathrm{d} \mathbf{x}  \right )^2 \\
+ &= \left ( \int \left | f(\mathbf{x})\pi(\mathbf{x}) \right |  \mathrm{d} \mathbf{x}  \right )^2
+\end{aligned}\end{equation}\tag{17}\label{eq17}$$
+
+which indeed gives the same expression and thus shows that the bound is tight.
