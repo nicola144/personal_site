@@ -40,4 +40,11 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
     Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$ tate at the previous timestep.
 
     In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
-   : 
+   :
+
+   $$
+
+\color{blue}{\text{Transition density}}: \qquad \mathbf{s}_{t} \sim \color{blue}{f}(\mathbf{s}_{t} \mid \mathbf{s}_{t-1})
+
+\tag{1}\label{eq1}
+$$
