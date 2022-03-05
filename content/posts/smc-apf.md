@@ -112,3 +112,66 @@ There are several tasks that we can perform on the state space model described a
   In a LDS all computations have closed form solutions, and this algorithm instantiates into the *Kalman Filter*. For discrete  valued random variables, if the dimensionalities are small we can also do exact computations and the label this time is *Forward-Backward* algorithm for HMMs.
   When variables are non-Gaussian and/or transition/observation densities are nonlinear function of their inputs, we have to perform approximate inference.
   By far the most popular method is to use Monte Carlo approximations, and more specifically importance sampling. When we use importance sampling to approximate the filtering distribution, this is called *particle filtering*.
+
+### Recursive formulations <a name="recursive"></a>
+
+There is another way to derive generic computation steps to obtain the filtering distribution. It is common in the particle filtering literature to consider the sequential estimation of a different distribution to the filtering, namely:
+
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \propto p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$
+
+Let's take its unnormalized version for simplicity. Applying Bayes' rule gives the following recursive relationship:
+
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t}) = p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
+\end{aligned}\end{equation}\tag{6}\label{eq6}$$
+
+If you can't see why this holds, consider this simple example/subcase:
+
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{1}, \mathbf{s}\_{2}, \mathbf{v}\_{1}, \mathbf{v}\_{2}) =   p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) p(\mathbf{s}_2, \mathbf{v}_2 \mid \mathbf{s}_1, \mathbf{v}_1) = p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) \color{blue}{f}(\mathbf{s}\_{2} \mid \mathbf{s}\_{1}) \color{green}{g}(\mathbf{v}\_{2} \mid \mathbf{s}\_{2})
+\end{aligned}\end{equation}$$
+
+Hopefully this convinces you that \eqref{eq6} is true. Then, let's return to the task of sequentially estimating $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$:
+
+
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) &= \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{p(\mathbf{v}\_{1:t})} \\
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{1:t})} \\
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}{p(\mathbf{v}\_{1:t-1})} \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \\
+&= p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+\end{aligned}\end{equation}\tag{7}\label{eq7}$$
+
+Now that we've gone through all this, we are ready to show how to get the filtering distribution by simple marginalization of the expression we just found:
+
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) &= \int p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
+&= \int p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \mathrm{d} \mathbf{s}\_{1:t-1}\\
+&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \int p(\mathbf{s}\_{1:\color{red}{t-1}} \mid \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
+&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \overbrace{\int p(\mathbf{s}\_{1:\color{red}{t}} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{1:t-1}}^{= p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) ~ \text{by marginalization}} \\
+&= \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+\end{aligned}\end{equation}\tag{8}\label{eq8}$$
+
+Which is the indeed same result that we got through the prediction and correction steps.
+
+The two perspectives, namely the prediction-correction equations or the recursive formulations, can be both used to derive concrete algorithms in slightly different ways. Let's highlight the two most important equations for particle filtering:
+
+<div id="example1">
+
+$$\begin{equation}\begin{aligned}
+ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) =  p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+\end{aligned}\end{equation}\tag{9}\label{eq9}$$
+</div>
+<br>
+
+We can call this "Trajectory Filtering Distribution" (TFD), since it considers the sequential estimation of the whole trajectory of states. Similarly,
+
+<div id="example1">
+$$\begin{equation}\begin{aligned}
+p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) = \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+\end{aligned}\end{equation}\tag{10}\label{eq10}$$
+</div>
+<br>
+
+this can be called "State Filtering Distribution" (SFD).
