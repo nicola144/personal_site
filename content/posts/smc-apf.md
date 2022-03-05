@@ -31,16 +31,27 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 
 In Bayesian inference we want to update our beliefs on the state of some random variables, which could represent parameters of a parametric statistical model or represent some unobserved data generating process. Focussing on the "updating" perspective, the step to using Bayesian methods to represent dynamical systems is quite natural. The field of statistical signal processing has been using the rules of probabilities to model object tracking, navigation and even.. spread of infectious diseases.
 The probabilistic evolution of a dynamical system is often called a *state space model*. This is just an abstraction of how we think the state of the system evolves over time. Imagine we are tracking a robot's position (x,y coordinates) and bearing: these constitute a three dimensional vector. At some specific timestep, we can have a belief, i.e. a probability distribution that represents how likely we think the robot is currently assuming a certain bearing etc. If we start with a prior, and define some likelihood function/ sampling process that we believe generates what we observe, we can update our belief over the system's state with the rules of probabilty.
-Let the (uknown) state of the system at time $t$ be the vector valued random variable $\mathbf{s}_{t}$.
+Let the (uknown) state of the system at time $t$ be the vector valued random variable $\mathbf{s}\_{t}$.
 
-We observe this state through a (noisy) measurement $\mathbf{v}_{t}$ (where v stands for visible).
+We observe this state through a (noisy) measurement $\mathbf{v}\_{t}$ (where v stands for visible).
 
-Now we have to start making more assumptions. What does our belief on $\mathbf{s}_{t}$ depend on ?
+Now we have to start making more assumptions. What does our belief on $\mathbf{s}\_{t}$ depend on ?
 
 Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$ tate at the previous timestep.
 
-In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
+In other words, we can say that $\mathbf{s}\_{t}$ is sampled from some density $\color{cyan}{f}$ conditional on
 :
 
 $$ \color{cyan}{\text{Transition density}}: \qquad \mathbf{s}\_{t} \sim f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \tag{1}\label{eq1}
  $$
+
+ Further, usually the observation or $\mathbf{v}$isible is sampled according to the current state:
+
+ $$
+ \color{LimeGreen}{\text{Observation density}}: \mathbf{v}\_{t} \sim \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \tag{2}\label{eq2}
+ $$
+
+ It is reasonable to assume this: if we take a measurement, we don't expect its outcome to be dependent on previous states of the system, just the current one ($\color{blue}{f}$ and $\color{LimeGreen}{g}$ seem arbitrary but they are common in the literature). For example, a classic Gaussian likelihood for would imply that the belief over $\mathbf{v}\_{t}$ is a Normal , with the mean being a linear combination of the state's coordinates.
+
+ This collection of random variables and densities defines the state space model completely. It is worth, if you see this for the first time, reflecting on the particular assumptions we are making. How the belief on $\mathbf{s}$ evolves with time could depend on many previous states; the measurement could depend on previous measurements, if we had a sensor that degrades over time, etc... I am not great at giving practical examples, but if you are reading this, you should be able to see that this can be generalized in several ways.
+ Note that a lot of the structure comes from assuming some variables are (conditionally) independent from others. The field of probabilistic graphical models is dedicated to representing statistical independencies in the form of graphs (nodes and edges). One benefit of the graphical representation is that it makes immediately clear how flexible we could be. I am showing the graphical model for the described state space model in Figure 1, below.

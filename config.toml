@@ -1,6 +1,6 @@
-baseURL = 'https://personal-site-lemon-seven.vercel.app/' 
+baseURL = 'https://personal-site-lemon-seven.vercel.app/'
 languageCode = 'en-us'
-title = 'PD'
+title = 'Probably Approximately Wrong'
 theme = "ezhil"
 
 copyright = "© Copyright notice"
@@ -18,7 +18,7 @@ summaryLength = 20
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "Clean and minimal personal [blog theme for Hugo](https://github.com/vividvilla/ezhil)"
+    subtitle = "An infrequent blog, by Nicola Branchini"
 
     # Content types which are included in home page recent posts list.
     mainSections = ["posts"]
@@ -74,12 +74,12 @@ weight = 4
 [[params.social]]
 name = "Github"
 icon = "github"
-url = "https://github.com/vividvilla/ezhil"
+url = "https://github.com/nicola144"
 
 [[params.social]]
 name = "Twitter"
 icon = "twitter"
-url = "https://twitter.com/gohugoio"
+url = "https://twitter.com/Branchini_Nic"
 
 # Enable tags.
 [taxonomies]
