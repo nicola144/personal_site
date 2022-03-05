@@ -284,6 +284,5 @@ $$
 wich follows from the Cauchy-Schwartz inequality. We show that this bound is tight when using the optimal proposal. Plugging in the optimal proposal gives:
 
 $$\begin{equation}\begin{aligned}
- \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{*}(\mathbf{x})} \mathrm{d} \mathbf{x} \\\\\\
- &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x}
+ \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{*}(\mathbf{x})} \mathrm{d} \mathbf{x} 
 \end{aligned}\end{equation}\tag{16}\label{eq16}$$
