@@ -1,5 +1,5 @@
 ---
-title: "My First Post"
+title: "Sequential Monte Carlo and Improved Auxiliary Particle Filters"
 date: 2022-02-06T20:42:28+01:00
 ---
 
@@ -42,4 +42,5 @@ Suprisingly to me, it turns out for **a lot** of applications it just needs to d
 In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on
 :
 
-$$ \color{cyan}{\text{Transition density}}: \qquad \mathbf{s}\_{t} \sim f(\mathbf{s}\_{t}) $$
+$$ \color{cyan}{\text{Transition density}}: \qquad \mathbf{s}\_{t} \sim f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \tag{1}\label{eq1}
+ $$
