@@ -124,13 +124,13 @@ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \propto p(\mathbf{s}\_{1:t}, \mathbf
 Let's take its unnormalized version for simplicity. Applying Bayes' rule gives the following recursive relationship:
 
 $$\begin{equation}\begin{aligned}
-p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t}) = p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
+p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t}) = p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
 \end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
 If you can't see why this holds, consider this simple example/subcase:
 
 $$\begin{equation}\begin{aligned}
-p(\mathbf{s}\_{1}, \mathbf{s}\_{2}, \mathbf{v}\_{1}, \mathbf{v}\_{2}) =   p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) p(\mathbf{s}_2, \mathbf{v}_2 \mid \mathbf{s}_1, \mathbf{v}_1) = p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) \color{blue}{f}(\mathbf{s}\_{2} \mid \mathbf{s}\_{1}) \color{green}{g}(\mathbf{v}\_{2} \mid \mathbf{s}\_{2})
+p(\mathbf{s}\_{1}, \mathbf{s}\_{2}, \mathbf{v}\_{1}, \mathbf{v}\_{2}) =   p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) p(\mathbf{s}_2, \mathbf{v}_2 \mid \mathbf{s}_1, \mathbf{v}_1) = p(\mathbf{s}\_{1}, \mathbf{v}\_{1}) \color{cyan}{f}(\mathbf{s}\_{2} \mid \mathbf{s}\_{1}) \color{LimeGreen}{g}(\mathbf{v}\_{2} \mid \mathbf{s}\_{2})
 \end{aligned}\end{equation}$$
 
 Hopefully this convinces you that \eqref{eq6} is true. Then, let's return to the task of sequentially estimating $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$:
@@ -138,19 +138,19 @@ Hopefully this convinces you that \eqref{eq6} is true. Then, let's return to the
 
 $$\begin{equation}\begin{aligned}
 p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) &= \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{p(\mathbf{v}\_{1:t})} \\
-&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{1:t})} \\
-&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}{p(\mathbf{v}\_{1:t-1})} \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \\
-&= p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{1:t})} \\
+&= \frac{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}{p(\mathbf{v}\_{1:t-1})} \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \\
+&= p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
 Now that we've gone through all this, we are ready to show how to get the filtering distribution by simple marginalization of the expression we just found:
 
 $$\begin{equation}\begin{aligned}
 p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) &= \int p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
-&= \int p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \mathrm{d} \mathbf{s}\_{1:t-1}\\
-&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \int p(\mathbf{s}\_{1:\color{red}{t-1}} \mid \mathbf{v}\_{1:t-1}) \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
-&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \overbrace{\int p(\mathbf{s}\_{1:\color{red}{t}} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{1:t-1}}^{= p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) ~ \text{by marginalization}} \\
-&= \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+&= \int p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \mathrm{d} \mathbf{s}\_{1:t-1}\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \int p(\mathbf{s}\_{1:\color{red}{t-1}} \mid \mathbf{v}\_{1:t-1}) \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_{1:t-1} \\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})} \overbrace{\int p(\mathbf{s}\_{1:\color{red}{t}} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{1:t-1}}^{= p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) ~ \text{by marginalization}} \\
+&= \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{8}\label{eq8}$$
 
 Which is the indeed same result that we got through the prediction and correction steps.
@@ -160,7 +160,7 @@ The two perspectives, namely the prediction-correction equations or the recursiv
 <div id="example1">
 
 $$\begin{equation}\begin{aligned}
- p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) =  p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) =  p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{9}\label{eq9}$$
 </div>
 <br>
@@ -169,9 +169,134 @@ We can call this "Trajectory Filtering Distribution" (TFD), since it considers t
 
 <div id="example1">
 $$\begin{equation}\begin{aligned}
-p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) = \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
+p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) = \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{10}\label{eq10}$$
 </div>
 <br>
 
 this can be called "State Filtering Distribution" (SFD).
+
+## Particle filtering <a name="pf"></a>
+
+### Basics of Monte Carlo and Importance Sampling <a name="basics"></a>
+Most things aren't linear and/or Gaussian, so we need approximate inference. Specifically in the filtering/sequential Bayes literature, importance sampling based methods are more popular than deterministic approximations such as Laplace's method, Variational Bayes and Expectation Propagation.
+Recall that the Monte Carlo method is a general tool to approximate integrals, expectations, probabilities with random samples:
+
+$$
+\mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} \approx \frac{1}{N} \sum\_{n=1}^{N} f(\mathbf{x}\_{n}) \qquad \mathbf{x}_n \sim p(\mathbf{x})
+\tag{11}\label{eq11}$$
+
+Where $f(\mathbf{x})$ is some generic function of $\mathbf{x}$. Monte Carlo approximations of this kind are very appealing since unbiased and consistent, and it is easy to show that the variance of the estimate is $ \mathcal{O}(n^{-1})$ *regardless* of the dimensionality of the vector $\mathbf{x}$. Another simple idea that we will use extensively in particle filtering is that these samples can not only be used to approximate integrals with respect to the target distribution $p(\mathbf{x})$, but also to approximate the target itself:
+
+$$
+p(\mathbf{x}) \approx \frac{1}{N}\sum\_{n=1}^{N} \delta\_{\mathbf{x}}(\mathbf{x}\_{n})
+$$
+
+Where $  \delta\_{\mathbf{x}}(\mathbf{x}\_{n})$ is the Dirac delta mass evaluated at point $\mathbf{x}\_{n}$. This is a function that is $\infty$ at its evaluation point and $0$ everywhere else, and satisfies $ \int \delta\_{\mathbf{x}} \mathrm{d}\mathbf{x} = 1$, so that approximating the distribution itself recovers the previous result for expectations:
+
+$$
+\mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})]  \approx \int  f(\mathbf{x})  \frac{1}{N}\sum\_{n=1}^{N} \delta\_{\mathbf{x}}(\mathbf{x}\_{n}) \mathrm{d}\mathbf{x} =   \frac{1}{N} \sum\_{n=1}^{N} \int \delta\_{\mathbf{x}}(\mathbf{x}\_{n}) f(\mathbf{x}) \mathrm{d}\mathbf{x} = \frac{1}{N} \sum\_{n=1}^{N} f(\mathbf{x}_n)
+$$
+
+This should be interpreted as an approximation to the underlying distribution and not of the density function.
+Often it is not possible to sample from the distribution of interest. Therefore we can use importance sampling, which is a technique based on the simple observation that we can sample from another, known distribution and assign a weight to the samples to represent their "importance" under the real target:
+
+$$\begin{equation}\begin{aligned}
+\mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})] &= \int f(\mathbf{x}) \cdot p(\mathbf{x}) \mathrm{d}\mathbf{x} \\
+&= \int \frac{f(\mathbf{x}) \cdot p(\mathbf{x})}{q(\mathbf{x})} \cdot q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&= \mathbb{E}\_{q(\mathbf{x})} \left [ f(\mathbf{x}) \cdot \frac{p(\mathbf{x})}{q(\mathbf{x})} \right ] \\
+&= \mathbb{E}\_{q(\mathbf{x})} \left [ f(\mathbf{x}) \cdot w(\mathbf{x}) \right ]
+\end{aligned}\end{equation}\tag{12}\label{eq12}$$
+
+Under certain conditions, namely that $ f(\mathbf{x}) \cdot p(\mathbf{x}) > 0 \Rightarrow q(\mathbf{x}) > 0$, we have rewritten the expectation under a distribution of choice $q(\mathbf{x})$ called $\color{#FF8000}{\text{proposal}}$ which we know how to sample from. Note that it is not possible to have $ q(\mathbf{x}) = 0$, as we will never sample any $\mathbf{x}\_{i}$ from $q$ such that this holds. The weight $w(\mathbf{x})$ can be intepreted as “adjusting” the estimate of the integral by taking into account that the samples were generated from the “wrong” distribution. Notice that Importance Sampling can be used to approximate also generic integrals which are not necessarily expectations.
+
+Let's return in the context of Bayesian inference, where we have a target posterior distribution $ \pi(\mathbf{x}) = p(\mathbf{x} \mid \mathcal{D}) $ where $ \mathcal{D}$ is any observed data.
+In our state space model $\mathcal{D} = \mathbf{v}\_{1:t}$, and $\pi(\mathbf{x}) = p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$. Consider an integral of some function of $ \mathbf{x}$ under the posterior, often the ultimate object of interest:
+
+$$\begin{equation}\begin{aligned}
+\mathcal{I} = \mathbb{E}\_{\pi(\mathbf{x})}[f(\mathbf{x})] = \int f(\mathbf{x}) \pi(\mathbf{x})
+\end{aligned}\end{equation}\tag{13}\label{eq13}$$
+
+We can estimate this integral in two main ways with IS: the former which assumes that we know the normalizing constant of the posterior $ \pi(\mathbf{x})$, and the latter estimates the normalizing constant too by IS, with the same set of samples. Since in Bayesian inference we usually can only evaluate $\pi(\mathbf{x})$ up to a normalizing constant, let's examine the latter option, called *self-normalized* IS estimator:
+
+$$\begin{equation}\begin{aligned}
+\mathbb{E}\_{\pi} \left [ f(\mathbf{x}) \right ] &= \int f(\mathbf{x}) \pi(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&= \int  f(\mathbf{x})\frac{\pi(\mathbf{x})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&= \int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{p(\mathcal{D})q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&=  \frac{1}{p(\mathcal{D})}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&=  \frac{1}{\int p(\mathbf{x}, \mathcal{D}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&=  \frac{1}{\int \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})}  q(\mathbf{x}) \mathrm{d} \mathbf{x}}\int  f(\mathbf{x})\frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&= \frac{1}{\mathbb{E}\_{q}\left [ \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} \right ]}
+\cdot \mathbb{E}\_{q}\left [ f(\mathbf{x}) \frac{p(\mathbf{x}, \mathcal{D})}{q(\mathbf{x})} \right ] \\
+&\approx \frac{1}{\cancel{\frac{1}{N}}\sum\_{n=1}^{N} \frac{p(\mathbf{x}_n , \mathcal{D})}{q(\mathbf{x}_n)}}
+\cdot ~ \cancel{\frac{1}{N}} \sum\_{n=1}^{N} f(\mathbf{x}_n) \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} := \widehat{\mathcal{I}}\_{SN}
+\end{aligned}\end{equation}\tag{14}\label{eq14}$$
+
+Where the ratio $ \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} := \tilde{w}(\mathbf{x}_n)$ plays the role of the (unnormalized) importance weight. The estimator $\widehat{\mathcal{I}}\_{SN}$ can be shown to be biased. An important observation that is useful in particle filtering is that the normalizing constant estimate $ Z \approx  \widehat{Z} = \frac{1}{N} \sum\_{n=1}^{N} \frac{p(\mathbf{x}_n , \mathcal{D})}{q(\mathbf{x}_n)} = \frac{1}{N} \sum\_{n=1}^{N} \tilde{w}(\mathbf{x}_n) $ is unbiased. Even more importantly, the approximate posterior is :
+
+$$
+\pi(\mathbf{x}) \approx \sum\_{n=1}^{N} w(\mathbf{x}_n)\delta\_{\mathbf{x}_n}(\mathbf{x}) \qquad w(\mathbf{x}_n) = \frac{\tilde{w}(\mathbf{x}_n)}{\sum\_{k=1}^{N} \tilde{w}(\mathbf{x}_k)}
+$$
+
+Using normalized weights. If the normalizing constant was known exactly, then we could build a *non-normalized* IS estimator which is actually unbiased (with an almost equivalent derivation, omitted):  
+
+$$
+
+\widehat{\mathcal{I}}\_{NN} := \frac{1}{N} \cdot \frac{1}{Z} \sum\_{n=1}^{N}  f(\mathbf{x}_n) \frac{p(\mathbf{x}_n, \mathcal{D})}{q(\mathbf{x}_n)} = \frac{1}{N} \sum\_{n=1}^{N}  f(\mathbf{x}_n) \frac{\pi(\mathbf{x}_n)}{q(\mathbf{x}_n)}
+
+$$
+
+Where $Z$ is the normalizing constant of the posterior distribution $\pi(\mathbf{x})$. In this post we are only concerned with self-normalized estimators which, while biased, turn out to have lower variance in several settings.
+From now on, an importance weight as function of sample $ \mathbf{x}_n $ is abbreviated as $w_n$; it is important however to keep in mind that weights are a function of inputs/samples.
+
+### Choice of proposal and variance of importance weights <a name="isproposal"></a>
+
+It is pretty intuitive that our IS estimates can only be as good as our proposal. In general, we should seek a proposal that minimizes the variance of our estimators. This follows from the fact that the variance of a MC estimate (which is a sample average) is the expected square error from the true value of the integral. Let us see this by considering, for simplicity, the variance of the non-normalized estimator:
+
+$$
+\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] =  \mathbb{E}\_{q} \left [ \left ( \widehat{\mathcal{I}}\_{NN} - \mathbb{E}\_{q} \left [  \frac{f(\mathbf{x}) \pi(\mathbf{x})}{q(\mathbf{x})} \right ] \right )^{2} \right ] = \mathbb{E}\_{q} \left [ \left ( \widehat{\mathcal{I}}\_{NN} - \mathcal{I} \right )^2  \right ]
+$$
+
+Which follows by simply applying the definition of variance (recalling that our samples are obtained through the proposal $q$ so that all expectations are under $q$). In order to derive the proposal that minimizes the variance, it is easier to inspect a different expression for the variance $\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] $, which uses the identity that variance equals second moment minus first moment squared, instead of the definition:
+
+$$
+
+\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] = \frac{1}{N} \mathbb{V}\_{q} \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] = \frac{1}{N} \mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ] - \frac{1}{N}  \underbrace{\left (  \mathbb{E}_q \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] \right )^2}\_{=(\mathcal{I})^2}
+$$
+
+Notice that the term on the right in this expression is just $\mathcal{I}^2$ and thus does not involve $q$. We only need to minimize the first term with respect to $q$. Expanding this term on the left builds some intuition on what the form of the minimizing proposal looks like:
+
+$$\begin{equation}\begin{aligned}
+\mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ]  &=  \int \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 q(\mathbf{x}) \mathrm{d} \mathbf{x} \\
+&=  \int \frac{(f(\mathbf{x})\pi(\mathbf{x}))^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} \\
+&= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q(\mathbf{x})} \mathrm{d} \mathbf{x}
+\end{aligned}\end{equation}\tag{15}\label{eq15}$$
+
+Clearly, if we want this quantity to be small, then whenever the numerator is high $q$ should be at least as high. That is, when $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $ is high, then $q(\mathbf{x})$ should be high, or at least it should definitely not be small. That is, we need  $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $  large   $\Rightarrow q(\mathbf{x})$ large. In fact, the proposal that minimizes the variance turns out to be a normalized version of $  \vert f(\mathbf{x}) \pi(\mathbf{x})  \vert $  :
+
+$$
+q^{*}(\mathbf{x}) = \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right | }{\int \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x}}
+$$
+
+Unfortunately deriving this from scratch, by explicitly minimizing the second moment turns out to require some (basic) functional analysis. However, given knowledge of the optimal solution, we can verify that it is indeed minimizing the variance by making use of the following inequality:
+
+$$
+\mathbb{E}[x^2] \geq \mathbb{E}[ \left | x \right |]^{2}
+$$
+
+wich follows from the Cauchy-Schwartz inequality. We show that this bound is tight when using the optimal proposal. Plugging in the optimal proposal gives:
+
+$$\begin{equation}\begin{aligned}
+ \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] &=  \int   \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q^{*}(\mathbf{x})} \mathrm{d} \mathbf{x} \\
+ &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d}\mathbf{x} ~ \cdot ~ \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |^2 \frac{1}{ \left | f(\mathbf{x})\pi(\mathbf{x})  \right | } \mathrm{d} \mathbf{x} \\
+ &=  \left ( \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right |  \mathrm{d} \mathbf{x} \right )^2
+\end{aligned}\end{equation}\tag{16}\label{eq16}$$
+
+which gives an expression for $ \mathbb{E}\_{q^{*}} \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right )^2 \right ] $. Further:
+
+$$\begin{equation}\begin{aligned}
+ \mathbb{E}\_{q^{*}} \left [ \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right |^2 \right ] &= \left ( \int \left | \frac{f(\mathbf{x})\pi(\mathbf{x})}{q^{*}(\mathbf{x})} \right | q^{*}(\mathbf{x}) \mathrm{d} \mathbf{x}  \right )^2 \\
+ &= \left ( \int \left | f(\mathbf{x})\pi(\mathbf{x}) \right |  \mathrm{d} \mathbf{x}  \right )^2
+\end{aligned}\end{equation}\tag{17}\label{eq17}$$
+
+which indeed gives the same expression and thus shows that the bound is tight.
