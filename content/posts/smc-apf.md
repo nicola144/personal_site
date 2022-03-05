@@ -375,7 +375,8 @@ To check this , consider the variance of $\widehat{Z}\_{t}/ Z\_{t} $ known as "r
 
 $$\begin{equation}\begin{aligned}
 \mathbb{V}\_{q} \left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &=  \frac{\mathbb{V}\_{q}[\widehat{Z}\_{t}]}{Z\_{t}^{2}} \qquad \text{since}~Z\_{t}~ \text{a constant} \\\\\\
-&= \frac{\frac{1}{N^{2}}\sum\_{n=1}^{N} \mathbb{V}\_{q}[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}
+&= \frac{\frac{1}{N^{2}}\sum\_{n=1}^{N} \mathbb{V}\_{q}[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_{q} \left [\frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{q\_{t}(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}}
 \end{aligned}\end{equation}\tag{23}\label{eq23}$$
 
 We now show that even for an extremely simple model, this expression is exponential in $t$. This example is taken from Doucet et al. [2]. Consider a univariate state space model where the TFD at each timestep is a Gaussian. Then, the sequence of normalized and unnormalized target distributions, and normalizing constant at time $t$ are:  
