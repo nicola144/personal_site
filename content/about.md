@@ -53,16 +53,16 @@ Previously, I was a Research Assistant at the [Alan Turing Institute]( https://w
 As undergrad, I studied Computer Science at the [University of Warwick](https://warwick.ac.uk/fac/sci/dcs/), where I did my BSc dissertation on reproducing AlphaZero supervised by [Dr. Paolo Turrini](https://www.dcs.warwick.ac.uk/~pturrini/).
 
 
+
 ### Great reads
 <p>
 Totally worth having the physical version.
 <ul>
-  <li>[Noise: A Flaw in Human Judgment, Daniel Kahneman, Olivier Sibony, Cass R. Sunstein](https://www.amazon.co.uk/Noise-Daniel-Kahneman/dp/0008309000)</li>
-  <li>[The book of why, Judea Pearl & Dana McKenzie](https://www.amazon.co.uk/Book-Why-Science-Cause-Effect/dp/0141982411/ref=sr_1_1?dchild=1&keywords=the+book+of+why+judea&qid=1589542460&sr=8-1)</li>
-  <li>[Meditations, Marcus Aurelius](https://www.amazon.co.uk/Meditations-Penguin-Classics-Marcus-Aurelius/dp/0140449337/ref=sr_1_1?crid=RRDPU6IPJQ5N&dchild=1&keywords=meditations+marcus+aurelius&qid=1589542523&sprefix=meditations+%2Caps%2C154&sr=8-1)</li>
-  <li>[Sustainable energy - without the hot air, David McKay](http://www.withouthotair.com/)</li>
-  <li>[The Art of Statistics: Learning from Data, David Spiegelhalter](https://www.amazon.co.uk/Learning-Data-Statistics-Pelican-Books/dp/0241258766/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)</li>
-  <li>[Probably Approximately Correct, Leslie Valiant](https://www.amazon.co.uk/Probably-Approximately-Correct-Algorithms-Prospering/dp/0465060722/ref=sr_1_1?dchild=1&keywords=probably+approximately+correct&qid=1599657065&sr=8-1)</li>
+  <li> <a href="https://www.amazon.co.uk/Noise-Daniel-Kahneman/dp/0008309000">Noise: A Flaw in Human Judgment, Daniel Kahneman, Olivier Sibony, Cass R. Sunstein</a> </li>
+  <li> <a href="https://www.amazon.co.uk/Book-Why-Science-Cause-Effect/dp/0141982411/ref=sr_1_1?dchild=1&keywords=the+book+of+why+judea&qid=1589542460&sr=8-1"> The book of why, Judea Pearl & Dana McKenzie </a> </li>
+  <li> <a href="https://www.amazon.co.uk/Meditations-Penguin-Classics-Marcus-Aurelius/dp/0140449337/ref=sr_1_1?crid=RRDPU6IPJQ5N&dchild=1&keywords=meditations+marcus+aurelius&qid=1589542523&sprefix=meditations+%2Caps%2C154&sr=8-1">Meditations, Marcus Aurelius </a> </li>
+  <li> <a href="http://www.withouthotair.com/">Sustainable energy - without the hot air, David McKay</a> </li>
+  <li> <a href="https://www.amazon.co.uk/Learning-Data-Statistics-Pelican-Books/dp/0241258766/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr="> The Art of Statistics: Learning from Data, David Spiegelhalter </a> </li>
 </ul>
 
 </p>
