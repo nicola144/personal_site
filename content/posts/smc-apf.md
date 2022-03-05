@@ -258,13 +258,13 @@ $$
 Which follows by simply applying the definition of variance (recalling that our samples are obtained through the proposal $q$ so that all expectations are under $q$). In order to derive the proposal that minimizes the variance, it is easier to inspect a different expression for the variance $\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] $, which uses the identity that variance equals second moment minus first moment squared, instead of the definition:
 
 $$
-\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] = \frac{1}{N} \mathbb{V}\_{q} \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] = \frac{1}{N} \mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ] - \frac{1}{N}  \underbrace{\left (  \mathbb{E}_q \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] \right )^2}\_{=(\mathcal{I})^2}
+\mathbb{V}\_{q} [ \widehat{\mathcal{I}}\_{NN} ] = \frac{1}{N} \mathbb{V}\_{q} \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] = \frac{1}{N} \mathbb{E}\_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ] - \frac{1}{N}  \underbrace{\left (  \mathbb{E}\_q \left [ \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right ] \right )^2}\_{=(\mathcal{I})^2}
 $$
 
 Notice that the term on the right in this expression is just $\mathcal{I}^2$ and thus does not involve $q$. We only need to minimize the first term with respect to $q$. Expanding this term on the left builds some intuition on what the form of the minimizing proposal looks like:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ]  &=  \int \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
+\mathbb{E}\_q \left [ \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 \right ]  &=  \int \left ( \frac{f(\mathbf{x})\pi(\mathbf{x})}{q(\mathbf{x})} \right )^2 q(\mathbf{x}) \mathrm{d} \mathbf{x} \\\\\\
 &=  \int \frac{(f(\mathbf{x})\pi(\mathbf{x}))^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} \\\\\\
 &= \int  \left | f(\mathbf{x})\pi(\mathbf{x})  \right | \frac{\left | f(\mathbf{x})\pi(\mathbf{x})  \right |}{q(\mathbf{x})} \mathrm{d} \mathbf{x}
 \end{aligned}\end{equation}\tag{15}\label{eq15}$$
@@ -374,10 +374,10 @@ Closed this brief tangent, the exponentially increasing is due to SIS being a sp
 To check this , consider the variance of $\widehat{Z}/ Z\_t $ known as "relative variance" under simple IS:
 
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &=  \frac{\mathbb{V}_q[\widehat{Z}\_t]}{Z\_{t}^{2}} \qquad \text{since}~Z\_t~ \text{a constant} \\\\\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
-&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}_q \left [\frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
-&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}_q \left [ \left ( \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}_q \left [ \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
+\mathbb{V}\_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &=  \frac{\mathbb{V}\_q[\widehat{Z}\_t]}{Z\_{t}^{2}} \qquad \text{since}~Z\_t~ \text{a constant} \\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_q[\tilde{w}\_{t}^{n}]  }{Z\_{t}^{2}} \qquad \text{since weights are uncorrelated}\\\\\\
+&= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \mathbb{V}\_q \left [\frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ]  }{Z\_{t}^{2}} \\\\\\
+&=  \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \mathbb{E}\_q \left [ \left ( \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right )^2 \right ] - \left (\mathbb{E}\_q \left [ \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} \right ] \right )^2 \right \} }{Z\_{t}^{2}} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{(q\_t(\mathbf{s}\_{1:t}))^2}  q\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \frac{\gamma\_t(\mathbf{s}\_{1:t})}{q\_t(\mathbf{s}\_{1:t})} q\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
 &= \frac{\frac{1}{N^2}\sum\_{n=1}^{N} \left \{ \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{q\_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} - \left (\int  \gamma\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2 \right \}}{Z\_{t}^{2}} \\\\\\
 &=  \frac{\frac{1}{N^2} \cdot N \cdot  \int \frac{(\gamma\_t(\mathbf{s}\_{1:t}))^2}{q\_t(\mathbf{s}\_{1:t})} \mathrm{d}\mathbf{s}\_{1:t} }{Z\_{t}^{2}} - \frac{ \frac{1}{N^2}\cdot N \cdot  \overbrace{\left (\int  \gamma\_t(\mathbf{s}\_{1:t})\mathrm{d}\mathbf{s}\_{1:t} \right )^2}^{Z\_{t}^2}}{Z\_{t}^{2}} \\\\\\
@@ -398,7 +398,7 @@ $$
 
 Then, :
 $$\begin{equation}\begin{aligned}
-\mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
+\mathbb{V}\_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] &= \frac{1}{N} \left [ \int   \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s_k \mid 0,\sigma^2)} \mathrm{d}s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
 &= \frac{1}{N} \left [ \int   \frac{(2\pi)^{-t} \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right ) \left (\prod\_{k=1}^{t}  \exp \left\{ -\frac{1}{2}s\_{k}^{2} \right\}\right )}{\prod\_{k=1}^{t} (2\pi \sigma^2)^{-1/2} \exp \left\{ -\frac{1}{2\sigma^2} s\_{k}^2 \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-t/2}} \int   \frac{ \exp\left\{ -\sum\_{k=1}^{t}s\_{k}^2 \right\} }{\exp \left\{ -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right\}} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{t/2}}{(2\pi)^t} \int  \exp \left\{ -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right\} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
@@ -409,6 +409,6 @@ $$\begin{equation}\begin{aligned}
 &= \frac{1}{N} \left [\left ( \frac{\sigma^4}{2\sigma^2 -1 } \right)^{t/2} - 1\right]
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
-For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
+For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_q\left[ \frac{\widehat{Z}\_t}{Z\_t} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
 
 The exponentially increasing variance has other negative consequences, the first of which is known under the names of *sample degeneracy* or *weight degeneracy*. Basically, if you actually run this after not-so-many iterations there will be one weight $\approx 1$ and all other will be zero, which equates to approximate the target with one sample.
