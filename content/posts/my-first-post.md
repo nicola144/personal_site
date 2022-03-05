@@ -22,7 +22,7 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 3. [Propagating particles by incoporating the current measurement](#apf)
     1. [The effect of using the locally optimal proposal](#optimalproposal)
     2. [The Auxiliary Particle Filter](#apf2)
-        1. [A first intepretation: a standard SMC algorithm with a different $$\gamma$$](#firstapf)
+        1. [A first intepretation: a standard SMC algorithm with a different $\gamma$](#firstapf)
         2. [The original intepretation of APF and Marginal Particle Filters](#marginalpf)
 4. [The Multiple Importance Sampling Interpretation of PF](#mis)
     1. [The Improved Auxiliary Particle Filter](#iapf)
@@ -36,3 +36,6 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
     We observe this state through a (noisy) measurement $\mathbf{v}_{t}$ (where v stands for visible).
 
     Now we have to start making more assumptions. What does our belief on $\mathbf{s}_{t}$ depend on ?
+
+    Suprisingly to me, it turns out for **a lot** of applications it just needs to depend on the $\mathbf{s}$ tate at the previous timestep.
+    In other words, we can say that $\mathbf{s}_{t}$ is sampled from some density $f$ conditional on $\mathbf{s}_{t-1}$:
