@@ -6,19 +6,22 @@ type: "page"
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
- <img src="profile_pic.jpeg" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within **Monte Carlo** (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to **causal optimization** and discovery.
+ <img src="profile_pic.jpeg" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
 Some topics I am exploring now are:
-- Efficient adaptive **importance sampling** schemes for statistical decision making
-- Methods of fusion of interventional and observational data for efficient **causal estimation**
+<ul>
+  <li>Efficient adaptive <i>importance sampling</i> schemes for statistical decision making</li>
+  <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i> </li>
+</ul>
+</p>
 
 <br>
 ### News
 
-- I will be giving a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
+- I recently gave a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
 
 
 ## Publications
-- [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. To appear in *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
+- [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. In *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
 
 <details>
 	<summary style="color:#ff5a33"> Details about paper</summary>
