@@ -399,7 +399,7 @@ $$
 Then, :
 $$\begin{equation}\begin{aligned}
 \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] &= \frac{1}{N} \left [ \int  \frac{\left ( \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,1) \right)^2}{\prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0,\sigma^{2})} d s\_{1:t} - 1\right] \qquad \text{directly from 23} \\\\\\
-&= \frac{1}{N} \int  \frac{ \left (2\pi \right )^{-t} \left ( \prod\_{k}  \exp \left ( - \frac{1}{2} s\_{k}^{2} \right ) \right ) \left ( \prod\_{k}  \exp \left ( - \frac{1}{2} s\_{k}^{2} \right ) \right )  }{ \prod\_{k}  \left ( 2\pi \sigma^{2} \right )^{-1/2} } d s\_{1:t} - 1
+&= \frac{1}{N} \int  \frac{ \left (2\pi \right )^{-t} \left ( \prod\_{k}  \exp \left ( - \frac{1}{2} s\_{k}^{2} \right ) \right ) \left ( \prod\_{k}  \exp \left ( - \frac{1}{2} s\_{k}^{2} \right ) \right )  }{ \prod\_{k}  \left ( 2\pi \sigma^{2} \right )^{-\frac{1}{2}} } d s\_{1:t} - 1
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
  <!-- \prod\_{k} \left ( 2\pi \sigma^{2} \right )^{-1/2} \exp \left (  -\frac{1}{2\sigma^{2} } s\_{k}^{2}\right ) -->
