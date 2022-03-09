@@ -29,6 +29,7 @@ Some topics I am exploring now are:
 
   We devise a new way to optimize these resampling weights by viewing them as mixture weights of an importance sampling mixture proposal. It turns out that choosing mixture weights in order to minimize the resulting empirical variance of the importance weights leads to a convex optimization problem.
 </p>
+<!-- <img src="/eq_oapf.svg" width="1000" height="300"> -->
 </div>
 
 <br>
