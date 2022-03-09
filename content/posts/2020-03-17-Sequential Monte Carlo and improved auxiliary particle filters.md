@@ -27,7 +27,9 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 4. [The Multiple Importance Sampling Interpretation of PF](#mis)
     1. [The Improved Auxiliary Particle Filter](#iapf)
 
-## Brief introduction to sequential inference <a name="introduction"></a>
+<a name="introduction">
+## Brief introduction to sequential inference
+</a>
 
 In Bayesian inference we want to update our beliefs on the state of some random variables, which could represent parameters of a parametric statistical model or represent some unobserved data generating process. Focussing on the "updating" perspective, the step to using Bayesian methods to represent dynamical systems is quite natural. The field of statistical signal processing has been using the rules of probabilities to model object tracking, navigation and even.. spread of infectious diseases.
 The probabilistic evolution of a dynamical system is often called a *state space model*. This is just an abstraction of how we think the state of the system evolves over time. Imagine we are tracking a robot's position (x,y coordinates) and bearing: these constitute a three dimensional vector. At some specific timestep, we can have a belief, i.e. a probability distribution that represents how likely we think the robot is currently assuming a certain bearing etc. If we start with a prior, and define some likelihood function/ sampling process that we believe generates what we observe, we can update our belief over the system's state with the rules of probabilty.
