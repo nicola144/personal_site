@@ -412,3 +412,6 @@ $$\begin{equation}\begin{aligned}
 For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] \approx (1.103)^{\frac{t}{2}}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
 
 The exponentially increasing variance has other negative consequences, the first of which is known under the names of *sample degeneracy* or *weight degeneracy*. Basically, if you actually run this after not-so-many iterations there will be one weight $\approx 1$ and all other will be zero, which equates to approximate the target with one sample.
+
+![sampledeg](/sample-deg.svg)
+*Fig. 2: Sample or Weight degeneracy of SIS. The size of disks represent the size of the corresponding weight to a particle. Borrowed from Naesseth et al. [4]*
