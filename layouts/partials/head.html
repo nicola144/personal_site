@@ -1,13 +1,5 @@
 <div class="header">
 <link rel="stylesheet" href="/css/academicons.min.css">
-	// custom css
-	{{ range .Site.Params.customDarkCSS -}}
-	    <link rel="stylesheet" href="/css/custom-dark.css">
-	{{- end }}
-	// javascript
-	{{ range .Site.Params.custom_js -}}
-	    <script type="text/javascript" src="/js/custom-js.js"></script>
-	{{- end }}
 	<base href="{{ .Site.BaseURL }}">
 	<h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
 	<div class="site-description">
