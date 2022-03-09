@@ -16,6 +16,10 @@ paginate = 10
 # Number of characters to show in summary.
 summaryLength = 20
 
+# Your Disqus sortname.
+disqusShortname = "personal-website-g7y0elzvjn"
+
+
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
     subtitle = "An infrequent blog, by Nicola Branchini"

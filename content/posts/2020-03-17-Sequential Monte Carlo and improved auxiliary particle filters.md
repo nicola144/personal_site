@@ -760,3 +760,37 @@ $$
 
 ![iapf](/iapf2.svg)
 *Fig. 5: Notice how the IAPF proposal best matches the posterior in this example. This is because the kernels have significant overlap, which is ignored by the preweights of APF. The kernels are plotted scaled by their importance weight; proposals and the true posterior integrate to 1. One quantitative measure to determine which proposal is better is the chi-squared distance to the true posterior, since it is proportional to the asymptotic variance of equation 23*
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+    var disqus_config = function () {
+    this.page.url = "https://personal-site-lemon-seven.vercel.app/posts/2020-03-17-sequential-monte-carlo-and-improved-auxiliary-particle-filters/";  
+    this.page.identifier = "smc-apf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://personal-website-g7y0elzvjn.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+## References
+1. Elvira, V., Martino, L., Bugallo, M.F. and Djurić, P.M., 2018, September. In search for improved auxiliary particle filters. In 2018 26th European Signal Processing Conference (EUSIPCO) (pp. 1637-1641). IEEE.
+2. Doucet, A. and Johansen, A.M., 2009. A tutorial on particle filtering and smoothing: Fifteen years later. Handbook of nonlinear filtering, 12(656-704), p.3.
+3. Elvira, V., Martino, L., Bugallo, M.F. and Djuric, P.M., 2019. Elucidating the Auxiliary Particle Filter via Multiple Importance Sampling [Lecture Notes]. IEEE Signal Processing Magazine, 36(6), pp.145-152.
+4. Naesseth, C.A., Lindsten, F. and Schön, T.B., 2019. Elements of Sequential Monte Carlo. Foundations and Trends® in Machine Learning, 12(3), pp.307-392.
+5. Mike Klaas, Nando de Freitas, and Arnaud Doucet. Toward practical N2 Monte Carlo: the marginal particle filter.  In Proceedings of the Twenty-First Conference Annual Conference on Uncertainty in Artificial Intelligence (UAI-05), pages 308–315, Arlington, Virginia, 2005. AUAI Press.
+6. Doucet, A., 1998. On sequential simulation-based methods for Bayesian filtering.
+7. Doucet, A., Godsill, S. and Andrieu, C., 2000. On sequential Monte Carlo sampling methods for Bayesian filtering. Statistics and computing, 10(3), pp.197-208.
+8. Godsill, S., 2019, May. Particle filtering: the first 25 years and beyond. In ICASSP 2019-2019 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP) (pp. 7760-7764). IEEE.
+9. Arulampalam, M.S., Maskell, S., Gordon, N. and Clapp, T., 2002. A tutorial on particle filters for online nonlinear/non-Gaussian Bayesian tracking. IEEE Transactions on signal processing, 50(2), pp.174-188.
+10. Särkkä, S., 2013. Bayesian filtering and smoothing (Vol. 3). Cambridge University Press.
+11. Li, T., Bolic, M. and Djuric, P.M., 2015. Resampling methods for particle filtering: classification, implementation, and strategies. IEEE Signal processing magazine, 32(3), pp.70-86.
+12. Pitt, M.K. and Shephard, N., 1999. Filtering via simulation: Auxiliary particle filters. Journal of the American statistical association, 94(446), pp.590-599.
