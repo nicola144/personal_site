@@ -27,7 +27,7 @@ The somewhat comprehensive "tutorial" and introduction to the topic arose from m
 4. [The Multiple Importance Sampling Interpretation of PF](#mis)
     1. [The Improved Auxiliary Particle Filter](#iapf)
 
-<a name="introduction">
+<a id="introduction">
 ## Brief introduction to sequential inference
 </a>
 
