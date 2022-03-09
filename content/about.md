@@ -1,6 +1,7 @@
 ---
 title: "About"
 ---
+<body>
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
@@ -73,6 +74,8 @@ Totally worth having the physical version.
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
 - [Troubling Trends in Machine Learning Scholarship](https://arxiv.org/pdf/1807.03341.pdf?source=post_page---------------------------)
+
+</body>
 
 <script>
 var coll = document.getElementsByClassName("collapsible");
