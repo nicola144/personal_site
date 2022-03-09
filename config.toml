@@ -81,6 +81,10 @@ name = "Twitter"
 icon = "twitter"
 url = "https://twitter.com/Branchini_Nic"
 
+[[params.social]]
+name = "scholar"
+url = "https://scholar.google.com/citations?user=bPtGaVIAAAAJ&hl=en"
+
 # Enable tags.
 [taxonomies]
    tag = "tags"
