@@ -157,22 +157,15 @@ Which is the indeed same result that we got through the prediction and correctio
 
 The two perspectives, namely the prediction-correction equations or the recursive formulations, can be both used to derive concrete algorithms in slightly different ways. Let's highlight the two most important equations for particle filtering:
 
-<div id="example1">
-
 $$\begin{equation}\begin{aligned}
  p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t}) =  p(\mathbf{s}\_{1:t-1} \mid \mathbf{v}\_{1:t-1}) \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{9}\label{eq9}$$
-</div>
-<br>
 
 We can call this "Trajectory Filtering Distribution" (TFD), since it considers the sequential estimation of the whole trajectory of states. Similarly,
 
-<div id="example1">
 $$\begin{equation}\begin{aligned}
 p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t}) = \frac{p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{v}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{10}\label{eq10}$$
-</div>
-<br>
 
 this can be called "State Filtering Distribution" (SFD).
 
@@ -422,7 +415,7 @@ This is where Sequential Monte Carlo (SMC) or Sequential Importance Resampling (
 
 The resampling step can be intepreted as a clever choice of proposal. To understand this, one needs to know that sampling from a mixture can be achieved via multinomial resampling with weights equal to the mixture weights. Consider the first iteration of SIS. We have sampled particles from a proposal $\left ( \mathbf{s}\_{1}^{n} \right )\_{n=1}^{N} \sim \color{#FF8000}{q}\_{1}(\mathbf{s}\_{1})$ and calculated corresponding weights. An approximation to the (normalized) target, as we have already shown, is $ \pi_1(\mathbf{s}_1) \approx \widehat{\pi}\_{1} = \sum\_{n=1}^{N} w\_{1}^{n} \delta\_{\mathbf{s}\_{1}^{n}} (\mathbf{s}_1) $. Now, instead of "propagating" particles to the next iteration by sampling them from $ \color{#FF8000}{q}\_{2}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $, we use the information gathered in the previous iteration, compressed in $\widehat{\pi}\_{1}$, and sample the trajectory $\mathbf{s}\_{1}, \mathbf{s}_2 $ from $ \widehat{\pi}\_{t} \cdot \color{#FF8000}{q}\_{1}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $ instead. This is the same as resampling the particles at the end of iteration $t=1$, and sampling the new particles at $t=2$ from the proposal *evaluated at the resampled particles*.
 
-<div style="  border: 1px solid;padding: 5px;box-shadow: 5px 10px;">
+<div style="border: 1px solid;padding: 5px;box-shadow: 5px 10px;">
 
   <i> <b> (Meta) Algorithm 1: Sequential Monte Carlo / Sequential Importance Resampling </b> </i> <br>
 
