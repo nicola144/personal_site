@@ -8,7 +8,7 @@
 		<nav class="nav social">
 			<ul class="flat">
 				{{- range $index, $key := .Site.Params.Social -}}
-        {{- if $key.name == "scholar" -}}
+        {{- if eq $key.name "scholar" -}}
         <a href="{{ $key.url }}" title="{{ $key.name }}">
           <svg
              xmlns:dc="http://purl.org/dc/elements/1.1/"
