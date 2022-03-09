@@ -413,14 +413,14 @@ For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_{q}\left[ \frac{\wid
 
 The exponentially increasing variance has other negative consequences, the first of which is known under the names of *sample degeneracy* or *weight degeneracy*. Basically, if you actually run this after not-so-many iterations there will be one weight $\approx 1$ and all other will be zero, which equates to approximate the target with one sample.
 
-![sampledeg](/sample-deg.svg)
+ ![sampledeg](/sample-deg.svg)
 *Fig. 2: Sample or Weight degeneracy of SIS. The size of disks represent the size of the corresponding weight to a particle. Borrowed from Naesseth et al. [4]*
 
 ### Resampling <a name="resampling"></a>
 
 This is where Sequential Monte Carlo (SMC) or Sequential Importance Resampling (SIR)/ particle filtering algorithms come into the picture. They mitigate the weight degeneracy issue by explicitly changing the particle set that was found in the previous iteration. They do so by resampling independently with replacement an equally sized particle set, where each sample is sampled with probability equal to its weight. This particular type of resampling is equivalent to sampling from a multinomial distribution with parameters equal to the weights, and is thus called multinomial resampling. Thus, we could see SMC/SIR as the same algorithm as SIS with an added step at the end of each iteration, where we resample particles according to their weights, and modify these afterwards to be $1/N$. At a high level, resampling is often motivated as a tool to eliminate particles with low weights and multiply those with high weights, so as to focus our computational resources in the most important parts of the space. In essence, adding a resampling step at the end of each iteration of SIS becomes SMC.
 
-The resampling step can be intepreted as a clever choice of proposal. To understand this, one needs to know that sampling from a mixture can be achieved via multinomial resampling with weights equal to the mixture weights. Consider the first iteration of SIS. We have sampled particles from a proposal $\left \{ \mathbf{s}\_{1}^{n} \right \}\_{n=1}^{N} \sim \color{#FF8000}{q}\_{1}(\mathbf{s}\_{1})$ and calculated corresponding weights. An approximation to the (normalized) target, as we have already shown, is $ \pi_1(\mathbf{s}_1) \approx \widehat{\pi}\_{1} = \sum\_{n=1}^{N} w\_{1}^{n} \delta\_{\mathbf{s}\_{1}^{n}} (\mathbf{s}_1) $. Now, instead of "propagating" particles to the next iteration by sampling them from $ \color{#FF8000}{q}\_{2}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $, we use the information gathered in the previous iteration, compressed in $\widehat{\pi}\_{1}$, and sample the trajectory $\mathbf{s}\_{1}, \mathbf{s}_2 $ from $ \widehat{\pi}\_{t} \cdot \color{#FF8000}{q}\_{1}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $ instead. This is the same as resampling the particles at the end of iteration $t=1$, and sampling the new particles at $t=2$ from the proposal *evaluated at the resampled particles*.
+The resampling step can be intepreted as a clever choice of proposal. To understand this, one needs to know that sampling from a mixture can be achieved via multinomial resampling with weights equal to the mixture weights. Consider the first iteration of SIS. We have sampled particles from a proposal $\left ( \mathbf{s}\_{1}^{n} \right )\_{n=1}^{N} \sim \color{#FF8000}{q}\_{1}(\mathbf{s}\_{1})$ and calculated corresponding weights. An approximation to the (normalized) target, as we have already shown, is $ \pi_1(\mathbf{s}_1) \approx \widehat{\pi}\_{1} = \sum\_{n=1}^{N} w\_{1}^{n} \delta\_{\mathbf{s}\_{1}^{n}} (\mathbf{s}_1) $. Now, instead of "propagating" particles to the next iteration by sampling them from $ \color{#FF8000}{q}\_{2}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $, we use the information gathered in the previous iteration, compressed in $\widehat{\pi}\_{1}$, and sample the trajectory $\mathbf{s}\_{1}, \mathbf{s}_2 $ from $ \widehat{\pi}\_{t} \cdot \color{#FF8000}{q}\_{1}(\mathbf{s}\_{2} \mid \mathbf{s}_1) $ instead. This is the same as resampling the particles at the end of iteration $t=1$, and sampling the new particles at $t=2$ from the proposal *evaluated at the resampled particles*.
 
 <div style="  border: 1px solid;padding: 5px;box-shadow: 5px 10px;">
 
@@ -431,14 +431,14 @@ The resampling step can be intepreted as a clever choice of proposal. To underst
   <ol>
     <li> <b>Propagation</b> : sample from proposal $\mathbf{s}_{1}^{n} \sim {\color{#FF8000}q}_{1}(\mathbf{s}_1)$ </li>
     <li> <b>Update</b>: compute weights as $w_{1}^{n} \propto \varpi_{1}^{n}(\mathbf{s}_{0}^{n}, \mathbf{s}_{1}^{n})$  </li>
-    <li> <b>Resample</b>: $\left \{ \mathbf{s}_{1}^{n} , w_{1}^{n} \right \}_{n=1}^{N} $ to obtain $ \left \{ \mathbf{r}_{1}^{n}, 1/N \right \}_{n=1}^{N} $ </li>
+    <li> <b>Resample</b>: $\left ( \mathbf{s}_{1}^{n} , w_{1}^{n} \right )_{n=1}^{N} $ to obtain $ \left ( \mathbf{r}_{1}^{n}, 1/N \right )_{n=1}^{N} $ </li>
   </ol>
 
   At time $t \geq 2$:
   <ol>
     <li> <b>Propagation</b> : sample from proposal $\mathbf{s}_{t}^{n} \sim {\color{#FF8000}q}_{t}(\mathbf{s}_{t} \mid \mathbf{r}_{1:t-1}^{n})$ and set $ \mathbf{s}_{1:t}^{n} \leftarrow (\mathbf{r}_{1:t-1}^{n}, \mathbf{s}_{t}^{n})$ </li>
     <li> <b>Update</b>: compute weights as $w_{t}^{n} \propto \varpi_{t}^{n}(\mathbf{s}_{t-1}^{n}, \mathbf{s}_{t}^{n})$ </li>
-    <li> <b>Resample</b>: $\left \{ \mathbf{s}_{1:t}^{n} , w_{t}^{n} \right \}_{n=1}^{N} $ to obtain $ \left \{ \mathbf{r}_{1:t}^{n}, 1/N \right \}_{n=1}^{N} $  </li>
+    <li> <b>Resample</b>: $\left ( \mathbf{s}_{1:t}^{n} , w_{t}^{n} \right )_{n=1}^{N} $ to obtain $ \left ( \mathbf{r}_{1:t}^{n}, 1/N \right )_{n=1}^{N} $  </li>
  </ol>
 </div>
 
