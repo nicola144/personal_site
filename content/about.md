@@ -22,9 +22,6 @@ Some topics I am exploring now are:
 ## Publications
 - [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. In *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
 
-
-
-
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
@@ -77,3 +74,21 @@ Totally worth having the physical version.
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
 - [Troubling Trends in Machine Learning Scholarship](https://arxiv.org/pdf/1807.03341.pdf?source=post_page---------------------------)
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
