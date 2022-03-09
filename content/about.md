@@ -9,6 +9,8 @@ I am PhD student in Statistics in the [School of Mathematics at the University o
  <br>
  <br>
  <br>
+ <br>
+ <br>
 
 Some topics I am exploring now are:
 <ul>
