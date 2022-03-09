@@ -439,12 +439,12 @@ The resampling step can be intepreted as a clever choice of proposal. To underst
 
 Where I use $\mathbf{r}$ to emphasize that a particle has been resampled. Notice that the weight computation does not involve the previous weight, since resampling sets weights to a constant, and thus we can omit it when using proportionality.
 
-In our state space model, if we chose a proposal equal to the transition density, so $ \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t}) = \color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})$ , then the weight update simplifies to:
+In our state space model, if we chose a proposal equal to the transition density, so $ \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t}) = \color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})$ , then the weight update simplifies to:
 
 $$\begin{equation}\begin{aligned}
-\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &=  \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\
-&= \frac{\cancel{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})} \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\cancel{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})}} \\
-&= \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
+\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &=  \frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
+&= \frac{\cancel{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})} \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\cancel{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})}} \\\\\\
+&= \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
 \end{aligned}\end{equation}\tag{25}\label{eq25}$$
 
 This choice within the SMC general framework gives rise to the concrete algorithm named *Bootstrap Particle Filter* (BPF). Using the transition density can lead to poor approximations, especially if the dimension of the hidden states is large.
@@ -480,13 +480,13 @@ Before getting into APF however, let's actually inspect what would happen if we 
 In the context of the state space model described, the following proposal is often referred to as the "optimal" or "locally optimal" proposal:
 
 $$
-\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t}) = p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}, \mathbf{v}_t) = \frac{p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{s}\_{t-1}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})}{p(\mathbf{v}_t \mid \mathbf{s}\_{t-1})} = \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})}{\int \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \mathrm{d}\mathbf{s}_t}
+\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t}) = p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}, \mathbf{v}_t) = \frac{p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}, \mathbf{s}\_{t-1}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})}{p(\mathbf{v}_t \mid \mathbf{s}\_{t-1})} = \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})}{\int \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \mathrm{d}\mathbf{s}_t}
 $$
 
 Applying Bayes' rule on $ \mathbf{s}_t , \mathbf{v}_t$ with $\mathbf{s}\_{t-1}$ as "context". This name is due to the fact that it is the proposal that minimizes the variance of the weights (we have seen that this makes more sense than trying to minimize the variance of some moments under the posterior). Then, the weight update becomes:
 
 $$\begin{equation}\begin{aligned}
-\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t)  }{ p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1})} } \\
+\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\frac{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t)  }{ p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1})} } \\\\\\
 &=  p(\mathbf{v}_t \mid \mathbf{s}\_{t-1})
 \end{aligned}\end{equation}\tag{26}\label{eq26}$$
 
@@ -494,14 +494,16 @@ Since this expression does not depend on the current state $\mathbf{s}_t$, which
 To see this more explicitly:
 
 $$
-\mathbb{V}\_{\color{#FF8000}{q}} \left[ \overbrace{\frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t)\color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})}}^{\varpi_t} \right] = \mathbb{E}\_{\color{#FF8000}{q}} \left[ \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t)^2\color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})^2}{\color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})^2} \right] - \left ( \mathbb{E}\_{\color{#FF8000}{q}} \left[  \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t)\color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \right] \right )^2 = \int \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t)^2\color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})^2}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \mathrm{d}\mathbf{s}_t  - p(\mathbf{v}_t \mid \mathbf{s}\_{t-1})^2
+\mathbb{V}\_{\color{#FF8000}{q}} \left[ \overbrace{\frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t)\color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})}}^{\varpi_t} \right] = \mathbb{E}\_{\color{#FF8000}{q}} \left[ \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t)^2\color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})^2}{\color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})^2} \right] - \left ( \mathbb{E}\_{\color{#FF8000}{q}} \left[  \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t)\color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \right] \right )^2 = \int \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t)^2\color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1})^2}{\color{#FF8000}{q}_t(\mathbf{s}_t \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \mathrm{d}\mathbf{s}_t  - p(\mathbf{v}_t \mid \mathbf{s}\_{t-1})^2
 $$
 
 Where indeed if plugging in the optimal proposal for $\color{#FF8000}{q}_t$ gives 0.
 
 The two main difficulties that using this proposal presents are:
-1. Sampling from it is just as hard as sampling from $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$
-2. It requires evaluation of $ p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}) = \int \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}) \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}_t$ which is almost always an integral as difficult as the filtering problem itself.
+<ol>
+  <li>Sampling from it is just as hard as sampling from $p(\mathbf{s}_{1:t} \mid \mathbf{v}_{1:t})$</li>
+  <li>It requires evaluation of $ p(\mathbf{v}_t \mid \mathbf{s}_{t-1}) = \int \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_{t}) \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}_{t-1}) \mathrm{d} \mathbf{s}_t$ which is almost always an integral as difficult as the filtering problem itself.</li>
+</ol>
 
 As usual, the "optimal" solution is intractable, and we need to look for methods that try to approximate this solution.
 
@@ -515,18 +517,18 @@ The APF can be interpretated as a standard SMC algorithm (that is, an instantiat
 Under this interpretation, the target in the APF can be easily decomposed as:
 
 $$\begin{equation}\begin{aligned}
-\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t} , \mathbf{v}\_{\color{red}{t+1}}) &= \int p(\mathbf{s}\_{1:t+1} , \mathbf{v}\_{1:t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\
-&= \int p(\mathbf{s}\_{1:t} , \mathbf{v}\_{1:t}) \cdot {\color{blue}{f}}(\mathbf{s}\_{t+1} \mid \mathbf{s}\_{t}) \cdot {\color{green}{g}}(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\
-&=  p(\mathbf{s}\_{1:t} , \mathbf{v}\_{1:t}) \int {\color{blue}{f}}(\mathbf{s}\_{t+1} \mid \mathbf{s}\_{t}) \cdot {\color{green}{g}}(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\
+\gamma\_{t}(\mathbf{s}\_{1:t}) := p(\mathbf{s}\_{1:t} , \mathbf{v}\_{\color{red}{t+1}}) &= \int p(\mathbf{s}\_{1:t+1} , \mathbf{v}\_{1:t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\\\\\
+&= \int p(\mathbf{s}\_{1:t} , \mathbf{v}\_{1:t}) \cdot {\color{cyan}{f}}(\mathbf{s}\_{t+1} \mid \mathbf{s}\_{t}) \cdot {\color{LimeGreen}{g}}(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\\\\\
+&=  p(\mathbf{s}\_{1:t} , \mathbf{v}\_{1:t}) \int {\color{cyan}{f}}(\mathbf{s}\_{t+1} \mid \mathbf{s}\_{t}) \cdot {\color{LimeGreen}{g}}(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t+1}) \mathrm{d} \mathbf{s}\_{t+1} \\\\\\
 &=  p(\mathbf{s}\_{1:t} , \mathbf{v}\_{1:t}) \cdot \underbrace{p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})}\_{"predictive~likelihood"}
 \end{aligned}\end{equation}\tag{27}\label{eq27}$$
 
 Which we see is equivalent to the product between what would be the target in standard SMC times the so called "predictive likelihood" $p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})$. The weight update can be derived by making use of this:
 
 $$\begin{equation}\begin{aligned}
-\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1})} \\
-&=    \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t}) p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})}{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1})} \\
-&=  \frac{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} \color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})}{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1})}
+\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1})} \\\\\\
+&=    \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t}) p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})}{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1})} \\\\\\
+&=  \frac{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} \color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) p(\mathbf{v}\_{t+1} \mid \mathbf{s}\_{t})}{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1})}
 \end{aligned}\end{equation}\tag{28}\label{eq28}$$
 
 
@@ -535,32 +537,32 @@ Suppose we have been running the APF for $1\dots t-1$ iterations, and now we wan
 
 
 $$\begin{equation}\begin{aligned}
-\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{ p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})}  \\
-&=  \frac{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}\color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})} \\
-&=  \frac{\color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})}
+\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{p(\mathbf{s}\_{1:t}, \mathbf{v}\_{1:t})}{ p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1}) p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})}  \\\\\\
+&=  \frac{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\cancel{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})} p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})} \\\\\\
+&=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})}
 \end{aligned}\end{equation}\tag{29}\label{eq29}$$
 
 
 Please keep in mind that here we are talking about the importance weight used to estimate $\gamma_t$, while for all other previous targets we used \eqref{eq28}. This intepretation sees the previous targets $\gamma_1,\dots,\gamma\_{t-1}$ as some sort of "bridging" densities of aid in the sequential propagation of the particles. Note that in practice the predictive likelihood involves an intractable integral, so we have to approximate it with $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) $. However, in the ideal case, selecting $\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}) =  p(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})$ and $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) = p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1})$ leads to the so called "perfect adaptation" .
 
-Setting the approximation to the predictive likelihood to $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) = \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}(\mathbf{s}\_{t})) $ where $ \boldsymbol{\mu}(\mathbf{s}\_{t})$ is some likely value is common. For example , if we choose as approximation to the predictive likelihood : $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) = \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}) $  where $\boldsymbol{\mu}\_{t}$ is the mean of $ f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) $ *and* we also choose $ \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1}) = f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})$ , then we recover as special case the popular version of the APF weights:
+Setting the approximation to the predictive likelihood to $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) = \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}(\mathbf{s}\_{t})) $ where $ \boldsymbol{\mu}(\mathbf{s}\_{t})$ is some likely value is common. For example , if we choose as approximation to the predictive likelihood : $\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) = \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}) $  where $\boldsymbol{\mu}\_{t}$ is the mean of $ f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) $ *and* we also choose $ \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1}) = f(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})$ , then we recover as special case the popular version of the APF weights:
 
 $$\begin{equation}\begin{aligned}
-\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})} \\
-&=  \frac{\cancel{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})} \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}) \cancel{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})}}
+\varpi_t(\mathbf{s}\_{t-1}, \mathbf{s}_t) &=  \frac{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\hat{p}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{v}\_{t}, \mathbf{s}\_{t-1})} \\\\\\
+&=  \frac{\cancel{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})} \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}) \cancel{f(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})}}
 \end{aligned}\end{equation}\tag{30}\label{eq30}$$
 
 #### The original intepretation of APF and Marginal Particle Filters <a name="marginalpf"></a>
 Up until now, we have derived concrete instatiations of particle filtering algorithms by performing importance sampling in the joint space (or trajectory space) (see \eqref{eq18}, \eqref{eq20}). In other words, we could also see this as "using" the TFD in \eqref{eq9}, rather than the SFD \eqref{eq10}: we motivated this initially by the fact that we can get an estimate of $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t})$ from an estimate of $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ by ignoring previous samples. However, if we were only ever interested in $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t})$, this approach isn't the best : the target distribution grows in dimension at each step, and this is partly why we need to perform resampling to reduce variance. In Marginal PFs [5], we perform importance sampling in the marginal space, that is with target distribution $ p(\mathbf{s}_t \mid \mathbf{v}\_{1:t})$; computing importance weights in this way, however, increases the computational cost of the algorithm from $\mathcal{O}(N)$ to $\mathcal{O}(N^2)$. This is because of the different importance weight computation. Since now we are using SFD, the target distribution is proportional to:
 
 $$
-p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) \propto \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) p(\mathbf{s}_t \mid \mathbf{v}\_{1:t-1}) = \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \int \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{t-1} \approx \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})  
+p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) \propto \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) p(\mathbf{s}_t \mid \mathbf{v}\_{1:t-1}) = \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \int \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}) p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \mathrm{d} \mathbf{s}\_{t-1} \approx \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})  
 $$
 
 where crucially we use the particle approximation of the filtering distribution at time $t-1$: $p(\mathbf{s}\_{t-1} \mid \mathbf{v}\_{1:t-1}) \approx \sum\_{n=1}^{N} w\_{t-1}^{n} \delta\_{\mathbf{s}\_{t-1}}(\mathbf{s}\_{t-1}^{n})$. Now, notice that the target can be rewritten as:
 
 $$
-\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) = \sum\_{n=1}^{N} w\_{t-1}^{n} p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)
+\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) = \sum\_{n=1}^{N} w\_{t-1}^{n} p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)
 $$
 
 recalling the expression for the optimal proposal $ p(\mathbf{s}_t \mid \mathbf{s}\_{t-1}, \mathbf{v}_t) $. I think this simple rearragement is interesting: firstly, now all the terms depend on the previous states $\mathbf{s}\_{t-1}^{n}$; secondly, it perfectly shows the conditions that we want to satisfy for a good proposal (more on this soon). Now that we have the target, in other words the numerator of the importance weight, we are free to choose any proposal distribution we want. Recall that we are not in the setting of the autoregressive proposal of \eqref{eq18}, \eqref{eq20}; the proposal now is simply a function of $\mathbf{s}_t$. It makes sense to choose a proposal that has the same structure as the numerator (as we are trying to match it), that is:
@@ -572,19 +574,19 @@ $$
 i.e. a mixture proposal, so that the unnormalized importance weight is computed as:
 
 $$
-\widetilde{w}\_{t} = \frac{ \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})}{ \sum\_{n=1}^{N} w\_{t-1}^{n} \color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{v}_t, \mathbf{s}\_{t-1}^{n})}
+\widetilde{w}\_{t} = \frac{ \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t ) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})}{ \sum\_{n=1}^{N} w\_{t-1}^{n} \color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{v}_t, \mathbf{s}\_{t-1}^{n})}
 $$
 
 This equation resembles the form of \eqref{eq22} (standard importance weight for state space models): we can see this new importance weight as obtained from \eqref{eq22} by marginalizing previous states. This is quite neat I think.
 The question is, what should $ \color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{v}_t, \mathbf{s}\_{t-1}^{n})$ be ?
-We have seen that the mixture in the denominator needs to approximate both the predictive likelihood $ p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) $ and the optimal proposal $p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)$ (both expressions that cannot be evaluated exactly) *for all* $n$. Recall that $p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t) \propto  \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t) \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$. We can then attempt this in different ways: for example, we could just set $\color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{v}_t, \mathbf{s}\_{t-1}^{n})$ to be the transition kernels $\color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$ . In this case , we would need to multiply $w\_{t-1}^{n}$ by some other term in order to match the predictive likelihood term in the numerator, as well as the likelihood $\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t)$ . In this case, all the work goes into the choice of what to multiply $w\_{t-1}^{n}$ and $ \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$ within the sum.
+We have seen that the mixture in the denominator needs to approximate both the predictive likelihood $ p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) $ and the optimal proposal $p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)$ (both expressions that cannot be evaluated exactly) *for all* $n$. Recall that $p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t) \propto  \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t) \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$. We can then attempt this in different ways: for example, we could just set $\color{#FF8000}{q}\_{t}(\mathbf{s}_t \mid \mathbf{v}_t, \mathbf{s}\_{t-1}^{n})$ to be the transition kernels $\color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$ . In this case , we would need to multiply $w\_{t-1}^{n}$ by some other term in order to match the predictive likelihood term in the numerator, as well as the likelihood $\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}_t)$ . In this case, all the work goes into the choice of what to multiply $w\_{t-1}^{n}$ and $ \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})$ within the sum.
 
 Of course, since $\widetilde{w}_t$ is a function of $\mathbf{s}_t$, we now have to compute these sums for all particles, which gives the cost of $\mathcal{O}(N^2)$. Something else that can immediately be seen is that this expression, in a sense, is just more general than \eqref{eq22}, which can be recovered simply replacing the sums with a single term. This is the basic idea behind the Multiple Importance Sampling interpretation of PFs, which is more or less the same as marginal particle filtering, but where certain things are presented more explicit.
 
 I think it is quite natural to introduce how APF was originally motivated after having explained MPFs and especially the discussion on the two differrent expressions for the numerator of the unnormalized SFD $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t})$. In the original paper [11], Pitt and Shepard look at the numerator of the SFD and consider as target distribution the following joint:
 
 $$
-p(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t} ) \propto \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t )  w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) = w\_{t-1}^{n} p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)
+p(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t} ) \propto \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t )  w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) = w\_{t-1}^{n} p(\mathbf{v}_t \mid \mathbf{s}\_{t-1}^{n}) p(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)
 $$
 
 where $n$ is an *index of the full mixture*, and is an auxiliary variable which is where the name of the algorithm actually comes from. Little *concrete* interpretation is provided for this choice in the paper, but we will see in the next section how this is casted as an implicit assumption. From this joint, the marginal of the index is:
@@ -593,7 +595,7 @@ $$
 p(n \mid \mathbf{v}\_{1:t}) \propto w\_{t-1}^{n} p(\mathbf{v}\_{t} \mid \mathbf{s}\_{t-1}^{n})
 $$
 
-As we know the predictive likelihood defines an intractable integral: a common approximation we have seen is $\color{green}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n})$.  Then, define the probability of the index to be the "simulation weight" or "preweight" : $p(n \mid \mathbf{v}\_{1:t}):= \lambda\_{t}^{n}  \propto w\_{t-1}^{n} \color{green}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n}) $.
+As we know the predictive likelihood defines an intractable integral: a common approximation we have seen is $\color{LimeGreen}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n})$.  Then, define the probability of the index to be the "simulation weight" or "preweight" : $p(n \mid \mathbf{v}\_{1:t}):= \lambda\_{t}^{n}  \propto w\_{t-1}^{n} \color{LimeGreen}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n}) $.
 
 Using this, we construct a proposal with the same form of the target, which is now $p(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t} )$:
 
@@ -604,16 +606,16 @@ $$
 so that the importance weight (function) is given by:
 
 $$
-w\_{t}(\mathbf{s}\_{t},n) = \frac{p(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t})}{q_t(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t})} \propto \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t )  w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) }{\lambda\_{t}^{n} q_t(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)}
+w\_{t}(\mathbf{s}\_{t},n) = \frac{p(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t})}{q_t(n, \mathbf{s}_t \mid \mathbf{v}\_{1:t})} \propto \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t )  w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}) }{\lambda\_{t}^{n} q_t(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n}, \mathbf{v}_t)}
 $$
 
 Where I just emphasized the dependency of the weight on the hidden state $\mathbf{s}_t$ *and* the index $n$. This interpretation makes it very clear that in the implementation, *first we sample an index* $n$ with probability $\lambda\_{t}^{n}$, *and then* we sample the particle from the corresponding transition density at particle $n$ (this is essentially what is known as ancestor sampling). The preweight is what enables the incorporation of information from the current measurement in the propagation of particles. You may wonder how all of this can be the same as what described in the previous section, where we derived the APF as a standard SMC algorithm with a different $\gamma$. In fact, and I think it's not immediate to see, if you substitute in the general SMC meta algorithm the specifics of the APF described in the previous section, you will find that at the end of iteration $t$ you will be resampling using a weight that includes information from $\mathbf{v}\_{t+1}$. This is essentially the same as "delaying" the resampling step to the next iteration, and make use of that information to propagate the particles, instead of (e.g.) blindly use the transition density.
 
-It is now also easy to see that if the proposal were equal to the transition density, and the preweight was $w\_{t-1}^{n} \color{green}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n}) $, we would recover exactly the importance weight for APF derived in \eqref{eq30} with a different intepretation. It is also easy to see, now that we have talked about marginal particle filters, how we could get a marginalized version of the APF: simply marginalize over the indexes $n$ in the last equation, for both numerator and denominator, effectively performing inference for $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) $.
+It is now also easy to see that if the proposal were equal to the transition density, and the preweight was $w\_{t-1}^{n} \color{LimeGreen}{g}(\mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{n}) $, we would recover exactly the importance weight for APF derived in \eqref{eq30} with a different intepretation. It is also easy to see, now that we have talked about marginal particle filters, how we could get a marginalized version of the APF: simply marginalize over the indexes $n$ in the last equation, for both numerator and denominator, effectively performing inference for $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) $.
 This would turn the previous result into:
 
 $$
-w\_{t}(\mathbf{s}_t) = \frac{\sum\_{n=1}^{N} p(n,\mathbf{s}_t \mid \mathbf{v}\_{1:t})}{\sum\_{n=1}^{N}q_t(n,\mathbf{s}_t \mid \mathbf{v}\_{1:t})} = \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}_t) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})}{\sum\_{n=1}^{N} \lambda\_{t}^{n} q_t(\mathbf{s}_t \mid \mathbf{v}_t , \mathbf{s}\_{t-1}^{n}) }
+w\_{t}(\mathbf{s}_t) = \frac{\sum\_{n=1}^{N} p(n,\mathbf{s}_t \mid \mathbf{v}\_{1:t})}{\sum\_{n=1}^{N}q_t(n,\mathbf{s}_t \mid \mathbf{v}\_{1:t})} = \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_t) \sum\_{n=1}^{N} w\_{t-1}^{n} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{n})}{\sum\_{n=1}^{N} \lambda\_{t}^{n} q_t(\mathbf{s}_t \mid \mathbf{v}_t , \mathbf{s}\_{t-1}^{n}) }
 $$
 
 This gives rise to what the authors of [5] call "Auxiliary Marginal Particle Filter". I believe the authors of APF wanted to keep the $\mathcal{O}(N)$ complexity of standard particle filtering, and this is why they did not do this last "marginalization" step.
@@ -625,7 +627,7 @@ The topic explored in the next section is intimately connected with marginal fil
 
 Recently in [3] a novel re-intepretation of classic particle filters such as BPF and APF was published. This introduces a framework in which these filters emerge as special cases, and explains their properties under a Multiple Importance Sampling (MIS) perspective. MIS is a subfield of IS that is concerned with the use of multiple propoasals to approximate integrals and distributions. While this is similar to the Marginal Partice Filter, it more explicitly highlights the importance of the overlap of transition kernels and how this can be used to design a better filter.
 
-Moreover, for the APF it assumed the common approximation to the predictive likelihood described earlier $g(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t})$, where $ \boldsymbol{\mu}\_{t} := \mathbb{E}\_{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})} [ \mathbf{s}_t ] $. Finally, the proposal is selected to be the transition density. Since so far we have only talked about the APF as a "meta" algorithm, here is a concrete version (the most popular) where we choose the transition density to sample particles. It follows from either the first intepretation given, or from the original one.
+Moreover, for the APF it assumed the common approximation to the predictive likelihood described earlier $g(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t})$, where $ \boldsymbol{\mu}\_{t} := \mathbb{E}\_{\color{cyan}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})} [ \mathbf{s}_t ] $. Finally, the proposal is selected to be the transition density. Since so far we have only talked about the APF as a "meta" algorithm, here is a concrete version (the most popular) where we choose the transition density to sample particles. It follows from either the first intepretation given, or from the original one.
 
 <div style="border: 1px solid;padding: 5px;box-shadow: 5px 10px;">
 
@@ -633,7 +635,7 @@ Moreover, for the APF it assumed the common approximation to the predictive like
 
 At time $t=1$: draw M i.i.d. samples from the prior proposal $ p(\mathbf{s}_1) $ <br>
 
-At time $t \geq 2$, with particle/weight set $\left \{ \mathbf{s}_{t-1}^{m}, w_{t-1}^{m} \right \}_{m=1}^{M} $:
+At time $t \geq 2$, with particle/weight set $\left ( \mathbf{s}_{t-1}^{m}, w_{t-1}^{m} \right )_{m=1}^{M} $:
 
 <ol>
 
@@ -641,15 +643,15 @@ At time $t \geq 2$, with particle/weight set $\left \{ \mathbf{s}_{t-1}^{m}, w_{
   <ul>
     <li> Compute $\boldsymbol{\mu}_{t}^{m} := \mathbb{E}_{ f(\mathbf{s}_{t} \mid \mathbf{s}_{t-1}^{m})} [ \mathbf{s}_t ]$  for all $m$ </li>
     <li> Preweights are computed as:
-    $ \lambda_{t}^{m} \propto {\color{green}g}(\mathbf{v}_{t} \mid \boldsymbol{\mu}_{t}^{m}) w_{t-1}^{m} $ for all $m$ </li>
+    $ \lambda_{t}^{m} \propto {\color{LimeGreen}g}(\mathbf{v}_{t} \mid \boldsymbol{\mu}_{t}^{m}) w_{t-1}^{m} $ for all $m$ </li>
   </ul>
 </li>
 
 <li> <b> Delayed (multinomial) resampling step </b> :
-   Selecting resampled <i> indices </i> $ r^{m}, ~~ m= 1 \dots M$ with probability mass function given by $\Pr(r^{m} = j) = \lambda_{t}^{j}$ for $j \in \left \{ 1 \dots M \right \}$. Having this representation with resampled indices from the previous particle set instead of using a new particle set will be useful.
+   Selecting resampled <i> indices </i> $ r^{m}, ~~ m= 1 \dots M$ with probability mass function given by $\Pr(r^{m} = j) = \lambda_{t}^{j}$ for $j \in \left ( 1 \dots M \right )$. Having this representation with resampled indices from the previous particle set instead of using a new particle set will be useful.
  </li>
 
-<li> <b> Propagation </b> : Sample $\mathbf{s}_{t}^{m} \sim {\color{blue}f}(\mathbf{s}_t \mid \mathbf{r}_{t-1}^{m}) $ or equivalently $\mathbf{s}_{t}^{m} \sim {\color{blue}f}(\mathbf{s}_t \mid \mathbf{s}_{t-1}^{r^{m}}) $ for $m = 1, \dots, M$ </li>
+<li> <b> Propagation </b> : Sample $\mathbf{s}_{t}^{m} \sim {\color{cyan}f}(\mathbf{s}_t \mid \mathbf{r}_{t-1}^{m}) $ or equivalently $\mathbf{s}_{t}^{m} \sim {\color{cyan}f}(\mathbf{s}_t \mid \mathbf{s}_{t-1}^{r^{m}}) $ for $m = 1, \dots, M$ </li>
 
 <li> <b> Weight update </b> : Compute weights:
     $\tilde{w}_{t} =  \frac{g(\mathbf{v}_t \mid \mathbf{s}_{t}^{m})}{g(\mathbf{v}_{t} \mid \boldsymbol{\mu}_{t}^{r^{m}} )}$ (as in eq. 30, without the multiplicative update since we always resample) </li>
@@ -673,10 +675,10 @@ At time $t \geq 2$:
 1. **Proposal adaptation/selection**: Select the Multiple Importance Sampling proposal of the form:
 
 $$
-\color{#FF8000}{\Psi}_t(\mathbf{s}_t) = \sum\_{m=1}^{M} \color{#FF8000}{\lambda}\_{t}^{m} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m})
+\color{#FF8000}{\Psi}_t(\mathbf{s}_t) = \sum\_{m=1}^{M} \color{#FF8000}{\lambda}\_{t}^{m} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m})
 $$
 
-where $\left \{ \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m}) \right \}\_{m=1}^{M} $
+where $\left ( \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m}) \right )\_{m=1}^{M} $
 are the transition densities or *kernels* centered at each of the previous particles.
 
 Each kernel's weight $\lambda\_{t}^{m}$ is computed as:
@@ -688,7 +690,7 @@ $$
 *if the applied filter is BPF*
 
 $$
-\color{#FF8000}{\lambda}\_{t}^{m} = \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \cdot w\_{t-1}^{m}
+\color{#FF8000}{\lambda}\_{t}^{m} = \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \cdot w\_{t-1}^{m}
 $$
 
 *if the applied filter is APF*
@@ -699,11 +701,11 @@ $$
 
 
 $$\begin{equation}\begin{aligned}
-w\_{t}^{m} &\propto \frac{p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\
-&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t-1})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\
-&\approx \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\
-&= \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{\sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{i} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})} \\
-&\approx \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) w\_{t-1}^{m}}{\color{#FF8000}{\lambda}\_{t}^{m}}
+w\_{t}^{m} &\propto \frac{p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\\\\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t-1})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\\\\\
+&\approx \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{\color{#FF8000}{\Psi}_t(\mathbf{s}\_{t}^{m})} \\\\\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{\sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{i} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})} \\\\\\
+&\approx \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) w\_{t-1}^{m}}{\color{#FF8000}{\lambda}\_{t}^{m}}
 
 \end{aligned}\end{equation}\tag{31}\label{eq31}$$
 
@@ -714,19 +716,19 @@ In MIS, we are implicitly interested in the marginal $p(\mathbf{s}_t \mid \mathb
 Let's start with the first of the three main stages, namely *proposal adaptation*.
 In this stage, weights akin to the APF "preweights" are computed in order to build the MIS proposal, which is a mixture (in this case of transition densities or *kernels*, but this is a choice really). We saw in the Marginal Particle Filter why it makes sense to have a mixture proposal: the numerator of $p(\mathbf{s}_t \mid \mathbf{v}\_{1:t}) $ is also a mixture, and moreover it makes sense to make it a mixture of the same kernels. So, we would like numerator and denominator to be close. A crucial fact is that both are a function of the latent state $\mathbf{s}_t$ , and we would like these two functions to be close in as wide a range of $\mathbf{s}_t$'s as possible. Of course, we don't know the value of the true $\mathbf{s}_t$.
 
-Now, let's examine more closely how PFs act under the MIS interpretation. In \eqref{eq31} the last approximation is derived by essentially **assuming well separated kernels**. If the distance between kernels $\left \{ \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m}) \right \}\_{m=1}^{M} $ is high with respect to the kernel's width, then the two sums in the numerator and denominator can be well approximated by a single term. More precisely, consider that the $m$-th particle $\mathbf{s}\_{t}^{m}$ has been simulated from kernel $ \color{fuchsia}{k^{m}} \in \left \{ 1 \dots M \right \}$, where the superscript $m$ emphasizes the dependency on $m$. If the other kernels $ \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{j})$ with $j \neq \color{fuchsia}{k^{m}}$ take small values when evaluated at $\boldsymbol{\mu}\_{t}^{\color{fuchsia}{k^{m}}}$, then
+Now, let's examine more closely how PFs act under the MIS interpretation. In \eqref{eq31} the last approximation is derived by essentially **assuming well separated kernels**. If the distance between kernels $\left ( \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m}) \right )\_{m=1}^{M} $ is high with respect to the kernel's width, then the two sums in the numerator and denominator can be well approximated by a single term. More precisely, consider that the $m$-th particle $\mathbf{s}\_{t}^{m}$ has been simulated from kernel $ \color{fuchsia}{k^{m}} \in \left ( 1 \dots M \right )$, where the superscript $m$ emphasizes the dependency on $m$. If the other kernels $ \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{j})$ with $j \neq \color{fuchsia}{k^{m}}$ take small values when evaluated at $\boldsymbol{\mu}\_{t}^{\color{fuchsia}{k^{m}}}$, then
 
 $$
-\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx w\_{t-1}^{\color{fuchsia}{k^{m}}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}}) \qquad \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx \color{#FF8000}{\lambda}\_{t}^{\color{fuchsia}{k^{m}}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}})
+\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx w\_{t-1}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}}) \qquad \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx \color{#FF8000}{\lambda}\_{t}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}})
 $$
 
 which are indeed the approximations carried out in the last line of \eqref{eq31}.
 
 The next issue to be discussed is the choice of mixture coefficients in the proposal $  \color{#FF8000}{\lambda}\_{t}^{m}$.
-Notice that by setting the proposal to the (approximate) predictive distribution, $\color{#FF8000}{\Psi}_t(\mathbf{s}_t) := p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \approx \sum\_{i=1}^{M} w\_{t-1}^{i} \color{blue}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{i})  $ , i.e. setting $ \color{#FF8000}{\lambda}\_{t}^{i} = w\_{t-1}^{i} $ then we are trying to match the right term of the numerator. This results in low discrepancy between denominator and numerator, *if* we had observations that are little informative, and recovers the BPF. It is also easily seen how plugging in the choice for the APF $\lambda_t$ indeed recovers the original APF. However, if the likelihood is high then this is clearly a bad choice. This can be seen by looking at teh numerator in \eqref{eq31} and plugging the likelihood into the sum that composes the predictive distribution (even if it does not depend on the sum):  $\sum\_{\color{red}{i}=1}^{M} \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) $ . Some kernels could be severely amplified with respect to others, thereby making the numerator very different to the proposal. The APF tries to improve on BPF *by trying to match the whole numerator with the proposal, and not just part of it*. It does so with a different choice of $ \color{#FF8000}{\lambda}\_{t}^{m} $. The general idea is that to achieve what we want, kernels need to "communicate" in some way. Indeed, consider an edge case where all kernels have the same center. In this case, the APF $\lambda$ will amplify each transition kernel equally; consider what happens at the center of these kernels: APF amplifies kernel $i$ ignoring the fact that all of the other kernels $j \neq i$ will sample a lot from that part of the space too. The kernels are not communicating with each other. The IAPF achieves so by rescaling the predictive likelihood, evaluated at the center of the kernel, by a factor that depends on all other kernels:
+Notice that by setting the proposal to the (approximate) predictive distribution, $\color{#FF8000}{\Psi}_t(\mathbf{s}_t) := p(\mathbf{s}\_{t} \mid \mathbf{v}\_{1:t-1}) \approx \sum\_{i=1}^{M} w\_{t-1}^{i} \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{i})  $ , i.e. setting $ \color{#FF8000}{\lambda}\_{t}^{i} = w\_{t-1}^{i} $ then we are trying to match the right term of the numerator. This results in low discrepancy between denominator and numerator, *if* we had observations that are little informative, and recovers the BPF. It is also easily seen how plugging in the choice for the APF $\lambda_t$ indeed recovers the original APF. However, if the likelihood is high then this is clearly a bad choice. This can be seen by looking at the numerator in \eqref{eq31} and plugging the likelihood into the sum that composes the predictive distribution (even if it does not depend on the sum):  $\sum\_{\color{red}{i}=1}^{M} \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) $ . Some kernels could be severely amplified with respect to others, thereby making the numerator very different to the proposal. The APF tries to improve on BPF *by trying to match the whole numerator with the proposal, and not just part of it*. It does so with a different choice of $ \color{#FF8000}{\lambda}\_{t}^{m} $. The general idea is that to achieve what we want, kernels need to "communicate" in some way. Indeed, consider an edge case where all kernels have the same center. In this case, the APF $\lambda$ will amplify each transition kernel equally; consider what happens at the center of these kernels: APF amplifies kernel $i$ ignoring the fact that all of the other kernels $j \neq i$ will sample a lot from that part of the space too. The kernels are not communicating with each other. The IAPF achieves so by rescaling the predictive likelihood, evaluated at the center of the kernel, by a factor that depends on all other kernels:
 
 $$\begin{equation}\begin{aligned}
-\text{IAPF}~ \lambda\_{t}^{m} \propto  \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )}
+\text{IAPF}~ \lambda\_{t}^{m} \propto  \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )}
 \end{aligned}\end{equation}\tag{32}\label{eq32}$$
 
 Using this choice of $\lambda_t$ in the MIS meta-algorithm, *and* not performing the last approximation in \eqref{eq31} gives the *Improved Auxiliary Particle Filter*.
@@ -736,22 +738,22 @@ Using this choice of $\lambda_t$ in the MIS meta-algorithm, *and* not performing
 The preweights of the IAPF, as we would have hoped, generalize the APF preweights in a natural way: when the kernels do not have significant overlap, we have:
 
 $$\begin{equation}\begin{aligned}
- \lambda\_{t}^{m} &\propto  \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )}  \\
-&\approx \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{w\_{t-1}^{m} \cancel{\color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{m})}}{ \cancel{\color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{m} )}} \\
-&= \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot w\_{t-1}^{m}
+ \lambda\_{t}^{m} &\propto  \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )}  \\\\\\
+&\approx \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot \frac{w\_{t-1}^{m} \cancel{\color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{m})}}{ \cancel{\color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{m} )}} \\\\\\
+&= \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m})\cdot w\_{t-1}^{m}
 \end{aligned}\end{equation}\tag{33}\label{eq33}$$
 
-where the approximation comes from the assumption that $ \color{blue}{f}(\mathbf{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{j}) \approx 0 $ for $ j \neq m$.
+where the approximation comes from the assumption that $ \color{cyan}{f}(\mathbf{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{j}) \approx 0 $ for $ j \neq m$.
 
 In summary, we have shown how the APF can be seen as a special case of the IAPF when kernels have negligible overlap. This assumption introduces simplifications both in the preweight $\lambda_t$, used to propagate the particles in areas with high likelihood, and in the importance weight that is used to build the empirical distribution of the target at $t$.
 Below, we used the same parameters as Elvira et al. [2] to reproduce the figure in the paper. It shows an example where the kernels have non-negligible overlap, and therefore the IAPF proposal matches the true posterior distribution better than the APF. Notice also that because of the informative likelihood, the BPF performs very poorly. A summary of the different choices of (unnormalized) preweights and importance weights for the different algorithms is also shown below.
 
 $$
 \begin{array}{c|lcr}
-- & \text{BPF} & \text{APF} & \text{IAPF} \\
+- & \text{BPF} & \text{APF} & \text{IAPF} \\\\\\
 \hline
-\color{#FF8000}{\lambda}\_{t}^{m} & w\_{t}^{m} & \color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \cdot w\_{t-1}^{m} & \frac{\color{green}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{blue}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )} \\
-w\_{t}^{m} & \color{green}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) & \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) }{    \color{green}{g}( \mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{r^{m}}) } & \frac{\color{green}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{blue}{f}( \mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) }{   \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{blue}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}
+\color{#FF8000}{\lambda}\_{t}^{m} & w\_{t}^{m} & \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \cdot w\_{t-1}^{m} & \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \boldsymbol{\mu}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{ \sum\_{\color{red}{i}=1}^{M} \color{cyan}{f}(\boldsymbol{\mu}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}} )} \\\\\\
+w\_{t}^{m} & \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) & \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) }{    \color{LimeGreen}{g}( \mathbf{v}_t \mid \boldsymbol{\mu}\_{t}^{r^{m}}) } & \frac{\color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}( \mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) }{   \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}
 \end{array}
 $$
 
