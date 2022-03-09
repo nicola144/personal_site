@@ -387,7 +387,7 @@ $$\begin{equation}\begin{aligned}
 We now show that even for an extremely simple model, this expression is exponential in $t$. This example is taken from Doucet et al. [2]. Consider a univariate state space model where the TFD at each timestep is a Gaussian. Then, the sequence of normalized and unnormalized target distributions, and normalizing constant at time $t$ are:  
 
 $$
-\gamma\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \exp \left ( -\frac{1}{2} s\_{k}^{2}  \right ) \qquad Z\_{t} = (2\pi)^{t/2}
+\gamma\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \exp \left ( -\frac{1}{2} s\_{k}^{2}  \right ) \qquad Z\_{t} = (2\pi)^{\frac{t}{2}}
 $$
 
 Or in other words $\pi\_{t}(s\_{1:t}) = \prod\_{k=1}^{t} \mathcal{N}(s\_{k} \mid 0, 1) = \mathcal{N}(s\_{1:t} \mid \boldsymbol{0}, \mathbf{I})$. Suppose we select a simple proposal distribution as a factorised Gaussian with unknown variance:
@@ -403,9 +403,12 @@ $$\begin{equation}\begin{aligned}
 &= \frac{1}{N} \left [\frac{(2\pi)^{-t}}{(2\pi \sigma^2)^{-\frac{t}{2}}} \int  \frac{ \exp\left( -\sum\_{k=1}^{t}s\_{k}^2 \right) }{\exp \left( -\frac{1}{2\sigma^2}\sum\_{k=1}^{t}s\_{k}^{2} \right)} \mathrm{d}s\_{1:t} - 1\right] \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{\frac{t}{2}}}{(2\pi)^t} \int  \exp \left( -\sum\_{k=1}^{t}s\_{k}^2 + \frac{1}{2\sigma^2} \sum\_{k=1}^{t}s\_{k}^2 \right) \mathrm{d}s\_{1:t} - 1\right]  \\\\\\
 &= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{\frac{t}{2}}}{(2\pi)^t} \int  \exp \left( \left ( -\frac{1}{2}\left [ 2 - \frac{1}{\sigma^2} \right ] \right ) s\_{1:t}^{\top} s\_{1:t}  \right) \mathrm{d}s\_{1:t} - 1\right] \qquad \text{as}~ s\_{1:t}^{\top}s\_{1:t} = \sum\_{k=1}^{t} s\_{k}^{2} \\\\\\
-&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{\frac{t}{2}}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{\frac{t}{2}} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ]  
+&= \frac{1}{N} \left [\frac{(2\pi \sigma^2)^{\frac{t}{2}}}{(2\pi)^t} \cdot \left ( 2\pi \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{\frac{t}{2}} - 1\right] \qquad \text{using}~ \left [ 2 - \frac{1}{\sigma^2} \right ]^{-1} = \left [\frac{\sigma^2}{2\sigma^2 -1} \right ] \\\\\\
+&= \frac{1}{N} \left [\frac{\cancel{(2\pi)^{\frac{t}{2}}} \sigma^t }{\cancel{(2\pi)^t}} \cdot  \cancel{(2\pi)^{\frac{t}{2}}} \left ( \cdot \frac{\sigma^2}{2\sigma^2 -1 } \right)^{\frac{t}{2}} - 1\right] \\\\\\
+&= \frac{1}{N} \left [(\sigma^2)^{\frac{t}{2}} \cdot   \left ( \frac{\sigma^2}{2\sigma^2 -1 } \right)^{\frac{t}{2}} - 1\right] \\\\\\
+&= \frac{1}{N} \left [\left ( \frac{\sigma^4}{2\sigma^2 -1 } \right)^{\frac{t}{2}} - 1\right]
 \end{aligned}\end{equation}\tag{24}\label{eq24}$$
 
-For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] \approx (1.103)^{t/2}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
+For example, if $\sigma^2 = 1.2$, then $N \cdot \mathbb{V}\_{q}\left[ \frac{\widehat{Z}\_{t}}{Z\_{t}} \right] \approx (1.103)^{\frac{t}{2}}$, which for sequence length $t=1000$ equals $1.9 \cdot 10^{21} $. In this case, to have a small relative variance, say $ 0.01$, we would need $N \approx 2 \cdot 10^{23}$ particles which is obviously infeasible.
 
 The exponentially increasing variance has other negative consequences, the first of which is known under the names of *sample degeneracy* or *weight degeneracy*. Basically, if you actually run this after not-so-many iterations there will be one weight $\approx 1$ and all other will be zero, which equates to approximate the target with one sample.
