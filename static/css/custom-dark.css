@@ -26,8 +26,7 @@
   content: "\2212";
 }
 
-
-.buttoncontent {
+.content {
   padding: 0 18px;
   max-height: 0;
   overflow: hidden;
