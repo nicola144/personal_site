@@ -702,7 +702,7 @@ $$
 $$\begin{equation}\begin{aligned}
 w\_{t}^{m} &\propto \frac{p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t})}{\color{#FF8000}{\Psi}\_{t}(\mathbf{s}\_{t}^{m})} \\\\\\
 &= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t-1})}{\color{#FF8000}{\Psi}_{t}(\mathbf{s}\_{t}^{m})} \\\\\\
-&\approx \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}})}{\color{#FF8000}{\Psi}_{t}(\mathbf{s}\_{t}^{m})} 
+&\approx \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) \sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{i} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{i})}{\color{#FF8000}{\Psi}\_{t}(\mathbf{s}\_{t}^{m})}
 \end{aligned}\end{equation}\tag{31}\label{eq31}$$
 
 ___
