@@ -6,6 +6,10 @@ This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branch
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
  <img src="profile_pic.jpeg" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
+ <br>
+ <br>
+ <br>
+
 Some topics I am exploring now are:
 <ul>
   <li>Efficient adaptive <i>importance sampling</i> schemes for statistical decision making</li>
