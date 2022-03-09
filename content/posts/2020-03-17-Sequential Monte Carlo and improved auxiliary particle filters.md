@@ -438,3 +438,39 @@ The resampling step can be intepreted as a clever choice of proposal. To underst
 <br>
 
 Where I use $\mathbf{r}$ to emphasize that a particle has been resampled. Notice that the weight computation does not involve the previous weight, since resampling sets weights to a constant, and thus we can omit it when using proportionality.
+
+In our state space model, if we chose a proposal equal to the transition density, so $ \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t}) = \color{blue}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1})$ , then the weight update simplifies to:
+
+$$\begin{equation}\begin{aligned}
+\varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &=  \frac{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1}) \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\
+&= \frac{\cancel{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})} \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\cancel{\color{blue}{f}(\mathbf{s}\_{t} \mid \mathbf{s}\_{t-1})}} \\
+&= \color{green}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})
+\end{aligned}\end{equation}\tag{25}\label{eq25}$$
+
+This choice within the SMC general framework gives rise to the concrete algorithm named *Bootstrap Particle Filter* (BPF). Using the transition density can lead to poor approximations, especially if the dimension of the hidden states is large.
+
+Let us now discuss some details about $ \widehat{\pi}\_{t}$ . This paragraph can probably be skipped at first reading. In vanilla SIS, at each iteration we build an approximate empirical distribution to our target, say $ \pi\_{t}(\mathbf{s}\_{1:t}) = p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$, that is represented by a weighted sum or "mixture" : $  \widehat{\pi}\_{t} = \sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{1:t}}(\mathbf{s}\_{1:t}^{n})$. The samples $\left ( \mathbf{s}\_{1:t}^{n} \right )\_{n=1}^{N}$ used in our approximation however come from the proposal $ q\_{t}(\mathbf{s}\_{1:t})$. We can obtain a set of samples approximately distributed according to $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ by sampling from our mixture approximation. Keep in mind the fact that sampling from a mixture is equivalent to resampling. Crucially, using these resampled particles, we can form a *different* estimator for $\pi\_{t}(\mathbf{s}\_{1:t})$ than $\sum\_{n=1}^{N} w\_{t}^{n} \delta\_{\mathbf{s}\_{1:t}}(\mathbf{s}\_{1:t}^{n})$, namely:
+$\frac{1}{N} \sum\_{n=1}^{N}\delta\_{\mathbf{r}\_{1:t}} (\mathbf{r}\_{1:t}^{n})$ where $\left ( \mathbf{r}\_{1:t} \right )\_{n=1}^{N} $ is the "resampled" particle trajectory (resampled in the sense that, to sample from the mixture approximation, one uses resampling). It is worth to restate that this is because these new samples actually come (approximately) from $ p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$ and thus to approximate the distribution itself we use its empirical approximation. It can be shown that the estimates (e.g. moments) under this approximation generally have *higher variance* than under the previous estimator. This is the price that we have to pay to mitigate the weight degeneracy: increase (at least, temporarily) the variance of the estimator to however reduce it in the long run.
+
+
+![pf](/bpff.svg)
+*Fig. 3: Illustration of BPF for a one dimensional set of particles. Tikz figure with minor modifications from an original made by Víctor Elvira.*
+
+
+Unfortunately, weight degeneracy is not the end of the story. The resampling mechanism generates another important issue known as *path degeneracy*. This phenomenon is best understood with an illustration, shown below. Repeated resampling over many iterations causes particle diversity to be killed, as most of the particles at some point will collapse back to a single (or few) ancestor.
+
+![pathdeg](/path-degg.svg)
+*Fig. 4: Path degeneracy illustration in SMC/SIR/PF. Borrowed from Naesseth et al. [4]*
+
+There are ways to deal with path degeneracy, such as low-variance resampling, or simply only resampling when a certain measure of efficiency is satisfied (effective sample size), or adaptive resampling. We do not go into more detail here, as these are more advanced, and path degeneracy is still not fundamentally solved. For a survey of resampling strategies, see [11].
+
+## Propagating particles by incorporating the current measurement <a name="apf"></a>
+
+Let's talk about one particularly popular variation on the BPF. I will put it into the context of a generic SMC algorithm (for state space models), as did for the BPF, and explain different intepretations. I will start with the interpretation given by Doucet et al [2].
+
+One of the motivations for APF is as follows. One can show that, if we had access to the locally optimal proposal in SMC, then the weight update becomes an expression that does not involve the current state $\mathbf{s}\_{t}$ at all. In fact, we will show this in the next subsection. Notice that previously we have been performing propagation first, then weight update and resampling. Now, if the weight update does not depend on the current state, nothing would stop us at performing resampling before propagation. As Doucet et al [2] point out, this yields a better approximation of the distribution as it provides a greater number of distinct particles to approximate the target.
+
+This interchange of propagation and resampling can be seen as a way of incorporating the effects of the current measurements $\mathbf{v}\_{t}$ on the generation of states at time $t$, or of "filtering out" particles with low importance.
+Because in general we don't have access to the optimal proposal and thus can't do this exactly, we can try to "mimic" it, and this is what APF attempts to do.
+
+Before getting into APF however, let's actually inspect what would happen if we used the locally optimal proposal in filtering.
