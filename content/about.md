@@ -74,3 +74,20 @@ Totally worth having the physical version.
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
 - [Troubling Trends in Machine Learning Scholarship](https://arxiv.org/pdf/1807.03341.pdf?source=post_page---------------------------)
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
