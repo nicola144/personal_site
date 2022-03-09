@@ -1,6 +1,5 @@
 ---
 title: "About"
-type: "page"
 ---
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
