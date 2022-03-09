@@ -75,7 +75,7 @@ Totally worth having the physical version.
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
 - [Troubling Trends in Machine Learning Scholarship](https://arxiv.org/pdf/1807.03341.pdf?source=post_page---------------------------)
 
-</body>
+
 
 <script>
 var coll = document.getElementsByClassName("collapsible");
@@ -93,3 +93,5 @@ for (i = 0; i < coll.length; i++) {
   });
 }
 </script>
+
+</body>
