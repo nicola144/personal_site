@@ -503,8 +503,8 @@ Where indeed if plugging in the optimal proposal for $\color{#FF8000}{q}_t$ give
 
 The two main difficulties that using this proposal presents are:
 <ol>
-  <li>Sampling from it is just as hard as sampling from $p(\mathbf{s}_{1:t} \mid \mathbf{v}_{1:t})$</li>
-  <li>It requires evaluation of $ p(\mathbf{v}_t \mid \mathbf{s}_{t-1}) = \int \color{LimeGreen}{g}(\mathbf{v}_t \mid \mathbf{s}_{t}) \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}_{t-1}) \mathrm{d} \mathbf{s}_t$ which is almost always an integral as difficult as the filtering problem itself.</li>
+  <li>Sampling from it is just as hard as sampling from $p(\mathbf{s}\_{1:t} \mid \mathbf{v}\_{1:t})$</li>
+  <li>It requires evaluation of $ p(\mathbf{v}\_t \mid \mathbf{s}\_{t-1}) = \int \color{LimeGreen}{g}(\mathbf{v}\_t \mid \mathbf{s}\_{t}) \color{cyan}{f}(\mathbf{s}\_t \mid \mathbf{s}\_{t-1}) \mathrm{d} \mathbf{s}\_t$ which is almost always an integral as difficult as the filtering problem itself.</li>
 </ol>
 
 As usual, the "optimal" solution is intractable, and we need to look for methods that try to approximate this solution.
@@ -771,7 +771,7 @@ $$
     this.page.url = "https://personal-site-lemon-seven.vercel.app/posts/2020-03-17-sequential-monte-carlo-and-improved-auxiliary-particle-filters/";  
     this.page.identifier = "smc-apf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    
+
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = 'https://personal-website-g7y0elzvjn.disqus.com/embed.js';
