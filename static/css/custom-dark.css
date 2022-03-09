@@ -1,13 +1,14 @@
 .collapsible {
   background-color: #FF9C33;
   color: white;
+  font-weight: bold;
   cursor: pointer;
   padding: 18px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
-  font-size: 16px;
+  font-size: 20px;
   border-radius: 25px;
 }
 
