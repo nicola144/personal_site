@@ -1,5 +1,5 @@
 <div class="header">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="/css/academicons.min.css">
 	<base href="{{ .Site.BaseURL }}">
 	<h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
 	<div class="site-description">
@@ -10,7 +10,7 @@
 			<ul class="flat">
 				{{- range $index, $key := .Site.Params.Social -}}
         {{- if eq $key.name "scholar" -}}
-        <a href="{{ $key.url }}" title="{{ $key.name }}"><i class="ai ai-google-scholar-square ai-3x"></i></a>
+        <a href="{{ $key.url }}" title="{{ $key.name }}"><i class="ai ai-google-scholar-square ai-1x"></i></a>
         {{- else -}}
 				<a href="{{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
         {{- end -}}
