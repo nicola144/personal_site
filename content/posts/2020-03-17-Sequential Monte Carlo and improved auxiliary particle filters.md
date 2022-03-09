@@ -700,7 +700,9 @@ $$
 3. **Weighting**: Compute the normalized importance weights dividing target by proposal:
 
 $$\begin{equation}\begin{aligned}
-w\_{t}^{m} &\propto \frac{p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t})}{\color{#FF8000}{\Psi}\_{t}(\mathbf{s}\_{t}^{m})} \end{aligned}\end{equation}\tag{31}\label{eq31}$$
+w\_{t}^{m} &\propto \frac{p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t})}{\color{#FF8000}{\Psi}\_{t}(\mathbf{s}\_{t}^{m})} \\\\\\
+&= \frac{\color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}^{m}) p(\mathbf{s}\_{t}^{m} \mid \mathbf{v}\_{1:t-1})}{\color{#FF8000}{\Psi}_{t}(\mathbf{s}\_{t}^{m})} 
+\end{aligned}\end{equation}\tag{31}\label{eq31}$$
 
 ___
 
@@ -712,7 +714,7 @@ In this stage, weights akin to the APF "preweights" are computed in order to bui
 Now, let's examine more closely how PFs act under the MIS interpretation. In \eqref{eq31} the last approximation is derived by essentially **assuming well separated kernels**. If the distance between kernels $\left ( \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{m}) \right )\_{m=1}^{M} $ is high with respect to the kernel's width, then the two sums in the numerator and denominator can be well approximated by a single term. More precisely, consider that the $m$-th particle $\mathbf{s}\_{t}^{m}$ has been simulated from kernel $ \color{fuchsia}{k^{m}} \in \left ( 1 \dots M \right )$, where the superscript $m$ emphasizes the dependency on $m$. If the other kernels $ \color{cyan}{f}(\mathbf{s}_t \mid \mathbf{s}\_{t-1}^{j})$ with $j \neq \color{fuchsia}{k^{m}}$ take small values when evaluated at $\boldsymbol{\mu}\_{t}^{\color{fuchsia}{k^{m}}}$, then
 
 $$
-\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx w\_{t-1}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}}) \qquad \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx \color{#FF8000}{\lambda}\_{t}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}})
+\sum\_{\color{red}{i}=1}^{M} w\_{t-1}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx w\_{t-1}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}}) \qquad \text{and} \qquad \sum\_{\color{red}{i}=1}^{M} \color{#FF8000}{\lambda}\_{t}^{\color{red}{i}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{red}{i}}) \approx \color{#FF8000}{\lambda}\_{t}^{\color{fuchsia}{k^{m}}} \color{cyan}{f}(\mathbf{s}\_{t}^{m} \mid \mathbf{s}\_{t-1}^{\color{fuchsia}{k^{m}}})
 $$
 
 which are indeed the approximations carried out in the last line of \eqref{eq31}.
