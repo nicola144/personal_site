@@ -19,7 +19,8 @@ Some topics I am exploring now are:
 </ul>
 </p>
 
-<br>
+<a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
+
 ### News
 
 - I recently gave a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
@@ -36,8 +37,6 @@ Some topics I am exploring now are:
 </p>
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
-
-<a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
 
 
 ### Talks & Posters
