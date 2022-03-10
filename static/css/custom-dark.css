@@ -40,6 +40,7 @@
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
+  font-weight: bold;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -53,6 +54,7 @@
 .button3 {
   background-color: #fe9f3a;
   color: white;
+  font-weight: bold;
   border: 2px solid #f44336;
 }
 
