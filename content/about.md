@@ -37,9 +37,8 @@ Some topics I am exploring now are:
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
 
-<button class="button button3">
-<span style="color:white"> [**A link to my resume**](https://resume.io/r/pgbpr3wNh) </span>
-</button>
+<a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
+
 
 ### Talks & Posters
 
