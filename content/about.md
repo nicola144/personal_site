@@ -5,7 +5,7 @@ title: "About"
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
- <img src="me.png" align="left" width="auto" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
+ <img src="me.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
  <br>
  <br>
  <br>
