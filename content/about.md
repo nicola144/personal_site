@@ -23,6 +23,7 @@ Some topics I am exploring now are:
 
 ### News
 
+- I will present a poster about our (ongoing) work on particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
 - I recently gave a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
 
 
@@ -40,7 +41,7 @@ Some topics I am exploring now are:
 
 
 ### Talks & Posters
-
+- Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/), May 2022.
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at ["Bayes at CIRM" Winter School](https://bayesatcirm.github.io/), Centre International de Rencontres Mathématiques, Marseille, October 2021
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization* at 37th Conference on Uncertainty in Artificial Intelligence (UAI), online, 2021.
 
