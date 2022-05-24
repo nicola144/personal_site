@@ -1,5 +1,5 @@
 ---
-title: "Importance Sampling: more than numerical integration"
+title: "(WORK IN PROGRESS) Importance Sampling: more than numerical integration"
 ---
 
 The general ideas that an average approximates an expectation is pervasive. Similarly so is the idea that observations (data, samples, etc.) can be modelled as realizations of an underlying random variable.  
