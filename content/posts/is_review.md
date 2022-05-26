@@ -1,6 +1,6 @@
 ---
 title: "(WORK IN PROGRESS) Importance Sampling: more than numerical integration"
-date: 2022-05-29
+date: 2022-05-26T22:10:06Z
 ---
 *Disclaimer for the Importance Sampling - expert reader: I will be using the term in a very broad sense.*
 
