@@ -5,7 +5,7 @@ title: "About"
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
- <img src="me.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
+ <img src="Nicola_Branchini.png" align="left" width="auto" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
  <br>
  <br>
  <br>
@@ -22,7 +22,7 @@ Some topics I am exploring now are:
 <a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
 
 ### News
-- I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters. 
+- I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
 - I presented a poster about our (ongoing) work on (adaptive) particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
 - I recently gave a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
