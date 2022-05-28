@@ -6,7 +6,7 @@ draft: true
 ---
 *Disclaimer for the Importance Sampling - expert reader: I will be using the term in a very broad sense.*
 
-This post is **not** a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used.
+This post is **not** a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It assumes previous knowledge about it.
 
 ### Numerical integration
 The general ideas that an average approximates an expectation is pervasive. Similarly so, is the idea that observations (data, samples, etc.) can be modelled as realizations of an underlying random variable. The idea of Monte Carlo is related to both.
@@ -30,4 +30,7 @@ The IS-savvy reader may say that the generated points need to follow a distribut
 ### Beyond (explicit) numerical integration
 
 Let me start going through the applications, beyond explicit numerical integration, where the IS idea is key.
-A classic example is Reinforcement Learning, where the objective function (that needs to be maximized, and not estimated) is an expectation w.r.t. , among other things, something that can be controlled by the algorithm (i.e. , the *policy* of the agent). Here, the IS idea is used to either estimate gradients of this objective function (see e.g. [Tang \& Abbeel 2010, NeurIPS](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html))
+A classic example is Reinforcement Learning, where the objective function (that needs to be maximized, and not estimated) is an expectation w.r.t. , among other things, something that can be controlled by the algorithm (i.e. , the *policy* of the agent). Here, the IS idea can be used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive policy gradient algorithms. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common "REINFORCE" (or the log-trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "*We on the other
+hand, suggest importance sampling as a key component
+of any gradient estimator,[...]*"  .
+IS also naturally comes up in off-policy evaluation, where the objective is to
