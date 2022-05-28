@@ -29,7 +29,10 @@ The IS-savvy reader may say that the generated points need to follow a distribut
 
 ### Beyond (explicit) numerical integration
 
-Let me start going through the applications, beyond explicit numerical integration, where the IS idea is key.
+Let me start going through the applications, beyond explicit numerical integration, where the IS idea is key. Most people reading this post likely have a good understanding of how central the idea of Monte Carlo estimation is to countless domains, but not necessarily of IS specifically.
+
+#### Reinforcement learning
+
 A classic example is Reinforcement Learning, where the objective function (that needs to be maximized, and not estimated) is an expectation w.r.t. , among other things, something that can be controlled by the algorithm (i.e. , the *policy* of the agent). Here, the IS idea can be used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive policy gradient algorithms. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common "REINFORCE" (or the log-trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "*We on the other
 hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*"  .
