@@ -77,4 +77,7 @@ IS also naturally comes up in off-policy evaluation, where the objective is to
 - Kuzborskij, I., Vernade, C., Gyorgy, A. and Szepesvári, C., 2021, March. Confident off-policy evaluation and selection through self-normalized importance weighting. In International Conference on Artificial Intelligence and Statistics (pp. 640-648). PMLR.
 - Swaminathan, A. and Joachims, T., 2015. The self-normalized estimator for counterfactual learning. advances in neural information processing systems, 28.
 - Lopez, R., Boyeau, P., Yosef, N., Jordan, M. and Regier, J., 2020. Decision-making with auto-encoding variational bayes. Advances in Neural Information Processing Systems, 33, pp.5081-5092.
--
+- Grover, A., Song, J., Kapoor, A., Tran, K., Agarwal, A., Horvitz, E.J. and Ermon, S., 2019. Bias correction of learned generative models using likelihood-free importance weighting. Advances in neural information processing systems, 32.
+- Will Grathwohl, Jacob Kelly, Milad Hashemi, Mohammad Norouzi, Kevin Swersky, David Duvenaud
+ICLR 2021. No MCMC for me: Amortized sampling for fast and stable training of energy-based models.
+- Brekelmans et al. (ICLR 2022). Improving Mutual Information Estimation with Annealed and Energy-Based Bounds
