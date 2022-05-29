@@ -4,9 +4,14 @@ date: 2022-05-26T22:10:06Z
 type: page
 draft: true
 ---
-*Disclaimer for the Importance Sampling - expert reader: I will be using the term in a very broad sense.*
+***Disclaimer (1)***: *For the Importance Sampling - expert reader: I will be using the term in a very broad sense.*
 
-This post is **not** a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It assumes previous knowledge about it.
+***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It assumes previous knowledge about it.*
+
+Black-box VI, offline RL, covariate shift/DRE, treatment effect estimation, rare events, training EBMs, gradient estimation ,"target-aware" Bayesian inference, fast training of deep nets, optimal control…
+An idea that underlies all of these ?
+Importance Sampling !!
+
 
 ### Numerical integration
 The general ideas that an average approximates an expectation is pervasive. Similarly so, is the idea that observations (data, samples, etc.) can be modelled as realizations of an underlying random variable. The idea of Monte Carlo is related to both.
@@ -37,3 +42,20 @@ A classic example is Reinforcement Learning, where the objective function (that 
 hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*"  .
 IS also naturally comes up in off-policy evaluation, where the objective is to
+
+#### Variational inference
+
+#### Decision making
+
+#### Covariate shift
+
+#### Energy based models
+
+#### Small probabilities
+(include bootstrap and p-values)
+
+#### Deep learning
+
+#### Optimal control
+
+#### More recent cool stuff
