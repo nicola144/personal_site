@@ -23,7 +23,7 @@ $$
   Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
  Monte Carlo provides a framework to develop *randomized* algorithms that are more efficient, theoretically and practically. Often, the integral of interest is already in the form of an expectation:
  $$
- \int h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
+ \int\_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int\_{\mathcal{X}} f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
  \tag{2}\label{eq2}
  $$
  Probabilities are also special cases of expectations. In these cases, it is natural to think of generating points distributed according to $\pi(\mathbf{x})$: this leads to approximating \eqref{eq2} with an arithmetic average (convenient), and many things can be proved about this solution (also convenient). When the integral of interest is *not* an expectation, which is in the more general setting of numerical integration (\eqref{eq1}), things become more interesting.
@@ -65,7 +65,8 @@ IS also naturally comes up in off-policy evaluation, where the objective is to
 - Jie, T. and Abbeel, P., 2010. On a connection between importance sampling and the likelihood ratio policy gradient. Advances in Neural Information Processing Systems, 23.
 - Parmas, P. &amp; Sugiyama, M.. (2021).  A unified view of likelihood ratio and reparameterization gradients . <i>Proceedings of The 24th International Conference on Artificial Intelligence and Statistics</i>, in <i>Proceedings of Machine Learning Research</i> 130:4078-4086 Available from https://proceedings.mlr.press/v130/parmas21a.html.
 - Metelli, A.M., Papini, M., Montali, N. and Restelli, M., 2020. Importance Sampling Techniques for Policy Optimization. J. Mach. Learn. Res., 21, pp.141-1.
--
+- Sugiyama, M., Krauledat, M. and Müller, K.R., 2007. Covariate shift adaptation by importance weighted cross validation. Journal of Machine Learning Research, 8(5).
+- Sugiyama, M. and Ridgeway, G., 2006. Active learning in approximately linear regression based on conditional expectation of generalization error. Journal of Machine Learning Research, 7(1).
 - Ranganath, R., Gerrish, S. &amp; Blei, D.. (2014). Black Box Variational Inference. <i>Proceedings of the Seventeenth International Conference on Artificial Intelligence and Statistics</i>, in <i>Proceedings of Machine Learning Research</i> 33:814-822 Available from https://proceedings.mlr.press/v33/ranganath14.html.
 - Domke, J. and Sheldon, D.R., 2018. Importance weighting and variational inference. Advances in neural information processing systems, 31.
 - Agrawal, A., Sheldon, D.R. and Domke, J., 2020. Advances in black-box VI: Normalizing flows, importance weighting, and optimization. Advances in Neural Information Processing Systems, 33, pp.17358-17369.
