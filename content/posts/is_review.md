@@ -60,10 +60,23 @@ IS also naturally comes up in off-policy evaluation, where the objective is to
 
 #### More recent cool stuff
 
+Thus it
+might be possible to obtain better lower bounds by using
+methods from the importance sampling literature such as
+control variates and adaptive importance sampling
+
+We hope that this work highlights the potential for further improving variational
+techniques by drawing upon the vast body of research on (adaptive) importance
+sampling in the computational statistics literature.
+
 
 ## References
 - Jie, T. and Abbeel, P., 2010. On a connection between importance sampling and the likelihood ratio policy gradient. Advances in Neural Information Processing Systems, 23.
 - Parmas, P. &amp; Sugiyama, M.. (2021).  A unified view of likelihood ratio and reparameterization gradients . <i>Proceedings of The 24th International Conference on Artificial Intelligence and Statistics</i>, in <i>Proceedings of Machine Learning Research</i> 130:4078-4086 Available from https://proceedings.mlr.press/v130/parmas21a.html.
+- Francisco J. R. Ruiz et al. (UAI 2016). Overdispersed black-box variational inference
+- Mohamed, S., Rosca, M., Figurnov, M. and Mnih, A., 2020. Monte Carlo Gradient Estimation in Machine Learning. J. Mach. Learn. Res., 21(132), pp.1-62.
+- Mnih, A. &amp; Rezende, D.. (2016). Variational Inference for Monte Carlo Objectives. <i>Proceedings of The 33rd International Conference on Machine Learning</i>, in <i>Proceedings of Machine Learning Research</i> 48:2188-2196 Available from https://proceedings.mlr.press/v48/mnihb16.html.
+- Levine, S., Kumar, A., Tucker, G. and Fu, J., 2020. Offline reinforcement learning: Tutorial, review, and perspectives on open problems. arXiv preprint arXiv:2005.01643.
 - Metelli, A.M., Papini, M., Montali, N. and Restelli, M., 2020. Importance Sampling Techniques for Policy Optimization. J. Mach. Learn. Res., 21, pp.141-1.
 - Sugiyama, M., Krauledat, M. and Müller, K.R., 2007. Covariate shift adaptation by importance weighted cross validation. Journal of Machine Learning Research, 8(5).
 - Sugiyama, M. and Ridgeway, G., 2006. Active learning in approximately linear regression based on conditional expectation of generalization error. Journal of Machine Learning Research, 7(1).
@@ -81,3 +94,11 @@ IS also naturally comes up in off-policy evaluation, where the objective is to
 - Will Grathwohl, Jacob Kelly, Milad Hashemi, Mohammad Norouzi, Kevin Swersky, David Duvenaud
 ICLR 2021. No MCMC for me: Amortized sampling for fast and stable training of energy-based models.
 - Brekelmans et al. (ICLR 2022). Improving Mutual Information Estimation with Annealed and Energy-Based Bounds
+
+<p>Cited as:</p>
+<pre tabindex="0"><code>@article{branchini2022is,
+  title   = Learning with not Enough Data Part 3: Data Generation,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
