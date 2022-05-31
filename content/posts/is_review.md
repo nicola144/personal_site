@@ -9,12 +9,12 @@ draft: true
 ***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It assumes previous knowledge about it.*
 
 Black-box Variational inference, offline Reinforcement Learning, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
-An idea that underlies all of these ?
+What could be an idea that underlies *all* of these ?
 Importance Sampling !!
 
 
 ### Numerical integration
-The general ideas that an average approximates an expectation is pervasive. Similarly so, is the idea that observations (data, samples, etc.) can be modelled as realizations of an underlying random variable. The idea of Monte Carlo is related to both.
+The general idea that an average approximates an expectation is pervasive. Similarly so, is the idea that observations (data, samples, etc.) can be modelled/interpreted as realizations of an underlying random variable. The idea of Monte Carlo is related to both.
 Traditionally, Monte Carlo methods come up in the context of numerical integration. Here, the problem to solve is simply to approximate the value of an integral:
 $$
 \int_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x}
@@ -38,7 +38,7 @@ Let me start going through the applications, beyond explicit numerical integrati
 
 #### Reinforcement learning
 
-A classic example where IS comes up all over the place is Reinforcement Learning, where the objective function (that needs to be maximized, and not estimated) is an expectation w.r.t. , among other things, something that can be controlled by the algorithm (i.e. , the *policy* of the agent). Here, the IS idea can be used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive policy gradient algorithms. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common "REINFORCE" (or the log-trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "*We on the other
+A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive <span style="color:#0695FF"> *policy gradient algorithms*</span>. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common "REINFORCE" (or the log-trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "*We on the other
 hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*"  .
 IS also naturally comes up in off-policy evaluation, where the objective is to estimate the state-value function, using samples from policies *other* than the one actually used by the agent to take actions. Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)]()

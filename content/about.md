@@ -14,6 +14,9 @@ I am PhD student in Statistics in the [School of Mathematics at the University o
  <br>
  <br>
  <br>
+ <br>
+ <br>
+
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some topics I am exploring now are:
 <ul>
