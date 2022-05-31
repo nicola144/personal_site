@@ -8,13 +8,6 @@ draft: true
 
 ***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It is biased towards the machine learning literature. It assumes previous knowledge about it.*
 
-<p>Cited as:</p>
-<pre tabindex="0"><code>@article{branchini2022is,
-  title   = Importance Sampling: (much!) more than numerical integration,
-  author  = Branchini, Nicola,
-  journal = https://www.branchini.fun,
-  year    = 2022,
-}
 
 Black-box Variational Inference, offline Reinforcement Learning, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
 What could be an idea that is crucial *all* of these really cool topics ?
@@ -48,7 +41,9 @@ Let me start going through the applications, beyond explicit numerical integrati
 
 A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive *policy gradient algorithms*. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common  *REINFORCE/score function* (AKA the log-derivative trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "<span style="color:#0695FF">*We on the other hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*</span>"  .
-In off-policy evaluation, where the objective is to estimate the state-value function, using samples from policies *other* than that used by the agent to take actions. Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)]()
+In off-policy evaluation, where the objective is to estimate the state-value function $V\_{\pi}$, using samples from policies *other* than that used by the agent to take actions. The function $V\_{\pi}$ is then used as a building block of many algorithms to optimize the RL objective.  
+Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)](https://arxiv.org/abs/2005.01643) .
+A very exciting recent work [Metelli et al. (2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
 
@@ -127,3 +122,11 @@ ICLR 2021. No MCMC for me: Amortized sampling for fast and stable training of en
 - Brekelmans et al. (ICLR 2022). Improving Mutual Information Estimation with Annealed and Energy-Based Bounds
 - Kappen, H.J. and Ruiz, H.C., 2016. Adaptive importance sampling for control and inference. Journal of Statistical Physics, 162(5), pp.1244-1266.
 - Asmar, D.M., Senanayake, R., Manuel, S. and Kochenderfer, M.J., 2022. Model Predictive Optimized Path Integral Strategies. arXiv preprint arXiv:2203.16633.
+
+<p>Cited as:</p>
+<pre tabindex="0"><code>@article{branchini2022is,
+  title   = Importance Sampling: (much!) more than numerical integration,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
