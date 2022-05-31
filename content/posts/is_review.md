@@ -10,7 +10,7 @@ draft: true
 
 <p>Cited as:</p>
 <pre tabindex="0"><code>@article{branchini2022is,
-  title   = Learning with not Enough Data Part 3: Data Generation,
+  title   = Importance Sampling: (much!) more than numerical integration,
   author  = Branchini, Nicola,
   journal = https://www.branchini.fun,
   year    = 2022,
