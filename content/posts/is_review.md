@@ -6,10 +6,18 @@ draft: true
 ---
 ***Disclaimer (1)***: *For the Importance Sampling - expert reader: I will be using the term in a very broad sense.*
 
-***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It assumes previous knowledge about it.*
+***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It is biased towards the machine learning literature. It assumes previous knowledge about it.*
 
-Black-box Variational inference, offline Reinforcement Learning, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
-What could be an idea that underlies *all* of these ?
+<p>Cited as:</p>
+<pre tabindex="0"><code>@article{branchini2022is,
+  title   = Learning with not Enough Data Part 3: Data Generation,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
+
+Black-box Variational Inference, offline Reinforcement Learning, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
+What could be an idea that is crucial *all* of these really cool topics ?
 Importance Sampling !!
 
 
@@ -20,13 +28,13 @@ $$
 \int_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x}
 \tag{1}\label{eq1}
 $$
-  Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
+  Notice there is nothing statistical about this problem. Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
  Monte Carlo provides a framework to develop *randomized* algorithms that are more efficient, theoretically and practically. Often, the integral of interest is already in the form of an expectation:
  $$
  \int\_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int\_{\mathcal{X}} f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
  \tag{2}\label{eq2}
  $$
-In these cases, it is natural to think of generating points distributed according to $\pi(\mathbf{x})$: this leads to approximating \eqref{eq2} with an arithmetic average (convenient), and many things can be proved about this solution (also convenient). When the integral of interest is *not* an expectation, which is in the more general setting of numerical integration (\eqref{eq1}), things become more interesting.
+In these cases, it is natural to think of generating points distributed according to $\pi(\mathbf{x})$: this leads to approximating \eqref{eq2} with an arithmetic average (convenient), and many things can be proved about this solution (also convenient). When the integral of interest is *not* an expectation, which is in the more general setting of numerical integration \eqref{eq1}, things become more interesting.
 
 ### Importance Sampling as a randomized algorithm for numerical integration
  To approximate \eqref{eq1}, we want to generate (or obtain from someone else) points from the integration space $\mathcal{X}$ *randomly*. To do a good job, these points ought to be in regions where the integrand has large values.  
@@ -38,10 +46,9 @@ Let me start going through the applications, beyond explicit numerical integrati
 
 #### Reinforcement learning
 
-A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive <span style="color:#0695FF"> *policy gradient algorithms*</span>. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common <span style="color:#0695FF"> *REINFORCE/score function*</span> (AKA the log-derivative trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "*We on the other
-hand, suggest **importance sampling as a key component
-of any gradient estimator**,[...]*"  .
-IS also naturally comes up in off-policy evaluation, where the objective is to estimate the state-value function, using samples from policies *other* than the one actually used by the agent to take actions. Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)]()
+A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive *policy gradient algorithms*. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common  *REINFORCE/score function* (AKA the log-derivative trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "<span style="color:#0695FF">*We on the other hand, suggest importance sampling as a key component
+of any gradient estimator,[...]*</span>"  .
+In off-policy evaluation, where the objective is to estimate the state-value function, using samples from policies *other* than that used by the agent to take actions. Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)]()
 
 #### Variational inference
 
@@ -63,11 +70,34 @@ IS also naturally comes up in off-policy evaluation, where the objective is to e
 Thus it
 might be possible to obtain better lower bounds by using
 methods from the importance sampling literature such as
-control variates and adaptive importance sampling
+control variates and adaptive importance sampling (Mnih)
 
 We hope that this work highlights the potential for further improving variational
 techniques by drawing upon the vast body of research on (adaptive) importance
-sampling in the computational statistics literature.
+sampling in the computational statistics literature. (finke et al)
+
+. In most contemporary applications, we do not use large samples—often we use a single sample in
+the estimator—and it is in this small sample regime that non-linear controls may have applicability (Mohamed et al)
+
+<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+    var disqus_config = function () {
+    this.page.url = "https://personal-site-lemon-seven.vercel.app/posts/2020-03-17-sequential-monte-carlo-and-improved-auxiliary-particle-filters/";  
+    this.page.identifier = "smc-apf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://personal-website-g7y0elzvjn.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 ## References
@@ -97,11 +127,3 @@ ICLR 2021. No MCMC for me: Amortized sampling for fast and stable training of en
 - Brekelmans et al. (ICLR 2022). Improving Mutual Information Estimation with Annealed and Energy-Based Bounds
 - Kappen, H.J. and Ruiz, H.C., 2016. Adaptive importance sampling for control and inference. Journal of Statistical Physics, 162(5), pp.1244-1266.
 - Asmar, D.M., Senanayake, R., Manuel, S. and Kochenderfer, M.J., 2022. Model Predictive Optimized Path Integral Strategies. arXiv preprint arXiv:2203.16633.
-
-<p>Cited as:</p>
-<pre tabindex="0"><code>@article{branchini2022is,
-  title   = Learning with not Enough Data Part 3: Data Generation,
-  author  = Branchini, Nicola,
-  journal = https://www.branchini.fun,
-  year    = 2022,
-}
