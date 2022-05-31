@@ -6,7 +6,7 @@ disqus: false
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
- <img src="Nicola_Branchini.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. Recently, I have started working on optimization methods within <i>Monte Carlo</i> (with particular focus on Sequential Monte Carlo and importance sampling), as well as Bayesian approaches to <i>causal optimization</i> and discovery.
+ <img src="Nicola_Branchini.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. My interests are broadly around (possibly adaptive) Importance Sampling, experimental design, and causal inference.
  <br>
  <br>
  <br>
@@ -14,11 +14,13 @@ I am PhD student in Statistics in the [School of Mathematics at the University o
  <br>
  <br>
  <br>
-I like collaborating with people. If you feel like there is "a match", please feel free to email me for a chat about common topics, and let's see if there is a collaboration waiting there.
+I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some topics I am exploring now are:
 <ul>
-  <li>Efficient adaptive <i>importance sampling</i> schemes for statistical decision making</li>
-  <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i> </li>
+  <li> <i>Importance Sampling</i> schemes for joint estimation of multiple quantities. </li>
+  <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i>. </li>
+  <li>Adaptation schemes for particle filters proposals. </li>
+  <li> Effective sample size - like metrics for importance sampling and/or particle filtering. </li>
 </ul>
 </p>
 
