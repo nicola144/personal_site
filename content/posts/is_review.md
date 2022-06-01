@@ -42,16 +42,17 @@ Let me start going through the applications, beyond explicit numerical integrati
 A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive *policy gradient algorithms*. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common  *REINFORCE/score function* (AKA the log-derivative trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "<span style="color:#0695FF">*We on the other hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*</span>"  .
 In off-policy evaluation, where the objective is to estimate the state-value function $V\_{\pi}$, using samples from policies *other* than that used by the agent to take actions. The function $V\_{\pi}$ is then used as a building block of many algorithms to optimize the RL objective.  
-Off-policy evaluation is a particular task within the more general field of *offline RL*; in [Levine et al. (2021)](https://arxiv.org/abs/2005.01643) .
-A very exciting recent work [Metelli et al. (2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
+Off-policy evaluation is a particular task within the more general field of *offline RL* [(Levine et al., (2021)](https://arxiv.org/abs/2005.01643). Many of the techniques in this field are based on what they call "Marginalized" Importance Sampling, where the agent's action random variables are (approximately) integrated out from the importance ratio to reduce variance (related to the "Rao-Blackwellization" idea in Monte Carlo [(Robert \& Roberts)](https://onlinelibrary.wiley.com/doi/abs/10.1111/insr.12463)), obtaining a "state-marginal importance ratio".
+In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-124/20-124.pdf) develop an IS-based framework to develop model-free (i.e. not using knowledge of how the environment responds to the agent's actions) actor–only (), policy optimization algorithm that mixes on–line and off–line optimization .. [Kuzborskij et al. (2021)](http://proceedings.mlr.press/v130/kuzborskij21a.html) ..
+A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
-
-#### Decision making
+It is somewhat striking that review paper ()
+#### Decision making: treatment effect estimation, policy learning
 
 #### Covariate shift
 
-#### Energy based models
+#### Generative, energy-based and diffusion models  
 
 #### Small probabilities
 (include bootstrap and p-values)
@@ -61,6 +62,8 @@ A very exciting recent work [Metelli et al. (2022)](https://openreview.net/forum
 #### Optimal control
 
 #### More recent cool stuff
+
+adversarial robustness, Object Counting from Satellite Images, Sahra, maybe Safety critical systems , Fair Generative Modeling via Weak Supervision
 
 Thus it
 might be possible to obtain better lower bounds by using
@@ -103,8 +106,10 @@ the estimator—and it is in this small sample regime that non-linear controls m
 - Mnih, A. &amp; Rezende, D.. (2016). Variational Inference for Monte Carlo Objectives. <i>Proceedings of The 33rd International Conference on Machine Learning</i>, in <i>Proceedings of Machine Learning Research</i> 48:2188-2196 Available from https://proceedings.mlr.press/v48/mnihb16.html.
 - Levine, S., Kumar, A., Tucker, G. and Fu, J., 2020. Offline reinforcement learning: Tutorial, review, and perspectives on open problems. arXiv preprint arXiv:2005.01643.
 - Metelli, A.M., Papini, M., Montali, N. and Restelli, M., 2020. Importance Sampling Techniques for Policy Optimization. J. Mach. Learn. Res., 21, pp.141-1.
+- Hanna, J.P., Niekum, S. and Stone, P., 2021. Importance sampling in reinforcement learning with an estimated behavior policy. Machine Learning, 110(6), pp.1267-1317.
 - Sugiyama, M., Krauledat, M. and Müller, K.R., 2007. Covariate shift adaptation by importance weighted cross validation. Journal of Machine Learning Research, 8(5).
 - Sugiyama, M. and Ridgeway, G., 2006. Active learning in approximately linear regression based on conditional expectation of generalization error. Journal of Machine Learning Research, 7(1).
+- Blei, D.M., Kucukelbir, A. and McAuliffe, J.D., 2017. Variational inference: A review for statisticians. Journal of the American statistical Association, 112(518), pp.859-877.
 - Ranganath, R., Gerrish, S. &amp; Blei, D.. (2014). Black Box Variational Inference. <i>Proceedings of the Seventeenth International Conference on Artificial Intelligence and Statistics</i>, in <i>Proceedings of Machine Learning Research</i> 33:814-822 Available from https://proceedings.mlr.press/v33/ranganath14.html.
 - Domke, J. and Sheldon, D.R., 2018. Importance weighting and variational inference. Advances in neural information processing systems, 31.
 - Agrawal, A., Sheldon, D.R. and Domke, J., 2020. Advances in black-box VI: Normalizing flows, importance weighting, and optimization. Advances in Neural Information Processing Systems, 33, pp.17358-17369.
@@ -120,8 +125,12 @@ the estimator—and it is in this small sample regime that non-linear controls m
 - Will Grathwohl, Jacob Kelly, Milad Hashemi, Mohammad Norouzi, Kevin Swersky, David Duvenaud
 ICLR 2021. No MCMC for me: Amortized sampling for fast and stable training of energy-based models.
 - Brekelmans et al. (ICLR 2022). Improving Mutual Information Estimation with Annealed and Energy-Based Bounds
+- Vahdat, A., Kreis, K. and Kautz, J., 2021. Score-based generative modeling in latent space. Advances in Neural Information Processing Systems, 34.
 - Kappen, H.J. and Ruiz, H.C., 2016. Adaptive importance sampling for control and inference. Journal of Statistical Physics, 162(5), pp.1244-1266.
 - Asmar, D.M., Senanayake, R., Manuel, S. and Kochenderfer, M.J., 2022. Model Predictive Optimized Path Integral Strategies. arXiv preprint arXiv:2203.16633.
+- Robert, C.P. and Roberts, G., 2021. Rao–Blackwellisation in the Markov Chain Monte Carlo Era. International Statistical Review, 89(2), pp.237-249.
+- Meng, C., Liu, E., Neiswanger, W., Song, J., Burke, M., Lobell, D. and Ermon, S., 2021. IS-COUNT: Large-scale Object Counting from Satellite Images with Covariate-based Importance Sampling. arXiv preprint arXiv:2112.09126.
+- Rotskoff, G.M., Mitchell, A.R. and Vanden-Eijnden, E., 2022, April. Active importance sampling for variational objectives dominated by rare events: Consequences for optimization and generalization. In Mathematical and Scientific Machine Learning (pp. 757-780). PMLR.
 
 <p>Cited as:</p>
 <pre tabindex="0"><code>@article{branchini2022is,
