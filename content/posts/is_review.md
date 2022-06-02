@@ -21,7 +21,7 @@ $$
 \int_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x}
 \tag{1}\label{eq1}
 $$
-  Notice there is nothing statistical about this problem. Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
+  Notice there is nothing inherently statistical about this problem (I should write a blogpost about this too). Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
  Monte Carlo provides a framework to develop *randomized* algorithms that are more efficient, theoretically and practically. Often, the integral of interest is already in the form of an expectation:
  $$
  \int\_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int\_{\mathcal{X}} f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
@@ -31,7 +31,7 @@ In these cases, it is natural to think of generating points distributed accordin
 
 ### Importance Sampling as a randomized algorithm for numerical integration
  To approximate \eqref{eq1}, we want to generate (or obtain from someone else) points from the integration space $\mathcal{X}$ *randomly*. To do a good job, these points ought to be in regions where the integrand has large values.  
-The IS-savvy reader may say that the generated points need to follow a distribution of some known form. That a density should be available. Maybe the Radon-Nykodim derivative needs to exist, and absolute continuity conditions need to hold, etc. etc. I want to take a broader view, that allows me to consider "IS" a method even if some of these conditions are relaxed. The only one I don't want to relax is that points need to be generated randomly. For example, the IS weights may not be computable. Some may say, then it's not IS - I'm fine with this too, let's not dabble around semantics too much.   
+The IS-savvy reader may say that the generated points need to follow a distribution of some known form. That a density should be available. Maybe the Radon-Nykodim derivative needs to exist, and absolute continuity conditions need to hold, etc. etc. I want to take a broader view, that allows me to consider "IS" a method even if some of these conditions are relaxed. The only one I don't want to relax is that points need to be generated randomly. And that the resulting *estimators* have bounded error. For example, the IS weights may not be computable. Some may say, then it's not IS - I'm fine with this too, let's not dabble around semantics too much.   
 
 ### Beyond (explicit) numerical integration
 
@@ -47,7 +47,10 @@ In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-1
 A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
-I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. 
+I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. Researchers (myself included) love to say things like "there are connections", without being too specific - risking that the statement is vacuously true. I won't be claiming that VI and (adaptive) IS are the same thing: for example, when doing VI with Gaussian processes, it's not clear to me (at the moment) that there would be a connection. However, there are important contexts where saying "I am doing VI" or "I am doing adaptive IS", essentially becomes a matter of jargon/semantics.
+
+So, what is VI ? Let's base our discussion on the authoritative [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw). There is some joint distribution in the wild - this already implies there are *two* distinct random vectors. One is always the observed data; this is what we will condition on. The other can be seen as a latent variable, or a set of parameters over which we are doing Bayesian inference. The narrative goes that we will turn "inference into optimization"; (I hate the word "inference", as it means essentially opposite things in different contexts. Often it's actually quite vague: what does it mean to "know the posterior"? Does it mean being able to compute its density pointwise ? Sample from it? Both? Who knows ).  
+
 #### Decision making: treatment effect estimation, policy learning
 
 #### Covariate shift
