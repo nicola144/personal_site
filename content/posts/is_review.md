@@ -47,7 +47,7 @@ In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-1
 A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
-It is somewhat striking that review paper ()
+I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. 
 #### Decision making: treatment effect estimation, policy learning
 
 #### Covariate shift
@@ -63,7 +63,8 @@ It is somewhat striking that review paper ()
 
 #### More recent cool stuff
 
-adversarial robustness, Object Counting from Satellite Images, Sahra, maybe Safety critical systems , Fair Generative Modeling via Weak Supervision
+adversarial robustness, Object Counting from Satellite Images, Sahra, maybe Safety critical systems , Fair Generative Modeling via Weak Supervision ,  Bayesian leave-one-out
+(LOO) predictive densities for cross-validation (Vehtari), Fong and Holmes
 
 Thus it
 might be possible to obtain better lower bounds by using
