@@ -47,9 +47,12 @@ In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-1
 A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
-I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. Researchers (myself included) love to say things like "there are connections", without being too specific - risking that the statement is vacuously true. I won't be claiming that VI and (adaptive) IS are the same thing: for example, when doing VI with Gaussian processes, it's not clear to me (at the moment) that there would be a connection. However, there are important contexts where saying "I am doing VI" or "I am doing adaptive IS", essentially becomes a matter of jargon/semantics.
+I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. Researchers (myself included) love to say things like "there are connections", without being too specific - risking that the statement is vacuously true. I will **not** be claiming that VI and (adaptive) IS are the same thing: for example, when doing VI with Gaussian processes, it's not clear to me (at the moment) that there would be a connection. However, there are important contexts where saying "I am doing VI" or "I am doing adaptive IS", essentially becomes a matter of jargon/semantics.
 
-So, what is VI ? Let's base our discussion on the authoritative [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw). There is some joint distribution in the wild - this already implies there are *two* distinct random vectors. One is always the observed data; this is what we will condition on. The other can be seen as a latent variable, or a set of parameters over which we are doing Bayesian inference. The narrative goes that we will turn "inference into optimization"; (I hate the word "inference", as it means essentially opposite things in different contexts. Often it's actually quite vague: what does it mean to "know the posterior"? Does it mean being able to compute its density pointwise ? Sample from it? Both? Who knows ).  
+So, what is VI ? Let's base our discussion on the authoritative [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw). There is some joint distribution in the wild - this already implies there are ***two*** distinct random vectors. One is always the observed data; this is what we will condition on. The other can be seen as a latent variable, or a set of parameters over which we are doing Bayesian inference. The narrative goes that we will turn "inference into optimization";
+<a name="myfootnote1">1</a>: Footnote content goes here
+I hate the word "inference", as it means essentially opposite things in different contexts. Often it's actually quite vague: what does it mean to "know the posterior"? Does it mean being able to compute its density pointwise ? Sample from it? Both? Who knows.
+
 
 #### Decision making: treatment effect estimation, policy learning
 
@@ -100,6 +103,8 @@ the estimator—and it is in this small sample regime that non-linear controls m
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<sup>[1](#myfootnote1)</sup>
 
 
 ## References
