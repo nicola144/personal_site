@@ -47,12 +47,16 @@ In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-1
 A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it.
 
 #### Variational inference
-I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. Researchers (myself included) love to say things like "there are connections", without being too specific - risking that the statement is vacuously true. I will **not** be claiming that VI and (adaptive) IS are the same thing: for example, when doing VI with Gaussian processes, it's not clear to me (at the moment) that there would be a connection. However, there are important contexts where saying "I am doing VI" or "I am doing adaptive IS", essentially becomes a matter of jargon/semantics.
+I was quite surprised to notice that the (very nice) paper which reviews Variational Inference (VI) (*for statisticians, too!*) [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw) does not have a *single mention* of IS. Researchers (myself included) love to say things like "there are connections", without being too specific - risking that the statement can be vacuously true. I will **not** be claiming that VI and (adaptive) IS are the same thing: for example, when doing VI with Gaussian processes, it's not clear to me (at the moment) that there would be a connection. However, there are important contexts where saying "I am doing VI" or "I am doing adaptive IS", essentially becomes a matter of jargon/semantics.
 
-So, what is VI ? Let's base our discussion on the authoritative [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw). There is some joint distribution in the wild - this already implies there are ***two*** distinct random vectors. One is always the observed data; this is what we will condition on. The other can be seen as a latent variable, or a set of parameters over which we are doing Bayesian inference. The narrative goes that we will turn "inference into optimization";
-<a name="myfootnote1">1</a>: Footnote content goes here
-I hate the word "inference", as it means essentially opposite things in different contexts. Often it's actually quite vague: what does it mean to "know the posterior"? Does it mean being able to compute its density pointwise ? Sample from it? Both? Who knows.
+So, what is VI ? Let's base our discussion on the authoritative [(Blei et al., 2017)](https://www.tandfonline.com/doi/full/10.1080/01621459.2017.1285773?casa_token=wpBj9k7gAU0AAAAA%3AzrAT46qgG3uN30hvYd0DleI2K8Rdzi58eJPzPoc16de6MGMXUSlNXjWkIn_x928QtDG3NvroWLuw). There is some joint distribution in the wild - this already implies there are ***two*** distinct random vectors. One is always the observed data; this is what we will condition on. The other can be seen as a latent variable, or a set of parameters over which we are doing Bayesian inference. The narrative goes that we will turn "inference into optimization"<sup>[1](#myfootnote1)</sup>: find the density $q$ (if exists, otherwise distribution function, measure etc.) that is the argmin of $KL(q || p)$, where $p$ is the **conditional** of the latent given the observed. So, where is the connection with (adaptive IS)?
 
+Well. In adaptive IS, we are looking at an integral, which may involve an expectation over some distribution, as we discussed previously. Let's say it does, for simplicity, and that this distibution is the $p$ we were talking about for VI. Then, maybe because we cannot sample from $p$, we say that we want to find a $q$ that is "close" to $p$ . You see it, right? Sure, in IS, we normally implicitly assume parametric models. But so does almost all of modern VI. By which, I mean black-box VI (BBVI). Indeed, in BBVI we assume that nothing is closed form, so we have to optimize the KL iteratively wrt to our $q$, which is parameterized by a neural network. The optimization will be done by gradient descent. Since the KL is an expectation, the gradient of the KL is an expression that involves an expectation. We are back to gradient estimation as in policy gradients, as discussed before. As we mentioned, IS is relevant to form gradient estimators. But now hopefully you can see that we have this $q$, and we are ***sampling from it***, changing its parameters (by following the direction of the approximated gradient), and so on iteratively. This is nothing but adapting an IS proposal to $p$.
+
+
+They (re)discover that from the samples generated by this process, one can get an accurate (consistent) approximation of $p$, by looking at the distribution of the resampled particles, a concept well understood in self-normalized IS (for a simple proof, see Paul Fearnhead's PhD thesis, page 16, for a simple proof).
+
+In the context of machine learning, the promise of using a statistical model (called "generative") is that of going beyond a discriminative (or purely predictive) model  
 
 #### Decision making: treatment effect estimation, policy learning
 
@@ -64,16 +68,16 @@ I hate the word "inference", as it means essentially opposite things in differen
 (include bootstrap and p-values)
 
 #### Deep learning
+Techniques to train modern neural networks rely on stochastic optimization schemes (i.e., Monte Carlo approximations of expectated values in the context of an optimization objective), so unsuprisingly the idea of IS (sampling where it matters) can be exploited.
 
 #### Optimal control
 
 #### More recent cool stuff
 
 adversarial robustness, Object Counting from Satellite Images, Sahra, maybe Safety critical systems , Fair Generative Modeling via Weak Supervision ,  Bayesian leave-one-out
-(LOO) predictive densities for cross-validation (Vehtari), Fong and Holmes
+(LOO) predictive densities for cross-validation (Vehtari), Fong and Holmes, Accelerating HEP simulations with Neural Importance Sampling
 
-Thus it
-might be possible to obtain better lower bounds by using
+Thus it might be possible to obtain better lower bounds by using
 methods from the importance sampling literature such as
 control variates and adaptive importance sampling (Mnih)
 
@@ -104,7 +108,8 @@ the estimator—and it is in this small sample regime that non-linear controls m
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-<sup>[1](#myfootnote1)</sup>
+
+<a name="myfootnote1">1</a>: I hate the word "inference", as it means essentially opposite things in different contexts. Often it's actually quite vague: what does it mean to "know the posterior"? Does it mean being able to compute its density pointwise ? Sample from it? Both? Who knows.
 
 
 ## References
