@@ -17,8 +17,10 @@ The $\widehat{\tau}$ estimator is unbiased by applying the law of iterated expec
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$ -->
 
 $$\begin{equation}\begin{aligned}
-\int x 
+\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
+
+
 ## Thoughts
 
 
