@@ -1,7 +1,7 @@
 ---
 title: "(WORK IN PROGRESS) Combining independent and unbiased estimators"
 date: 2022-05-26T22:10:06Z
-draft: true 
+draft: true
 ---
 
 I came across this 1.25 page paper by Don Rubin and Sanford Weisberg [(Rubin \& Weisberg)](https://academic.oup.com/biomet/article-abstract/62/3/708/257707) in Biometrika from 1975.
@@ -26,7 +26,7 @@ In the third line, the second term is $0$ since the variance of $1$ is $0$. At t
 $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} .
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
-Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$.
+Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^star] = \mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[t^\star]$.
 
 
 ## Thoughts
