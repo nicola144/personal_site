@@ -17,7 +17,7 @@ The $\widehat{\tau}$ estimator is unbiased by applying the law of iterated expec
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$ -->
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}}[\widehat{t} \mid \widehat{\alpha\_{1}, \dots, \widehat{\alpha\_{K}]]
+\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}} ]
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
 
 
