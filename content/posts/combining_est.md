@@ -19,7 +19,7 @@ $$\begin{equation}\begin{aligned}
 where $\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}$ is the joint law of the $ \widehat{\mathbf{\alpha}} := \widehat{\alpha}\_k$, $\mathbf{P}\_{\widehat{t} | \widehat{\mathbf{\alpha}}}$ the conditional of $\widehat{t}$ given $\widehat{\mathbf{\alpha}}$, and $\mathbf{P}\_{\widehat{t}}$ the marginal of $\widehat{t}$. Note that actually we need the weights to sum to $1$ only in expectation, for unbiasedness.
 Because of the unbiasedness, the mean squared error of the estimator $\widehat{t}$ will be just equal to its variance, for which we apply the law of total variance:
 $$\begin{equation}\begin{aligned}
- \mathbb{V}[\widehat{t}] = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\mathbf{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] +
+ \mathbb{V}_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\mathbf{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] + \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{E}\_{\mathbf{P}\_{\widehat{t} | \widehat{\mathbf{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ]
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
 
 ## Thoughts
