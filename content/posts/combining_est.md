@@ -27,7 +27,7 @@ In the third line, the second term is $0$ since the variance of $1$ is $0$. At t
 $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} = \frac{\sum\_{k=1}^{K} \frac{1}{V\_{k}} t\_{k}}{\sum\_{k^\prime=1}^{K} \frac{1}{V\_{k^\prime}}}
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
-This is the so-called "BLUE" (Best Unbiased Linear Estimator) in this specific context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$.
+<!-- This is the so-called "BLUE" (Best Unbiased Linear Estimator) in this specific context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$. -->
 
 ## Thoughts
 
