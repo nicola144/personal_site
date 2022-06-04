@@ -20,7 +20,8 @@ where $\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}$ is the joint law of the $ \wideh
 Because of the unbiasedness, the mean squared error of the estimator $\widehat{t}$ will be just equal to its variance, for which we apply the law of total variance:
 $$\begin{equation}\begin{aligned}
  \mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] + \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{E}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] \\\\\\
- &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} \tau\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{= 0}
+ &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} \tau\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{=~ 0} \\\\\\
+ &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ]
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
 
 
