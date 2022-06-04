@@ -21,13 +21,13 @@ Because of the unbiasedness, the mean squared error of the estimator $\widehat{t
 $$\begin{equation}\begin{aligned}
  \mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] + \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{E}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] \\\\\\
  &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\mathbf{P}\_{\widehat{t} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} t\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{=~ 0} \\\\\\
- &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] .
+ &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] .
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
 In the third line, the second term is $0$ since the variance of $1$ is $0$. At this point Rubin \& Weisberg use a little trick to link this variance to that of the optimal one. Let us define $t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}$ (the paper uses $\alpha\_{k}$ instead, but my notation is better). The optimum weights are now **deterministic**, and they can be shown to be equal to $\alpha\_{k}^{\star} = \frac{1}{W \cdot V\_{k}}$ with $W = \sum\_{k=1}^{K} \frac{1}{V\_k}$. Therefore, let the optimum estimator be:
 $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} = \frac{\sum\_{k=1}^{K} \frac{1}{V\_{k}} t\_{k}}{\sum\_{k^\prime=1}^{K} \frac{1}{V\_{k^\prime}}}
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
-<!-- This is the so-called "BLUE" (Best Unbiased Linear Estimator) in this specific context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$. -->
+
 
 ## Thoughts
 
