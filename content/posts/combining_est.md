@@ -1,5 +1,5 @@
 ---
-title: "(WORK IN PROGRESS) Combining estimators"
+title: "(WORK IN PROGRESS) Combining independent \& unbiased estimators"
 date: 2022-05-26T22:10:06Z
 type: page
 draft: true
