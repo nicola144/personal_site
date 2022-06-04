@@ -13,11 +13,11 @@ We let $\tau$ be the true, unknown quantity of interest. Estimators of $\tau$ wi
 The $\widehat{\tau}$ estimator is unbiased by applying the law of iterated expectation:
 
 <!-- $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}} [\widehat{t} \mid \widehat{\alpha\_{1}, \dots, \widehat{\alpha\_{K} ] ] = \tau \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[(\sum\_{k=1}^{K} \widehat{\alpha\_{k}})] = \tau 
+\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}} [\widehat{t} \mid \widehat{\alpha\_{1}, \dots, \widehat{\alpha\_{K} ] ] = \tau \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[(\sum\_{k=1}^{K} \widehat{\alpha\_{k}})] = \tau
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$ -->
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}}[ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K}]]
+\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}}[ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K}]]  = \tau \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[(\sum\_{k=1}^{K} \widehat{\alpha\_{k}})] = \tau
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
 
 
