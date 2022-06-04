@@ -2,6 +2,7 @@
 title: "(WORK IN PROGRESS) Combining independent and unbiased estimators"
 date: 2022-05-26T22:10:06Z
 type: page
+draft: true
 ---
 
 I came across this 1.25 page paper by Don Rubin and Sanford Weisberg [(Rubin \& Weisberg)](https://academic.oup.com/biomet/article-abstract/62/3/708/257707) in Biometrika from 1975.
@@ -39,8 +40,8 @@ Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 
     var disqus_config = function () {
-    this.page.url = "https://personal-site-lemon-seven.vercel.app/posts/2020-03-17-sequential-monte-carlo-and-improved-auxiliary-particle-filters/";  
-    this.page.identifier = "smc-apf"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.url = "https://www.branchini.fun/posts/combining_est";  
+    this.page.identifier = "combiningest"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
