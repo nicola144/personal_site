@@ -12,8 +12,7 @@ If anything, it can be seen as a nice little exercise.
 We let $\tau$ be the true, unknown quantity of interest. Estimators of $\tau$ will just be sub-indexed, as $\tau\_1,\dots,\tau\_K$. These are *independent* (not necessarily i.i.d.) and *unbiased*.  We will assess the quality of the estimators by their mean squared error. We now define an estimator: $\widehat{\tau} := \sum\_{k=1}^{K} \hat{\alpha}\_k \tau\_k $, with the weights $\hat{\alpha}\_k$ be ***random variables*** and such that $\sum\_{k=1}^{K} \widehat{\alpha\_{k}} = 1$. Why did they define weights as random variables ? Probably as we shall see, because the optimal weights involve a quantity that needs to be estimated. That is, $\widehat{\tau}$ is the estimator we can *actually* use, and we will compare it to some intractable optimal solution.  \\
 The $\widehat{\tau}$ estimator is unbiased by applying the law of iterated expectation:
 $$
-\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}} [\widehat{t} \mid \widehat{\alpha\_{1}, \dots, \widehat{\alpha\_{K} ] ] = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[ \sum\_{k=1}^{K} \hat{\alpha}\_k \tau\_k ] = \tau (\mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\sum\_{k=1}^{K} \hat{\alpha}\_k \tau\_k]) = \tau
-\tag{1}\label{eq1}
+\mathbb{E}\_{\widehat{\tau}} = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\mathbf{P}\_\widehat{t}} [\widehat{t} \mid \widehat{\alpha\_{1}, \dots, \widehat{\alpha\_{K} ] ] = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[ \sum\_{k=1}^{K} \hat{\alpha}\_k \tau\_k ] = 
 $$
 
 
