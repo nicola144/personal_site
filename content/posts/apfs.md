@@ -11,7 +11,7 @@ In this post, my aims are:
 
 The somewhat comprehensive "tutorial" and introduction to the topic arose from my feeling that the only content online that covers particle filters is either very theoretical material , or programming-oriented tutorials that completely lack motivation for how and why the algorithms are constructed as they are.
 
-1. [Brief introduction to sequential inference](#introduction)
+1. [Brief introduction to sequential inference]({{< relref "#introduction" >}})
     1. [General Bayesian Filtering](#generalfilter)
     2. [Recursive Formulations](#recursive)
 2. [Particle Filtering](#pf)
