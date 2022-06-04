@@ -31,7 +31,7 @@ Some topics I am exploring now are:
 ### News
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
-- I presented a poster about our (ongoing) work on (adaptive) particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
+- I presented a poster about our (ongoing) work on adaptive particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
 - I recently gave a talk at the [Causal Inference Interest Group (CIIG)](https://neildhir.github.io/ciig/) at the Alan Turing Institute.
 
 

@@ -1,5 +1,5 @@
 ---
-title: "(WORK IN PROGRESS) Combining independent \& unbiased estimators"
+title: "(WORK IN PROGRESS) Combining independent and unbiased estimators"
 date: 2022-05-26T22:10:06Z
 type: page
 draft: true
@@ -17,8 +17,17 @@ $$
 $$
 
 
+## Thoughts
 
 
-
+## References
 
 Rubin, D.B. and Weisberg, S., 1975. The variance of a linear combination of independent estimators using estimated weights. Biometrika, 62(3), pp.708-709.
+
+<p>Cited as:</p>
+<pre tabindex="0"><code>@article{branchini2022is,
+  title   = Combining independent and unbiased estimators,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
