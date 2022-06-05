@@ -43,6 +43,11 @@ $$\begin{equation}\begin{aligned}
 1 + \sum\_{k=1}^{K} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
 \frac{\left (   \widehat{\alpha\_{k}} -(\alpha\_{k}^{\star})^2  \right )^2}{\alpha\_{k}^{\star}}
 \right ]
+\right ] \\\\\\
+\mathbb{V}[t^\star] \left [
+1 + \sum\_{k=1}^{K} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
+\alpha\_{k}^{\star}\cdot \left (\frac{ \widehat{\alpha\_{k}} -(\alpha\_{k}^{\star})^2  }{\alpha\_{k}^{\star}} \right )^2
+\right ]
 \right ]
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
 
