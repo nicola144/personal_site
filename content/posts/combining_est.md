@@ -17,16 +17,16 @@ Why did they define weights as random variables ? As we shall see, because the o
 The $\widehat{t}$ estimator is unbiased by applying the law of iterated expectation (*and* the law of the unconsciuous statistician):
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] = \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}}[\mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}}[ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K}]]  = \tau \cdot \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left \[ \left (\sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ) \right \] = \tau
+\mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] = \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}}[\mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}}[ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K}]]  = \tau \cdot \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left \[ \left (\sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ) \right \] = \tau
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
 
-where $\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}$ is the joint law of the $ \widehat{\boldsymbol{\alpha}} := [\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}]^\top$, $\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}$ the conditional of $\widehat{t}$ given $\widehat{\boldsymbol{\alpha}}$, and $\mathbf{P}\_{\widehat{t}}$ the marginal of $\widehat{t}$. If you are not familiar with $\bigotimes\_k \mathbf{P}$, it just means a joint which factorizes as the product of its $K$ marginals. Note that actually we need the weights to sum to $1$ only in expectation, for unbiasedness. However, we will need that they sum to 1 for *all* realizations of the random variables for the next derivation.<sup>[1](https://www.branchini.fun/posts/combining_est/#myfootnote1)</sup>
+where $\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}$ is the joint law of the $ \widehat{\boldsymbol{\alpha}} := [\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}]^\top$, $\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}$ the conditional of $\widehat{t}$ given $\widehat{\boldsymbol{\alpha}}$, and $\mathbf{P}\_{\widehat{t}}$ the marginal of $\widehat{t}$. If you are not familiar with $\bigotimes\_k \mathbf{P}$, it just means a joint which factorizes as the product of its $K$ marginals. Note that actually we need the weights to sum to $1$ only in expectation, for unbiasedness. However, we will need that they sum to 1 for *all* realizations of the random variables for the next derivation.<sup>[1](https://www.branchini.fun/posts/combining_est/#myfootnote1)</sup>
 
 Because of the unbiasedness, the mean squared error of the estimator $\widehat{t}$ will be just equal to its variance, for which we apply the law of total variance:
 $$\begin{equation}\begin{aligned}
- \mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] + \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] \\\\\\
- &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} t\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{=~ 0} \\\\\\
- &= \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] .
+ \mathbb{V}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] &= \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] + \mathbb{V}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K} \right ] \right ] \\\\\\
+ &= \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} t\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{=~ 0} \\\\\\
+ &= \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] .
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
 In the third line, the second term is $0$ since the variance of a constant (here, $1$) is $0$. At this point Rubin \& Weisberg use a little trick to link this variance to that of the optimum one. Let us define $t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}$ (the paper uses $\alpha\_{k}$ instead, but my notation is better). The optimum weights are now **deterministic**, and they can be shown to be equal to $\alpha\_{k}^{\star} = \frac{1}{W \cdot V\_{k}}$ with $W = \sum\_{k=1}^{K} \frac{1}{V\_k}$. Therefore, let the optimum estimator be:
 $$\begin{equation}\begin{aligned}
@@ -41,15 +41,15 @@ $$\begin{equation}\begin{aligned}
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
 Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}$ (given to us by \eqref{eq4}):
 $$\begin{equation}\begin{aligned}
-\mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{V\_{k}} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \color{LimeGreen}{V\_{k}}}^{=~\mathbb{V}[t^\star]} \\\\\\
-&= \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \right ] -  \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \\\\\\
+\mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{V\_{k}} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \color{LimeGreen}{V\_{k}}}^{=~\mathbb{V}[t^\star]} \\\\\\
+&= \mathbb{V}[t^\star] + \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \right ] -  \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \\\\\\
 &= \mathbb{V}[t^\star] \left [
-1 + \sum\_{k=1}^{K} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
+1 + \sum\_{k=1}^{K} \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [
 \frac{\left (   \widehat{\alpha\_{k}} -(\alpha\_{k}^{\star})^2  \right )^2}{\alpha\_{k}^{\star}}
 \right ]
 \right ] \\\\\\
 &= \mathbb{V}[t^\star] \left [
-1 + \sum\_{k=1}^{K} \alpha\_{k}^{\star} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
+1 + \sum\_{k=1}^{K} \alpha\_{k}^{\star} \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [
  \left (\frac{ \widehat{\alpha\_{k}} -(\alpha\_{k}^{\star})^2  }{\alpha\_{k}^{\star}} \right )^2
 \right ]
 \right ] .
