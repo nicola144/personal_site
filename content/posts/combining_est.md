@@ -38,7 +38,7 @@ $$\begin{equation}\begin{aligned}
 Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}$ (given to us by \eqref{eq4}):
 $$\begin{equation}\begin{aligned}
 \mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}}^{=~\mathbb{V}[t^\star]} \\\\\\
-&=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}} \right ] - \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \cdot aa }
+&= \mathbb{V}[t^\star] +
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
 
 
