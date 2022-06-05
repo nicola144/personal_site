@@ -33,7 +33,7 @@ $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} = \frac{\sum\_{k=1}^{K} \frac{1}{V\_{k}} t\_{k}}{\sum\_{k^\prime=1}^{K} \frac{1}{V\_{k^\prime}}} .
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
 
-This is the so-called "BLUE" [(Best Linear Unbiased Estimator)](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem), in this context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}[t^\star] = \mathbb{V}\_{\mathbf{P}\_{t^\star}}[t^\star]= \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$.
+This is the so-called "BLUE" [(Best Linear Unbiased Estimator)](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem), in this context. This is because we will show that, with this choice of weights, $\mathbb{V}[t^\star] \leq \mathbb{V}[\widehat{t}]$. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}[t^\star] = \mathbb{V}\_{\mathbf{P}\_{t^\star}}[t^\star]= \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$.
 Now we are going to express the variance of $t^\star$ in a way that will allows us for comparison witht that of $\widehat{t}$ (and indeed, prove $\mathbb{V}[t^\star] \leq \mathbb{V}[\widehat{t}]$). We write:
 $$\begin{equation}\begin{aligned}
 \require{cancel}
@@ -54,7 +54,7 @@ $$\begin{equation}\begin{aligned}
 \right ]
 \right ] .
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
-Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
+Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators of the optimum weights $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
 ## Thoughts
 
 
@@ -67,7 +67,7 @@ Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V
 
 ## References
 
-Rubin, D.B. and Weisberg, S., 1975. The variance of a linear combination of independent estimators using estimated weights. Biometrika, 62(3), pp.708-709.
+Rubin, D.B. and Weisberg, S., 1975. The variance of a linear combination of independent estimators using estimated weights. *Biometrika*, 62(3), pp.708-709.
 
 
 <div id="disqus_thread"></div>
