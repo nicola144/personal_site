@@ -41,7 +41,7 @@ $$\begin{equation}\begin{aligned}
 \mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{V\_{k}} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \color{LimeGreen}{V\_{k}}}^{=~\mathbb{V}[t^\star]} \\\\\\
 &= \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{\cancel{2}} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\cancel{\alpha\_{k}^{\star}}}} \right ] -  \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^{\cancel{2}} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\cancel{\alpha\_{k}^{\star}}}} \\\\\\
 &= \mathbb{V}[t^\star] \left [
-1 + \sum_{k=1}^{K} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
+1 + \sum\_{k=1}^{K} \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [
 \frac{\left (   \widehat{\alpha\_{k}} -(\alpha\_{k}^{\star})^2  \right )^2}{\alpha\_{k}^{\star}}
 \right ]
 \right ]
