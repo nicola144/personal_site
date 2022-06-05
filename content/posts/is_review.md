@@ -9,7 +9,7 @@ draft: true
 ***Disclaimer (2)***: *This post is not a generic introduction to Importance Sampling. It is an overview of many of the places where the key ideas behind the methodology are used. It is biased towards the machine learning literature. It assumes previous knowledge about it.*
 
 
-Black-box Variational Inference, offline Reinforcement Learning, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
+Black-box Variational Inference, offline Reinforcement Learning, probabilistic programming, covariate shift, treatment effect estimation, rare event simulation, training Energy Based Models, gradient estimation ,"target-aware" Bayesian inference, fast training of deep neural networks, optimal control …
 What could be an idea that is crucial *all* of these really cool topics ?
 Importance Sampling !!
 
@@ -61,6 +61,8 @@ In the context of machine learning, the promise of using a statistical model (ca
 #### Decision making: treatment effect estimation, policy learning
 
 #### Covariate shift
+
+### Probabilistic programming 
 
 #### Generative, energy-based and diffusion models  
 
