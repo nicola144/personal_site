@@ -35,9 +35,10 @@ $$\begin{equation}\begin{aligned}
 \require{cancel}
 \mathbb{V}[t^\star] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k} = \frac{\sum\_{k=1}^{K} \left ( \frac{1}{V\_{k}} \right )^2 \cdot V\_{k}}{W^2} = \frac{\cancel{\sum\_{k=1}^{K} \frac{1}{V\_{k}}}}{\cancel{W} \cdot W} = \frac{1}{W} = \frac{1}{V\_{k} W} \cdot V\_{k} = \alpha\_{k} V\_{k} .
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
-Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{V\_{k}}$ (given to us by \eqref{eq4}):
+Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}$ (given to us by \eqref{eq4}):
 $$\begin{equation}\begin{aligned}
-\mathbb{V}[\widehat{t}] =  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}}^{=~\mathbb{V}[t^\star]}
+\mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}}^{=~\mathbb{V}[t^\star]} \\\\\\
+&=  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}} \right ] - \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \cdot \frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}} }
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
 
 
