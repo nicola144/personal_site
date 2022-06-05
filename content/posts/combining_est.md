@@ -29,12 +29,16 @@ $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} = \frac{\sum\_{k=1}^{K} \frac{1}{V\_{k}} t\_{k}}{\sum\_{k^\prime=1}^{K} \frac{1}{V\_{k^\prime}}} .
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
 
-This is the so-called "BLUE" [(Best Linear Unbiased Estimator)](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem), in this context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$.
+This is the so-called "BLUE" [(Best Linear Unbiased Estimator)](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem), in this context. Note that by design $\sum\_{k=1}^{K} \alpha\_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}[t^\star] = \mathbb{V}\_{\mathbf{P}\_{t^\star}}[t^\star]= \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k}}}[\sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}$.
 Now we are going to express the variance of $t^\star$ in a way that will allows us for comparison witht that of $\widehat{t}$ (and indeed, prove $\mathbb{V}[t^\star] \leq \mathbb{V}[\widehat{t}]$). We write:
 $$\begin{equation}\begin{aligned}
 \require{cancel}
-\mathbb{V}[t^\star] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2) V\_{k} = \frac{\sum\_{k=1}^{K} \left ( \frac{1}{V\_{k}} \right )^2 \cdot V\_{k}}{W^2} = \frac{\cancel{\sum\_{k=1}^{K} \frac{1}{V\_{k}}}}{\cancel{W} \cdot W} = \frac{1}{W} = \frac{1}{V\_{k} W} \cdot V\_{k} = \alpha\_{k} V\_{k}
+\mathbb{V}[t^\star] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k} = \frac{\sum\_{k=1}^{K} \left ( \frac{1}{V\_{k}} \right )^2 \cdot V\_{k}}{W^2} = \frac{\cancel{\sum\_{k=1}^{K} \frac{1}{V\_{k}}}}{\cancel{W} \cdot W} = \frac{1}{W} = \frac{1}{V\_{k} W} \cdot V\_{k} = \alpha\_{k} V\_{k} .
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
+Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{V\_{k}}$ (given to us by \eqref{eq4}):
+$$\begin{equation}\begin{aligned}
+\mathbb{V}[\widehat{t}] =  \mathbb{V}[t^\star] + \mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{\alpha\_{k}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k}}^{=~\mathbb{V}[t^\star]}
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$
 
 
 ## Thoughts
