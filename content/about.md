@@ -88,7 +88,7 @@ Totally worth having the physical version.
 - [Michael Betancourt's blog](https://betanalpha.github.io/writing/?fbclid=IwAR32LpCi6bC6SwqGmsbfmo147GhKrfup7P4JY0_o2jiW6dT9BQ58arigx8M)
 - [Sam Power's blog](https://sites.google.com/view/sp-monte-carlo/blog-posts)
 - [Deniz Akyıldız's blog](https://www.almoststochastic.com/)
-- [Yuling Yao's blog](yulingyao.com/blog/)
+- [Yuling Yao's blog](https://yulingyao.com/blog/)
 - [Frank Nielsen's blog](https://franknielsen.github.io/blog/blog.html)
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
 - [Cambridge MLG blog on ML](https://mlg-blog.com/)
