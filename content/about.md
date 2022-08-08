@@ -47,6 +47,16 @@ Some topics I am exploring now are:
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
 
+- [***Caus4l 3ntropy Optimiz4tion***](https://proceedings.mlr.press/v161/branchini21a.html), (Submitted).
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+  In this paper..
+</p>
+<img src="/ceo.svg" width="1000" height="300">
+</div>
+
 
 ### Talks & Posters
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/), May 2022.

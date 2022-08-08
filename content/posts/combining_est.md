@@ -56,10 +56,9 @@ $$\begin{equation}\begin{aligned}
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
 Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators of the optimum weights $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
 ## Thoughts
-
-
-
-
+A little food for thought (on which I won't elaborate too much, since well, this is a blogpost).
+Do we need that the estimated weights are positive ?
+http://proceedings.mlr.press/v32/neufeld14.pdf , Owen square root 
 
 ### Footnotes
 <a name="myfootnote1">1</a>: I could have written \eqref{eq1} as just $\mathbb{E}[\widehat{t}] = \mathbb{E}\_{\alpha\_{k}}[\mathbb{E}[\widehat{t} | \alpha\_{1}, \dots, \alpha\_{K}]] = \tau$. Wouldn't that be nicer. Compact notation is great if you know exactly what the writer's doing - I want to force the reader to recall all the assumptions that are being made.
