@@ -29,7 +29,7 @@ Some topics I am exploring now are:
 <a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
 
 ### News
-- Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
+- Poster on "*Causal Entropy Optimisation*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
 - I presented a poster about our (ongoing) work on adaptive particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
@@ -49,7 +49,7 @@ All publications are as first author unless otherwise specified.
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
 
-- [***Caus4l 3ntropy Optimiz4tion***](https://proceedings.mlr.press/v161/branchini21a.html), (Submitted).
+- [***Causal Entropy Optimisation***](https://proceedings.mlr.press/v161/branchini21a.html), (Under review; no link for now).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
