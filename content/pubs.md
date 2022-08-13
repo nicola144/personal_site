@@ -3,8 +3,9 @@ title: "Publications"
 disqus: false
 ---
 
-## Publications
 All publications are as first author unless otherwise specified. 
+
+
 - [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. In *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
 
 <button type="button" class="collapsible">Details about paper</button>
