@@ -54,7 +54,7 @@ $$\begin{equation}\begin{aligned}
 \right ]
 \right ] .
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
-Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators of the optimum weights $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
+Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
 
 ## Thoughts
 A little food for thought (on which I won't elaborate too much, since well, this is a blogpost).
