@@ -56,10 +56,11 @@ $$\begin{equation}\begin{aligned}
 \end{aligned}\end{equation}\tag{5}\label{eq5}$$
 Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators of the optimum weights $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
 ## Thoughts
+
 A little food for thought (on which I won't elaborate too much, since well, this is a blogpost).
-- From the last line of \eqref{eq5}, we see that it doesn't matter whether the weight estimates are positive or negative. 
-- We also see that correlation between the weight estimates $\widehat{\alpha}\_{K}$ does not influence the variance. 
-- What is the most restrictive constraint here? The unbiasedness? The independence of the $t_k$'s ?  
+* From the last line of \eqref{eq5}, we see that it doesn't matter whether the weight estimates are positive or negative. 
+* We also see that correlation between the weight estimates $\widehat{\alpha}\_{K}$ does not influence the variance. 
+* What is the most restrictive constraint here? The unbiasedness? The independence of the $t_k$'s ?  
 
 ### Footnotes
 <a name="myfootnote1">1</a>: I could have written \eqref{eq1} as just $\mathbb{E}[\widehat{t}] = \mathbb{E}\_{\alpha\_{k}}[\mathbb{E}[\widehat{t} | \alpha\_{1}, \dots, \alpha\_{K}]] = \tau$. Wouldn't that be nicer. Compact notation is great if you know exactly what the writer's doing - I want to force the reader to recall all the assumptions that are being made.
