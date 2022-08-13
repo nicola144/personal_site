@@ -29,6 +29,7 @@ Some topics I am exploring now are:
 <a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
 
 ### News
+- Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
 - I presented a poster about our (ongoing) work on adaptive particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
@@ -36,6 +37,7 @@ Some topics I am exploring now are:
 
 
 ## Publications
+All publications are as first author unless otherwise specified. 
 - [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. In *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
 
 <button type="button" class="collapsible">Details about paper</button>

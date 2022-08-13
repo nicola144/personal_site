@@ -14,7 +14,7 @@ If anything, it can be seen as a fun little exercise. The result is simple, so p
 We let $\tau$ be the true, unknown quantity of interest. Estimators of $t$ will just be sub-indexed, as $t\_1,\dots,t\_K$. These are *mutually independent* (not necessarily i.i.d.) and *unbiased*.  We will assess the quality of the estimators by their mean squared error. We now define an estimator: $\widehat{t} := \sum\_{k=1}^{K} \hat{\alpha}\_{k} t\_{k} $, with the weights $\hat{\alpha}\_k$ be ***random variables*** and such that $\sum\_{k=1}^{K} \widehat{\alpha\_{k}} = 1$. They are independent of $t\_1,\dots,t\_K$. We will see that the $\hat{\alpha}\_k$'s need ***not*** be mutually independent in order for the result to hold. That's all the assumptions on the distribution of the weights. We further denote the variance of the individual estimators $t\_{k}$ as $V\_{k}$.
 
 Why did they define weights as random variables ? As we shall see, because the optimum weights involve a quantity that needs to be estimated. That is, $\widehat{t}$ is the estimator we can *actually* use, and we will compare it to some intractable optimum solution.  
-The $\widehat{t}$ estimator is unbiased by applying the law of iterated expectation (*and* the law of the unconsciuous statistician):
+We see that $\widehat{t}$ is unbiased by applying the law of iterated expectation (*and* the law of the unconsciuous statistician):
 
 $$\begin{equation}\begin{aligned}
 \mathbb{E}[\widehat{t}] = \mathbb{E}\_{\mathbf{P}\_{\widehat{t}}}[\widehat{t}] = \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}}[\mathbb{E}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}}[ \widehat{t} | \widehat{\alpha}\_{1}, \dots,  \widehat{\alpha}\_{K}]]  = \tau \cdot \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left \[ \left (\sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ) \right \] = \tau
@@ -28,7 +28,7 @@ $$\begin{equation}\begin{aligned}
  &= \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{V}\_{\bigotimes\_k \mathbf{P}\_{t\_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k} t\_{k}  \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \widehat{\alpha\_{k}} \right ]}\_{=~ 0} \\\\\\
  &= \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} V\_{k} \right ] .
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
-In the third line, the second term is $0$ since the variance of a constant (here, $1$) is $0$. At this point Rubin \& Weisberg use a little trick to link this variance to that of the optimum one. Let us define $t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}$ (the paper uses $\alpha\_{k}$ instead, but my notation is better). The optimum weights are now **deterministic**, and they can be shown to be equal to $\alpha\_{k}^{\star} = \frac{1}{W \cdot V\_{k}}$ with $W = \sum\_{k=1}^{K} \frac{1}{V\_k}$. Therefore, let the optimum estimator be:
+In the third line, the second term is $0$ since the variance of a constant (here, $1$) is $0$. At this point Rubin \& Weisberg use a little trick to link this variance to that of the optimum one. That is, the best variance possible *in this setting*. Let us define $t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k}$ (the paper uses $\alpha\_{k}$ instead, but my notation is better). The optimum weights are now **deterministic**, and they can be shown to be equal to $\alpha\_{k}^{\star} = \frac{1}{W \cdot V\_{k}}$ with $W = \sum\_{k=1}^{K} \frac{1}{V\_k}$. Therefore, let the optimum estimator be:
 $$\begin{equation}\begin{aligned}
 t^\star := \sum\_{k=1}^{K} \alpha\_{k}^{\star} t\_{k} = \frac{\sum\_{k=1}^{K} \frac{1}{V\_{k}} t\_{k}}{\sum\_{k^\prime=1}^{K} \frac{1}{V\_{k^\prime}}} .
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
@@ -39,7 +39,7 @@ $$\begin{equation}\begin{aligned}
 \require{cancel}
 \mathbb{V}[t^\star] = \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 V\_{k} = \frac{\sum\_{k=1}^{K} \left ( \frac{1}{V\_{k}} \right )^2 \cdot V\_{k}}{W^2} = \frac{\cancel{\sum\_{k=1}^{K} \frac{1}{V\_{k}}}}{\cancel{W} \cdot W} = \frac{1}{W} = \frac{1}{V\_{k} W} \cdot V\_{k} = \alpha\_{k} V\_{k} .
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
-Now, the trick is to add and subtract $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}$ (given to us by \eqref{eq4}):
+Now, the trick is to *add and subtract* $\mathbb{V}[t^\star]$ from \eqref{eq2}, *and* replacing $V\_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}$ (given to us by \eqref{eq4}):
 $$\begin{equation}\begin{aligned}
 \mathbb{V}[\widehat{t}] &=  \mathbb{V}[t^\star] + \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{V\_{k}} \right ] - \overbrace{\sum\_{k=1}^{K} (\alpha\_{k}^{\star})^2 \color{LimeGreen}{V\_{k}}}^{=~\mathbb{V}[t^\star]} \\\\\\
 &= \mathbb{V}[t^\star] + \mathbb{E}\_{\mathbf{P}\_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum\_{k=1}^{K} \hat{\alpha}\_{k}^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \right ] -  \sum\_{k=1}^{K} (\alpha\_{k}^{\star})^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha\_{k}^{\star}}} \\\\\\
@@ -57,8 +57,9 @@ $$\begin{equation}\begin{aligned}
 Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq  \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha\_{k}^{\star}$'s) only through their squared error to $\alpha\_{k}^{\star}$. Therefore, it does not matter whether the estimators of the optimum weights $\widehat{\alpha}\_{1},\dots,\widehat{\alpha}\_{K}$ are dependent or not.
 ## Thoughts
 A little food for thought (on which I won't elaborate too much, since well, this is a blogpost).
-Do we need that the estimated weights are positive ?
-http://proceedings.mlr.press/v32/neufeld14.pdf , Owen square root 
+- From the last line of \eqref{eq5}, we see that it doesn't matter whether the weight estimates are positive or negative. 
+- We also see that correlation between the weight estimates $\widehat{\alpha}\_{K}$ does not influence the variance. 
+- What is the most restrictive constraint here? The unbiasedness? The independence of the $t_k$'s ?  
 
 ### Footnotes
 <a name="myfootnote1">1</a>: I could have written \eqref{eq1} as just $\mathbb{E}[\widehat{t}] = \mathbb{E}\_{\alpha\_{k}}[\mathbb{E}[\widehat{t} | \alpha\_{1}, \dots, \alpha\_{K}]] = \tau$. Wouldn't that be nicer. Compact notation is great if you know exactly what the writer's doing - I want to force the reader to recall all the assumptions that are being made.
