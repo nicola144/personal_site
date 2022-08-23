@@ -49,9 +49,9 @@ As undergrad, I studied Computer Science at the [University of Warwick](https://
 
 
 
-### Great reads
+### Nice reads
 <p>
-Totally worth having the physical version.
+Worth having the physical version.
 <ul>
   <li> <a href="https://www.amazon.co.uk/Noise-Daniel-Kahneman/dp/0008309000">Noise: A Flaw in Human Judgment, Daniel Kahneman, Olivier Sibony, Cass R. Sunstein</a> </li>
   <li> <a href="https://www.amazon.co.uk/Book-Why-Science-Cause-Effect/dp/0141982411/ref=sr_1_1?dchild=1&keywords=the+book+of+why+judea&qid=1589542460&sr=8-1"> The book of why, Judea Pearl & Dana McKenzie </a> </li>
@@ -60,6 +60,7 @@ Totally worth having the physical version.
   </li>
   <li> <a href="http://www.withouthotair.com/">Sustainable energy - without the hot air, David McKay</a> </li>
   <li> <a href="https://www.amazon.co.uk/Learning-Data-Statistics-Pelican-Books/dp/0241258766/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr="> The Art of Statistics: Learning from Data, David Spiegelhalter </a> </li>
+  <li> <a href="https://www.amazon.co.uk/s?k=Knock+on+Wood%3A+Luck%2C+Chance%2C+and+the+Meaning+of+Everything&crid=1WVIN2L4U429I&sprefix=knock+on+wood+luck+chance+and+the+meaning+of+everything%2Caps%2C87&ref=nb_sb_noss"> Knock on Wood: Luck, Chance, and the Meaning of Everything, Jeffrey S. Rosenthal </a> </li>
 </ul>
 
 </p>
