@@ -6,7 +6,9 @@ disqus: false
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
- <img src="Nicola_Branchini.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. My interests are broadly around (possibly adaptive) Importance Sampling, experimental design, and causal inference.
+ <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in most methodology surrounding efficient uncertainty quantification, statistical decision making, and probabilistic reasoning. More specifically, I am interested in methods for (possibly adaptive) Importance Sampling, experimental design, and causal inference.
+ <br>
+ <br>
  <br>
  <br>
  <br>
@@ -17,7 +19,6 @@ Some topics I am exploring now are:
 <ul>
   <li> <i>Importance Sampling</i> schemes for joint estimation of multiple related quantities. </li>
   <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i>. </li>
-  <li>Adaptation schemes for particle filters proposals. </li>
   <li> Effective sample size - like metrics for importance sampling and/or particle filtering. </li>
 </ul>
 </p>
