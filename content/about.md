@@ -10,9 +10,6 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
  <a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
  <br>
  <br>
- <br>
- <br>
- <br>
 
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am exploring now are:
