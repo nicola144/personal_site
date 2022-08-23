@@ -65,7 +65,7 @@ Worth having the physical version.
 
 </p>
 
-### Cool random stuff
+### Blogroll and cool random stuff
 - [Christian Robert's blog](https://xianblog.wordpress.com/)
 - [Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/)
 - [Ferenc Huszár's blog](https://www.inference.vc/)
