@@ -6,6 +6,8 @@ disqus: false
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
 
+<a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
+
  <img src="Nicola_Branchini.png" align="left" width="250" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in Statistics and its applications to Machine Learning. My interests are broadly around (possibly adaptive) Importance Sampling, experimental design, and causal inference.
  <br>
  <br>
@@ -26,7 +28,6 @@ Some topics I am exploring now are:
 </ul>
 </p>
 
-<a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
 
 ### News
 - Poster on "*Causal Entropy Optimisation*" accepted at Greek Stochastics. 
