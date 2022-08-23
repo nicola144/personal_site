@@ -6,9 +6,11 @@ disqus: false
 All publications are as first author unless otherwise specified. 
 
 
-- [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; no link).
+- [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
-- [***Causal Entropy Optimisation***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review; no link for now).
+- [***Importance sampling for multiple integrals***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
+
+- [***Causal Entropy Optimization***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
