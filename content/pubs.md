@@ -10,12 +10,12 @@ All publications are as first author unless otherwise specified.
 
 - [***Importance sampling for multiple integrals***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
-- [***Causal Entropy Optimization***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
+- [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  In this paper..
+  In this paper, we studied the problem of "causal global optimization": finding the optimum intervention that is the minimizer of several causal effects.  
 </p>
 <img src="/ceo.svg" width="1000" height="300">
 </div>
