@@ -20,9 +20,8 @@ Some specific topics I am exploring now are:
 </ul>
 </p>
 
-
 ### News
-- Poster on "*Causal Entropy Optimisation*" accepted at Greek Stochastics. 
+- Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
 - I presented a poster about our (ongoing) work on adaptive particle filters at the [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/) in Madrid.
