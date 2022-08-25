@@ -15,7 +15,7 @@ All publications are as first author unless otherwise specified.
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  In this paper, we studied the problem of "causal global optimization": finding the optimum intervention that is the minimizer of several causal effects.  
+  In this paper, we studied the problem of "causal global optimization": finding the optimum intervention that is the minimizer of several causal effects (that is, we consider possibly intervening on many different subset of variables). When the underlying causal graph is not known, the first step is studying what happens if we assume any one of the possible graphs is the true one, and run "CBO"- causal Bayesian optimization - as normal. We studied what the effect of this kind of incorrect causal assumption is for optimization purposes. Further, since in many cases the underlying function can be optimized efficiently even if the graph is not fully known, we designed an acquisition function that automatically trades-off optimization of the effect and structure learning.  
 </p>
 <img src="/ceo.svg" width="1000" height="300">
 </div>
