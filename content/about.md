@@ -21,6 +21,8 @@ Some specific topics I am exploring now are:
 </ul>
 </p>
 
+A little more about me. I think interdisciplinarity is amazing. It is not what I want to do in my PhD; my aim, for now, is to go as deep as possible. Simple experiments and simple theorems, questioning core methodological assumptions is what I want to focus on, for now. 
+
 ### News
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
