@@ -67,7 +67,7 @@ Worth having the physical version.
 
 </p>
 
-### Blogroll and cool random stuff
+### Blogroll 
 - [Christian Robert's blog](https://xianblog.wordpress.com/)
 - [Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/)
 - [Ferenc Huszár's blog](https://www.inference.vc/)
@@ -79,5 +79,4 @@ Worth having the physical version.
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
 - [Cambridge MLG blog on ML](https://mlg-blog.com/)
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
-- The [Machine Learning Summer School videos 2009](http://videolectures.net/mlss09uk_cambridge/)
-- [Troubling Trends in Machine Learning Scholarship](https://arxiv.org/pdf/1807.03341.pdf?source=post_page---------------------------)
+
