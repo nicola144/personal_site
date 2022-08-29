@@ -78,6 +78,7 @@ Worth having the physical version.
 - [Yuling Yao's blog](https://yulingyao.com/blog/)
 - [Frank Nielsen's blog](https://franknielsen.github.io/blog/blog.html)
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
+- [Fabian Pedregosa's blog](https://fa.bianp.net/)
 - [Cambridge MLG blog on ML](https://mlg-blog.com/)
 - [Terence Tao's blog](https://terrytao.wordpress.com/)
 
