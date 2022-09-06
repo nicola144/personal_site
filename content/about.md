@@ -13,7 +13,7 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
  <br>
 
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
-Some specific topics I am exploring now are:
+Some specific topics I am studying now are:
 <ul>
   <li> <i>Importance Sampling</i> schemes for joint estimation of multiple related quantities. </li>
   <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i>. </li>
@@ -21,7 +21,7 @@ Some specific topics I am exploring now are:
 </ul>
 </p>
 
-A little more about me. I think interdisciplinarity is amazing. It is not what I want to do in my PhD; my aim, for now, is to go as deep as possible. Simple experiments and simple theorems, questioning core methodological assumptions is what I want to focus on, for now. 
+In terms of applications, in the future I would be very excited to work on **accelerating science** (chemistry, biology,physics, neuroscience, etc.) using our familar tools of probabilistic (and causal) modelling. 
 
 ### News
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
