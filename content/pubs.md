@@ -1,5 +1,5 @@
 ---
-title: "Publications"
+title: "Publications and preprints"
 disqus: false
 ---
 
