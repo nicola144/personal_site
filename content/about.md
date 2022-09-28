@@ -16,6 +16,7 @@ I like collaborating with people. If you do research in very related topics, fee
 Some specific topics I am studying now are:
 <ul>
   <li> <i>Importance Sampling</i> schemes for joint estimation of multiple related quantities. </li>
+  <li> Rare event estimation. </li>
   <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i>. </li>
   <li> Effective sample size - like metrics for importance sampling and/or particle filtering. </li>
 </ul>
