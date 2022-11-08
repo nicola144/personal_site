@@ -87,7 +87,7 @@ Perhaps a finishing thought is that this "mantra" of dimensionality independence
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
 
     var disqus_config = function () {
-    this.page.url = "https://www.branchini.fun/posts/combining_est";  
+    this.page.url = "https://www.branchini.fun/posts/monte_carlo_indep/";  
     this.page.identifier = "montecarloindep"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
