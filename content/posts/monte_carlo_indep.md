@@ -9,15 +9,17 @@ It is essentially the status quo to claim that the error (Mean Squared Eror = MS
 Defining the notation needed for the post, we have the integral (expectation) to be estimated as 
 
 $$\begin{equation}\begin{aligned}
-\mu = \mathbb{E}_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
+\mu = \mathbb{E}\_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
 
-<!-- where $p(\mathbf{x})$ is a density, and the corresponding Monte Carlo estimator as 
+where $p(\mathbf{x})$ is a density, and the corresponding Monte Carlo estimator as 
+
 $$\begin{equation}\begin{aligned}
-\widehat{\mu}_{\text{MC}} = \frac{1}{N} \sum_{n=1}^{N} f(\mathbf{x}^{(n)}) , \qquad \mathbf{x}^{(n)} \sim p(\mathbf{x}) ,
+\widehat{\mu}\_{\text{MC}} = \frac{1}{N} \sum\_{n=1}^{N} f(\mathbf{x}^{(n)}) , ~~ \mathbf{x}^{(n)} \sim p(\mathbf{x}) ,
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
+
 with samples being i.i.d. 
-At this point, many (if not most) authoritative sources state some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}_{\text{MC}}$ is given simply by 
+At this point, many (if not most) authoritative sources state some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}\_{\text{MC}}$ is given simply by 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}_p[(\widehat{\mu}_{\text{MC}} - \mu)^2] = \mathbb{V}_q
-\end{aligned}\end{equation}\tag{3}\label{eq3}$$ -->
+\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \mathbb{V}\_q[]
+\end{aligned}\end{equation}\tag{3}\label{eq3}$$
