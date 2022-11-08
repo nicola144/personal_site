@@ -181,7 +181,7 @@ $$
 \mathbb{E}\_{p(\mathbf{x})}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} \approx \frac{1}{N} \sum\_{n=1}^{N} f(\mathbf{x}\_{n}) \qquad \mathbf{x}_n \sim p(\mathbf{x})
 \tag{11}\label{eq11}$$
 
-Where $f(\mathbf{x})$ is some generic function of $\mathbf{x}$. Monte Carlo approximations of this kind are very appealing since unbiased and consistent, and it is easy to show that the variance of the estimate is $ \mathcal{O}(n^{-1})$ *regardless* of the dimensionality of the vector $\mathbf{x}$. Another simple idea that we will use extensively in particle filtering is that these samples can not only be used to approximate integrals with respect to the target distribution $p(\mathbf{x})$, but also to approximate the target itself:
+Where $f(\mathbf{x})$ is some generic function of $\mathbf{x}$. Monte Carlo approximations of this kind are very appealing since unbiased and consistent, and it is easy to show that the variance of the estimate is $ \mathcal{O}(n^{-1})$ *regardless* of the dimensionality of the vector $\mathbf{x}$ (**Addendum**: **see my more recent post, this is misleading**). Another simple idea that we will use extensively in particle filtering is that these samples can not only be used to approximate integrals with respect to the target distribution $p(\mathbf{x})$, but also to approximate the target itself:
 
 $$
 p(\mathbf{x}) \approx \frac{1}{N}\sum\_{n=1}^{N} \delta\_{\mathbf{x}}(\mathbf{x}\_{n})
