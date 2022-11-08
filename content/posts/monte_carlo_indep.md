@@ -68,6 +68,8 @@ $$\begin{equation}\begin{aligned}
 
 and we see that there is a very clear **exponential** dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as independent of dimension? Seems hard to ignore. The feeling is it would be more appropriate to consider an error analysis in the spirit of those done in high-dimensional statistics (e.g. [6,7]), where the **ratio** (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ *and* $D$). This is clearly a strong requirement on the number of samples. 
 
+## Conclusions
+
 Perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, along with the other mantra of importance sampling (IS) suffering from the curse of dimension, has hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (made even more obvious by the chi-squared view of the MSE), but also that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. Yes, I will indeed do more posts on importance sampling things in the future. 
 
 ## References
