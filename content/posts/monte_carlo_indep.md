@@ -36,7 +36,7 @@ Suppose that the function $f$ is nonnegative. This is not very restrictive: it i
 
 $$\begin{equation}\begin{aligned}
 \mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} \chi^{2}(p \cdot f \mid \mid p) , 
-\end{aligned}\end{equation}\tag{3}\label{eq3}$$
+\end{aligned}\end{equation}\tag{4}\label{eq4}$$
 
 
 
