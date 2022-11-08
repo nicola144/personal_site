@@ -70,7 +70,7 @@ and we see that there is a very clear **exponential** dependence on the dimensio
 
 ## Conclusions
 
-Perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, along with the other mantra of importance sampling (IS) suffering from the curse of dimension, has hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (made even more obvious by the chi-squared view of the MSE), but also that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. Yes, I will indeed do more posts on importance sampling things in the future. 
+Perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, along with the other mantra of importance sampling (IS) suffering from the curse of dimension, has hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (made even more obvious by the chi-squared view of the MSE), but we also know that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. Yes, I will indeed do more posts on importance sampling things in the future. 
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
