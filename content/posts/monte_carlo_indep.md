@@ -1,8 +1,6 @@
 ---
 title: "Simple Monte Carlo is independent of dimension. Or is it ?"
-date: 2022-05-26T22:10:06Z
-type: page
-draft: true
+date: 2022-11-08T16:16:09Z
 ---
 
 It is essentially the status quo to claim that the error (Mean Squared Eror = MSE) of Monte Carlo integration is "independent of the dimension" of the variable being integrated, or some equivalent variant of this statement. I will provide evidence and citations later. In this post, I provide a simple reasoning for why this can be misleading, especially for the novice that approaches the Monte Carlo literature with the aim to learn how to chooose among estimators in practice. 
