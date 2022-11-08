@@ -32,11 +32,24 @@ Another example, Doucet and Johansen in their (great) tutorial on particle filte
 In fact, even proponents of "competitor" methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook (page 110): "*A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing well even in high dimension is a laudable goal.*". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention " *rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.*"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is **worse**, not equally bad. Iain Murray, in his PhD thesis on MCMC [4], seems to take a more careful stance (although not elaborating on it): " *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* "; the quotes added here indeed seem to suggest us that there is more to the story.  
 
 And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
-Suppose that the function $f$ is nonnegative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as 
+Suppose that the function $f$ is non-negative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as 
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} \chi^{2}(p \cdot f \mid \mid p) , 
+\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) , 
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
+
+where we $p \cdot f$ denotes the **normalized version** of the product $ f(\mathbf{x}) p(\mathbf{x}) $, i.e. 
+
+
+$$\begin{equation}\begin{aligned}
+p \cdot f = \frac{f(\mathbf{x}) p(\mathbf{x})}{\int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x}} =  \frac{f(\mathbf{x}) p(\mathbf{x})}{\mu}
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$
+
+(which is a density) and I have used the chi-squared divergence between densities $p$ and $q$:
+
+$$\begin{equation}\begin{aligned}
+\chi^{2}(p \mid \mid q) = \int \frac{p(\mathbf{x})^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} - 1. 
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$
 
 
 
