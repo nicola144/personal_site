@@ -49,7 +49,7 @@ p \cdot f = \frac{f(\mathbf{x}) p(\mathbf{x})}{\int f(\mathbf{x}) p(\mathbf{x}) 
 
 $$\begin{equation}\begin{aligned}
 \chi^{2}(p \mid \mid q) = \int \frac{p(\mathbf{x})^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} - 1. 
-\end{aligned}\end{equation}\tag{5}\label{eq5}$$
+\end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
 
 
