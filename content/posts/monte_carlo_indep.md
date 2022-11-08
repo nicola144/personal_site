@@ -53,7 +53,7 @@ $$\begin{equation}\begin{aligned}
 
 What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and, clearly, in general $p \cdot f$ and $p$ are different densities. And, I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely. 
 
-Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq5} can easily scale badly with $D. Let $f(\mathbf{x})$ be (the square root of) a Gaussian density $f(\mathbf{x}) = \sqrt{\mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1})}$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})$. 
+Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq5} can easily scale badly with $D$. Let $f(\mathbf{x})$ be (the square root of) a Gaussian density $f(\mathbf{x}) = \sqrt{\mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1}, \boldsymbol{\Sigma}\_{1})}$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})$. 
 We can then expand the MSE of the Monte Carlo estimator as 
 
 $$\begin{equation}\begin{aligned}
