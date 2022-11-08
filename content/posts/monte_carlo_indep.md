@@ -66,7 +66,7 @@ $$\begin{equation}\begin{aligned}
 &=  \frac{\mu^2}{N}  \left ( \mathcal{O}((2 \pi)^{D/2}) - 1 \right )
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
-
+and we see that there is a very clear **exponential** dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as independent of dimension? Seems hard to ignore. The feeling is that an analysis in the spirit of those done in high-dimensional statistics (e.g. [6,7]), where the **ratio** (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ *and* $D$). This is clearly a strong requirement on the number of samples. 
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
