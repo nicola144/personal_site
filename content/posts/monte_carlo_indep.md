@@ -20,22 +20,29 @@ $$\begin{equation}\begin{aligned}
 
 with samples being i.i.d. 
 
-At this point, many (if not most) authoritative sources proceed with some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}\_{\text{MC}}$ is given simply by 
+At this point, many (if not most) authoritative sources proceed with some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}\_{\text{MC}}$ is given simply by
+
 $$\begin{equation}\begin{aligned}
 \mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \mathbb{V}\_p[\widehat{\mu}\_{\text{MC}}] = \frac{\mathbb{V}\_p[f(\mathbf{x})]}{N} , 
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
-which is readily seen to be $\mathcal{O}(1/N)$, then the error is independent of $D$. For example, Owen in ([1]) (my personal favourite source on Monte Carlo, by a large margin) states (Chapter 2, page 17): "*A striking feature about the formula [equivalent of our Eq. 3] is that the dimension* $D$ *does not appear in it anywhere.* " .
+
+which is readily seen to be $\mathcal{O}(1/N)$, then the error is independent of $D$. For example, Art B. Owen in his book [1] (my personal favourite source on Monte Carlo) states (Chapter 2, page 17): "*A striking feature about the formula [equivalent of our Eq. 3] is that the dimension* $D$ *does not appear in it anywhere.* " .
 Another example, Doucet and Johansen in their (great) tutorial on particle filtering [2], mention: "*The main advantage of Monte Carlo methods over standard approximation techniques is that the variance of the approximation error decreases at a rate of*  $\mathcal{O}(1/N)$ *regardless of the dimension of the space*".  And more, this well-cited tutorial from the respected "Acta Numerica" [3] begins with "*Its convergence rate,* $\mathcal{O}(1/\sqrt{N})$, *[here referring to RMSE] independent of dimension*". 
 
-In fact, even proponents of "competitor" methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook (page 110): "*A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing Ill even in high dimension is a laudable goal.*". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention " *rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.*"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is **worse**, not equally bad. Iain Murray, in his PhD thesis on MCMC [4], seems to take a more careful stance (although not elaborating on it): " *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* "; the quotes added here indeed seem to suggest us that there is more to the story.  
+In fact, even proponents of "competitor" methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook (page 110): "*A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing well even in high dimension is a laudable goal.*". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention " *rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.*"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is **worse**, not equally bad. Iain Murray, in his PhD thesis on MCMC [4], seems to take a more careful stance (although not elaborating on it): " *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* "; the quotes added here indeed seem to suggest us that there is more to the story.  
 
-And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
-Suppose that the function $f$ is nonnegative
+And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
+Suppose that the function $f$ is nonnegative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as 
+
+$$\begin{equation}\begin{aligned}
+\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} \chi^2(p \cdot f || p) , 
+\end{aligned}\end{equation}\tag{3}\label{eq3}$$
+
 
 
 
 ## References
-1. Art B. OIn. Monte Carlo theory, methods and examples. 2013
+1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
 2. Doucet, A. and Johansen, A.M., 2009. A tutorial on particle filtering and smoothing: Fifteen years later. Handbook of nonlinear filtering, 12(656-704), p.3.
 3. Caflisch, R.E., 1998. Monte carlo and quasi-monte carlo methods. Acta numerica, 7, pp.1-49.
 4. Philipp Hennig, Michael A. Osborne, Hans Kersting. Probabilistic Numerics: Computation as Machine Learning. Cambridge University Press, 2022.
