@@ -26,7 +26,7 @@ $$\begin{equation}\begin{aligned}
 
 which is readily seen to be $\mathcal{O}(1/N)$, then the error is independent of $D$. To start with, the [Wikipedia page for Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_integration) states "*This result does not depend on the number of dimensions of the integral, which is the promised advantage of Monte Carlo integration against most deterministic methods that depend exponentially on the dimension*", referring to \eqref{eq3}. 
 
-Further, Art B. Owen in his textbook (1) (my personal favourite source on Monte Carlo) states (Chapter 2, page 17) mentions: "*A striking feature about the formula [equivalent of our Eq. 3] is that the dimension* $D$ *does not appear in it anywhere.* ".
+Further, Art B. Owen in his textbook (1) (my personal favourite source on Monte Carlo) (Chapter 2, page 17) mentions: "*A striking feature about the formula [equivalent of our Eq. 3] is that the dimension* $D$ *does not appear in it anywhere.* ".
 
 Another example, Doucet and Johansen in their (great) tutorial on particle filtering (2), mention: "*The main advantage of Monte Carlo methods over standard approximation techniques is that the variance of the approximation error decreases at a rate of*  $\mathcal{O}(1/N)$ *regardless of the dimension of the space*".  And more, this well-cited tutorial from the respected "Acta Numerica" (3) begins with "*Its convergence rate,* $\mathcal{O}(1/\sqrt{N})$, *[here referring to RMSE] independent of dimension*". 
 
