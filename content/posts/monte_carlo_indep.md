@@ -57,8 +57,8 @@ Now, we take a concrete (and very simple!) example to show how the divergence in
 We can then expand the MSE of the Monte Carlo estimator as 
 
 $$\begin{equation}\begin{aligned}
-\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{\mu^2}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - 1 \right )  \\
-&= \frac{\mu^2}{N}  \left ( \int \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1}) \cdot \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})  \mathrm{d}\mathbf{x} - 1 \right ) \\
+\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{\mu^2}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - 1 \right )  \\\\\\
+&= \frac{\mu^2}{N}  \left ( \int \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1}) \cdot \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})  \mathrm{d}\mathbf{x} - 1 \right ) \\\\\\
 &=  \frac{\mu^2}{N}  \left ( \mathcal{O}((2 \pi)^{D/2}) - 1 \right )
 \end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
