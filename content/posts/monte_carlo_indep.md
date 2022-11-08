@@ -35,7 +35,7 @@ And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really
 Suppose that the function $f$ is nonnegative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as 
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} \chi^2(p \cdot f || p) , 
+\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} \chi^{2}(p \cdot f \mid \mid p) , 
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
 
 
