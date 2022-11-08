@@ -79,3 +79,12 @@ Perhaps a finishing thought is that this "mantra" of dimensionality independence
 5. Murray, I., 2007. Advances in Markov chain Monte Carlo methods. University of London, University College London (United Kingdom).
 6. H. S. Battey, D. R. Cox. "Some Perspectives on Inference in High Dimensions." Statistical Science, 37(1) 110-122 February 2022.
 7. Wainwright, M.J., 2019. High-dimensional statistics: A non-asymptotic viewpoint (Vol. 48). Cambridge University Press.
+
+
+<p>Cited as:</p>
+<pre tabindex="0"><code>@article{branchini2022montecarloindep,
+  title   = Simple Monte Carlo is independent of dimension. Or is it ?,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
