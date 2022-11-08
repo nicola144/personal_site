@@ -51,6 +51,16 @@ $$\begin{equation}\begin{aligned}
 \chi^{2}(p \mid \mid q) = \int \frac{p(\mathbf{x})^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} - 1. 
 \end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
+What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and, clearly, in general $p \cdot f$ and $p$ are different densities. And, I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely. 
+
+Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq5} can easily scale badly with $D. Let $f(\mathbf{x})$ be (the square root of) a Gaussian density $f(\mathbf{x}) = \sqrt{\mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1})}$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})$. 
+We can then expand the MSE of the Monte Carlo estimator as 
+
+$$\begin{equation}\begin{aligned}
+\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{\mu^2}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - 1 \right )  \\
+&= \frac{\mu^2}{N}  \left ( \int \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1}) \cdot \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})  \mathrm{d}\mathbf{x} - 1 \right ) \\
+&=  \frac{\mu^2}{N}  \left ( \mathcal{O}((2 \pi)^{D/2}) - 1 \right )
+\end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
 
 
