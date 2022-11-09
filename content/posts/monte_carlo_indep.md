@@ -77,7 +77,7 @@ Indeed, perhaps a finishing thought is that this "mantra" of dimensionality inde
 
 <span style="color:#0695FF"> ** Addendum ** </span>
 
-It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang (Imperial), using tools from high dimensional statistics.  
+It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang \[9\](Imperial), using tools from high dimensional statistics.  
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
@@ -88,6 +88,7 @@ It has come to my attention after publishing the post, that there is [this very 
 6. H. S. Battey, D. R. Cox. "Some Perspectives on Inference in High Dimensions." Statistical Science, 37(1) 110-122 February 2022.
 7. Wainwright, M.J., 2019. High-dimensional statistics: A non-asymptotic viewpoint (Vol. 48). Cambridge University Press.
 8. MacKay, D.J. and Mac Kay, D.J., 2003. Information theory, inference and learning algorithms. Cambridge university press.
+9. Tang, Y., 2022. A Note on Monte Carlo Integration in High Dimensions. arXiv preprint arXiv:2206.09036.
 
 <div id="disqus_thread"></div>
 <script>
