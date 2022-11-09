@@ -77,7 +77,7 @@ Indeed, perhaps a finishing thought is that this "mantra" of dimensionality inde
 
 <span style="color:#0695FF"> ** Addendum ** </span>
 
-It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang \[9\](Imperial), using tools from high dimensional statistics.  
+It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang \[9\], using tools from high dimensional statistics.  
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
