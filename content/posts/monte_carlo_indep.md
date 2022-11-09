@@ -75,6 +75,10 @@ The contents of this post are obvious to Monte Carlo experts, for example the au
 
 Indeed, perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, **together with the other mantra** of importance sampling (IS) suffering from the curse of dimension, has likely hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. We saw, it is not. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (it is made even more obvious by the chi-squared view of the MSE), but also we know that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. 
 
+<span style="color:#0695FF"> ** Addendum ** </span>
+
+It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang (Imperial), using tools from high dimensional statistics.  
+
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
 2. Doucet, A. and Johansen, A.M., 2009. A tutorial on particle filtering and smoothing: Fifteen years later. Handbook of nonlinear filtering, 12(656-704), p.3.
