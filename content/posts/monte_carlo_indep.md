@@ -30,7 +30,9 @@ Further, Art B. Owen in his textbook (1) (my personal favourite source on Monte 
 
 Another example, Doucet and Johansen in their (great) tutorial on particle filtering (2), mention: "*The main advantage of Monte Carlo methods over standard approximation techniques is that the variance of the approximation error decreases at a rate of*  $\mathcal{O}(1/N)$ *regardless of the dimension of the space*".  And more, this well-cited tutorial from the respected "Acta Numerica" (3) begins with "*Its convergence rate,* $\mathcal{O}(1/\sqrt{N})$, *[here referring to RMSE] independent of dimension*". 
 
-In fact, even proponents of competitor methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook (4) (page 110): "*A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing well even in high dimension is a laudable goal.*". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention " *rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.*"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is generally **worse**, not equally bad. Iain Murray, in his PhD thesis on MCMC (5), seems to take a more careful stance (although not elaborating on it): " *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* "; the quotes added here indeed seem to suggest us that there is more to the story.  
+In fact, even proponents of competitor methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook (4) (page 110): "*A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing well even in high dimension is a laudable goal.*". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention " *rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.*"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is generally **worse**, not equally bad. 
+
+I could go on (another example can be found at page 358 here (8)). Iain Murray, in his PhD thesis on MCMC (5), seems to take a more careful stance (although not elaborating on it): " *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* "; the quotes added here indeed seem to suggest us that there is more to the story.  
 
 And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
 
@@ -53,7 +55,7 @@ $$\begin{equation}\begin{aligned}
 \chi^{2}(p \mid \mid q) = \int \frac{p(\mathbf{x})^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} - 1. 
 \end{aligned}\end{equation}\tag{6}\label{eq6}$$
 
-What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and, clearly, in general $p \cdot f$ and $p$ are different densities. And, I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely. 
+What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and in general $p \cdot f$ and $p$ are different densities. I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely. 
 
 Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq5} can easily scale badly with $D$. Let $f(\mathbf{x})$ be (the square root of) a Gaussian density $f(\mathbf{x}) = \sqrt{\mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1}, \boldsymbol{\Sigma}\_{1})}$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})$. 
 
@@ -69,7 +71,9 @@ and we see that there is a very clear **exponential** dependence on the dimensio
 
 ## Conclusions
 
-The contents of this post are obvious to Monte Carlo experts, for example the authors of the previously cited works. However, I can imagine easily how outsiders from the literature can be misled by the narrative I have described. Indeed, perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, together with the other mantra of importance sampling (IS) suffering from the curse of dimension, has likely hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (made even more obvious by the chi-squared view of the MSE), but also we know that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. Yes, I will indeed do more posts on importance sampling things in the future. 
+The contents of this post are obvious to Monte Carlo experts, for example the authors of the previously cited works. However, I can imagine easily how outsiders from the literature can be misled by the narrative I have described. 
+
+Indeed, perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, **together with the other mantra** of importance sampling (IS) suffering from the curse of dimension, has likely hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. We saw, it is not. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (it is made even more obvious by the chi-squared view of the MSE), but also we know that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results. 
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
@@ -79,6 +83,7 @@ The contents of this post are obvious to Monte Carlo experts, for example the au
 5. Murray, I., 2007. Advances in Markov chain Monte Carlo methods. University of London, University College London (United Kingdom).
 6. H. S. Battey, D. R. Cox. "Some Perspectives on Inference in High Dimensions." Statistical Science, 37(1) 110-122 February 2022.
 7. Wainwright, M.J., 2019. High-dimensional statistics: A non-asymptotic viewpoint (Vol. 48). Cambridge University Press.
+8. MacKay, D.J. and Mac Kay, D.J., 2003. Information theory, inference and learning algorithms. Cambridge university press.
 
 <div id="disqus_thread"></div>
 <script>
