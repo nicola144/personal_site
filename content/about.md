@@ -24,6 +24,7 @@ Some specific topics I am studying now are:
 In terms of applications, in the future I would be very excited to work on **accelerating science** (chemistry, biology,physics, neuroscience, etc.) using our familar tools of probabilistic (and causal) modelling. 
 
 ### News
+- Poster on "*Generalized Self Normalized Importance Sampling*" accepted at BayesComp 2023.
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
@@ -34,6 +35,7 @@ In terms of applications, in the future I would be very excited to work on **acc
 AISTATS 2023
 
 ### Talks & Posters
+- Poster on "*Generalized Self Normalized Importance Sampling*" at BayesComp 2023.
 - Poster on "*Causal Entropy Optimisation*" at Greek Stochastics. 
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/), May 2022.
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at ["Bayes at CIRM" Winter School](https://bayesatcirm.github.io/), Centre International de Rencontres Mathématiques, Marseille, October 2021
