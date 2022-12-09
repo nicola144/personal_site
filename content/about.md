@@ -24,6 +24,7 @@ Some specific topics I am studying now are:
 In terms of applications, in the future I would be very excited to work on **accelerating science** (chemistry, biology,physics, neuroscience, etc.) using our familar tools of probabilistic (and causal) modelling. 
 
 ### News
+- Accepted for attending the 2023 [Probabilistic Numerics school](https://www.probnumschool.org/pages/home.html) in Tübingens
 - Poster on "*Generalized Self Normalized Importance Sampling*" accepted at BayesComp 2023.
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
