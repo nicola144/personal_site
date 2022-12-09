@@ -25,7 +25,7 @@ In terms of applications, in the future I would be very excited to work on **acc
 
 ### News
 - Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
-- Poster on "*Generalized Self Normalized Importance Sampling*" accepted at BayesComp 2023.
+- Poster on "*Generalized Self Normalized Importance Sampling*" accepted at [BayesComp 2023](https://bayescomp2023.com/).
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
 - I gave a (short) talk at the Lancaster Stats postgraduate seminar series about our ongoing work on particle filters.
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
