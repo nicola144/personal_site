@@ -72,6 +72,11 @@ name = "Publications"
 url = "/pubs"
 weight = 4
 
+[[menu.main]]
+name = "Teaching activities"
+url = "/teaching"
+weight = 5
+
 
 # Social media links which shows up on site header.
 # Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
