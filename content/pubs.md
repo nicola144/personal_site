@@ -8,7 +8,7 @@ All publications are as first author unless otherwise specified.
 
 - [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
-- [***Importance sampling for multiple integrals***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
+- [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 - [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
 
