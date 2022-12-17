@@ -3,29 +3,36 @@ title: "Publications and preprints"
 disqus: false
 ---
 
-All publications are as first author unless otherwise specified. 
+All publications are as single, first author unless otherwise specified. 
 
 
 - [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <style>
-  progress {
+  .progress-bar {
     background-color: white;
     width: 100%;
     border-radius: 10px;
+    position: relative;
   }
 
-  progress::-webkit-progress-bar {
+  .progress {
+    height: 20px;
+    border-radius: 10px;
     background-color: white;
+    width: 50%;
+  }
+
+  .progress::-webkit-progress-bar {
     border-radius: 10px;
   }
 
-  progress::-webkit-progress-value {
+  .progress::-webkit-progress-value {
     background-color: orange;
     border-radius: 10px;
   }
 
-  progress::-moz-progress-bar {
+  .progress::-moz-progress-bar {
     background-color: orange;
     border-radius: 10px;
   }
@@ -37,13 +44,14 @@ All publications are as first author unless otherwise specified.
     transform: translate(-50%, -50%);
     font-size: 16px;
     font-weight: bold;
-    color: red;
+    color: white;
   }
 </style>
 
-<progress value="50" max="100">
+<div class="progress-bar">
+  <progress class="progress" value="50" max="100"></progress>
   <div class="progress-label">50%</div>
-</progress>
+</div>
 
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
