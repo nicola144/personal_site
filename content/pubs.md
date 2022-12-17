@@ -9,30 +9,23 @@ All publications are as single, first author unless otherwise specified.
 - [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <style>
-  .progress-bar {
+  progress {
     background-color: white;
     width: 100%;
     border-radius: 10px;
-    position: relative;
   }
 
-  .progress {
-    height: 20px;
-    border-radius: 10px;
+  progress::-webkit-progress-bar {
     background-color: white;
-    width: 50%;
-  }
-
-  .progress::-webkit-progress-bar {
     border-radius: 10px;
   }
 
-  .progress::-webkit-progress-value {
+  progress::-webkit-progress-value {
     background-color: orange;
     border-radius: 10px;
   }
 
-  .progress::-moz-progress-bar {
+  progress::-moz-progress-bar {
     background-color: orange;
     border-radius: 10px;
   }
@@ -44,28 +37,13 @@ All publications are as single, first author unless otherwise specified.
     transform: translate(-50%, -50%);
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: red;
   }
 </style>
 
-<div class="progress-bar">
-  <progress class="progress" value="50" max="100"></progress>
+<progress value="50" max="100">
   <div class="progress-label">50%</div>
-</div>
-
-<script>
-  const progressBar = document.querySelector('.progress-bar');
-  const progress = progressBar.querySelector('.progress');
-  const progressLabel = progressBar.querySelector('.progress-label');
-
-  function updateLabel() {
-    const percentage = Math.round((progress.value / progress.max) * 100);
-    progressLabel.textContent = `${percentage}%`;
-  }
-
-  updateLabel();
-</script>
-
+</progress>
 
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
