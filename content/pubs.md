@@ -9,6 +9,10 @@ All publications are as single, first author unless otherwise specified.
 - [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <style>
+  .progress-bar {
+    position: relative;
+  }
+
   progress {
     background-color: white;
     width: 60%;
