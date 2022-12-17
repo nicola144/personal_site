@@ -35,12 +35,12 @@ All publications are as single, first author unless otherwise specified.
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    font-size: 16px;
+    font-size: 30px;
     font-weight: bold;
-    color: red;
+    color: orange;
   }
     span.emoji {
-    font-size: 32px;
+    font-size: 50px;
   }
 
 </style>
