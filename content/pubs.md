@@ -44,7 +44,7 @@ All publications are as single, first author unless otherwise specified.
     color: orange;
   }
     span.emoji {
-    font-size: 50px;
+    font-size: 40px;
   }
 
 </style>
