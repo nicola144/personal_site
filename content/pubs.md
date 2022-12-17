@@ -10,6 +10,7 @@ All publications are as single, first author unless otherwise specified.
 
 <style>
   .progress-bar {
+    display: inline-block;
     position: relative;
   }
 
@@ -37,7 +38,7 @@ All publications are as single, first author unless otherwise specified.
   .progress-label {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 60%;
     transform: translate(-50%, -50%);
     font-size: 25px;
     font-weight: bold;
