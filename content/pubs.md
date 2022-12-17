@@ -37,7 +37,7 @@ All publications are as first author unless otherwise specified.
     transform: translate(-50%, -50%);
     font-size: 16px;
     font-weight: bold;
-    color: white;
+    color: red;
   }
 </style>
 
