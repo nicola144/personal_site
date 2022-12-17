@@ -11,7 +11,7 @@ All publications are as single, first author unless otherwise specified.
 <style>
   progress {
     background-color: white;
-    width: 100%;
+    width: 60%;
     border-radius: 10px;
   }
 
@@ -39,9 +39,13 @@ All publications are as single, first author unless otherwise specified.
     font-weight: bold;
     color: red;
   }
+    span.emoji {
+    font-size: 32px;
+  }
+
 </style>
 
-<progress value="50" max="100">
+<span class="emoji"> 🍳</span> <progress value="50" max="100">
   <div class="progress-label">50%</div>
 </progress>
 
