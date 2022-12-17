@@ -49,15 +49,19 @@ All publications are as single, first author unless otherwise specified.
 
 </style>
 
-<span class="emoji"> 🍳</span> <progress value="70" max="100">
-  <div class="progress-label">70%</div>
-</progress>
+<span class="emoji"> 🍳<div class="progress-bar">
+  <progress value="75" max="100"></progress>
+  <div class="progress-label">75%</div>
+</div>
+
 
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
-<span class="emoji"> 🍳</span> <progress value="30" max="100">
+<span class="emoji"> 🍳<div class="progress-bar">
+  <progress value="30" max="100"></progress>
   <div class="progress-label">30%</div>
-</progress>
+</div>
+
 
 - [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
 
