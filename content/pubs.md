@@ -12,19 +12,38 @@ All publications are as first author unless otherwise specified.
   progress {
     background-color: white;
     width: 100%;
+    border-radius: 10px;
   }
 
   progress::-webkit-progress-bar {
     background-color: white;
+    border-radius: 10px;
   }
 
   progress::-webkit-progress-value {
     background-color: orange;
+    border-radius: 10px;
+  }
+
+  progress::-moz-progress-bar {
+    background-color: orange;
+    border-radius: 10px;
+  }
+
+  .progress-label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
   }
 </style>
 
-<progress value="50" max="100"></progress>
-
+<progress value="50" max="100">
+  <div class="progress-label">50%</div>
+</progress>
 
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
