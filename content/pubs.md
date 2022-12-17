@@ -10,7 +10,6 @@ All publications are as single, first author unless otherwise specified.
 
 <style>
   .progress-bar {
-    display: inline-block;
     position: relative;
   }
 
