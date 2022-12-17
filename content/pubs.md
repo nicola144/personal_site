@@ -53,6 +53,20 @@ All publications are as single, first author unless otherwise specified.
   <div class="progress-label">50%</div>
 </div>
 
+<script>
+  const progressBar = document.querySelector('.progress-bar');
+  const progress = progressBar.querySelector('.progress');
+  const progressLabel = progressBar.querySelector('.progress-label');
+
+  function updateLabel() {
+    const percentage = Math.round((progress.value / progress.max) * 100);
+    progressLabel.textContent = `${percentage}%`;
+  }
+
+  updateLabel();
+</script>
+
+
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 - [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
