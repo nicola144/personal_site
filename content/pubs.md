@@ -8,7 +8,7 @@ disqus: false
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
   }
 
   progress {
