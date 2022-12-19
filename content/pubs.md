@@ -3,16 +3,12 @@ title: "Publications and preprints"
 disqus: false
 ---
 
-All publications are as single, first author unless otherwise specified. 
-
-
-- [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
-
 <style>
   .progress-bar {
     position: relative;
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
 
   progress {
@@ -50,6 +46,11 @@ All publications are as single, first author unless otherwise specified.
   }
 
 </style>
+
+All publications are as single, first author unless otherwise specified. 
+
+
+- [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <div class="progress-bar">
   <span class="emoji">🍳</span> <progress value="75" max="100"></progress>
