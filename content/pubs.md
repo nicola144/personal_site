@@ -11,6 +11,8 @@ All publications are as single, first author unless otherwise specified.
 <style>
   .progress-bar {
     position: relative;
+      display: flex;
+      justify-content: center;
   }
 
   progress {
