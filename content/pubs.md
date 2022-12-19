@@ -39,7 +39,7 @@ All publications are as single, first author unless otherwise specified.
   .progress-label {
     position: absolute;
     left: 50%;
-    top: 20%;
+    top: 10%;
     transform: translate(-50%, -50%);
     font-size: 25px;
     font-weight: bold;
