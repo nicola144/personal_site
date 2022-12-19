@@ -8,7 +8,6 @@ disqus: false
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 40px;
     padding-top: 20px;
   }
 
