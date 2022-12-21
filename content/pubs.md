@@ -35,7 +35,7 @@ disqus: false
   .progress-label {
     position: absolute;
     left: 50%;
-    top: 10%;
+    top: 8%;
     transform: translate(-50%, -50%);
     font-size: 25px;
     font-weight: bold;
