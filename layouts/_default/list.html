@@ -20,7 +20,7 @@
 			{{- else -}}
 			<li class="post">
 				<a href="{{ .RelPermalink }}">{{.Title}}</a> <span class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span> {{ range .Params.tags }}
-				<span class="tag">{{ . }}</span> <br>
+				<span class="tag">{{ . }}</span> 
 				{{ end }}
 			</li>
 			{{- end -}}
