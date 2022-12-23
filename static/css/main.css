@@ -414,3 +414,10 @@ table th, table td {
         margin-top: 10px;
     }
 }
+
+.tag {
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
