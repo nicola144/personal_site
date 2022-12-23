@@ -1,6 +1,7 @@
 ---
 title: "Combining independent and unbiased estimators"
-date: 2022-05-26T22:10:06Z
+date: 2022-05-26T22:10:06Z 
+tags: ["Short", "Paper Summary"]
 ---
 
 I came across this 1.25 page paper by Don Rubin and Sanford Weisberg [(Rubin \& Weisberg)](https://academic.oup.com/biomet/article-abstract/62/3/708/257707) in Biometrika from 1975. Good old times.
