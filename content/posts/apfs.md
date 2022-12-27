@@ -1,7 +1,7 @@
 ---
 title: "Sequential Monte Carlo and Improved Auxiliary Particle Filters"
 date: 2020-02-06T20:42:28+01:00
-tags: ["Tutorial", "Long"]
+tags: ["Tutorial", "Long", "Old"]
 ---
 
 In this post, my aims are:
