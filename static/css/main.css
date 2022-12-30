@@ -5,6 +5,7 @@ body {
     line-height: 1.6;
     font-size: 18px;
     background-image: url('/background.png');
+    background-clip: padding-box;
 }
 
 a, a:hover {
@@ -426,8 +427,4 @@ table th, table td {
 
 li:not(:last-child) {
     margin-bottom: 10px;
-}
-
-* {
-    box-sizing: border-box;
 }
