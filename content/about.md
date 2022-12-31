@@ -3,7 +3,7 @@ title: "About"
 disqus: false
 ---
 
- <a href="https://resume.io/r/pgbpr3wNh" class="button button3">A link to my resume</a>
+ <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a>
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Dr. Víctor Elvira](https://victorelvira.github.io/).
