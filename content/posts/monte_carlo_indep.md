@@ -68,7 +68,11 @@ $$\begin{equation}\begin{aligned}
 &=  \frac{1}{N}  \left ( \mathcal{O}((2 \pi)^{D/2}) - \mu^2 \right )
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
-and we see that there is a very clear **exponential** dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as independent of dimension? Seems hard to ignore. The feeling is that it would be more appropriate to consider an error analysis in the spirit of those done in high-dimensional statistics (e.g. \[6,7\]), where the **ratio** (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ *and* $D$). This is clearly a strong requirement on the number of samples. 
+and we see that there is a very clear **exponential** dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as "independent of dimension" ? The feeling is that it would be more appropriate to consider an error analysis in the spirit of those done in high-dimensional statistics (e.g. \[6,7\]), where the **ratio** (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ *and* $D$). This is clearly a strong requirement on the number of samples. 
+
+
+## Caveat 
+In some contexts, it seems common to emphasize a difference between $ \mathcal{O}(N^{-1/D}) $ and $\mathcal{O}( c^{D} \cdot N^{-1} )$, where $c$ is a constant (in both $N$ and $D$). While both suffer from a "curse" of dimension, the former is generally worse, and is typical of deterministic quadrature rules for integration. It makes sense that Monte Carlo is seen as an improvement, since its error looks like the latter (and for some functions, there need not be an exponential dependence on $D$ at all). However, this it is still misleading to claim "independence of dimension" for the error. Some claim that the *"rate"* $1/N$ is independent of dimension, which to me means that the error does not look like $ \mathcal{O}(N^{-1/D}) $.  This is fair, but often the specific reference to the rate (and what it means) is not clear. Also, ultimately what we care about is how the error (MSE) scales.  
 
 ## Conclusions
 
@@ -79,6 +83,9 @@ Indeed, perhaps a finishing thought is that this "mantra" of dimensionality inde
 <span style="color:#0695FF"> **Addendum** </span>
 
 It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang \[9\], using tools from high dimensional statistics.  
+
+<span style="color:#0695FF"> **Addendum (2) ** </span>
+An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{\mu}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$. 
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
