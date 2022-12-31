@@ -86,7 +86,7 @@ It has come to my attention after publishing the post, that there is [this very 
 
 <span style="color:#0695FF"> **Addendum (2)** </span>
 
-An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{\mu}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$. 
+An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{\mu}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
