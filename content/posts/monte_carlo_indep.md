@@ -84,7 +84,7 @@ Indeed, perhaps a finishing thought is that this "mantra" of dimensionality inde
 
 It has come to my attention after publishing the post, that there is [this very nice note on high dimensional Monte Carlo integration](https://arxiv.org/pdf/2206.09036.pdf) by Yanbo Tang \[9\], using tools from high dimensional statistics.  
 
-<span style="color:#0695FF"> **Addendum (2) ** </span>
+<span style="color:#0695FF"> **Addendum (2)** </span>
 An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{\mu}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$. 
 
 ## References
