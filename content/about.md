@@ -74,6 +74,7 @@ Worth having the physical version.
 
 ### Blogroll 
 - [Christian Robert's blog](https://xianblog.wordpress.com/)
+- [Pierre Jacob's blog](https://pierrejacob.wordpress.com)
 - [Andrew Gelman's blog](https://statmodeling.stat.columbia.edu/)
 - [Ferenc Huszár's blog](https://www.inference.vc/)
 - [Michael Betancourt's blog](https://betanalpha.github.io/writing/?fbclid=IwAR32LpCi6bC6SwqGmsbfmo147GhKrfup7P4JY0_o2jiW6dT9BQ58arigx8M)
