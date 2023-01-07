@@ -43,6 +43,7 @@ disqus: false
   }
     span.emoji {
     font-size: 40px;
+    margin-bottom: 10px;
   }
 
 </style>
