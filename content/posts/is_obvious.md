@@ -1,7 +1,7 @@
 ---
 title: "IS - it obvious? "
 date: 2022-05-26T22:10:06Z 
-tags: ["Short", "Opinion"]
+type: page
 draft: true
 ---
 
