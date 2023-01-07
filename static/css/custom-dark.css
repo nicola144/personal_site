@@ -81,3 +81,9 @@
   color: white;
   font-weight: bold;
 }
+
+.custom-align {
+  text-align: center;
+  /* or left, right, or justify */
+  /* other styles for the p element go here */
+}
