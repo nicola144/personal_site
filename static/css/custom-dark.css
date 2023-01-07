@@ -69,7 +69,7 @@
   border: 3px solid red;
   color: white;
   font-family: 'Courier New', monospace;
-  padding: 20px;
+  /* padding: 20px; */
   display: inline-block;
   font-weight: bold;
   width: 400px;
