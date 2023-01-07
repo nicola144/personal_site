@@ -50,7 +50,7 @@ AISTATS 2023
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization* at 37th Conference on Uncertainty in Artificial Intelligence (UAI), online, 2021.
 
 ### Awards
-- [Feuer International Scholarship in Artificial Intelligence (full funding)](https://warwick.ac.uk/services/dc/schols_fund/scholarships_and_funding/feuer/scholarships/) (declined)
+- [Feuer International Scholarship in Artificial Intelligence (full funding)](https://warwick.ac.uk/global/partnerships/mwa/education/education-projects/feuer/scholarships/) (declined)
 - [School of Mathematics Studentship, University of Edinburgh (full funding)](https://www.maths.ed.ac.uk/school-of-mathematics/studying-here/pgr/funding-opportunities)
 - Dissertation Prize for the Artificial Intelligence MSc, *University of Edinburgh*
 - Oustanding dissertation award (BSc Computer Science), *University of Warwick*
