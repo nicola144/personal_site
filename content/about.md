@@ -15,11 +15,11 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
 
 I like collaborating with people (research can be isolating). If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am studying now are:
-<ul>
-  <li> <i>Importance Sampling</i> methodology for joint estimation of multiple related quantities. </li>
-  <li> Quasi Monte Carlo methodology. </li>
-  <li> Rare event estimation. </li>
-  <li>Methods of fusion of interventional and observational data for efficient <i>causal estimation</i>. </li>
+<ul style="line-height:1">
+  <li> <b style="color:#00FF00"> <i>Importance Sampling</i></b> methodology for joint estimation of multiple related quantities. </li>
+  <li>  <b style="color:#00FF00"> <i>Quasi Monte Carlo</i></b> methodology. </li>
+  <li> <b style="color:#00FF00"> <i>Rare event </i></b> estimation. </li>
+  <li>Methods to <b style="color:#00FF00"> <i> combine interventional and observational</i></b> data for efficient causal estimation. </li>
 </ul>
 </p>
 
