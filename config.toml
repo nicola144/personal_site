@@ -1,6 +1,6 @@
 baseURL = 'https://www.branchini.fun/'
 languageCode = 'en-us'
-title = 'Probably Approximately Wrong'
+title = '$\mathbb{P}$robably Approximately Wrong'
 theme = "ezhil"
 
 copyright = "© Copyright notice"
