@@ -5,7 +5,7 @@ disqus: false
 
 <div class="container">
   <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
-    <p>Email: <a class="email" href="mailto:n.branchini@sms.ed.ac.uk">n.branchini@sms.ed.ac.uk</a></p>
+    <p class="custom-align">Email: <a class="email" href="mailto:n.branchini@sms.ed.ac.uk">n.branchini@sms.ed.ac.uk</a></p>
   </div>
 </div>
 
