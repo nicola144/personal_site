@@ -64,16 +64,11 @@
 }
 
 .email-box {
-  background-color: orange;
-  border-radius: 20px;
-  border: 3px solid red;
   color: white;
   font-family: 'Courier New', monospace;
   /* padding: 20px; */
   display: inline-block;
   font-weight: bold;
-  width: 400px;
-  height: 20px;
   text-align: center;
 }
 
