@@ -3,9 +3,7 @@ title: "About"
 disqus: false
 ---
 
- <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
-  <p>Email: <a href="mailto:n.branchini@sms.ed.ac.uk">your-email@example.com</a></p>
-</div>
+ <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> 
 
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
