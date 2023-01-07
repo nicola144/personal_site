@@ -71,3 +71,8 @@
   font-family: 'Courier New', monospace;
   padding: 20px;
 }
+
+.email {
+  color: white;
+  font-weight: bold;
+}
