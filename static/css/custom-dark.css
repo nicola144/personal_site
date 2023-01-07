@@ -71,6 +71,9 @@
   font-family: 'Courier New', monospace;
   padding: 20px;
   display: inline-block;
+  font-weight: bold;
+  width: 150px;
+  height: 100px;
 }
 
 .email {
