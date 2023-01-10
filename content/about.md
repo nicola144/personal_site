@@ -32,6 +32,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 In terms of applications, in the future I would be very excited to work on **accelerating science** (chemistry, biology,physics, neuroscience, etc.) using our familar tools of probabilistic (and causal) modelling. 
 
 ### News
+- Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
 - Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
 - Poster on "*Generalized Self Normalized Importance Sampling*" accepted at [BayesComp 2023](https://bayescomp2023.com/).
 - Poster on "*Causal Entropy Optimization*" accepted at Greek Stochastics. 
