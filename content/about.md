@@ -24,7 +24,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
   <li> <b style="color:#00FF00"> <i>Importance Sampling</i></b> methodology for joint estimation of multiple related quantities. </li>
   <li>  <b style="color:#00FF00"> <i>Quasi Monte Carlo</i></b> methodology. </li>
   <li> <b style="color:#00FF00"> <i>Rare event </i></b> estimation. </li>
-  <li> <b style="color:#00FF00"> <i>High dimensional </i></b> analysis (<b style="color:#00FF00"> <i>Who isn't interested in this ?? </i></b>) . </li>
+  <li> <b style="color:#00FF00"> <i>High dimensional </i></b> statistics (<b style="color:#00FF00"> <i>Who isn't interested in this ?? </i></b>) . </li>
   <li>Methods to <b style="color:#00FF00"> <i> combine interventional and observational</i></b> data for efficient causal estimation. </li>
 </ul>
 </p>
