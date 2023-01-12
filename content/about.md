@@ -18,7 +18,7 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
  <br>
  <br>
 
-I like collaborating with people (research can be isolating). If you do research in very related topics, feel free to drop me an email.
+I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am working on now directly and/or want to use in my work in the future are:
 <ul style="line-height:1">
   <li> <b style="color:#00FF00"> <i>Importance Sampling</i></b> methodology for joint estimation of multiple related quantities. </li>
