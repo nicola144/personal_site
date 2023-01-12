@@ -10,9 +10,9 @@
 			<ul class="flat">
 				{{- range $index, $key := .Site.Params.Social -}}
         {{- if eq $key.name "scholar" -}}
-        <a href="{{ $key.url }}" title="{{ $key.name }}"><i class="ai ai-google-scholar ai-3x"></i></a>
+        <a href="{{ $key.url }}" title="{{ $key.name }}"><i class="ai ai-google-scholar ai-1x"></i></a>
         {{- else -}}
-				<a href="{{ $key.url }}" title="{{ $key.name }}"><i style="width: 3em; height: 3em;" data-feather="{{ $key.icon }}"></i></a>
+				<a href="{{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
         {{- end -}}
 				{{- end -}}
 			</ul>
