@@ -1,6 +1,6 @@
 baseURL = 'https://www.branchini.fun/'
 languageCode = 'en-us'
-title = '$\mathbb{P}$robably Approximately Wrong'
+title = 'Nicola Branchini'
 theme = "ezhil"
 
 copyright = "© Copyright notice"
@@ -22,7 +22,7 @@ disqusShortname = "personal-website-g7y0elzvjn"
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "An infrequent blog, by Nicola Branchini"
+    subtitle = "$\mathbb{P}$robably Approximately Wrong, an infrequent blog"
 
     # Content types which are included in home page recent posts list.
     mainSections = ["posts"]
