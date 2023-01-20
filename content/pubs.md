@@ -67,7 +67,7 @@ All publications are as single, first author unless otherwise specified.
 </div>
 
 
-- [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. (Under review).
+- [***Causal Entropy Optimization***](https://arxiv.org/abs/2208.10981); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros.  <b style="color:#00FF00"> <i>To appear in AISTATS 2023</i></b>.
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
