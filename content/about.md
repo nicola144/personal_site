@@ -29,8 +29,6 @@ Some specific topics I am working on now directly and/or want to use in my work 
 </ul>
 </p>
 
-In terms of applications, in the future I would be very excited to work on **accelerating science** (chemistry, biology,physics, neuroscience, etc.) using our familar tools of probabilistic (and causal) modelling. 
-
 ### News
 - *Causal Entropy Optimization* to appear in AISTATS 2023.
 - Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
