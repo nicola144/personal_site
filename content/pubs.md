@@ -54,16 +54,16 @@ All publications are as single, first author unless otherwise specified.
 - [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <div class="progress-bar">
-  <span class="emoji">🍳</span> <progress value="75" max="100"></progress>
-  <div class="progress-label">75%</div>  <span class="emoji">🍳</span>
+  <span class="emoji">🍳</span> <progress value="85" max="100"></progress>
+  <div class="progress-label">85%</div>  <span class="emoji">🍳</span>
 </div>
 
 
 - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
 <div class="progress-bar">
-  <span class="emoji">🍳</span> <progress value="30" max="100"></progress>
-  <div class="progress-label">30%</div>  <span class="emoji">🍳</span>
+  <span class="emoji">🍳</span> <progress value="40" max="100"></progress>
+  <div class="progress-label">40%</div>  <span class="emoji">🍳</span>
 </div>
 
 
