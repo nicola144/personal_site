@@ -30,6 +30,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 </p>
 
 ### News
+- Will give a contributed talk in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". 
 - *Causal Entropy Optimization* to appear in AISTATS 2023.
 - Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
 - Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
