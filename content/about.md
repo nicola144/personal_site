@@ -42,7 +42,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 AISTATS 2023
 
 ### Talks & Posters
-- Contributed talk  on "*Generalized Self Normalized Importance Sampling*" at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/s)
+- Contributed talk  on "*Generalized Self Normalized Importance Sampling*" at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/)
 - Poster on "*Generalized Self Normalized Importance Sampling*" at BayesComp 2023.
 - Poster on "*Causal Entropy Optimisation*" at Greek Stochastics. 
 - Poster: *Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization*, at [5th Workshop on Sequential Monte Carlo methods](https://smc2022.webs.tsc.uc3m.es/), May 2022.
