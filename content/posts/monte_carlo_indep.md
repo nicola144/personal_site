@@ -4,6 +4,8 @@ date: 2022-11-08T16:16:09Z
 tags: ["Short"]
 ---
 
+<span style="color:#0695FF">* IMPORTANT NOTE: there was a bug in the original example, thanks to [Philipp Hennig for pointing it out](https://www.youtube.com/watch?v=6sQDHXSTdTc). I show a (much) simpler one below also (when the test function is the product of coordinates)  * </span>
+
 It is essentially the status quo to claim that the error (Mean Squared Eror = MSE) of Monte Carlo integration is "independent of the dimension" of the variable being integrated, or some equivalent variant of this statement. I will provide evidence and citations later. In this post, I provide a simple reasoning for why this can be misleading, especially for the novice that approaches the Monte Carlo literature with the aim to learn how to chooose among estimators in practice. 
 Defining the notation needed for the post, let the integral (expectation) to be estimated as 
 
@@ -58,7 +60,7 @@ $$\begin{equation}\begin{aligned}
 
 What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and in general $p \cdot f$ and $p$ are different densities. I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely. 
 
-Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq4} can easily scale badly with $D$. Let $f(\mathbf{x})$ be (the square root of) a Gaussian density $f(\mathbf{x}) = \sqrt{\mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1}, \boldsymbol{\Sigma}\_{1})}$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})$. 
+Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq4} can easily scale badly with $D$. Let $f(\mathbf{x})$ be $f(\mathbf{x}) = \exp(-\mathbf{x}^\top \mathbf{x} / 4)$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )$. 
 
 We can then expand the MSE of the Monte Carlo estimator as 
 
