@@ -66,7 +66,7 @@ We can then expand the MSE of the Monte Carlo estimator as
 
 $$\begin{equation}\begin{aligned}
 \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{1}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - \mu^2 \right )  \\\\\\
-&= \frac{1}{N}  \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 4) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\\\
+&= \frac{1}{N}  \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 2) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\\\
 &=  \mathcal{O}(\text{constant}^{D})
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
