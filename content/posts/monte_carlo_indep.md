@@ -66,8 +66,8 @@ We can then expand the MSE of the Monte Carlo estimator as
 
 $$\begin{equation}\begin{aligned}
 \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{1}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - \mu^2 \right )  \\\\\\
-&= \frac{1}{N}  \left ( \int \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{1},  \boldsymbol{\Sigma}\_{1}) \cdot \mathcal{N}(\mathbf{x}; \boldsymbol{\mu}\_{2},  \boldsymbol{\Sigma}\_{2})  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\\\
-&=  \frac{1}{N}  \left ( \mathcal{O}((2 \pi)^{D/2}) - \mu^2 \right )
+&= \frac{1}{N}  \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 4) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\\\
+&=  \mathcal{O}(\text{constant}^{D})
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
 and we see that there is a very clear **exponential** dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as "independent of dimension" ? The feeling is that it would be more appropriate to consider an error analysis in the spirit of those done in high-dimensional statistics (e.g. \[6,7\]), where the **ratio** (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ *and* $D$). This is clearly a strong requirement on the number of samples. 
@@ -88,7 +88,7 @@ It has come to my attention after publishing the post, that there is [this very 
 
 <span style="color:#0695FF"> **Addendum (2)** </span>
 
-An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{\mu}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $
+An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{0}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
