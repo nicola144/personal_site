@@ -63,7 +63,7 @@ As undergrad, I studied Computer Science at the [University of Warwick](https://
 
 
 
-### Nice reads
+### Random selection of nice reads
 <p>
 Worth having the physical version.
 <ul>
