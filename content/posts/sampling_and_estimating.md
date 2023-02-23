@@ -12,7 +12,7 @@ Some other times, all we are interested in is approximating $Z\_{p}$, viewed as 
 Knowing the constant does not help us in sampling. Sampling does not help us in estimating the constant. 
 
 The statement would be more accurate adding caveats like ("by itself, does not help .."), but also less catchy. 
-So what is going on here ? 
+So what is going on here ? Is there something deeper ? Am I speaking nonsense? 
  
 <!-- $$\begin{equation}\begin{aligned}
 \mu = \mathbb{E}\_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
