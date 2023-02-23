@@ -1,8 +1,7 @@
 ---
 title: "Why do sampling and estimating the normalizing constant avoid each other?"
 date: 2023-02-23T15:34:02Z 
-type: page
-draft: true
+tags: ["Short"]
 ---
 
 We want to get samples from $p(\mathbf{x})$, exactly or approximately. Except for some cases (and for inverse transform sampling), in general, it does not matter at all whether we know the normalizing constant of $p$, i.e. $Z\_{p} = \int \widetilde{p}(\mathbf{x}) d \mathbf{x}$ where $\widetilde{p}(\mathbf{x})$ is the unnormalized density (see e.g. [this X-validated response by Xi'an](https://stats.stackexchange.com/questions/465787/can-sampling-be-difficult-even-with-access-to-the-normalized-version-of-the-dist)). The most generic method (class of methods) to obtain samples is Markov Chain Monte Carlo (MCMC), which by design avoids the need for $Z\_{p}$. Importantly, even if we knew it (some oracle gave it to us), it would not help us at all (with the current methods I am aware of) in improving MCMC speed or otherwise. Another way is to use sampling importance resampling (SIR), based on self-normalized importance sampling (IS) plus resampling. Also with this method, since the IS weights need to be normalized for resampling, the $Z_p$ cancels out. 
