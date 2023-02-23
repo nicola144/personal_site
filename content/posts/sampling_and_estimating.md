@@ -9,10 +9,12 @@ We want to get samples from $p(\mathbf{x})$. Except some special cases, in gener
 
 Some other times, all we are interested in is approximating $Z\_{p}$, viewed as nothing more than a numerical integration task. The way to do it with a randomized algorithm is Monte Carlo (MC), whose generalization for this task is importance sampling (IS). Suppose again, an oracle gives us samples from $p$. That's great, it is provably the optimal density to sample from to minimize the IS variance of the estimator (hence MC variance). But again, it does not help as at all. We have nothing to do with those samples, because $Z\_{p}$ is not an expectation w.r.t to $p$, so we cannot use plain MC, and IS requires that we know the normalizing constant of the proposal. If the samples come from $p$, then the proposal is $p$, and we don't know its normalizing constant by definition (it is literally what we are trying to estimate). 
 
-Knowing the constant does not help us in sampling. Sampling does not help us in estimating the constant. 
+<span style="color:#0695FF"> **Knowing the constant does not help us in sampling. Sampling does not help us in estimating the constant.** </span>
 
-The statement would be more accurate adding caveats like ("by itself, does not help .."), but also less catchy. 
-So what is going on here ? Is there something deeper ? Am I speaking nonsense? 
+The statement would be more accurate adding caveats like ("by itself, does not help .."), but also less catchy.
+
+There is something unintuitive about all of this.  
+So what is going on here ? Is there something deeper ? 
  
 <!-- $$\begin{equation}\begin{aligned}
 \mu = \mathbb{E}\_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
