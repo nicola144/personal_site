@@ -44,7 +44,7 @@ So what is going on here ? Is it just trivial that the two tasks should be uninf
 
 
 <p>Cited as:</p>
-<pre tabindex="0"><code>@article{branchini2022why,
+<pre tabindex="0"><code>@article{branchini2023why,
   title   = "Why do sampling and estimating the normalizing constant avoid each other?",
   author  = Branchini, Nicola,
   journal = https://www.branchini.fun,
