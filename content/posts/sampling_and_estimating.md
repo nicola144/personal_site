@@ -10,7 +10,7 @@ Some other times, all we are interested in is approximating $Z\_{p}$, viewed as 
 
 <span style="color:#0695FF"> **Knowing the constant does not help us in sampling. Sampling does not help us in estimating the constant.** </span>
 
-The statement would be more accurate adding caveats like ("by itself, does not help .."), but also less catchy.
+The statement would be more accurate adding caveats like ("by itself, does not help ..").
 
 In my view, there is something a bit unintuitive about all of this.  
 So what is going on here ? Is it just trivial that the two tasks should be uninformative about each other? 
