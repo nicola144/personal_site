@@ -48,5 +48,5 @@ So what is going on here ? Is it just trivial that the two tasks should be uninf
   title   = "Why do sampling and estimating the normalizing constant avoid each other?",
   author  = Branchini, Nicola,
   journal = https://www.branchini.fun,
-  year    = 2022,
+  year    = 2023,
 }
