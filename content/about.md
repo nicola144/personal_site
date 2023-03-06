@@ -88,6 +88,7 @@ Worth having the physical version.
 - [Deniz Akyıldız's blog](https://www.almoststochastic.com/)
 - [Francis Bach's blog](https://francisbach.com)
 - [Dennis Prangle's blog](https://dennisprangle.github.io/)
+- [Gregory Gundersen's blog](https://gregorygundersen.com/blog/)
 - [Yuling Yao's blog](https://yulingyao.com/blog/)
 - [Frank Nielsen's blog](https://franknielsen.github.io/blog/blog.html)
 - [CMU blog on ML](https://blog.ml.cmu.edu/)
