@@ -3,6 +3,11 @@ title: "About me"
 disqus: false
 ---
 
+<div class="quote">
+  <p>"Basically, I’m not interested in doing research and I never have been. I’m interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
+  <p class="author">- [David Blackwell](https://en.wikipedia.org//wiki/David_Blackwell)</p>
+</div>
+
 <div class="container">
   <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
     <p class="custom-align">Email: <a class="email" href="mailto:n.branchini@sms.ed.ac.uk">n.branchini@sms.ed.ac.uk</a></p>

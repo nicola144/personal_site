@@ -85,3 +85,17 @@
   /* or left, right, or justify */
   /* other styles for the p element go here */
 }
+
+.quote {
+  background-color: #333333;
+  border-left: 6px solid #FF5733;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.author {
+  text-align: right;
+  margin-top: 0.5em;
+}
