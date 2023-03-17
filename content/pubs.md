@@ -51,7 +51,7 @@ disqus: false
 All publications are as single, first author unless otherwise specified. 
 
 
-- [***Generalized self-normalized importance sampling***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
+- [***Generalized self-normalized importance sampling***](https://drive.google.com/file/d/1sn92P6pRRpaRmGEzfjKsPzgCptJ2YBnA/view?usp=sharing); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **link to BayesComp2023 poster**).
 
 <div class="progress-bar">
   <span class="emoji">🍳</span> <progress value="85" max="100"></progress>
