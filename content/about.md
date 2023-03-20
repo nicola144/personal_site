@@ -46,7 +46,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 
 ### Reviewing
 #### Journals
-Statistics and Probability Letterss
+Statistics and Probability Letters
 #### Conferences
 AISTATS 2023, AABI 2023
 
