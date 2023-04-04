@@ -4,7 +4,7 @@ date: 2022-11-08T16:16:09Z
 tags: ["Short"]
 ---
 
-<span style="color:#0695FF">* IMPORTANT NOTE: there was a bug in the original example, thanks to [Philipp Hennig for pointing it out](https://www.youtube.com/watch?v=6sQDHXSTdTc). I show a (much) simpler one below also (when the test function is the product of coordinates)  * </span>
+<span style="color:#0695FF">* IMPORTANT NOTE: there was a bug in the original example, thanks to [Philipp Hennig for pointing it out](https://www.youtube.com/watch?v=6sQDHXSTdTc), I have now fixed it. I show a (much) simpler one below also (when the test function is the product of coordinates)  * </span>
 
 It is essentially the status quo to claim that the error (Mean Squared Eror = MSE) of Monte Carlo integration is "independent of the dimension" of the variable being integrated, or some equivalent variant of this statement. I will provide evidence and citations later. In this post, I provide a simple reasoning for why this can be misleading, especially for the novice that approaches the Monte Carlo literature with the aim to learn how to chooose among estimators in practice. 
 Defining the notation needed for the post, let the integral (expectation) to be estimated as 
