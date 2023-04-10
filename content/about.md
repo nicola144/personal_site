@@ -48,7 +48,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 #### Journals
 Statistics and Probability Letters
 #### Conferences
-AISTATS 2023, AABI 2023
+AISTATS 2023, AABI 2023, NeurIPS 2023
 
 ### Talks & Posters
 - Contributed talk  on "*Generalized Self Normalized Importance Sampling*" at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/)
