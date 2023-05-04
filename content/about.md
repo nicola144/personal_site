@@ -27,11 +27,10 @@ The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am working on now directly and/or want to use in my work in the future are:
 <ul style="line-height:1">
-  <li> <b style="color:#00FF00"> <i>Importance Sampling</i></b> methodology for joint estimation of multiple related quantities. </li>
-  <li>  <b style="color:#00FF00"> <i>Quasi Monte Carlo</i></b> methodology. </li>
-  <li> <b style="color:#00FF00"> <i>Rare event </i></b> estimation. </li>
-  <li> <b style="color:#00FF00"> <i>High dimensional </i></b> statistics (<b style="color:#00FF00"> <i>Who isn't interested in this ?? </i></b>) . </li>
-  <li>Methods to <b style="color:#00FF00"> <i> combine interventional and observational</i></b> data for efficient causal estimation. </li>
+  <li> <b style="color:#00FF00"> <i>Importance sampling</i></b> and b style="color:#00FF00"> <i>quasi Monte Carlo</i></b> methodology for joint estimation of multiple related quantities. </li>
+    <li> <b style="color:#00FF00"> <i>Measure transport</i></b> and <i>optimal transport</i></b> methodology </li>
+  <li> <b style="color:#00FF00"> <i> Applications in rare event </i></b> estimation. </li>
+  <li> Applications in causal inference, in particular methods to <b style="color:#00FF00"> <i> combine interventional and observational</i></b> to make sample-efficient inferences in causal models. </li>
 </ul>
 </p>
 
