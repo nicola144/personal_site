@@ -29,7 +29,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 <ul style="line-height:1">
   <li> <b style="color:#00FF00"> <i>Importance sampling</i></b> and <b style="color:#00FF00"> <i>quasi Monte Carlo</i></b> methodology for joint estimation of multiple related quantities. </li>
     <li> <b style="color:#00FF00"> <i>Measure transport</i></b> and <b style="color:#00FF00"> <i>optimal transport</i></b> methodology </li>
-  <li> <b style="color:#00FF00"> Applications in <i> rare event </i></b> estimation. </li>
+  <li> Applications in <b style="color:#00FF00"> <i> rare event </i></b> estimation. </li>
   <li> Applications in causal inference, in particular methods to <b style="color:#00FF00"> <i> combine interventional and observational data </i></b> to make sample-efficient inferences in causal models. </li>
 </ul>
 </p>
