@@ -7,6 +7,11 @@ disqus: false
   <p>"Basically, I’m not interested in doing research and I never have been. I’m interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
   <p class="author">- David Blackwell</p>
 </div>
+<div class="quote">
+  <p>"Getting numbers is easy; getting numbers you can trust is hard." </p>
+  <p class="author">- Ron Kohavi, Diane Tang, Ya Xu (from the book "Trustworthy Online Controlled Experiments")</p>
+</div>
+
 
 <div class="container">
   <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
