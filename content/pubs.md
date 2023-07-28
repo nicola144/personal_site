@@ -51,10 +51,10 @@ disqus: false
 All publications are as single, first author unless otherwise specified. 
 
 
-- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **link to BayesComp2023 poster**).
+- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**In preparation; presented at MCM 2023**; **link to BayesComp2023 poster**).
 
 <div class="progress-bar">
-  <span class="emoji">🍳</span> <progress value="90" max="100"></progress>
+  <span class="emoji">🍳</span> <progress value="95" max="100"></progress>
   <div class="progress-label">90%</div>  <span class="emoji">🍳</span>
 </div>
 
