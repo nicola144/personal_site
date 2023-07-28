@@ -55,7 +55,7 @@ All publications are as single, first author unless otherwise specified.
 
 <div class="progress-bar">
   <span class="emoji">🍳</span> <progress value="95" max="100"></progress>
-  <div class="progress-label">90%</div>  <span class="emoji">🍳</span>
+  <div class="progress-label">95%</div>  <span class="emoji">🍳</span>
 </div>
 
 
