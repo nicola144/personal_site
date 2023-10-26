@@ -49,7 +49,7 @@ disqus: false
 </style>
 
 
-- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *Preprint;submitted*. <span style="font-size: 0.8em; color: grey;">(♦ indicates equal contribution)</span>
+- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *Preprint;submitted*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
 
 
 - [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**Submitted; presented at MCM 2023**; **link to BayesComp2023 poster**).
