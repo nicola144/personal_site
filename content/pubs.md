@@ -48,16 +48,17 @@ disqus: false
 
 </style>
 
-All publications are as single, first author unless otherwise specified. 
+
+- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span class="highlight">Branchini, Nicola</span><sup class="diamond"></sup> and <span class="highlight">Guilmeau, Thomas</span><sup class="diamond"></sup> and Chouzenoux, Emilie and Elvira, Víctor. *Preprint;submitted*. <span class="comment">(<sup class="diamond"></sup> indicates equal contribution)</span>
 
 
-- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**In preparation; presented at MCM 2023**; **link to BayesComp2023 poster**).
+- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**Submitted; presented at MCM 2023**; **link to BayesComp2023 poster**).
 
-<div class="progress-bar">
+<!-- <div class="progress-bar">
   <span class="emoji">🍳</span> <progress value="95" max="100"></progress>
   <div class="progress-label">95%</div>  <span class="emoji">🍳</span>
 </div>
-
+ -->
 
 <!-- - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
 
