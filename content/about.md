@@ -9,13 +9,13 @@ disqus: false
 </div>
 <div class="quote">
   <p>"Getting numbers is easy; getting numbers you can trust is hard." </p>
-  <p class="author">- Ron Kohavi, Diane Tang, Ya Xu (from the book "Trustworthy Online Controlled Experiments")</p>
+  <p class="author">- Ron Kohavi, Diane Tang, Ysa Xu (from the book "Trustworthy Online Controlled Experiments")</p>
 </div>
 
 
 <div class="container">
   <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
-    <p class="custom-align">Email: <a class="email" href="mailto:n.branchini@sms.ed.ac.uk">n.branchini@sms.ed.ac.uk</a></p>
+    <p class="custom-align">Email: <a class="email">n[dot]branchini[at]sms[dot]ed[dot]ac[dot]uk</a></p>
   </div>
 </div>
 
