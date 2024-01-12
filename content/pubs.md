@@ -50,6 +50,13 @@ disqus: false
 
 
 - [***Causal optimal transport of abstractions***](https://arxiv.org/abs/2312.08107); Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros. *In 3rd Conference on Causal Learning and Reasoning (CLeaR 2024)*. 
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+  The task of causal abstraction involves finding a mapping (a measurable transport map) between structural causal models (SCMs) and their corresponding "abstracted versions", which can be simplified or coarser SCMs (fewer variables or different functional relationships). We consider the problem of learning causal abstractions from data. We propose a framework that does so without specifying parametric relationships for the SCM functions. The method involves a multimarginal OT problem (as many marginals as there are considered interventions (not really, but roughly to get the idea)) with soft constraints and a cost function econding knowledge of the underlying causal DAGs. 
+</p>
+</div>
+
 
 - [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *Preprint;submitted*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
 
