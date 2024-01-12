@@ -67,7 +67,7 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Coming !!s
+  Coming !!
 </p>
 </div>
 
