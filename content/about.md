@@ -70,7 +70,7 @@ AISTATS 2023, AABI (workshop) 2023, NeurIPS 2023, ICLR 2024, AISTATS 2024
 
 ### Some background
 
-Previously, I was a Research Assistant at the [Alan Turing Institute]( https://www.turing.ac.uk/), working within the [Warwick Machine Learning Group](https://wmlg.io/) and supervised by [Prof. Theo Damoulas](https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/damoulas). Previous to that, I was a Master's student in the [School of Informatics at the University of Edinburgh](https://www.ed.ac.uk/informatics) where I was supervised by [Dr. Víctor Elvira](https://victorelvira.github.io/) working on auxiliary particle filters.
+Previously, I was a Research Assistant at the [Alan Turing Institute]( https://www.turing.ac.uk/), working within the [Warwick Machine Learning Group](https://wmlg.io/) and supervised by [Prof. Theo Damoulas](https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/damoulas). Previous to that, I was a Master's student in the [School of Informatics at the University of Edinburgh](https://www.ed.ac.uk/informatics) where I was supervised by [Prof. Víctor Elvira](https://victorelvira.github.io/) working on auxiliary particle filters.
 As undergrad, I studied Computer Science at the [University of Warwick](https://warwick.ac.uk/fac/sci/dcs/), where I did my BSc dissertation on reproducing AlphaZero supervised by [Dr. Paolo Turrini](https://www.dcs.warwick.ac.uk/~pturrini/).
 
 
