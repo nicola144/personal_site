@@ -53,7 +53,7 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Many adaptive IS (and some VI) methods are based on matching the moments of a target distributions. When the target has heavy tails, these moments can be undefined or their estimation can have high variance. We propose an AIS method that overcomes this by matching the moments of a (lighter tailed) modified target, which is exponentiated to a power alpha. Despite this, the procedure actually minimizes the alpha-divergence between the proposal and the true target. Note: many previous works propose AIS methods with heavy-tailed *proposals*, but not necessarily suitable for heavy-tailed *targets*.
+  Coming !
 </p>
 </div>
 
