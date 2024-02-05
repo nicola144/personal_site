@@ -40,9 +40,9 @@ Some specific topics I am working on now directly and/or want to use in my work 
 </p>
 
 ### News
-- *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span 
-- *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span
-- *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span
+- *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
+- *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
+- *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
 - Contributed talk accepted in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". <span class="emoji">✰</span> 
 - *Causal Entropy Optimization* to appear in AISTATS 2023. <span class="emoji">✰</span> 
 - Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
