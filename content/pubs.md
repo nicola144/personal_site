@@ -61,7 +61,7 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  The task of causal abstraction involves finding a mapping (a measurable transport map) between structural causal models (SCMs) and their corresponding "abstracted versions", which can be simplified or coarser SCMs (fewer variables or different functional relationships). We consider the problem of learning causal abstractions from data. We propose a framework that does so without specifying parametric relationships for the SCM functions. The method involves a multimarginal OT problem (as many marginals as there are considered interventions (not really, but roughly to get the idea)) with soft constraints and a cost function econding knowledge of the underlying causal DAGs. 
+  The task of causal abstraction involves finding a mapping (a measurable transport map) between structural causal models (SCMs) and their corresponding "abstracted versions", which can be simplified or coarser SCMs (fewer variables or different functional relationships). We consider the problem of learning causal abstractions from data. We propose a framework that does so without specifying parametric relationships for the SCM functions. The method involves a multimarginal OT problem (as many marginals as there are considered interventions (not really, but roughly to get the idea)) with soft constraints and a cost function econding knowledge of the underlying causal DAGs. Nicely, the soft constraints have a do-calculus interpretation. 
 </p>
 </div>
 
@@ -85,6 +85,17 @@ disqus: false
   Coming !!
 </p>
 </div>
+
+
+- [***An adaptive mixture view of particle filters***](https://arxiv.org/pdf/2310.16653.pdf); Branchini, Nicola and Elvira, Víctor. *Accepted (with minor revisions) at FoDS (Foundations of Data Science)*. 
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+  Coming !
+</p>
+</div>
+
 
 
 <!-- <div class="progress-bar">
