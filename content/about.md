@@ -3,16 +3,6 @@ title: "About me"
 disqus: false
 ---
 
-<div class="quote">
-  <p>"Basically, I’m not interested in doing research and I never have been. I’m interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
-  <p class="author">- David Blackwell</p>
-</div>
-<div class="quote">
-  <p>"Getting numbers is easy; getting numbers you can trust is hard." </p>
-  <p class="author">- Ron Kohavi, Diane Tang, Ysa Xu (from the book "Trustworthy Online Controlled Experiments")</p>
-</div>
-
-
 <div class="container">
   <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
     <p class="custom-align">Email: <a class="email">n[dot]branchini[at]sms[dot]ed[dot]ac[dot]uk</a></p>
@@ -69,6 +59,17 @@ AISTATS 2023, AABI (workshop) 2023, NeurIPS 2023, ICLR 2024, AISTATS 2024
 - [School of Mathematics Studentship, University of Edinburgh (full funding)](https://www.maths.ed.ac.uk/school-of-mathematics/studying-here/pgr/funding-opportunities)
 - Dissertation Prize for the Artificial Intelligence MSc, *University of Edinburgh*
 - Oustanding dissertation award (BSc Computer Science), *University of Warwick*
+
+
+<div class="quote">
+  <p>"Basically, I’m not interested in doing research and I never have been. I’m interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
+  <p class="author">- David Blackwell</p>
+</div>
+<div class="quote">
+  <p>"Getting numbers is easy; getting numbers you can trust is hard." </p>
+  <p class="author">- Ron Kohavi, Diane Tang, Ysa Xu (from the book "Trustworthy Online Controlled Experiments")</p>
+</div>
+
 
 ### Some background
 
