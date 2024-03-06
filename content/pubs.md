@@ -48,6 +48,16 @@ disqus: false
 
 </style>
 
+- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *To appear: 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+  Many adaptive IS (and some VI) methods are based on matching the moments of a target distributions. When the target has heavy tails, these moments can be undefined or their estimation can have high variance. We propose an AIS method that overcomes this by matching the moments of a (lighter tailed) modified target, which is exponentiated to a power alpha. Despite this, the procedure actually minimizes the alpha-divergence between the proposal and the true target. Note: many previous works propose AIS methods with heavy-tailed *proposals*, but not necessarily suitable for heavy-tailed *targets*.
+</p>
+</div>
+
+
 - [***Variational Resampling***](https://arxiv.org/pdf/2310.16653.pdf); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergen, Jens. *To appear: 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
 
 <button type="button" class="collapsible">Details about paper</button>
@@ -65,16 +75,14 @@ disqus: false
 </p>
 </div>
 
-
-- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *To appear: 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
+- [***An adaptive mixture view of particle filters***](https://arxiv.org/pdf/2310.16653.pdf); Branchini, Nicola and Elvira, Víctor. *To appear in: FoDS (Foundations of Data Science)*. 
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Many adaptive IS (and some VI) methods are based on matching the moments of a target distributions. When the target has heavy tails, these moments can be undefined or their estimation can have high variance. We propose an AIS method that overcomes this by matching the moments of a (lighter tailed) modified target, which is exponentiated to a power alpha. Despite this, the procedure actually minimizes the alpha-divergence between the proposal and the true target. Note: many previous works propose AIS methods with heavy-tailed *proposals*, but not necessarily suitable for heavy-tailed *targets*.
+  Coming !
 </p>
 </div>
-
 
 
 - [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**In revision; presented at MCM 2023**; **link to BayesComp2023 poster**).
@@ -86,15 +94,6 @@ disqus: false
 </p>
 </div>
 
-
-- [***An adaptive mixture view of particle filters***](https://arxiv.org/pdf/2310.16653.pdf); Branchini, Nicola and Elvira, Víctor. *Accepted (with minor revisions) at FoDS (Foundations of Data Science)*. 
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  Coming !
-</p>
-</div>
 
 
 
