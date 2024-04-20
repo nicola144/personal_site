@@ -48,7 +48,7 @@ disqus: false
 
 </style>
 
-- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://arxiv.org/pdf/2310.16653.pdf); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *To appear: 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
+- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://proceedings.mlr.press/v238/guilmeau24a.html); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
@@ -58,7 +58,7 @@ disqus: false
 </div>
 
 
-- [***Variational Resampling***](https://arxiv.org/pdf/2310.16653.pdf); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergen, Jens. *To appear: 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
+- [***Variational Resampling***](https://proceedings.mlr.press/v238/kviman24a.html); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergen, Jens. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
@@ -67,7 +67,7 @@ disqus: false
 </p>
 </div>
 
-- [***Causal optimal transport of abstractions***](https://arxiv.org/abs/2312.08107); Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros. *In 3rd Conference on Causal Learning and Reasoning (CLeaR 2024)*. 
+- [***Causal optimal transport of abstractions***](https://proceedings.mlr.press/v236/felekis24a.html); Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros. *In 3rd Conference on Causal Learning and Reasoning (CLeaR 2024)*. 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
