@@ -75,7 +75,7 @@ disqus: false
 </p>
 </div>
 
-- [***An adaptive mixture view of particle filters***](https://arxiv.org/pdf/2310.16653.pdf); Branchini, Nicola and Elvira, Víctor. *To appear in: FoDS (Foundations of Data Science)*. 
+- [***An adaptive mixture view of particle filters***](https://www.aimsciences.org/article/doi/10.3934/fods.2024017); Branchini, Nicola and Elvira, Víctor. *FoDS (Foundations of Data Science)*. 
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
