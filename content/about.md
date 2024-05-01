@@ -30,6 +30,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 </p>
 
 ### News
+- Excited (and a bit stressed) to give a talk at [the 6th workshop on Sequential Monte Carlo (SMC 2024)](https://www.icms.org.uk/SMC2024). <span class="emoji">✰</span>
 - *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
