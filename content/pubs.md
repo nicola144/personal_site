@@ -63,7 +63,8 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Coming !
+  A very neat idea stemming from Oskar's Master's thesis (he's impressive, isn't he ?); when we resample in PFs, we usually would like the resuling equally-weighted distribution of the resampled particles to be ``close'' in some sense to the distribution before resampling (which was weighted). 
+  Usually, we devise resampling schemes enforce this by saying that the number of times a particle gets replicated is, on average, equal to its weight in the pre-resampling distribution. What we do here instead is to optimize the number of times a particle gets replicated so as to minimize a divergence between the post-resampling distribution and the pre-resampling distribution directly ! With a very smart algorithm again entirely due to Oskar. 
 </p>
 </div>
 
