@@ -58,7 +58,7 @@ disqus: false
 </div>
 
 
-- [***Variational Resampling***](https://proceedings.mlr.press/v238/kviman24a.html); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergen, Jens. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
+- [***Variational Resampling***](https://proceedings.mlr.press/v238/kviman24a.html); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
