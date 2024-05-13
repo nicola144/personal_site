@@ -86,7 +86,7 @@ disqus: false
 </div>
 
 
-- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**In revision; presented at MCM 2023**; **link to BayesComp2023 poster**).
+- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**presented at SMC 2024**; **link to BayesComp2023 poster**).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
