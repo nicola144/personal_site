@@ -30,6 +30,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 </p>
 
 ### News
+- Our **Generalized self-normalized importance sampling** [featured in Xian's blog !!!](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/)  <span class="emoji">✰</span> <span class="emoji">✰</span>
 - Excited (and a bit stressed) to give a talk at [the 6th workshop on Sequential Monte Carlo (SMC 2024)](https://www.icms.org.uk/SMC2024). <span class="emoji">✰</span>
 - *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
