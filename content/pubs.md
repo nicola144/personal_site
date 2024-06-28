@@ -48,6 +48,15 @@ disqus: false
 
 </style>
 
+- ***Generalized self-normalized importance sampling***; Branchini, Nicola and Elvira, Víctor. (**presented at SMC 2024**; **[https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/]**).
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+  Coming !!
+</p>
+</div>
+
 - [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://proceedings.mlr.press/v238/guilmeau24a.html); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
 
 <button type="button" class="collapsible">Details about paper</button>
@@ -84,17 +93,6 @@ disqus: false
   Coming !
 </p>
 </div>
-
-
-- [***Generalized self-normalized importance sampling***](https://www.dropbox.com/s/scm7vnn74i5inrs/gensnis_poster%20%286%29.pdf?dl=0); Branchini, Nicola and Elvira, Víctor. (**presented at SMC 2024**; **link to BayesComp2023 poster**).
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  Coming !!
-</p>
-</div>
-
 
 
 
