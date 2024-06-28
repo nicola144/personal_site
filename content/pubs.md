@@ -53,7 +53,7 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Coming !!
+  The self-normalized IS estimator is widely used to estimate expectations with intractable normalizing constants, for example, in Bayesian leave-one-out cross validation or likelihood free inference. In this paper, we propose a framework to understand when SNIS works and when it does not, with a generalization that allows us to overcome its limitations, with connections to continuous optimal transport. See paper abstract for more info. 
 </p>
 </div>
 
