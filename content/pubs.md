@@ -48,7 +48,7 @@ disqus: false
 
 </style>
 
-- [***Generalized self-normalized importance sampling***](../resources/papers/gensnisv1.pdf); Branchini, Nicola and Elvira, Víctor. **presented at SMC 2024**; [**Xi'an's comments in his blog**](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/)).
+- [***Generalized self-normalized importance sampling***](https://github.com/nicola144/personal_site/blob/main/resources/papers/gensnisv1.pdf); Branchini, Nicola and Elvira, Víctor. **presented at SMC 2024**; [**Xi'an's comments in his blog**](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/)).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
