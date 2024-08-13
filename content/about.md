@@ -44,7 +44,7 @@ Some specific topics I am working on now directly and/or want to use in my work 
 
 ### Reviewing
 #### Journals
-Statistics and Probability Letters
+Statistics and Computing, Statistics and Probability Letters
 #### Conferences
 AISTATS 2023, AABI (workshop) 2023, NeurIPS 2023, ICLR 2024, AISTATS 2024
 
