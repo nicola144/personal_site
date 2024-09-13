@@ -14,7 +14,7 @@ This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branch
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). 
 <!-- The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "basic" research](https://www.weforum.org/agenda/2023/01/here-s-why-fund-fundamental-scientific-research-davos2023/). To be clear, it does not mean it is "better" or "more important" (nor less, for that matter) than other kinds of research. 
  -->
- <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology </i></b> around efficient uncertainty quantification, decision making, probabilistic reasoning, computational statistics, and machine learning. More specifically, I am interested in methods for (possibly adaptive) Importance Sampling, experimental design, and statistical causality.
+ <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning. 
  <br>
  <br>
  <br>
@@ -22,10 +22,9 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am working on now directly and/or want to use in my work in the future are:
 <ul style="line-height:1">
-  <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> and <b style="color:#00FF00"> <i>quasi Monte Carlo</i></b> methodology for joint estimation of multiple related quantities. </li>
-    <li> <b style="color:#00FF00"> <i>Measure transport</i></b> and <b style="color:#00FF00"> <i>optimal transport</i></b> methodology </li>
+  <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> and <b style="color:#00FF00"> <i>quasi Monte Carlo</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics </b> . </li>
   <li> Applications in <b style="color:#00FF00"> <i> rare event </i></b> estimation. </li>
-  <li> Applications in causal inference, in particular methods to <b style="color:#00FF00"> <i> combine interventional and observational data </i></b> to make sample-efficient inferences in causal models. </li>
+    <li> <b style="color:#00FF00"> <i>Measure transport</i></b> and <b style="color:#00FF00"> <i>optimal transport</i></b> methodology </li>
 </ul>
 </p>
 
