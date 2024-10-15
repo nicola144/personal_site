@@ -4,7 +4,7 @@ disqus: false
 ---
 
 <div class="container">
-  <a href="https://resume.io/r/pgbpr3wNh" class="button button3">Link to my resume</a> <div class="email-box">
+  <a href="https://drive.google.com/file/d/1-XcLzdWNpvRK5QvudnkrDhzJPUA5kvLm/view?usp=sharing" class="button button3">Link to my resume</a> <div class="email-box">
     <p class="custom-align">Email: <a class="email">n[dot]branchini[at]sms[dot]ed[dot]ac[dot]uk</a></p>
   </div>
 </div>
