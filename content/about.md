@@ -22,7 +22,7 @@ I am a graduate researcher in Statistics in the [School of Mathematics at the Un
 I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
 Some specific topics I am working on now directly and/or want to use in my work in the future are:
 <ul style="line-height:1">
-  <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> and <b style="color:#00FF00"> <i>quasi Monte Carlo</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics</b>. </li>
+  <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics</b>. </li>
   <li> Applications in <b style="color:#00FF00"> <i> rare event </i></b> estimation. </li>
     <li> <b style="color:#00FF00"> <i>Measure transport</i></b>, <b style="color:#00FF00"> <i>optimal transport and gradient flow</i></b> methodology for sampling. </li>
 </ul>
