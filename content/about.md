@@ -12,6 +12,7 @@ disqus: false
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). 
+Since recently I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervised by [Prof. Aki Vehtari](https://users.aalto.fi/~ave/).
 <!-- The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "basic" research](https://www.weforum.org/agenda/2023/01/here-s-why-fund-fundamental-scientific-research-davos2023/). To be clear, it does not mean it is "better" or "more important" (nor less, for that matter) than other kinds of research. 
  -->
  <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning. 
