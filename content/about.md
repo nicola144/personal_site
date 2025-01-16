@@ -9,6 +9,10 @@ disqus: false
   </div>
 </div>
 
+<div class="container">
+  <a href="https://drive.google.com/file/d/1h1iCDA93xXUwW_m9fjBEHj2JcPYBy4pm/view?usp=sharing" class="button button3">Slides about some of my recent work</a> 
+</div>
+
 
 This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
 I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). 
