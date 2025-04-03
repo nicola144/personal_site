@@ -48,9 +48,9 @@ disqus: false
 
 </style>
 
-- [***Towards Adaptive Self-Normalized Importance Samplers***]; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
+- ***Towards Adaptive Self-Normalized Importance Samplers***; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
 
-- [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio.
+- [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
@@ -69,7 +69,7 @@ disqus: false
 </p>
 </div>
 
-- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://proceedings.mlr.press/v238/guilmeau24a.html); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦ arbitrary orderings, equal contribution.)</span>
+- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://proceedings.mlr.press/v238/guilmeau24a.html); <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
