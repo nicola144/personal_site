@@ -48,6 +48,16 @@ disqus: false
 
 </style>
 
+- ***Towards Adaptive Self-Normalized Importance Samplers***; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*.
+
+- [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio.
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+ Coming soon! 
+</p>
+</div>
+
 - [***The role of tail dependence in estimating posterior expectations***](https://openreview.net/forum?id=Zxk07UdWEy); Branchini, Nicola and Elvira, Víctor. *In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty*.
 
 - [***Generalized self-normalized importance sampling (preprint)***](https://arxiv.org/abs/2406.19974); Branchini, Nicola and Elvira, Víctor. [**Video from SMC 2024**](https://www.youtube.com/watch?v=tG9mjp6GgtE&list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&index=11); [**Xi'an's comments in his blog**](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/).
