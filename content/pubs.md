@@ -48,7 +48,7 @@ disqus: false
 
 </style>
 
-- [***Towards Adaptive Self-Normalized Importance Samplers***]; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*.
+- [***Towards Adaptive Self-Normalized Importance Samplers***]; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
 
 - [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio.
 <button type="button" class="collapsible">Details about paper</button>
