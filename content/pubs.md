@@ -48,13 +48,20 @@ disqus: false
 
 </style>
 
-- ***Towards Adaptive Self-Normalized Importance Samplers***; Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
+- [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+ The TLDR; To estimate µ = E_p[f(θ)] when p's normalizing constant is unknown, instead of doing MCMC on p(θ) or even p(θ)|f(θ)|, or learning a parametric q(θ), we try MCMC directly on p(θ)|f(θ)- µ|, which is the asymptotic-variance minimizing proposal. 
+ Note: we cannot do MCMC straightforwardly, as p(θ)|f(θ)- µ| cannot be evaluated - it contains µ, the quantity of interest ! So, we propose a simple iterative scheme that works: initial estimate µ₀ ; run a chain on the *approximation* p(θ)| f(θ)- µ₀ |; estimate µ again with SNIS, and keep iterating. I'm quite excited about extending this work. 
+</p>
+</div>
 
 - [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
- Coming soon! 
+ Importance sampling with mixture models is all over the place (even where you don't see it). Subtractive mixture models - MMs with negative weights - are super cool and can model complex distributions more efficiently. It'd be great to use them for IS, but sampling from them is a pain. We propose an estimator that exploits that a SMM is a difference of two regular MMs, so that we can do IS and scale in higher dimension (note: sampling from an SMM requires costly autoregressive inverse transform sampling). 
 </p>
 </div>
 
