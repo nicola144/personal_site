@@ -46,6 +46,28 @@ disqus: false
     margin-top: -15px;
   }
 
+  /* Button styling */
+  button.collapsible {
+    background-color: #f8f8f8;
+    color: #555;
+    cursor: pointer;
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  button.collapsible:hover {
+    background-color: #eee;
+    color: #222;
+  }
+  
+  button.collapsible:focus {
+    outline: none;
+  }
+
 </style>
 
 - [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
