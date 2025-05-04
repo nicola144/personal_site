@@ -48,20 +48,16 @@ disqus: false
 
   /* Button styling */
   button.collapsible {
-    background-color: #f8f8f8;
-    color: #555;
     cursor: pointer;
     padding: 6px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
     font-size: 0.85em;
+    border-radius: 4px;
     transition: all 0.3s ease;
     margin-bottom: 10px;
   }
   
   button.collapsible:hover {
-    background-color: #eee;
-    color: #222;
+    opacity: 0.85;
   }
   
   button.collapsible:focus {
