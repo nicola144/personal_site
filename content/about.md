@@ -3,6 +3,28 @@ title: "About me"
 disqus: false
 ---
 
+<style>
+  /* Button styling */
+  button.collapsible {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  button.collapsible:hover {
+    opacity: 0.85;
+  }
+  
+  button.collapsible:focus {
+    outline: none;
+  }
+
+</style>
+
+
 <div class="container">
   <a href="https://drive.google.com/file/d/1bAozo15YfdYsJAv2xRXeM_HTxb-uQf1x/view?usp=sharing" class="button button3">Link to my resume</a> <div class="email-box">
     <p class="custom-align">Email: <a class="email">n[dot]branchini[at]sms[dot]ed[dot]ac[dot]uk</a></p>
@@ -57,20 +79,6 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
 </p>
 </div>
 
-<style>
-  .collapsible {
-    cursor: pointer;
-    padding: 6px 12px;
-    font-size: 0.85em;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    margin-bottom: 10px;
-  }
-  
-  .collapsible:hover {
-    opacity: 0.85;
-  }
-</style>
 
 ### Reviewing
 #### Journals
