@@ -46,14 +46,12 @@ I like collaborating with people. Feel free to drop me an email (and to ping me 
 - *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
 <button type="button" class="collapsible">Older news</button>
 <div class="content">
-<p>
 - Contributed talk accepted in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". <span class="emoji">✰</span> 
 - *Causal Entropy Optimization* to appear in AISTATS 2023. <span class="emoji">✰</span> 
 - Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
 - Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
 - Poster on "*Generalized Self Normalized Importance Sampling*" accepted at [BayesComp 2023](https://bayescomp2023.com/).
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
-</p>
 </div>
 
 <style>
@@ -73,29 +71,7 @@ I like collaborating with people. Feel free to drop me an email (and to ping me 
   button.collapsible:focus {
     outline: none;
   }
-  
-  .content {
-    display: none;
-    overflow: hidden;
-  }
 </style>
-
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
 
 ### Reviewing
 #### Journals
