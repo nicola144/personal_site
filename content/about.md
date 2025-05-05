@@ -14,7 +14,7 @@ disqus: false
 </div>
 
 
-Hi! I am <span style="color:#ff5a33"> **Nicola Branchini**</span>, a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). Sometimes I blog as well here.
+Hi! I am <span style="color:#e05a34"> **Nicola Branchini**</span>, a PhD student in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). Sometimes I blog as well here.
 I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervised by [Prof. Aki Vehtari](https://users.aalto.fi/~ave/) in Aalto University.
 <!-- The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "basic" research](https://www.weforum.org/agenda/2023/01/here-s-why-fund-fundamental-scientific-research-davos2023/). To be clear, it does not mean it is "better" or "more important" (nor less, for that matter) than other kinds of research. 
  -->
