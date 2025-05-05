@@ -43,7 +43,7 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
    <img src="Nicola_Branchini.png" width="200" height="auto" style="margin-right: 25px;">
    <div>
-     <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling (IS). The concept of IS is all about "sample efficient" - in ML terminology - Monte Carlo integration. This is relevant in a number of applications beyond "just" Bayesian computation. </p>
+     <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo (MC), with a particular focus on importance sampling (IS). The concept of IS is all about "sample efficient" - in ML terminology - MC integration, and of understanding MC integration as optimization over probability densities. This is relevant in a number of applications beyond "just" Bayesian computation. </p>
      <p>I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).</p>
    </div>
  </div>
