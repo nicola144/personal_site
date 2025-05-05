@@ -18,21 +18,22 @@ Hi! I am <span style="color:#e05a34"> **Nicola Branchini**</span>, a PhD student
 I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervised by [Prof. Aki Vehtari](https://users.aalto.fi/~ave/) in Aalto University.
 <!-- The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "basic" research](https://www.weforum.org/agenda/2023/01/here-s-why-fund-fundamental-scientific-research-davos2023/). To be clear, it does not mean it is "better" or "more important" (nor less, for that matter) than other kinds of research. 
  -->
- <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p>
- My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling.
-  <!-- I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning.  -->
- <br>
- <br>
- <br>
-
-I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).
-<!-- Some specific topics I am working on now directly and/or want to use in my work in the future are: -->
-<!-- <ul style="line-height:1">
-  <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics</b>. </li>
-    <li> <b style="color:#00FF00"> <i>Measure transport</i></b>, <b style="color:#00FF00"> <i>optimal transport and gradient flow</i></b> methodology for sampling. </li>
-    <li> Applications in Bayesian computation and rare event estimation. </li>
-</ul>
-</p> -->
+ <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+   <img src="Nicola_Branchini.png" width="200" height="auto" style="margin-right: 25px;">
+   <div>
+     <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling.</p>
+     <p>I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).</p>
+   </div>
+ </div>
+ 
+ <!-- I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning.  -->
+ <!-- Some specific topics I am working on now directly and/or want to use in my work in the future are: -->
+ <!-- <ul style="line-height:1">
+   <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics</b>. </li>
+     <li> <b style="color:#00FF00"> <i>Measure transport</i></b>, <b style="color:#00FF00"> <i>optimal transport and gradient flow</i></b> methodology for sampling. </li>
+     <li> Applications in Bayesian computation and rare event estimation. </li>
+ </ul>
+ </p> -->
 
 ### News
 - Our conference paper ***Towards Adaptive Self-Normalized Importance Samplers*** is accepted at the [Statistical Signal Processing Workshop (SSP), 2025](https://2025.ieeessp.org/).<span class="emoji">✰</span>
