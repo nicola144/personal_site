@@ -67,6 +67,7 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
 - *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
+
 <button type="button" class="collapsible">Older news</button>
 <div class="content">
 <p>
