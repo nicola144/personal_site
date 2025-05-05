@@ -48,12 +48,12 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
 <button type="button" class="collapsible">Older news</button>
 <div class="content">
 <p>
-- Contributed talk accepted in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". <span class="emoji">✰</span> 
-- *Causal Entropy Optimization* to appear in AISTATS 2023. <span class="emoji">✰</span> 
-- Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
-- Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
-- Poster on "*Generalized Self Normalized Importance Sampling*" accepted at [BayesComp 2023](https://bayescomp2023.com/).
-- I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
+- Contributed talk accepted in a minisymposium at <a href="https://mcm2023.sciencesconf.org/resource/page/id/4">the 14th international conference on Monte Carlo methods and applications (MCM) 2023</a>, on "<i>Generalized Self Normalized Importance Sampling</i>". <span class="emoji">✰</span><br>
+- <i>Causal Entropy Optimization</i> to appear in AISTATS 2023. <span class="emoji">✰</span><br>
+- Received <b>ISBA Travel Award</b> for <a href="https://bayescomp2023.com/">BayesComp 2023</a>.<br>
+- Accepted for attending the 2023 <a href="https://www.probnumschool.org/pages/home.html">Probabilistic Numerics School</a> in Tübingen<br>
+- Poster on "<i>Generalized Self Normalized Importance Sampling</i>" accepted at <a href="https://bayescomp2023.com/">BayesComp 2023</a>.<br>
+- I received the <a href="https://www.turing.ac.uk/work-turing/studentships/enrichment">Turing Enrichment Scheme (Placement Award, for 6 months)</a> offer.
 </p>
 </div>
 
