@@ -14,27 +14,28 @@ disqus: false
 </div>
 
 
-This very infrequent blog is by me, <span style="color:#ff5a33"> **Nicola Branchini**</span>.  
-I am a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). 
-Since recently I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervised by [Prof. Aki Vehtari](https://users.aalto.fi/~ave/).
+Hi! I am <span style="color:#ff5a33"> **Nicola Branchini**</span>, a graduate researcher in Statistics in the [School of Mathematics at the University of Edinburgh](https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people), advised by [Prof. Víctor Elvira](https://victorelvira.github.io/). Sometimes I blog as well here.
+I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervised by [Prof. Aki Vehtari](https://users.aalto.fi/~ave/) in Aalto University.
 <!-- The kind of research I (mostly) enjoy doing is the so called ["fundamental" or "basic" research](https://www.weforum.org/agenda/2023/01/here-s-why-fund-fundamental-scientific-research-davos2023/). To be clear, it does not mean it is "better" or "more important" (nor less, for that matter) than other kinds of research. 
  -->
- <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p> I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning. 
+ <img src="Nicola_Branchini.png" align="left" width="200" height="auto" style="vertical-align:middle;margin:0px 50px"> <p>
+ My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling.
+  <!-- I am interested broadly in  <b style="color:#00FF00"> <i> statistical methodology in Bayesian computation</i></b>, efficient uncertainty quantification, decision making, probabilistic reasoning, broadly speaking computational statistics and machine learning.  -->
  <br>
  <br>
  <br>
 
-I like collaborating with people. If you do research in very related topics, feel free to drop me an email.
-Some specific topics I am working on now directly and/or want to use in my work in the future are:
-<ul style="line-height:1">
+I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).
+<!-- Some specific topics I am working on now directly and/or want to use in my work in the future are: -->
+<!-- <ul style="line-height:1">
   <li> <b style="color:#00FF00"> (Adaptive/annealed) <i>importance sampling</i></b> methodology for joint estimation of multiple related quantities, and related <b style="color:#00FF00"> diagnostics</b>. </li>
     <li> <b style="color:#00FF00"> <i>Measure transport</i></b>, <b style="color:#00FF00"> <i>optimal transport and gradient flow</i></b> methodology for sampling. </li>
     <li> Applications in Bayesian computation and rare event estimation. </li>
 </ul>
-</p>
+</p> -->
 
 ### News
-- Our conference paper ***Towards Adaptive Self-Normalized Importance Samplers*** is accepted at the [Statistical Signal Processing Workshop (SSP), 2025](https://2025.ieeessp.org/).
+- Our conference paper ***Towards Adaptive Self-Normalized Importance Samplers*** is accepted at the [Statistical Signal Processing Workshop (SSP), 2025](https://2025.ieeessp.org/).<span class="emoji">✰</span>
 - Our preprint on [subtractive mixture models and importance sampling is out!](https://arxiv.org/abs/2503.21346)
 - Thanks to the **Institute for Mathematical and Statistical Innovation (IMSI)** for generously awarding me a travel grant of 1000 US dollars to attend [MCM 2025](https://ccbatiit.github.io/mcm2025/) in Chicago ! 
 - Thanks to **G-Research** for [generously awarding me a grant so that I will be able to attend NeurIPS in Vancouver](https://www.gresearch.com/news/g-research-october-2024-grant-winners/?utm_campaign=Social%20Media%20Planner&utm_content=321823956&utm_medium=social&utm_source=linkedin&hss_channel=lcp-55375)
@@ -43,12 +44,58 @@ Some specific topics I am working on now directly and/or want to use in my work 
 - *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
+<button type="button" class="collapsible">Older news</button>
+<div class="content">
+<p>
 - Contributed talk accepted in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". <span class="emoji">✰</span> 
 - *Causal Entropy Optimization* to appear in AISTATS 2023. <span class="emoji">✰</span> 
 - Received **ISBA Travel Award** for [BayesComp 2023](https://bayescomp2023.com/). 
 - Accepted for attending the 2023 [Probabilistic Numerics School](https://www.probnumschool.org/pages/home.html) in Tübingen
 - Poster on "*Generalized Self Normalized Importance Sampling*" accepted at [BayesComp 2023](https://bayescomp2023.com/).
 - I received the [Turing Enrichment Scheme (Placement Award, for 6 months)](https://www.turing.ac.uk/work-turing/studentships/enrichment) offer.
+</p>
+</div>
+
+<style>
+  button.collapsible {
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+  }
+  
+  button.collapsible:hover {
+    opacity: 0.85;
+  }
+  
+  button.collapsible:focus {
+    outline: none;
+  }
+  
+  .content {
+    display: none;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
 
 ### Reviewing
 #### Journals
@@ -72,7 +119,7 @@ AISTATS 2023, AABI (workshop) 2023, NeurIPS 2023, ICLR 2024, AISTATS 2024, NeurI
 
 
 <div class="quote">
-  <p>"Basically, I’m not interested in doing research and I never have been. I’m interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
+  <p>"Basically, I'm not interested in doing research and I never have been. I'm interested in understanding, which is quite a different thing. And often to understand something you have to work it out yourself because no one else has done it" </p>
   <p class="author">- David Blackwell</p>
 </div>
 <div class="quote">
