@@ -21,7 +21,7 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
    <img src="Nicola_Branchini.png" width="200" height="auto" style="margin-right: 25px;">
    <div>
-     <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling.</p>
+     <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo, with a particular focus on importance sampling (IS). The concept of IS is all about "sample efficient" - in ML terminology - Monte Carlo integration. This is relevant in a number of applications beyond "just" Bayesian computation. </p>
      <p>I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).</p>
    </div>
  </div>
@@ -45,7 +45,8 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
 - *Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Variational resampling* to appear in AISTATS 2024. <span class="emoji">✰</span>
 - *Causal Optimal Transport of Abstractions* to appear in CLEaR (Conference on Causal Learning and Reasoning) 2024. <span class="emoji">✰</span>
-<button type="button" class="collapsible">Older news</button>
+<input type="checkbox" id="older-news" class="collapsible-checkbox" style="display: none;">
+<label for="older-news" class="collapsible">Older news</label>
 <div class="content">
 - Contributed talk accepted in a minisymposium at [the 14th international conference on Monte Carlo methods and applications (MCM) 2023](https://mcm2023.sciencesconf.org/resource/page/id/4), on "*Generalized Self Normalized Importance Sampling*". <span class="emoji">✰</span> 
 - *Causal Entropy Optimization* to appear in AISTATS 2023. <span class="emoji">✰</span> 
@@ -56,21 +57,28 @@ I am also an [ELLIS PhD student](https://ellis.eu/), working with and co-supervi
 </div>
 
 <style>
-  button.collapsible {
+  .collapsible {
     cursor: pointer;
     padding: 6px 12px;
     font-size: 0.85em;
     border-radius: 4px;
     transition: all 0.3s ease;
     margin-bottom: 10px;
+    display: inline-block;
   }
   
-  button.collapsible:hover {
+  .collapsible:hover {
     opacity: 0.85;
   }
   
-  button.collapsible:focus {
-    outline: none;
+  .content {
+    display: none;
+    padding: 0 18px;
+    overflow: hidden;
+  }
+  
+  .collapsible-checkbox:checked + .collapsible + .content {
+    display: block;
   }
 </style>
 
