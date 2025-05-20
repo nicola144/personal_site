@@ -32,7 +32,7 @@ disqus: false
 </div>
 
 <div class="container">
-  <a href="https://drive.google.com/file/d/1h1iCDA93xXUwW_m9fjBEHj2JcPYBy4pm/view?usp=sharing" class="button button3">Slides about some of my recent work</a> 
+  <a href="https://drive.google.com/file/d/1RBiKMmPNaMDEkBwM_9GWYTBEY0ACr9mD/view?usp=sharing" class="button button3">A poster about some of my recent work</a> 
 </div>
 
 
