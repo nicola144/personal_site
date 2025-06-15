@@ -3,6 +3,8 @@ title: "Publications, preprints & working papers"
 disqus: false
 ---
 
+<link rel="stylesheet" href="/css/modern-style.css">
+
 <style>
   .progress-bar {
     position: relative;
@@ -41,29 +43,11 @@ disqus: false
     font-weight: bold;
     color: orange;
   }
-    span.emoji {
+  
+  span.emoji {
     font-size: 40px;
     margin-top: -15px;
   }
-
-  /* Button styling */
-  button.collapsible {
-    cursor: pointer;
-    padding: 6px 12px;
-    font-size: 0.85em;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    margin-bottom: 10px;
-  }
-  
-  button.collapsible:hover {
-    opacity: 0.85;
-  }
-  
-  button.collapsible:focus {
-    outline: none;
-  }
-
 </style>
 
 - [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
@@ -169,4 +153,31 @@ disqus: false
 
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
+
+<script>
+// Simple collapsible functionality - inline
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all collapsible buttons
+    var buttons = document.querySelectorAll('.collapsible');
+    
+    // Add click event to each button
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Toggle active class
+            this.classList.toggle('active');
+            
+            // Get the content div (next sibling)
+            var content = this.nextElementSibling;
+            
+            // Toggle the content
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+});
+</script>
+
 
