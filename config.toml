@@ -91,6 +91,11 @@ icon = "twitter"
 url = "https://twitter.com/Branchini_Nic"
 
 [[params.social]]
+name = "Bluesky"
+icon = "cloud"
+url = "https://bsky.app/profile/branchini.bsky.social"
+
+[[params.social]]
 name = "scholar"
 url = "https://scholar.google.com/citations?user=bPtGaVIAAAAJ&hl=en"
 
