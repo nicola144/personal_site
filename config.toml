@@ -93,7 +93,7 @@ url = "https://twitter.com/Branchini_Nic"
 [[params.social]]
 name = "Bluesky"
 icon = "cloud"
-url = "https://bsky.app/profile/branchini.bsky.social"
+url = "https://bsky.app/profile/nicolabranchini.bsky.social"
 
 [[params.social]]
 name = "scholar"

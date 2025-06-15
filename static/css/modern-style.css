@@ -617,7 +617,17 @@ button.collapsible:after {
   color: white;
 }
 
-/* Social Media Icons - Make them bigger */
+/* Social Media Icons - Make them bigger and add spacing */
+.header .site-description nav ul {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.header .site-description nav ul li {
+  margin: 0 !important;
+}
+
 .header .site-description nav ul svg {
   max-height: 24px !important;
   width: 24px;
@@ -625,6 +635,39 @@ button.collapsible:after {
 }
 
 .header .site-description nav ul svg:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* Fix Google Scholar icon size - it uses different styling */
+.header .site-description nav ul a[href*="scholar"] {
+  font-size: 24px !important;
+  line-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+/* Custom Bluesky icon */
+.header .site-description nav ul a[href*="bsky.app"] svg {
+  display: none;
+}
+
+.header .site-description nav ul a[href*="bsky.app"]::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 530' fill='%231185FE'%3E%3Cpath d='M135 180c66-87 134-118 165-118s99 31 165 118c0 0-42 130-165 130S135 180 135 180z'/%3E%3Cpath d='M202 390c-12-5-22-13-28-24-14-25-6-56 18-70 12-7 26-7 38 0 24 14 32 45 18 70-6 11-16 19-28 24-6 3-12 3-18 0z'/%3E%3Cpath d='M398 390c12-5 22-13 28-24 14-25 6-56-18-70-12-7-26-7-38 0-24 14-32 45-18 70 6 11 16 19 28 24 6 3 12 3 18 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.2s ease;
+}
+
+.header .site-description nav ul a[href*="bsky.app"]:hover::after {
   transform: scale(1.1);
   opacity: 0.8;
 }
