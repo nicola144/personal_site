@@ -70,7 +70,7 @@ type: "page"
     <div>
       <p>My real interests are broad, spanning computational statistics and statistical/probabilistic machine learning, with a focus on methodology. For my PhD, I have been focussing on developing methodology in Monte Carlo (MC), with a particular focus on importance sampling (IS).</p>
       
-      <p> IS can be seen as understanding MC integration as optimization over probability densities. This is relevant in a number of applications beyond "just" Bayesian computation.</p>
+      <p> IS can be seen as understanding MC integration as optimization over probability densities. This is relevant in a number of applications beyond the obvious Bayesian computation.</p>
       
      <p>I like collaborating with people. Feel free to drop me an email (and to ping me again if I do not reply).</p>
    </div>
