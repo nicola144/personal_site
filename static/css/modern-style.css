@@ -77,7 +77,8 @@ h6 { font-size: 1rem; }
 p {
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
-  max-width: 70ch;
+  max-width: 85ch;
+  width: 100%;
 }
 
 /* Links */
@@ -112,6 +113,22 @@ a:not(.button):not(.nav-link):hover::after {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
+}
+
+/* Content Container */
+.container.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container.wrapper.post {
+  max-width: 1000px;
+}
+
+.markdown {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Hero Section */
@@ -496,10 +513,6 @@ html {
 /* Theme Compatibility Fixes */
 .post .markdown {
   max-width: none !important;
-}
-
-.container.wrapper {
-  max-width: 1200px;
 }
 
 /* Original theme collapsible button compatibility */
