@@ -162,30 +162,5 @@ disqus: false
 <img src="/eq_oapf.svg" width="1000" height="300">
 </div>
 
-<script>
-// Simple collapsible functionality - inline
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all collapsible buttons
-    var buttons = document.querySelectorAll('.collapsible');
-    
-    // Add click event to each button
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Toggle active class
-            this.classList.toggle('active');
-            
-            // Get the content div (next sibling)
-            var content = this.nextElementSibling;
-            
-            // Toggle the content
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-});
-</script>
 
 
