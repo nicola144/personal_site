@@ -19,6 +19,23 @@ summaryLength = 20
 # Your Disqus sortname.
 disqusShortname = "personal-website-g7y0elzvjn"
 
+# Markdown configuration for better math rendering
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.

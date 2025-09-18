@@ -55,7 +55,7 @@ disqus: false
 <div class="content">
 <p>
  The TLDR; To estimate µ = E_p[f(θ)] when p's normalizing constant is unknown, instead of doing MCMC on p(θ) or even p(θ)|f(θ)|, or learning a parametric q(θ), we try MCMC directly on p(θ)|f(θ)- µ|, which is the asymptotic-variance minimizing proposal. 
- Note: we cannot do MCMC straightforwardly, as p(θ)|f(θ)- µ| cannot be evaluated - it contains µ, the quantity of interest ! So, we propose a simple iterative scheme that works: initial estimate µ₀ ; run a chain on the *approximation* p(θ)| f(θ)- µ₀ |; estimate µ again with SNIS, and keep iterating. I'm quite excited about extending this work. 
+ Note: we cannot do MCMC straightforwardly, as p(θ)|f(θ)- µ| cannot be evaluated - it contains µ, the quantity of interest ! So, we propose a simple iterative scheme that works: initial estimate µ₀ ; run a chain on the *approximation* p(θ)| f(θ)- µ₀ |; estimate µ again with SNIS, and keep iterating. I'm quite excited about extending this work. An imprecision in the current paper - will be fixed soon and in upcoming journal paper - is that each each time we need to plug in the global estimate of µ, not the local one build with the ``current'' MCMC samples.  A CLT for the final combined estimates is coming..
 </p>
 </div>
 
@@ -68,6 +68,14 @@ disqus: false
 </div>
 
 - [***The role of tail dependence in estimating posterior expectations***](https://openreview.net/forum?id=Zxk07UdWEy); Branchini, Nicola and Elvira, Víctor. *In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty*.
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+ To estimate posterior expectations *consistently*, we need to use self-normalized importance sampling (or MCMC, but SNIS has a better variance lower bound). It is a ratio of two IS estimators. Typical diagnostics forget this, and only look at IS-weights for numerator or denominator separately. We know tho that the statistical dependence between the estimators affect the performance. Here, we try to capture this information with the concept of tail dependence of random variables, which applies in heavy tailed scenarios. Ongoing journal extension.. 
+</p>
+</div>
+
+
 
 - [***Generalized self-normalized importance sampling (preprint)***](https://arxiv.org/abs/2406.19974); Branchini, Nicola and Elvira, Víctor. [**Video from SMC 2024**](https://www.youtube.com/watch?v=tG9mjp6GgtE&list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&index=11); [**Xi'an's comments in his blog**](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/).
 

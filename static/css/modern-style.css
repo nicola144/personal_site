@@ -725,4 +725,59 @@ button.collapsible:after {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-secondary);
+}
+
+/* KaTeX Math Styling for Dark Theme */
+.katex {
+  color: var(--text-primary) !important;
+  font-size: 1.1em;
+}
+
+.katex-display {
+  margin: 1.5rem 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+
+/* Consistent white/light coloring for all math elements */
+.katex .base,
+.katex .mord,
+.katex .mop,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct,
+.katex .minner {
+  color: var(--text-primary) !important;
+}
+
+/* Clean equation numbering without background */
+.katex-display .katex .tag {
+  color: var(--text-muted) !important;
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  position: absolute;
+  right: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove any default KaTeX tag styling */
+.katex .tag {
+  background: none !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Scrollable math on mobile */
+@media (max-width: 768px) {
+  .katex-display {
+    overflow-x: auto;
+    text-align: left;
+    padding: 0.5rem;
+  }
 } 
