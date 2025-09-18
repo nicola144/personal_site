@@ -763,7 +763,7 @@ $$
 *Fig. 5: Notice how the IAPF proposal best matches the posterior in this example. This is because the kernels have significant overlap, which is ignored by the preweights of APF. The kernels are plotted scaled by their importance weight; proposals and the true posterior integrate to 1. One quantitative measure to determine which proposal is better is the chi-squared distance to the true posterior, since it is proportional to the asymptotic variance of equation 23*
 
 <div id="disqus_thread"></div>
-<script>
+<!-- script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
@@ -779,7 +779,7 @@ $$
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
-</script>
+</script -->
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 ## References

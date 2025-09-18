@@ -102,7 +102,7 @@ An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot 
 9. Tang, Y., 2022. A Note on Monte Carlo Integration in High Dimensions. arXiv preprint arXiv:2206.09036.
 
 <div id="disqus_thread"></div>
-<script>
+<!-- script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
@@ -118,7 +118,7 @@ An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot 
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
-</script>
+</script -->
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
