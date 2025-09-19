@@ -1,4 +1,4 @@
-baseURL = 'https://www.branchini.fun/'
+baseURL = 'https://branchini.fun/'
 languageCode = 'en-us'
 title = '$\mathbb{P}$robably Approximately Wrong'
 theme = "ezhil"
