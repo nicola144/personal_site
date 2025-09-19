@@ -8,9 +8,36 @@ disqus: false
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.05);
     border-left: 3px solid #ddd;
     margin-bottom: 10px;
+    padding: 0 18px;
+}
+
+.collapsible {
+    background: linear-gradient(135deg, #FF9C33, #EF881A);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 12px 18px;
+    width: auto;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.collapsible:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.collapsible.active {
+    background: linear-gradient(135deg, #EF881A, #FF9C33);
 }
 </style>
 
@@ -26,6 +53,7 @@ disqus: false
 </div>
 
 - [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
+
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
@@ -34,6 +62,7 @@ disqus: false
 </div>
 
 - [***The role of tail dependence in estimating posterior expectations***](https://openreview.net/forum?id=Zxk07UdWEy); Branchini, Nicola and Elvira, Víctor. *In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty*.
+
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
