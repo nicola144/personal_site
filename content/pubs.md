@@ -102,6 +102,7 @@ disqus: false
 </div>
 
 - [***Causal optimal transport of abstractions***](https://proceedings.mlr.press/v236/felekis24a.html); Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros. *In 3rd Conference on Causal Learning and Reasoning (CLeaR 2024)*. 
+
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
@@ -114,7 +115,7 @@ disqus: false
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>
-  Coming !
+  A kind of journal extension of the earlier ``optimized APF'' paper, where we present a perspective on PFs that emphasizes that at each iteration, we want to select a mixture proposal (mixture that arises naturally as proposal in the PF context) that is close to a mixture target. Methods in the literature match these term-by-term, while with this view, it is possible to conceive of new methods that directly match the two mixtures. To be honest, we should have way done more in this direction to show that this can be useful. Still, I do think the perspective is interesting - maybe someone comes up with a smart way to learn a mixture that is close to the ``optimal'' one.
 </p>
 </div>
 
