@@ -3,8 +3,20 @@ title: "Publications, preprints & working papers"
 disqus: false
 ---
 
+<style>
+.content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: #f9f9f9;
+    border-left: 3px solid #ddd;
+    margin-bottom: 10px;
+}
+</style>
+
 
 - [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
+
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
 <p>

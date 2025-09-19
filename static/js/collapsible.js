@@ -6,12 +6,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {
+            console.log("Button clicked"); // Debug log
             this.classList.toggle("active");
+            
+            // Find the next content div
             var content = this.nextElementSibling;
-            if (content.style.maxHeight){
-                content.style.maxHeight = null;
+            
+            // If nextElementSibling is not a content div, look for the next one
+            while (content && !content.classList.contains("content")) {
+                content = content.nextElementSibling;
+            }
+            
+            if (content && content.classList.contains("content")) {
+                console.log("Found content div"); // Debug log
+                if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                    content.style.maxHeight = "0px";
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
             } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+                console.log("Content div not found"); // Debug log
             }
         });
     }
