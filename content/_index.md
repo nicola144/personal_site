@@ -77,26 +77,67 @@ type: "page"
  </div>
 </section>
 
-<!-- Research Interests Section -->
+<!-- News Section -->
 <section class="content-section">
-  <div class="section-title">Research Interests</div>
+  <div class="section-title">News</div>
   
-  <div class="interests-grid">
-    <div class="interest-card">
-      <h3>🎯 Importance Sampling</h3>
-      <p>Developing adaptive and robust importance sampling methods for challenging distributions and high-dimensional problems.</p>
-    </div>
+  <ul class="news-list">
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Our conference paper <strong>Towards Adaptive Self-Normalized Importance Samplers</strong> is accepted at the <a href="https://2025.ieeessp.org/">Statistical Signal Processing Workshop (SSP), 2025</a>.<span class="emoji">✰</span>
+      </div>
+    </li>
     
-    <div class="interest-card">
-      <h3>🔗 Sequential Monte Carlo</h3>
-      <p>Advancing particle filtering methods and their applications in sequential inference problems.</p>
-    </div>
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Our preprint on <a href="https://arxiv.org/abs/2503.21346">subtractive mixture models and importance sampling is out!</a>
+      </div>
+    </li>
     
-    <div class="interest-card">
-      <h3>📊 Causal Inference</h3>
-      <p>Exploring the intersection of causal methods with machine learning and Bayesian inference.</p>
-    </div>
-  </div>
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Thanks to the <strong>Institute for Mathematical and Statistical Innovation (IMSI)</strong> for generously awarding me a travel grant of 1000 US dollars to attend <a href="https://ccbatiit.github.io/mcm2025/">MCM 2025</a> in Chicago !
+      </div>
+    </li>
+    
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Thanks to <strong>G-Research</strong> for <a href="https://www.gresearch.com/news/g-research-october-2024-grant-winners/?utm_campaign=Social%20Media%20Planner&utm_content=321823956&utm_medium=social&utm_source=linkedin&hss_channel=lcp-55375">generously awarding me a grant so that I will be able to attend NeurIPS in Vancouver</a>
+      </div>
+    </li>
+    
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Our <strong>Generalized self-normalized importance sampling</strong> <a href="https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/">featured in Xian's blog !!!</a> <span class="emoji">✰</span> <span class="emoji">✰</span>
+      </div>
+    </li>
+    
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        Excited (and a bit stressed) to give a talk at <a href="https://www.icms.org.uk/SMC2024">the 6th workshop on Sequential Monte Carlo (SMC 2024)</a>. <span class="emoji">✰</span>
+      </div>
+    </li>
+    
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        <em>Adaptive importance sampling for heavy-tailed distributions via alpha-divergence minimization</em> to appear in AISTATS 2024. <span class="emoji">✰</span>
+      </div>
+    </li>
+    
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
+        <em>Variational Resampling</em> to appear in AISTATS 2024. <span class="emoji">✰</span>
+      </div>
+    </li>
+  </ul>
 </section>
 
 </div>
