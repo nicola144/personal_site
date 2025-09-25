@@ -41,6 +41,15 @@ disqus: false
 }
 </style>
 
+- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2505.00372); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay *(NeurIPS workshop): 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling*.
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+ Existing multimarginal flow matching (FM) methods either do not scale well with dimension or encourage trajectories to pass through intermediate marginal samples, rather than the intermediate distributions. We learn a parameterised interpolant for FM via a GAN-inspired loss, which addresses these shortcomings.
+</p>
+</div>
+
 
 - [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
 
