@@ -41,7 +41,7 @@ disqus: false
 }
 </style>
 
-- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2505.00372); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay *(NeurIPS workshop): 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling*.
+- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2510.01159); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay *(NeurIPS workshop): 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling*.
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
