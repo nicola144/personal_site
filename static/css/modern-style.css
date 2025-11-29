@@ -360,9 +360,16 @@ a:not(.button):not(.nav-link):hover::after {
   border-radius: var(--border-radius-lg);
   padding: var(--space-xl);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-primary);
 }
 
 .card::before {
