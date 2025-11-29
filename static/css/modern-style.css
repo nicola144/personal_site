@@ -113,6 +113,7 @@ a:not(.button):not(.nav-link):hover::after {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
+  background: transparent;
 }
 
 /* Content Container */
@@ -131,12 +132,19 @@ a:not(.button):not(.nav-link):hover::after {
 .markdown {
   width: 100%;
   max-width: 100%;
+  background: transparent;
+}
+
+/* Ensure no background boxes on homepage */
+.container.wrapper.post .markdown,
+.container.wrapper.post {
+  background: transparent !important;
 }
 
 /* Hero Section */
 .hero-section {
   padding: var(--space-lg) 0 var(--space-3xl) 0;
-  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  background: transparent;
   border-bottom: 1px solid var(--border-color);
 }
 
@@ -236,6 +244,7 @@ a:not(.button):not(.nav-link):hover::after {
 .content-section {
   padding: var(--space-2xl) 0;
   border-bottom: 1px solid var(--border-color);
+  background: transparent;
 }
 
 .content-section:last-child {
@@ -633,10 +642,19 @@ button.collapsible:after {
 }
 
 /* Social Media Icons - Make them bigger and add spacing */
+.header .site-description {
+  margin-top: var(--space-md);
+}
+
+.header .site-description nav {
+  margin-top: var(--space-md);
+}
+
 .header .site-description nav ul {
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-top: var(--space-sm);
 }
 
 .header .site-description nav ul li {
@@ -793,6 +811,15 @@ button.collapsible:after {
   padding-bottom: var(--space-xl);
   margin-bottom: var(--space-2xl);
   border-bottom: 1px solid var(--border-color);
+  background: transparent;
+}
+
+.header .site-description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .site-title a {
@@ -1183,4 +1210,98 @@ a:hover {
 
 .markdown > *:last-child {
   margin-bottom: 0;
+}
+
+/* Additional prettiness improvements */
+
+/* Better header spacing and alignment */
+.header h1.site-title {
+  margin-bottom: var(--space-md);
+}
+
+.header .site-description h2 {
+  margin: 0;
+  flex: 1;
+}
+
+/* Subtle improvements to hero section */
+.hero-text h1 {
+  margin-bottom: var(--space-lg);
+}
+
+.hero-subtitle {
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+/* Better email container styling */
+.email-container {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md) var(--space-lg);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.email-container:hover {
+  border-color: var(--accent-primary);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+/* Better action buttons spacing */
+.action-buttons {
+  margin-top: var(--space-lg);
+}
+
+/* Improve news items */
+.news-item {
+  transition: all 0.2s ease;
+}
+
+.news-item:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Better section title styling */
+.section-title {
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+/* Subtle text improvements */
+.hero-subtitle a {
+  color: var(--accent-primary);
+  font-weight: 500;
+}
+
+.hero-subtitle a:hover {
+  color: var(--accent-secondary);
+}
+
+/* Better overall spacing on homepage */
+.container.wrapper.post {
+  padding-top: var(--space-lg);
+}
+
+/* Ensure consistent background throughout */
+body, html {
+  background-color: var(--bg-primary) !important;
+}
+
+.container.wrapper,
+.container.wrapper.post,
+.post,
+.markdown,
+.modern-container,
+.hero-section,
+.content-section {
+  background-color: transparent !important;
 } 
