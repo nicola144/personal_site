@@ -67,6 +67,22 @@
             // Fix broken delimiters first
             fixMathDelimiters();
             
+            // Render math in site title
+            const siteTitle = document.querySelector('.site-title');
+            if (siteTitle) {
+                renderMathInElement(siteTitle, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false},
+                        {left: '\\(', right: '\\)', display: false},
+                        {left: '\\[', right: '\\]', display: true}
+                    ],
+                    throwOnError: false,
+                    strict: false,
+                    trust: true
+                });
+            }
+            
             renderMathInElement(document.body, {
                 // Inline math delimiters
                 delimiters: [
