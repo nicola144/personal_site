@@ -14,32 +14,45 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-            // Inline math delimiters
-            delimiters: [
-                {left: '$$', right: '$$', display: true},
-                {left: '$', right: '$', display: false},
-                {left: '\\(', right: '\\)', display: false},
-                {left: '\\[', right: '\\]', display: true}
-            ],
-            // Don't render math inside these tags
-            ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            // Allow line breaks in display math
-            throwOnError: false,
-            // Additional options
-            strict: false,
-            trust: true,
-            // Support for \color, \colorbox, etc.
-            macros: {
-                "\\color": "\\textcolor",
-                "\\require": "\\gdef\\require{}",
-                "\\cancel": "\\enclose{horizontalstrike}{#1}",
-                "\\overbrace": "\\overset{#2}{\\overbrace{#1}}",
-                "\\underbrace": "\\underset{#2}{\\underbrace{#1}}"
-            }
-        });
-    });
+    // Wait for both DOM and KaTeX to be ready
+    function renderMath() {
+        if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(document.body, {
+                // Inline math delimiters
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // Don't render math inside these tags
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                // Allow line breaks in display math
+                throwOnError: false,
+                // Additional options
+                strict: false,
+                trust: true,
+                // Support for \color, \colorbox, etc.
+                macros: {
+                    "\\color": "\\textcolor",
+                    "\\require": "\\gdef\\require{}",
+                    "\\cancel": "\\enclose{horizontalstrike}{#1}",
+                    "\\overbrace": "\\overset{#2}{\\overbrace{#1}}",
+                    "\\underbrace": "\\underset{#2}{\\underbrace{#1}}"
+                }
+            });
+        } else {
+            // If KaTeX not loaded yet, wait a bit and try again
+            setTimeout(renderMath, 100);
+        }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderMath);
+    } else {
+        // DOM already loaded, just wait for KaTeX
+        renderMath();
+    }
 </script>
 
 {{ if not .Site.IsServer }}
