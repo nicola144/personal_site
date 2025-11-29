@@ -120,10 +120,12 @@ a:not(.button):not(.nav-link):hover::after {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 var(--space-lg);
+  background-color: transparent;
 }
 
 .container.wrapper.post {
   max-width: 1000px;
+  background-color: transparent;
 }
 
 .markdown {
@@ -868,6 +870,7 @@ button.collapsible:after {
 /* Better Post Styling */
 .post {
   margin-bottom: var(--space-3xl);
+  background-color: transparent;
 }
 
 .post .post-header {
