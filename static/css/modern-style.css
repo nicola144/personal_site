@@ -143,7 +143,7 @@ a:not(.button):not(.nav-link):hover::after {
 
 /* Hero Section */
 .hero-section {
-  padding: var(--space-lg) 0 var(--space-3xl) 0;
+  padding: var(--space-xl) 0 var(--space-2xl) 0;
   background: transparent;
   border-bottom: 1px solid var(--border-color);
 }
@@ -163,13 +163,20 @@ a:not(.button):not(.nav-link):hover::after {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: var(--space-md);
+  margin-top: 0;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
   color: var(--text-secondary);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+  margin-top: 0;
   font-weight: 400;
+  line-height: 1.6;
+}
+
+.hero-subtitle:last-of-type {
+  margin-bottom: var(--space-lg);
 }
 
 .hero-image {
@@ -196,8 +203,10 @@ a:not(.button):not(.nav-link):hover::after {
 .action-buttons {
   display: flex;
   gap: var(--space-md);
-  margin-bottom: var(--space-xl);
+  margin-top: var(--space-lg);
+  margin-bottom: 0;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .btn {
@@ -242,18 +251,24 @@ a:not(.button):not(.nav-link):hover::after {
 
 /* Content Sections */
 .content-section {
-  padding: var(--space-2xl) 0;
+  padding: var(--space-xl) 0;
   border-bottom: 1px solid var(--border-color);
   background: transparent;
 }
 
+.content-section:first-of-type {
+  padding-top: var(--space-2xl);
+}
+
 .content-section:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .section-title {
   font-size: 2rem;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  margin-top: 0;
   position: relative;
   padding-left: var(--space-md);
 }
@@ -850,7 +865,7 @@ button.collapsible:after {
 .header nav {
   border-top: 1px solid var(--border-color);
   padding-top: var(--space-md);
-  margin-top: var(--space-lg);
+  margin-top: var(--space-md);
 }
 
 .header nav ul.flat li {
@@ -1288,7 +1303,8 @@ a:hover {
 
 /* Better overall spacing on homepage */
 .container.wrapper.post {
-  padding-top: var(--space-lg);
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
 }
 
 /* Ensure consistent background throughout */
