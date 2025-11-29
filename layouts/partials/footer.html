@@ -14,19 +14,30 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 
 <script>
-    // Fix math delimiters broken by Hugo's paragraph tags
+    // Fix math delimiters broken by Hugo's paragraph tags and underscore conversion
     function fixMathDelimiters() {
         const markdown = document.querySelector('.markdown');
         if (!markdown) return;
         
         let html = markdown.innerHTML;
         
-        // Find all content between $$ delimiters and remove <p> tags inside them
-        // This handles cases like: $$</p><p>content</p><p>$$
+        // Fix display math blocks ($$...$$)
         html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(match, content) {
             // Remove all <p> and </p> tags from the content
-            const cleaned = content.replace(/<\/?p>/g, '');
+            let cleaned = content.replace(/<\/?p>/g, '');
+            // Fix underscores that Hugo converted to <em> tags
+            // Replace all <em>...</em> with _..._ inside math blocks
+            cleaned = cleaned.replace(/<em>/g, '_');
+            cleaned = cleaned.replace(/<\/em>/g, '');
             return '$$' + cleaned + '$$';
+        });
+        
+        // Fix inline math ($...$) - restore underscores from <em> tags
+        html = html.replace(/\$([^$]+?)\$/g, function(match, content) {
+            // Fix underscores that Hugo converted to <em> tags
+            let cleaned = content.replace(/<em>/g, '_');
+            cleaned = cleaned.replace(/<\/em>/g, '');
+            return '$' + cleaned + '$';
         });
         
         markdown.innerHTML = html;
@@ -57,7 +68,7 @@
                 macros: {
                     "\\color": "\\textcolor",
                     "\\require": "\\gdef\\require{}",
-                    "\\cancel": "\\htmlClass{cancel}{#1}"
+                    "\\cancel": "\\enclose{horizontalstrike}{#1}"
                 }
             });
         } else {
