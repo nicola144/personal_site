@@ -10,21 +10,21 @@ It is essentially the status quo to claim that the error (Mean Squared Eror = MS
 Defining the notation needed for the post, let the integral (expectation) to be estimated as 
 
 $$\begin{equation}\begin{aligned}
-\mu = \mathbb{E}\_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
+\mu = \mathbb{E}_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} , 
 \end{aligned}\end{equation}\tag{1}\label{eq1}$$
 
 where $p(\mathbf{x})$ is a density, $\mathbf{x} \in \mathbb{R}^{D}$, the test function $f(\mathbf{x})$ is normally considered $f: \mathbb{R}^D \rightarrow \mathbb{R}$ and the corresponding Monte Carlo estimator as 
 
 $$\begin{equation}\begin{aligned}
-\widehat{\mu}\_{\text{MC}} = \frac{1}{N} \sum\_{n=1}^{N} f(\mathbf{x}^{(n)}) , ~~ \mathbf{x}^{(n)} \sim p(\mathbf{x}) ,
+\widehat{\mu}_{\text{MC}} = \frac{1}{N} \sum_{n=1}^{N} f(\mathbf{x}^{(n)}) , ~~ \mathbf{x}^{(n)} \sim p(\mathbf{x}) ,
 \end{aligned}\end{equation}\tag{2}\label{eq2}$$
 
 with samples being i.i.d. 
 
-At this point, many (if not most) authoritative sources proceed with some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}\_{\text{MC}}$ is given simply by
+At this point, many (if not most) authoritative sources proceed with some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}_{\text{MC}}$ is given simply by
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \mathbb{V}\_p[\widehat{\mu}\_{\text{MC}}] = \frac{\mathbb{V}\_p[f(\mathbf{x})]}{N} , 
+\mathbb{E}_p[(\widehat{\mu}_{\text{MC}} - \mu)^2] = \mathbb{V}_p[\widehat{\mu}_{\text{MC}}] = \frac{\mathbb{V}_p[f(\mathbf{x})]}{N} , 
 \end{aligned}\end{equation}\tag{3}\label{eq3}$$
 
 which is readily seen to be $\mathcal{O}(1/N)$, then the error is independent of $D$. To start with, the [Wikipedia page for Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_integration) states "<span style="color:#0695FF">*This result does not depend on the number of dimensions of the integral, which is the promised advantage of Monte Carlo integration against most deterministic methods that depend exponentially on the dimension* </span>", referring to \eqref{eq3}. 
@@ -37,12 +37,12 @@ In fact, even proponents of competitor methods to Monte Carlo, seem to list this
 
 I could go on (another example can be found at page 358 here \[8\]). Iain Murray, in his PhD thesis on MCMC \[5\], seems to take a more careful stance (although not elaborating on it): " <span style="color:#0695FF"> *Monte Carlo is usually simple and its* $\mathcal{O}(1/\sqrt{N})$ *scaling of error bars “independent of dimensionality” may be good enough* </span>"; the quotes added here seem to suggest us that there is more to the story.  
 
-And indeed, there is more to the story. Is $\mathbb{V}\_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
+And indeed, there is more to the story. Is $\mathbb{V}_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?  
 
 Suppose that the function $f$ is non-negative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as 
 
 $$\begin{equation}\begin{aligned}
-\mathbb{E}\_p[(\widehat{\mu}\_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) , 
+\mathbb{E}_p[(\widehat{\mu}_{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) , 
 \end{aligned}\end{equation}\tag{4}\label{eq4}$$
 
 where we $p \cdot f$ denotes the **normalized version** of the product $ f(\mathbf{x}) p(\mathbf{x}) $, i.e. 
@@ -65,8 +65,8 @@ Now, we take a concrete (and very simple!) example to show how the divergence in
 We can then expand the MSE of the Monte Carlo estimator as 
 
 $$\begin{equation}\begin{aligned}
-\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{1}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - \mu^2 \right )  \\\\\\
-&= \frac{1}{N}  \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 2) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\\\
+\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{1}{N}  \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - \mu^2 \right )  \\\\
+&= \frac{1}{N}  \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 2) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )  \mathrm{d}\mathbf{x} - \mu^2 \right ) \\\\
 &=  \frac{1}{N}  \mathcal{O}(\text{constant}^{D})
 \end{aligned}\end{equation}\tag{7}\label{eq7}$$
 
@@ -88,7 +88,7 @@ It has come to my attention after publishing the post, that there is [this very 
 
 <span style="color:#0695FF"> **Addendum (2)** </span>
 
-An obviously simpler example is to take $f(\mathbf{x}) = x\_1 \cdot \dots \cdot x\_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{0}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}\_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $
+An obviously simpler example is to take $f(\mathbf{x}) = x_1 \cdot \dots \cdot x_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{0}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $
 
 ## References
 1. Art B. Owen. Monte Carlo theory, methods and examples. 2013
