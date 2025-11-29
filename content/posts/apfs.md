@@ -358,7 +358,7 @@ Ok, now it's time to apply SIS to the state space model we covered earlier. In t
 
 $$\begin{equation}\begin{aligned}
 \varpi\_{t}(\mathbf{s}\_{t-1}, \mathbf{s}\_{t}) &= \frac{\gamma\_{t}(\mathbf{s}\_{1:t})}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t}\mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
-&=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \overbrace{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}^{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})}}}{\cancel{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})} \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
+&=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t}) \overbrace{p(\mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t-1})}^{\gamma\_{t-1}(\mathbf{s}\_{1:t-1})}}{\gamma\_{t-1}(\mathbf{s}\_{1:t-1}) \color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})} \\\\\\
 &=  \frac{\color{cyan}{f}(\mathbf{s}\_{t}\mid \mathbf{s}\_{t-1}) \color{LimeGreen}{g}(\mathbf{v}\_{t} \mid \mathbf{s}\_{t})}{\color{#FF8000}{q}\_{t}(\mathbf{s}\_{t} \mid \mathbf{s}\_{1:t-1}, \mathbf{v}\_{1:t})}
 \end{aligned}\end{equation}\tag{22}\label{eq22}$$
 

@@ -35,7 +35,7 @@ disqusShortname = "personal-website-g7y0elzvjn"
       strikethrough = true
       table = true
       taskList = true
-      typographer = true
+      typographer = false
 
 [params]
     # Blog subtitle which appears below blog title. Supports markdown.
