@@ -657,20 +657,6 @@ button.collapsible:after {
 }
 
 /* Social Media Icons - Make them bigger and add spacing */
-.header .site-description {
-  margin-top: var(--space-md);
-}
-
-.header .site-description nav {
-  margin-top: var(--space-md);
-}
-
-.header .site-description nav ul {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  margin-top: var(--space-sm);
-}
 
 .header .site-description nav ul li {
   margin: 0 !important;
@@ -833,8 +819,19 @@ button.collapsible:after {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: var(--space-md);
+  margin-top: var(--space-sm);
   gap: var(--space-lg);
+}
+
+.header .site-description nav {
+  margin-top: 0;
+}
+
+.header .site-description nav ul {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 0;
 }
 
 .site-title a {
