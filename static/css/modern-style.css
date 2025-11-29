@@ -863,6 +863,7 @@ button.collapsible:after {
   border-top: 1px solid var(--border-color);
   padding-top: var(--space-md);
   margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .header nav ul.flat li {
@@ -902,7 +903,7 @@ button.collapsible:after {
 
 /* Improved Container Spacing */
 .container {
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-lg);
   padding: 0 var(--space-lg);
 }
 
@@ -1112,6 +1113,31 @@ hr {
   margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-xl);
   border-bottom: 1px solid var(--border-color);
+}
+
+/* Blog list tags - smaller and prettier */
+.list .posts .post .tag,
+.recent-posts .posts .post .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  margin-left: 0.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+
+.list .posts .post .tag:hover,
+.recent-posts .posts .post .tag:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--text-secondary);
 }
 
 .list .posts .post:last-child,
