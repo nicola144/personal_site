@@ -36,9 +36,14 @@
   
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
 }
 
 /* Base Styles */
@@ -55,6 +60,9 @@ body {
   padding: 0;
   font-size: 18px;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* Typography */
@@ -100,8 +108,8 @@ a:not(.button):not(.nav-link)::after {
   height: 1px;
   bottom: -2px;
   left: 0;
-  background-color: var(--accent-primary);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width var(--transition-slow) ease;
 }
 
 a:not(.button):not(.nav-link):hover::after {
@@ -146,6 +154,29 @@ a:not(.button):not(.nav-link):hover::after {
   padding: var(--space-xl) 0 var(--space-2xl) 0;
   background: transparent;
   border-bottom: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle math symbols as background decoration */
+.hero-section::after {
+  content: '∫ 𝔼';
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  opacity: 0.02;
+  font-size: 120px;
+  font-family: 'Times New Roman', serif;
+  color: var(--accent-primary);
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  letter-spacing: 20px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -154,6 +185,8 @@ a:not(.button):not(.nav-link):hover::after {
   gap: var(--space-xl);
   align-items: center;
   justify-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-text h1 {
@@ -164,6 +197,8 @@ a:not(.button):not(.nav-link):hover::after {
   background-clip: text;
   margin-bottom: var(--space-md);
   margin-top: 0;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
 .hero-subtitle {
@@ -217,12 +252,17 @@ a:not(.button):not(.nav-link):hover::after {
   border-radius: var(--border-radius-md);
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all var(--transition-base) cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
   cursor: pointer;
   font-size: 0.95rem;
   position: relative;
   overflow: hidden;
+  transform: translateY(0);
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-primary {
@@ -232,9 +272,24 @@ a:not(.button):not(.nav-link):hover::after {
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: var(--shadow-lg);
   color: white;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-slow) ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
 }
 
 .btn-secondary {
@@ -271,6 +326,8 @@ a:not(.button):not(.nav-link):hover::after {
   margin-top: 0;
   position: relative;
   padding-left: var(--space-md);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .section-title::before {
@@ -877,7 +934,7 @@ button.collapsible:after {
   font-weight: 400;
   padding: var(--space-xs) 0;
   position: relative;
-  transition: color 0.2s ease;
+  transition: all var(--transition-base) ease;
   text-transform: none;
   letter-spacing: 0;
 }
@@ -894,7 +951,8 @@ button.collapsible:after {
   bottom: 0;
   left: 0;
   background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-  transition: width 0.3s ease;
+  transition: width var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
 }
 
 .header nav ul.flat li a:hover::after {
@@ -1097,6 +1155,27 @@ hr {
   text-align: center;
   color: var(--text-muted);
   font-size: 0.875rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle math symbols in footer */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-primary) 20%,
+    var(--accent-primary) 80%,
+    transparent
+  );
+  opacity: 0.1;
 }
 
 .footer a {
