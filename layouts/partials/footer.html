@@ -134,18 +134,31 @@
 {{- end -}}
 
 <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+// Collapsible functionality for publications page
+document.addEventListener('DOMContentLoaded', function() {
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.parentElement.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            
+            // Find the next content div (button and content are siblings)
+            var content = this.nextElementSibling;
+            
+            // If nextElementSibling is not a content div, look for the next one
+            while (content && !content.classList.contains("content")) {
+                content = content.nextElementSibling;
+            }
+            
+            if (content && content.classList.contains("content")) {
+                if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                    content.style.maxHeight = "0px";
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            }
+        });
     }
-  });
-}
+});
 </script>
