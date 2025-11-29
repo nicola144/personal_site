@@ -1,7 +1,7 @@
 <div class="header">
 <link rel="stylesheet" href="/css/academicons.min.css">
 	<base href="{{ .Site.BaseURL }}">
-	<h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+	<h1 class="site-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title | safeHTML }}</a></h1>
 	<div class="site-description">
 		{{- if isset .Site.Params "subtitle" -}}
 		<h2>{{ .Site.Params.Subtitle | markdownify }}</h2>

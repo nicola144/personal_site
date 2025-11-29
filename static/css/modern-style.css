@@ -802,6 +802,12 @@ button.collapsible:after {
   transition: opacity 0.2s ease;
 }
 
+/* Ensure math in site title renders properly */
+.site-title .katex {
+  font-size: inherit;
+  color: inherit;
+}
+
 .site-title a:hover {
   opacity: 0.8;
 }
