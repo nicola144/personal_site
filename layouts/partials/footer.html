@@ -35,6 +35,33 @@
         
         let html = markdown.innerHTML;
         
+        // Convert \( and \) to $ for inline math (more reliable)
+        // Handle both escaped \( and literal \(
+        html = html.replace(/\\?\(([^)]+?)\\?\)/g, function(match, content) {
+            // Skip if it's already inside a $ delimiter
+            const before = html.substring(0, html.indexOf(match));
+            const after = html.substring(html.indexOf(match) + match.length);
+            const beforeDollars = (before.match(/\$/g) || []).length;
+            if (beforeDollars % 2 === 1) {
+                // We're inside a $ block, don't convert
+                return match;
+            }
+            return '$' + content + '$';
+        });
+        
+        // Convert \[ and \] to $$ for display math
+        html = html.replace(/\\?\[([^\]]+?)\\?\]/g, function(match, content) {
+            // Skip if it's already inside a $$ delimiter
+            const before = html.substring(0, html.indexOf(match));
+            const after = html.substring(html.indexOf(match) + match.length);
+            const beforeDollars = (before.match(/\$\$/g) || []).length;
+            if (beforeDollars % 2 === 1) {
+                // We're inside a $$ block, don't convert
+                return match;
+            }
+            return '$$' + content + '$$';
+        });
+        
         // First, fix inline math ($...$) - restore underscores from <em> tags
         // This must be done before display math to avoid conflicts
         html = html.replace(/\$([^$]+?)\$/g, function(match, content) {
