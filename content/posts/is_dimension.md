@@ -71,7 +71,7 @@ $$
 = \frac{1}{N}(\sigma_p^2)^D .
 $$
 
-If \(\sigma_p^2 > 1\) this explodes like \((\sigma_p^2)^D\). That is the usual curse.
+If $\sigma_p^2 > 1$ this explodes like $(\sigma_p^2)^D$. That is the usual curse.
 
 ## Importance sampling
 
@@ -102,14 +102,14 @@ $$
 
 The interesting part is the variance.
 
-Because both \(p\) and \(q\) factorise over coordinates, we can write
+Because both $p$ and $q$ factorise over coordinates, we can write
 
 $$
 p(x) = \prod_{d=1}^D p_d(x_d), \qquad
 q(x) = \prod_{d=1}^D q_d(x_d),
 $$
 
-with one dimensional marginals \(p_d = \mathcal N(0,\sigma_p^2)\), \(q_d = \mathcal N(0,\sigma_q^2)\).
+with one dimensional marginals $p_d = \mathcal N(0,\sigma_p^2)$, $q_d = \mathcal N(0,\sigma_q^2)$.
 
 Define the one dimensional random variables
 
@@ -123,7 +123,7 @@ $$
 Y = \prod_{d=1}^D Y_d .
 $$
 
-One checks that \(\mathbb E_q[Y_d] = 0\), hence \(\mathbb E_q[Y] = 0\) and
+One checks that $\mathbb E_q[Y_d] = 0$, hence $\mathbb E_q[Y] = 0$ and
 
 $$
 \operatorname{Var}_q(Y)
@@ -147,9 +147,9 @@ $$
 = \frac{1}{N}\,\kappa(\sigma_p^2,\sigma_q^2)^D .
 $$
 
-Everything now hinges on the size of \(\kappa\).
+Everything now hinges on the size of $\kappa$.
 
-## Computing \(\kappa(\sigma_p^2,\sigma_q^2)\)
+## Computing $\kappa(\sigma_p^2,\sigma_q^2)$
 
 In one dimension we have
 
@@ -177,7 +177,7 @@ $$
 \sigma_p^2 > 0, \ \sigma_q^2 > 0.
 $$
 
-(The intermediate representation in terms of a helper variance \(\Delta^2\) also requires \(\sigma_q^2 > \sigma_p^2\), which is a stricter but safe condition.)
+(The intermediate representation in terms of a helper variance $\Delta^2$ also requires $\sigma_q^2 > \sigma_p^2$, which is a stricter but safe condition.)
 
 Plugging this back in,
 
@@ -197,20 +197,20 @@ $$
 = \frac{1}{N}(\sigma_p^2)^D .
 $$
 
-Per dimension, plain MC multiplies the variance by \(\sigma_p^2\), whereas IS multiplies by \(\kappa(\sigma_p^2,\sigma_q^2)\).
+Per dimension, plain MC multiplies the variance by $\sigma_p^2$, whereas IS multiplies by $\kappa(\sigma_p^2,\sigma_q^2)$.
 
-If we pick \(\sigma_p^2 > 1\) and \(\sigma_q^2\) such that
+If we pick $\sigma_p^2 > 1$ and $\sigma_q^2$ such that
 
 $$
 \kappa(\sigma_p^2,\sigma_q^2) < 1,
 $$
 
-then as \(D\) increases
+then as $D$ increases
 
-- plain MC variance explodes like \((\sigma_p^2)^D\);
-- IS variance shrinks like \(\kappa(\sigma_p^2,\sigma_q^2)^D\).
+- plain MC variance explodes like $(\sigma_p^2)^D$;
+- IS variance shrinks like $\kappa(\sigma_p^2,\sigma_q^2)^D$.
 
-For example, with \(\sigma_p^2 = 1.2\) and \(\sigma_q^2 = 2\) one gets
+For example, with $\sigma_p^2 = 1.2$ and $\sigma_q^2 = 2$ one gets
 
 $$
 \kappa(1.2, 2) \approx 0.94 < 1,
@@ -220,9 +220,9 @@ so the IS variance improves exponentially with the dimension, while plain MC get
 
 This obviously does not mean that importance sampling magically fixes real high dimensional problems. It only says that the curse is not a universal law that applies regardless of how you sample. With the wrong proposal you can easily do strictly worse than plain MC; with a very carefully chosen proposal you can do absurdly well.
 
-## Visualising \(\kappa\)
+## Visualising $\kappa$
 
-Here is a simple Python script that plots \(\kappa(\sigma_p^2,\sigma_q^2)\) over a grid and marks the existence boundary \(2\sigma_q^2 = \sigma_p^2\) and the contour \(\kappa = 1\).
+Here is a simple Python script that plots $\kappa(\sigma_p^2,\sigma_q^2)$ over a grid and marks the existence boundary $2\sigma_q^2 = \sigma_p^2$ and the contour $\kappa = 1$.
 
 
 <div id="disqus_thread"></div>
