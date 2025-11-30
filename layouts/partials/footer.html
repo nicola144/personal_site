@@ -35,83 +35,6 @@
         
         let html = markdown.innerHTML;
         
-        // Convert \( and \) to $ for inline math (more reliable)
-        // Handle both \(...\) and escaped versions
-        // Use a more careful approach to avoid conflicts with existing $ delimiters
-        let processedHtml = '';
-        let i = 0;
-        while (i < html.length) {
-            // Look for \( pattern
-            const inlineStart = html.indexOf('\\(', i);
-            if (inlineStart === -1) {
-                processedHtml += html.substring(i);
-                break;
-            }
-            
-            // Check if we're already inside a $ block
-            const before = html.substring(0, inlineStart);
-            const dollarCount = (before.match(/\$/g) || []).length;
-            if (dollarCount % 2 === 1) {
-                // Inside a $ block, skip
-                processedHtml += html.substring(i, inlineStart + 2);
-                i = inlineStart + 2;
-                continue;
-            }
-            
-            // Find the matching \)
-            const inlineEnd = html.indexOf('\\)', inlineStart + 2);
-            if (inlineEnd === -1) {
-                // No closing, skip
-                processedHtml += html.substring(i, inlineStart + 2);
-                i = inlineStart + 2;
-                continue;
-            }
-            
-            // Extract content and convert
-            processedHtml += html.substring(i, inlineStart);
-            const content = html.substring(inlineStart + 2, inlineEnd);
-            processedHtml += '$' + content + '$';
-            i = inlineEnd + 2;
-        }
-        html = processedHtml;
-        
-        // Convert \[ and \] to $$ for display math (similar approach)
-        processedHtml = '';
-        i = 0;
-        while (i < html.length) {
-            const displayStart = html.indexOf('\\[', i);
-            if (displayStart === -1) {
-                processedHtml += html.substring(i);
-                break;
-            }
-            
-            // Check if we're already inside a $$ block
-            const before = html.substring(0, displayStart);
-            const dollarPairCount = (before.match(/\$\$/g) || []).length;
-            if (dollarPairCount % 2 === 1) {
-                // Inside a $$ block, skip
-                processedHtml += html.substring(i, displayStart + 2);
-                i = displayStart + 2;
-                continue;
-            }
-            
-            // Find the matching \]
-            const displayEnd = html.indexOf('\\]', displayStart + 2);
-            if (displayEnd === -1) {
-                // No closing, skip
-                processedHtml += html.substring(i, displayStart + 2);
-                i = displayStart + 2;
-                continue;
-            }
-            
-            // Extract content and convert
-            processedHtml += html.substring(i, displayStart);
-            const content = html.substring(displayStart + 2, displayEnd);
-            processedHtml += '$$' + content + '$$';
-            i = displayEnd + 2;
-        }
-        html = processedHtml;
-        
         // First, fix inline math ($...$) - restore underscores from <em> tags
         // This must be done before display math to avoid conflicts
         html = html.replace(/\$([^$]+?)\$/g, function(match, content) {
@@ -154,9 +77,7 @@
                 renderMathInElement(siteTitle, {
                     delimiters: [
                         {left: '$$', right: '$$', display: true},
-                        {left: '$', right: '$', display: false},
-                        {left: '\\(', right: '\\)', display: false},
-                        {left: '\\[', right: '\\]', display: true}
+                        {left: '$', right: '$', display: false}
                     ],
                     throwOnError: false,
                     strict: false,
@@ -165,12 +86,10 @@
             }
             
             renderMathInElement(document.body, {
-                // Inline math delimiters
+                // Inline math delimiters - using $ for inline, $$ for display
                 delimiters: [
                     {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false},
-                    {left: '\\(', right: '\\)', display: false},
-                    {left: '\\[', right: '\\]', display: true}
+                    {left: '$', right: '$', display: false}
                 ],
                 // Don't render math inside these tags
                 ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],

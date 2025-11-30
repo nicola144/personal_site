@@ -2,7 +2,7 @@
 title: "Importance sampling and a fake cure for the curse of dimensionality"
 date: 2025-11-30T00:00:00Z
 tags: ["Short", "Importance sampling", "Monte Carlo"]
-# draft: true  # Temporarily disabled for testing - will re-enable after checking
+draft: true
 ---
 
 Here is a small toy example where plain Monte Carlo clearly suffers from the curse of dimensionality, while a suitably chosen importance sampler does the exact opposite: its variance *shrinks* with the dimension.
@@ -11,7 +11,7 @@ It is contrived, of course, but it is a good sanity check on how variance scales
 
 ## Setup
 
-Let the target be a zero mean Gaussian on \(\mathbb R^D\)
+Let the target be a zero mean Gaussian on $\mathbb R^D$
 
 $$
 p(x) = \mathcal N\bigl(0, \sigma_p^2 I_D\bigr),
