@@ -35,14 +35,23 @@
         
         let html = markdown.innerHTML;
         
-        // Debug: log if we find any $ delimiters
-        if (html.includes('$')) {
-            console.log('Found $ delimiters in HTML');
+        // Debug: log what we find
+        console.log('HTML contains $:', html.includes('$'));
+        console.log('Sample HTML:', html.substring(0, 500));
+        
+        // Check if Hugo escaped $ signs to HTML entities
+        if (html.includes('&#36;')) {
+            console.log('Found escaped $ signs (&#36;)');
+            html = html.replace(/&#36;/g, '$');
         }
         
         // First, fix inline math ($...$) - restore underscores from <em> tags
         // This must be done before display math to avoid conflicts
-        html = html.replace(/\$([^$]+?)\$/g, function(match, content) {
+        const inlineMathRegex = /\$([^$]+?)\$/g;
+        let matchCount = 0;
+        html = html.replace(inlineMathRegex, function(match, content) {
+            matchCount++;
+            console.log('Found inline math match:', match, 'content:', content);
             // Fix underscores that Hugo converted to <em> tags
             // Handle both <em>content</em> and <em>{content}</em> patterns
             let cleaned = content;
@@ -53,6 +62,7 @@
             cleaned = cleaned.replace(/<em>([^<]*)<\/em>/g, '_$1');
             return '$' + cleaned + '$';
         });
+        console.log('Found', matchCount, 'inline math matches');
         
         // Then fix display math blocks ($$...$$)
         html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(match, content) {
