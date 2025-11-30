@@ -35,6 +35,11 @@
         
         let html = markdown.innerHTML;
         
+        // Debug: log if we find any $ delimiters
+        if (html.includes('$')) {
+            console.log('Found $ delimiters in HTML');
+        }
+        
         // First, fix inline math ($...$) - restore underscores from <em> tags
         // This must be done before display math to avoid conflicts
         // Use a more robust regex that handles whitespace and nested tags
@@ -106,6 +111,8 @@
                 // Additional options
                 strict: false,
                 trust: true,
+                // Debug: log errors
+                errorColor: '#cc0000',
                 // Support for \color, \colorbox, etc.
                 macros: {
                     "\\color": "\\textcolor",
