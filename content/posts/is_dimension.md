@@ -2,7 +2,7 @@
 title: "Importance sampling and a fake cure for the curse of dimensionality"
 date: 2025-11-30T00:00:00Z
 tags: ["Short", "Importance sampling", "Monte Carlo"]
-draft: true
+# draft: true  # Temporarily disabled for testing - will re-enable after checking
 ---
 
 Here is a small toy example where plain Monte Carlo clearly suffers from the curse of dimensionality, while a suitably chosen importance sampler does the exact opposite: its variance *shrinks* with the dimension.
