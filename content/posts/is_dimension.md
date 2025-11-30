@@ -224,6 +224,8 @@ This obviously does not mean that importance sampling magically fixes real high 
 
 Here is a simple Python script that plots $\kappa(\sigma_p^2,\sigma_q^2)$ over a grid and marks the existence boundary $2\sigma_q^2 = \sigma_p^2$ and the contour $\kappa = 1$.
 
+![Visualization of $\kappa(\sigma_p^2,\sigma_q^2)$](/kappa.png)
+
 
 <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
