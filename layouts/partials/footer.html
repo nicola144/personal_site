@@ -42,7 +42,6 @@
         
         // First, fix inline math ($...$) - restore underscores from <em> tags
         // This must be done before display math to avoid conflicts
-        // Use a more robust regex that handles whitespace and nested tags
         html = html.replace(/\$([^$]+?)\$/g, function(match, content) {
             // Fix underscores that Hugo converted to <em> tags
             // Handle both <em>content</em> and <em>{content}</em> patterns
@@ -50,14 +49,8 @@
             // Replace <em>{...}</em> with _{...}
             cleaned = cleaned.replace(/<em>\{([^}]*)\}<\/em>/g, '_{$1}');
             // Replace <em>content</em> with _content (for cases without braces)
-            // Be careful not to match <em> tags that are part of the math content itself
-            cleaned = cleaned.replace(/<em>([^<]*)<\/em>/g, function(emMatch, emContent) {
-                // Only replace if it looks like it was an underscore (single character or followed by brace)
-                if (emContent.length === 1 || emContent.match(/^[a-zA-Z0-9]\{/)) {
-                    return '_' + emContent;
-                }
-                return emMatch; // Keep as is if it's actual emphasis
-            });
+            // This handles cases where Hugo converted _k to <em>k</em>
+            cleaned = cleaned.replace(/<em>([^<]*)<\/em>/g, '_$1');
             return '$' + cleaned + '$';
         });
         
