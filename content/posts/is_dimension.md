@@ -90,7 +90,7 @@ $$
 q(x; \sigma_q^2) = \mathcal N\bigl(0, \sigma_q^2 I_D\bigr).
 $$
 
-The usual unbiased importance sampling estimator is
+The usual importance sampling estimator is
 
 $$
 \hat\mu_N^{is}
@@ -198,8 +198,6 @@ $$
 \quad
 \sigma_q^2 > 0.
 $$
-
-(If you really want to see every intermediate step, it is all written out in the short PDF note this post is based on. :contentReference[oaicite:0]{index=0})
 
 Putting this back in,
 
