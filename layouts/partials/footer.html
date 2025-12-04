@@ -168,10 +168,12 @@ function initCollapsibles() {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
 
-            // Find the next content div (button and content are siblings)
-            var content = this.nextElementSibling;
+            // In the rendered HTML the button is inside a <p>, and the
+            // corresponding .content div is the next sibling of that <p>.
+            var container = this.closest('p') || this.parentElement;
+            var content = container ? container.nextElementSibling : null;
 
-            // If nextElementSibling is not a content div, look for the next one
+            // If the immediate sibling is not a .content div, look ahead
             while (content && !content.classList.contains("content")) {
                 content = content.nextElementSibling;
             }
