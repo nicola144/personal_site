@@ -84,7 +84,7 @@
     // Wait for both DOM and KaTeX to be ready
     function renderMath() {
         if (typeof renderMathInElement !== 'undefined') {
-            // Fix broken delimiters first
+            // Fix broken delimiters first (this rewrites .markdown innerHTML)
             fixMathDelimiters();
             
             // Render math in site title
@@ -126,6 +126,11 @@
                     "\\enclose": "\\htmlClass{enclose-#1}{#2}"
                 }
             });
+
+            // After math rendering potentially rewrites the DOM, (re)attach collapsible handlers
+            if (typeof initCollapsibles === 'function') {
+                initCollapsibles();
+            }
         } else {
             // If KaTeX not loaded yet, wait a bit and try again
             setTimeout(renderMath, 100);
@@ -154,6 +159,12 @@ function initCollapsibles() {
     if (!coll || coll.length === 0) return;
 
     for (var i = 0; i < coll.length; i++) {
+        // Avoid attaching multiple listeners if this is called more than once
+        if (coll[i].dataset.collapsibleInit === "1") {
+            continue;
+        }
+        coll[i].dataset.collapsibleInit = "1";
+
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
 
