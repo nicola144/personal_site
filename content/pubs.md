@@ -41,7 +41,17 @@ disqus: false
 }
 </style>
 
-- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2510.01159); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay *(NeurIPS workshop): 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling*.
+- [***How to approximate inference with subtractive mixture models***](https://arxiv.org/abs/2503.21346); Zellinger, Lena and Branchini, Nicola and De Smet, Lennert, and Elvira, Víctor, and Malkin, Nikolay and Vergari, Antonio. *AISTATS 2026* 
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+Coming soon! 
+</p>
+</div>
+
+
+- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2510.01159); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay. *ICLR 2026* (earlier version: NeurIPS workshop - 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling).
 
 <button type="button" class="collapsible">Details about paper</button>
 <div class="content">
@@ -49,6 +59,16 @@ disqus: false
  Existing multimarginal flow matching (FM) methods either do not scale well with dimension or encourage trajectories to pass through intermediate marginal samples, rather than the intermediate distributions. We learn a parameterised interpolant for FM via a GAN-inspired loss, which addresses these shortcomings.
 </p>
 </div>
+
+- [***On the bias of variational resampling***](https://arxiv.org/abs/2503.21346); Finke, Axel and Kviman, Oskar and Branchini, Nicola and Elvira, Víctor. *AISTATS 2026* 
+
+<button type="button" class="collapsible">Details about paper</button>
+<div class="content">
+<p>
+Coming soon! 
+</p>
+</div>
+
 
 
 - [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
@@ -61,14 +81,6 @@ disqus: false
 </p>
 </div>
 
-- [***Scalable Expectation Estimation with Subtractive Mixture Models (preprint)***](https://arxiv.org/abs/2503.21346); <span style="color: orange;">Zellinger, Lena</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Elvira, Víctor, and Vergari, Antonio. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
- Importance sampling with mixture models is all over the place (even where you don't see it). Subtractive mixture models - MMs with negative weights - are super cool and can model complex distributions more efficiently. It'd be great to use them for IS, but sampling from them is a pain. We propose an estimator that exploits that a SMM is a difference of two regular MMs, so that we can do IS and scale in higher dimension (note: sampling from an SMM requires costly autoregressive inverse transform sampling). 
-</p>
-</div>
 
 - [***The role of tail dependence in estimating posterior expectations***](https://openreview.net/forum?id=Zxk07UdWEy); Branchini, Nicola and Elvira, Víctor. *In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty*.
 
