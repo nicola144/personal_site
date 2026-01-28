@@ -64,7 +64,7 @@ type: "page"
     <div>
       <p>Hi! I am a PhD student in Statistics in the <a href="https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people">School of Mathematics at the University of Edinburgh</a>, advised by <a href="https://victorelvira.github.io/"> Víctor Elvira</a>. Sometimes I blog as well here.</p>
       
-      <p>I am also an <a href="https://ellis.eu/">ELLIS PhD student</a>, working with and co-supervised by <a href="https://users.aalto.fi/~ave/"> Aki Vehtari</a> in Aalto University.</p>
+      <p>I am also an <a href="https://ellis.eu/student/2025-nicola-branchini">ELLIS PhD student</a>, working with and co-supervised by <a href="https://users.aalto.fi/~ave/"> Aki Vehtari</a> in Aalto University.</p>
 </div>
 
     <div>
