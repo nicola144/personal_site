@@ -47,8 +47,8 @@ type: "page"
         <div class="email-container">
           <span>📧 n[dot]branchini[at]sms[dot]ed[dot]ac[dot]uk</span>
         </div>
-  </div>
-</div>
+      </div>
+    </div>
 
     <div class="hero-image">
       <img src="Nicola_Branchini.png" alt="Nicola Branchini" />
