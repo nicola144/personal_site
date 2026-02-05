@@ -532,6 +532,11 @@ a:not(.button):not(.nav-link):hover::after {
   flex: 1;
 }
 
+/* Highlight research interest keywords */
+.interests-list strong {
+  color: var(--accent-primary);
+}
+
 /* Emoji Styling */
 .emoji {
   font-size: 1.2em;
