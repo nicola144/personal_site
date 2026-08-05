@@ -3,181 +3,216 @@ title: "Publications, preprints & working papers"
 disqus: false
 ---
 
-<style>
-.content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-left: 3px solid #ddd;
-    margin-bottom: 10px;
-    padding: 0 18px;
-}
+<div class="pub-page">
 
-.collapsible {
-    background: linear-gradient(135deg, #FF9C33, #EF881A);
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 12px 18px;
-    width: auto;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-    margin-top: 10px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+<div class="pub-section-title">Selected papers</div>
 
-.collapsible:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+<div class="pub-featured">
+  <article class="pub-item pub-featured-item" data-groups="monte-carlo optimal-transport">
+    <div class="pub-venue">Preprint</div>
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalized self-normalized importance sampling</a></h3>
+    <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+    <div class="pub-tags">
+      <span class="pub-tag">Monte Carlo</span>
+      <span class="pub-tag">Optimal transport</span>
+    </div>
+    <p class="pub-links">
+      <a href="https://www.youtube.com/watch?v=tG9mjp6GgtE&amp;list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&amp;index=11">Video from SMC 2024</a>
+      <a href="https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/">Xi'an's blog comments</a>
+    </p>
+    <button type="button" class="collapsible">Details</button>
+    <div class="content">
+      <p>The self-normalized IS estimator is widely used to estimate expectations with intractable normalizing constants, for example, in Bayesian leave-one-out cross validation or likelihood free inference. In this paper, we propose a framework to understand when SNIS works and when it does not, with a generalization that allows us to overcome its limitations, with connections to continuous optimal transport.</p>
+    </div>
+  </article>
 
-.collapsible.active {
-    background: linear-gradient(135deg, #EF881A, #FF9C33);
-}
-</style>
+  <article class="pub-item pub-featured-item" data-groups="monte-carlo">
+    <div class="pub-venue">AISTATS 2026</div>
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">How to approximate inference with subtractive mixture models</a></h3>
+    <p class="pub-authors">Zellinger, Lena and Branchini, Nicola and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
+    <div class="pub-tags">
+      <span class="pub-tag">Monte Carlo</span>
+    </div>
+    <button type="button" class="collapsible">Details</button>
+    <div class="content">
+      <p>Coming soon!</p>
+    </div>
+  </article>
 
-- [***How to approximate inference with subtractive mixture models***](https://arxiv.org/abs/2503.21346); Zellinger, Lena and Branchini, Nicola and De Smet, Lennert, and Elvira, Víctor, and Malkin, Nikolay and Vergari, Antonio. *AISTATS 2026* 
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-Coming soon! 
-</p>
+  <article class="pub-item pub-featured-item" data-groups="monte-carlo">
+    <div class="pub-venue">NeurIPS 2024 Workshop</div>
+    <h3 class="pub-title"><a href="https://openreview.net/forum?id=Zxk07UdWEy">The role of tail dependence in estimating posterior expectations</a></h3>
+    <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+    <p class="pub-note">NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</p>
+    <div class="pub-tags">
+      <span class="pub-tag">Monte Carlo</span>
+    </div>
+    <button type="button" class="collapsible">Details</button>
+    <div class="content">
+      <p>To estimate posterior expectations consistently, we need to use self-normalized importance sampling (or MCMC, but SNIS has a better variance lower bound). It is a ratio of two IS estimators. Typical diagnostics forget this, and only look at IS-weights for numerator or denominator separately. We try to capture this information with the concept of tail dependence of random variables, which applies in heavy-tailed scenarios. Ongoing journal extension.</p>
+    </div>
+  </article>
 </div>
 
+<div class="pub-section-title">All publications</div>
 
-- [***Multimarginal Flow Matching with Adversarially Learnt Interpolants***](https://arxiv.org/abs/2510.01159); Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay. *ICLR 2026* (earlier version: NeurIPS workshop - 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling).
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
- Existing multimarginal flow matching (FM) methods either do not scale well with dimension or encourage trajectories to pass through intermediate marginal samples, rather than the intermediate distributions. We learn a parameterised interpolant for FM via a GAN-inspired loss, which addresses these shortcomings.
-</p>
+<div class="pub-filters" role="group" aria-label="Filter publications by topic">
+  <button type="button" class="pub-filter is-active" data-filter="all">All</button>
+  <button type="button" class="pub-filter" data-filter="monte-carlo">Monte Carlo methods</button>
+  <button type="button" class="pub-filter" data-filter="causality">Statistical causality</button>
+  <button type="button" class="pub-filter" data-filter="optimal-transport">Optimal transport</button>
 </div>
 
-- [***On the bias of variational resampling***](https://arxiv.org/abs/2503.21346); Finke, Axel and Kviman, Oskar and Branchini, Nicola and Elvira, Víctor. *AISTATS 2026* 
+<div class="pub-list">
 
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-Coming soon! 
-</p>
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">AISTATS 2026</div>
+  <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">How to approximate inference with subtractive mixture models</a></h3>
+  <p class="pub-authors">Zellinger, Lena and Branchini, Nicola and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content"><p>Coming soon!</p></div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo optimal-transport">
+  <div class="pub-venue">ICLR 2026</div>
+  <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.01159">Multimarginal Flow Matching with Adversarially Learnt Interpolants</a></h3>
+  <p class="pub-authors">Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay</p>
+  <p class="pub-note">Earlier version: NeurIPS workshop — 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling</p>
+  <div class="pub-tags">
+    <span class="pub-tag">Monte Carlo</span>
+    <span class="pub-tag">Optimal transport</span>
+  </div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>Existing multimarginal flow matching (FM) methods either do not scale well with dimension or encourage trajectories to pass through intermediate marginal samples, rather than the intermediate distributions. We learn a parameterised interpolant for FM via a GAN-inspired loss, which addresses these shortcomings.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">AISTATS 2026</div>
+  <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">On the bias of variational resampling</a></h3>
+  <p class="pub-authors">Finke, Axel and Kviman, Oskar and Branchini, Nicola and Elvira, Víctor</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content"><p>Coming soon!</p></div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">SSP 2025</div>
+  <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.00372">Towards Adaptive Self-Normalized Importance Samplers</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-note">2025 IEEE Statistical Signal Processing Workshop</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>To estimate µ = E_p[f(θ)] when p's normalizing constant is unknown, instead of doing MCMC on p(θ) or even p(θ)|f(θ)|, or learning a parametric q(θ), we try MCMC directly on p(θ)|f(θ)- µ|, which is the asymptotic-variance minimizing proposal. We propose a simple iterative scheme that works: initial estimate µ₀; run a chain on the approximation p(θ)|f(θ)- µ₀|; estimate µ again with SNIS, and keep iterating.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">NeurIPS 2024 Workshop</div>
+  <h3 class="pub-title"><a href="https://openreview.net/forum?id=Zxk07UdWEy">The role of tail dependence in estimating posterior expectations</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-note">NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>To estimate posterior expectations consistently, we need to use self-normalized importance sampling. Typical diagnostics forget that SNIS is a ratio of two IS estimators. We capture dependence between numerator and denominator via tail dependence of random variables in heavy-tailed scenarios. Ongoing journal extension.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo optimal-transport">
+  <div class="pub-venue">Preprint</div>
+  <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalized self-normalized importance sampling</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <div class="pub-tags">
+    <span class="pub-tag">Monte Carlo</span>
+    <span class="pub-tag">Optimal transport</span>
+  </div>
+  <p class="pub-links">
+    <a href="https://www.youtube.com/watch?v=tG9mjp6GgtE&amp;list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&amp;index=11">Video from SMC 2024</a>
+    <a href="https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/">Xi'an's blog comments</a>
+  </p>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>A framework to understand when SNIS works and when it does not, with a generalization that overcomes its limitations, with connections to continuous optimal transport.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">AISTATS 2024</div>
+  <h3 class="pub-title"><a href="https://proceedings.mlr.press/v238/guilmeau24a.html">Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization</a></h3>
+  <p class="pub-authors"><span class="pub-equal">Guilmeau, Thomas♦</span> and <span class="pub-equal">Branchini, Nicola♦</span> and Chouzenoux, Emilie and Elvira, Víctor <span class="pub-equal">(♦ equal contribution)</span></p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>Many adaptive IS (and some VI) methods match moments of a target. When the target has heavy tails, these moments can be undefined or hard to estimate. We propose an AIS method that matches moments of a lighter-tailed modified target (exponentiated to power alpha), while minimizing the alpha-divergence to the true target.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">AISTATS 2024</div>
+  <h3 class="pub-title"><a href="https://proceedings.mlr.press/v238/kviman24a.html">Variational Resampling</a></h3>
+  <p class="pub-authors">Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>Instead of enforcing that particle replication counts match pre-resampling weights in expectation, we optimize replication counts to minimize a divergence between the post- and pre-resampling distributions directly.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="causality optimal-transport">
+  <div class="pub-venue">CLeaR 2024</div>
+  <h3 class="pub-title"><a href="https://proceedings.mlr.press/v236/felekis24a.html">Causal optimal transport of abstractions</a></h3>
+  <p class="pub-authors">Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros</p>
+  <div class="pub-tags">
+    <span class="pub-tag">Statistical causality</span>
+    <span class="pub-tag">Optimal transport</span>
+  </div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>We learn causal abstractions from data without specifying parametric SCM functions, via a multimarginal OT problem with soft constraints and a cost encoding knowledge of the underlying causal DAGs. The soft constraints have a do-calculus interpretation.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">FoDS</div>
+  <h3 class="pub-title"><a href="https://www.aimsciences.org/article/doi/10.3934/fods.2024017">An adaptive mixture view of particle filters</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-note">Foundations of Data Science</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>A journal extension of the optimized APF paper: at each iteration we want a mixture proposal close to a mixture target. Literature often matches term-by-term; this view suggests methods that match the two mixtures directly.</p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="causality">
+  <div class="pub-venue">AISTATS 2023</div>
+  <h3 class="pub-title"><a href="https://proceedings.mlr.press/v206/branchini23a.html">Causal Entropy Optimization</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros</p>
+  <div class="pub-tags"><span class="pub-tag">Statistical causality</span></div>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>We study causal global optimization under unknown graphs: the effect of incorrect causal assumptions, and an acquisition function that trades off optimization of the effect and structure learning. <img src="/ceo.svg" width="1000" height="300" alt="Causal Entropy Optimization figure"></p>
+  </div>
+</article>
+
+<article class="pub-item" data-groups="monte-carlo">
+  <div class="pub-venue">UAI 2021</div>
+  <h3 class="pub-title"><a href="https://proceedings.mlr.press/v161/branchini21a.html">Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization</a></h3>
+  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <p class="pub-links"><a href="https://underline.io/speakers/119464-nicola-branchini">Video and slides from UAI</a></p>
+  <button type="button" class="collapsible">Details</button>
+  <div class="content">
+    <p>We improve the Auxiliary Particle Filter by optimizing resampling weights as mixture weights of an importance sampling mixture proposal. Choosing mixture weights to minimize empirical variance of importance weights leads to a convex optimization problem. <img src="/eq_oapf.svg" width="1000" height="300" alt="Optimized APF equation"></p>
+  </div>
+</article>
+
 </div>
 
-
-
-- [***Towards Adaptive Self-Normalized Importance Samplers***](https://arxiv.org/abs/2505.00372); Branchini, Nicola and Elvira, Víctor. *In: 2025 IEEE Statistical Signal Processing Workshop*
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
- The TLDR; To estimate µ = E_p[f(θ)] when p's normalizing constant is unknown, instead of doing MCMC on p(θ) or even p(θ)|f(θ)|, or learning a parametric q(θ), we try MCMC directly on p(θ)|f(θ)- µ|, which is the asymptotic-variance minimizing proposal. 
- Note: we cannot do MCMC straightforwardly, as p(θ)|f(θ)- µ| cannot be evaluated - it contains µ, the quantity of interest ! So, we propose a simple iterative scheme that works: initial estimate µ₀ ; run a chain on the *approximation* p(θ)| f(θ)- µ₀ |; estimate µ again with SNIS, and keep iterating. I'm quite excited about extending this work. An imprecision in the current paper - will be fixed soon and in upcoming journal paper - is that each each time we need to plug in the global estimate of µ, not the local one build with the ``current'' MCMC samples.  A CLT for the final combined estimates is coming..
-</p>
 </div>
 
-
-- [***The role of tail dependence in estimating posterior expectations***](https://openreview.net/forum?id=Zxk07UdWEy); Branchini, Nicola and Elvira, Víctor. *In NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty*.
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
- To estimate posterior expectations *consistently*, we need to use self-normalized importance sampling (or MCMC, but SNIS has a better variance lower bound). It is a ratio of two IS estimators. Typical diagnostics forget this, and only look at IS-weights for numerator or denominator separately. We know tho that the statistical dependence between the estimators affect the performance. Here, we try to capture this information with the concept of tail dependence of random variables, which applies in heavy tailed scenarios. Ongoing journal extension.. 
-</p>
-</div>
-
-
-
-- [***Generalized self-normalized importance sampling (preprint)***](https://arxiv.org/abs/2406.19974); Branchini, Nicola and Elvira, Víctor. [**Video from SMC 2024**](https://www.youtube.com/watch?v=tG9mjp6GgtE&list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&index=11); [**Xi'an's comments in his blog**](https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/).
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  The self-normalized IS estimator is widely used to estimate expectations with intractable normalizing constants, for example, in Bayesian leave-one-out cross validation or likelihood free inference. In this paper, we propose a framework to understand when SNIS works and when it does not, with a generalization that allows us to overcome its limitations, with connections to continuous optimal transport. See paper abstract for more info. 
-</p>
-</div>
-
-- [***Adaptive importance sampling for heavy-tailed distributions via α-divergence minimization***](https://proceedings.mlr.press/v238/guilmeau24a.html); <span style="color: orange;">Guilmeau, Thomas</span><sup style="color: orange;">♦</sup> and <span style="color: orange;">Branchini, Nicola</span><sup style="color: orange;">♦</sup> and Chouzenoux, Emilie and Elvira, Víctor. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. <span style="font-size: 0.8em; color: orange;">(♦equal contribution.)</span>
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  Many adaptive IS (and some VI) methods are based on matching the moments of a target distributions. When the target has heavy tails, these moments can be undefined or their estimation can have high variance. We propose an AIS method that overcomes this by matching the moments of a (lighter tailed) modified target, which is exponentiated to a power alpha. Despite this, the procedure actually minimizes the alpha-divergence between the proposal and the true target. Note: many previous works propose AIS methods with heavy-tailed *proposals*, but not necessarily suitable for heavy-tailed *targets*.
-</p>
-</div>
-
-
-- [***Variational Resampling***](https://proceedings.mlr.press/v238/kviman24a.html); Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens. *In 27th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2024*. 
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  A very neat idea stemming from Oskar's Master's thesis (he's impressive, isn't he ?); when we resample in PFs, we usually would like the resulting equally-weighted distribution of the resampled particles to be ``close'' in some sense to the distribution before resampling (which was unequally-weighted, in general). 
-  Usually, resampling schemes enforce this by saying that the number of times a particle gets replicated is, on average, equal to its weight in the pre-resampling distribution. What we do here instead is to optimize the number of times a particle gets replicated so as to minimize a divergence between the post-resampling distribution and the pre-resampling distribution directly ! With a very smart algorithm again entirely due to Oskar. 
-</p>
-</div>
-
-- [***Causal optimal transport of abstractions***](https://proceedings.mlr.press/v236/felekis24a.html); Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros. *In 3rd Conference on Causal Learning and Reasoning (CLeaR 2024)*. 
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  The task of causal abstraction involves finding a mapping (a measurable transport map) between structural causal models (SCMs) and their corresponding "abstracted versions", which can be simplified or coarser SCMs (fewer variables or different functional relationships). We consider the problem of learning causal abstractions from data. We propose a framework that does so without specifying parametric relationships for the SCM functions. The method involves a multimarginal OT problem (as many marginals as there are considered interventions (not really, but roughly to get the idea)) with soft constraints and a cost function econding knowledge of the underlying causal DAGs. Nicely, the soft constraints have a do-calculus interpretation. 
-</p>
-</div>
-
-- [***An adaptive mixture view of particle filters***](https://www.aimsciences.org/article/doi/10.3934/fods.2024017); Branchini, Nicola and Elvira, Víctor. *FoDS (Foundations of Data Science)*. 
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  A kind of journal extension of the earlier ``optimized APF'' paper, where we present a perspective on PFs that emphasizes that at each iteration, we want to select a mixture proposal (mixture that arises naturally as proposal in the PF context) that is close to a mixture target. Methods in the literature match these term-by-term, while with this view, it is possible to conceive of new methods that directly match the two mixtures. To be honest, we should have way done more in this direction to show that this can be useful. Still, I do think the perspective is interesting - maybe someone comes up with a smart way to learn a mixture that is close to the ``optimal'' one.
-</p>
-</div>
-
-
-
-<!-- <div class="progress-bar">
-  <span class="emoji">🍳</span> <progress value="95" max="100"></progress>
-  <div class="progress-label">95%</div>  <span class="emoji">🍳</span>
-</div>
- -->
-
-<!-- - [***On dependence and bias in importance sampling for high dimensional test functions***](https://proceedings.mlr.press/v161/branchini21a.html); Branchini, Nicola and Elvira, Víctor. (**In preparation**; **no link**).
-
-<div class="progress-bar">
-  <span class="emoji">🍳</span> <progress value="40" max="100"></progress>
-  <div class="progress-label">40%</div>  <span class="emoji">🍳</span>
-</div> -->
-
-
-- [***Causal Entropy Optimization***](https://proceedings.mlr.press/v206/branchini23a.html); Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros. In *26th Conference on Artificial Intelligence and Statistics (AISTATS), Proceedings of Machine Learning Research, 2023*.
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  In this paper, we studied the problem of "causal global optimization": finding the optimum intervention that is the minimizer of several causal effects (that is, we consider possibly intervening on many different subset of variables). When the underlying causal graph is not known, the first step is studying what happens if we assume any one of the possible graphs is the true one, and run "CBO"- causal Bayesian optimization - as normal. We studied what the effect of this kind of incorrect causal assumption is for optimization purposes. Further, since in many cases the underlying function can be optimized efficiently even if the graph is not fully known, we designed an acquisition function that automatically trades-off optimization of the effect and structure learning.  
-</p>
-<img src="/ceo.svg" width="1000" height="300">
-</div>
-
-- [***Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization***](https://proceedings.mlr.press/v161/branchini21a.html), Branchini, Nicola and Elvira, Víctor. In *37th Conference on Uncertainty in Artificial Intelligence (UAI), Proceedings of Machine Learning Research, 2021*.
-
-<button type="button" class="collapsible">Details about paper</button>
-<div class="content">
-<p>
-  In this paper we wanted to improve on the Auxiliary Particle Filter (APF), which is thought for estimating the likelihood in sequential latent variable models with very informative observations. This algorithm however still has severe drawbacks; among some, the resampling weights are chosen independently, i.e. each particle chooses its own without "knowing" what the others are doing.
-  We devise a new way to optimize these resampling weights by viewing them as mixture weights of an importance sampling mixture proposal. It turns out that choosing mixture weights in order to minimize the resulting empirical variance of the importance weights leads to a convex optimization problem.
-</p>
-<a href="https://underline.io/speakers/119464-nicola-branchini">Video and slides from UAI</a>
-
-<img src="/eq_oapf.svg" width="1000" height="300">
-</div>
-
-
-
+<script src="/js/pubs-filter.js"></script>
