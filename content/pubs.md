@@ -11,7 +11,7 @@ disqus: false
   <article class="pub-item pub-featured-item" data-groups="monte-carlo optimal-transport">
     <div class="pub-venue">Preprint</div>
     <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalized self-normalized importance sampling</a></h3>
-    <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+    <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
     <div class="pub-tags">
       <span class="pub-tag">Monte Carlo</span>
       <span class="pub-tag">Optimal transport</span>
@@ -29,7 +29,7 @@ disqus: false
   <article class="pub-item pub-featured-item" data-groups="monte-carlo">
     <div class="pub-venue">AISTATS 2026</div>
     <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">How to approximate inference with subtractive mixture models</a></h3>
-    <p class="pub-authors">Zellinger, Lena and Branchini, Nicola and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
+    <p class="pub-authors">Zellinger, Lena and <span class="pub-me">Branchini, Nicola</span> and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
     <div class="pub-tags">
       <span class="pub-tag">Monte Carlo</span>
     </div>
@@ -42,7 +42,7 @@ disqus: false
   <article class="pub-item pub-featured-item" data-groups="monte-carlo">
     <div class="pub-venue">NeurIPS 2024 Workshop</div>
     <h3 class="pub-title"><a href="https://openreview.net/forum?id=Zxk07UdWEy">The role of tail dependence in estimating posterior expectations</a></h3>
-    <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+    <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
     <p class="pub-note">NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</p>
     <div class="pub-tags">
       <span class="pub-tag">Monte Carlo</span>
@@ -68,7 +68,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">AISTATS 2026</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">How to approximate inference with subtractive mixture models</a></h3>
-  <p class="pub-authors">Zellinger, Lena and Branchini, Nicola and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
+  <p class="pub-authors">Zellinger, Lena and <span class="pub-me">Branchini, Nicola</span> and De Smet, Lennert and Elvira, Víctor and Malkin, Nikolay and Vergari, Antonio</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
   <div class="content"><p>Coming soon!</p></div>
@@ -77,7 +77,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo optimal-transport">
   <div class="pub-venue">ICLR 2026</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.01159">Multimarginal Flow Matching with Adversarially Learnt Interpolants</a></h3>
-  <p class="pub-authors">Kviman, Oskar and Tamogashev, Kirill and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay</p>
+  <p class="pub-authors">Kviman, Oskar and Tamogashev, Kirill and <span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay</p>
   <p class="pub-note">Earlier version: NeurIPS workshop — 2nd edition of Frontiers in Probabilistic Inference: Learning meets Sampling</p>
   <div class="pub-tags">
     <span class="pub-tag">Monte Carlo</span>
@@ -92,7 +92,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">AISTATS 2026</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2503.21346">On the bias of variational resampling</a></h3>
-  <p class="pub-authors">Finke, Axel and Kviman, Oskar and Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors">Finke, Axel and Kviman, Oskar and <span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
   <div class="content"><p>Coming soon!</p></div>
@@ -101,7 +101,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">SSP 2025</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2505.00372">Towards Adaptive Self-Normalized Importance Samplers</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <p class="pub-note">2025 IEEE Statistical Signal Processing Workshop</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
@@ -113,7 +113,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">NeurIPS 2024 Workshop</div>
   <h3 class="pub-title"><a href="https://openreview.net/forum?id=Zxk07UdWEy">The role of tail dependence in estimating posterior expectations</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <p class="pub-note">NeurIPS 2024 Workshop on Bayesian Decision-making and Uncertainty</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
@@ -125,7 +125,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo optimal-transport">
   <div class="pub-venue">Preprint</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalized self-normalized importance sampling</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <div class="pub-tags">
     <span class="pub-tag">Monte Carlo</span>
     <span class="pub-tag">Optimal transport</span>
@@ -154,7 +154,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">AISTATS 2024</div>
   <h3 class="pub-title"><a href="https://proceedings.mlr.press/v238/kviman24a.html">Variational Resampling</a></h3>
-  <p class="pub-authors">Kviman, Oskar and Branchini, Nicola and Elvira, Víctor and Lagergren, Jens</p>
+  <p class="pub-authors">Kviman, Oskar and <span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor and Lagergren, Jens</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
   <div class="content">
@@ -165,7 +165,7 @@ disqus: false
 <article class="pub-item" data-groups="causality optimal-transport">
   <div class="pub-venue">CLeaR 2024</div>
   <h3 class="pub-title"><a href="https://proceedings.mlr.press/v236/felekis24a.html">Causal optimal transport of abstractions</a></h3>
-  <p class="pub-authors">Felekis, Yorgos and Zennaro, Fabio and Branchini, Nicola and Damoulas, Theodoros</p>
+  <p class="pub-authors">Felekis, Yorgos and Zennaro, Fabio and <span class="pub-me">Branchini, Nicola</span> and Damoulas, Theodoros</p>
   <div class="pub-tags">
     <span class="pub-tag">Statistical causality</span>
     <span class="pub-tag">Optimal transport</span>
@@ -179,7 +179,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">FoDS</div>
   <h3 class="pub-title"><a href="https://www.aimsciences.org/article/doi/10.3934/fods.2024017">An adaptive mixture view of particle filters</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <p class="pub-note">Foundations of Data Science</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <button type="button" class="collapsible">Details</button>
@@ -191,7 +191,7 @@ disqus: false
 <article class="pub-item" data-groups="causality">
   <div class="pub-venue">AISTATS 2023</div>
   <h3 class="pub-title"><a href="https://proceedings.mlr.press/v206/branchini23a.html">Causal Entropy Optimization</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Aglietti, Virginia and Dhir, Neil and Damoulas, Theodoros</p>
   <div class="pub-tags"><span class="pub-tag">Statistical causality</span></div>
   <button type="button" class="collapsible">Details</button>
   <div class="content">
@@ -202,7 +202,7 @@ disqus: false
 <article class="pub-item" data-groups="monte-carlo">
   <div class="pub-venue">UAI 2021</div>
   <h3 class="pub-title"><a href="https://proceedings.mlr.press/v161/branchini21a.html">Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization</a></h3>
-  <p class="pub-authors">Branchini, Nicola and Elvira, Víctor</p>
+  <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   <p class="pub-links"><a href="https://underline.io/speakers/119464-nicola-branchini">Video and slides from UAI</a></p>
   <button type="button" class="collapsible">Details</button>

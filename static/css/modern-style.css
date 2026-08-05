@@ -1476,7 +1476,8 @@ body, html {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-primary) !important;
+  /* Metadata: muted, so orange stays reserved for interactive elements */
+  color: var(--text-muted) !important;
   margin-bottom: var(--space-xs);
 }
 
@@ -1505,6 +1506,11 @@ body, html {
   color: var(--text-secondary);
   font-size: 0.92rem;
   line-height: 1.5;
+}
+
+.pub-me {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .pub-note {
@@ -1542,8 +1548,8 @@ body, html {
 }
 
 .pub-equal {
-  font-size: 0.8em;
   color: var(--accent-primary);
+  font-weight: 600;
 }
 
 .pub-filters {
