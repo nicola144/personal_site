@@ -11,6 +11,8 @@
   --accent-primary: #ff6b47;
   --accent-secondary: #ffa726;
   --accent-tertiary: #42a5f5;
+  --accent-name: #7dd3c0;
+  --accent-venue: #c9a882;
   --border-color: #333333;
   --success-color: #66bb6a;
   --warning-color: #ffa726;
@@ -1472,12 +1474,12 @@ body, html {
 .markdown .pub-venue,
 .pub-venue {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  /* Metadata: muted, so orange stays reserved for interactive elements */
-  color: var(--text-muted) !important;
+  /* Warm sand: readable metadata, distinct from orange links and teal name */
+  color: var(--accent-venue) !important;
   margin-bottom: var(--space-xs);
 }
 
@@ -1509,7 +1511,7 @@ body, html {
 }
 
 .pub-me {
-  color: var(--text-primary);
+  color: var(--accent-name);
   font-weight: 600;
 }
 
