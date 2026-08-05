@@ -61,6 +61,7 @@ disqus: false
   <button type="button" class="pub-filter" data-filter="monte-carlo">Monte Carlo methods</button>
   <button type="button" class="pub-filter" data-filter="causality">Statistical causality</button>
   <button type="button" class="pub-filter" data-filter="optimal-transport">Optimal transport</button>
+  <button type="button" class="pub-filter" data-filter="dynamical-systems">Dynamical systems</button>
 </div>
 
 <div class="pub-list">
@@ -74,7 +75,7 @@ disqus: false
   <div class="content"><p>Coming soon!</p></div>
 </article>
 
-<article class="pub-item" data-groups="monte-carlo optimal-transport">
+<article class="pub-item" data-groups="monte-carlo optimal-transport dynamical-systems">
   <div class="pub-venue">ICLR 2026</div>
   <h3 class="pub-title"><a href="https://arxiv.org/abs/2510.01159">Multimarginal Flow Matching with Adversarially Learnt Interpolants</a></h3>
   <p class="pub-authors">Kviman, Oskar and Tamogashev, Kirill and <span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor and Lagergren, Jens and Malkin, Nikolay</p>
@@ -82,6 +83,7 @@ disqus: false
   <div class="pub-tags">
     <span class="pub-tag">Monte Carlo</span>
     <span class="pub-tag">Optimal transport</span>
+    <span class="pub-tag">Dynamical systems</span>
   </div>
   <button type="button" class="collapsible">Details</button>
   <div class="content">
@@ -176,12 +178,15 @@ disqus: false
   </div>
 </article>
 
-<article class="pub-item" data-groups="monte-carlo">
+<article class="pub-item" data-groups="monte-carlo dynamical-systems">
   <div class="pub-venue">FoDS</div>
   <h3 class="pub-title"><a href="https://www.aimsciences.org/article/doi/10.3934/fods.2024017">An adaptive mixture view of particle filters</a></h3>
   <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
   <p class="pub-note">Foundations of Data Science</p>
-  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <div class="pub-tags">
+    <span class="pub-tag">Monte Carlo</span>
+    <span class="pub-tag">Dynamical systems</span>
+  </div>
   <button type="button" class="collapsible">Details</button>
   <div class="content">
     <p>A journal extension of the optimized APF paper: at each iteration we want a mixture proposal close to a mixture target. Literature often matches term-by-term; this view suggests methods that match the two mixtures directly.</p>
@@ -199,11 +204,14 @@ disqus: false
   </div>
 </article>
 
-<article class="pub-item" data-groups="monte-carlo">
+<article class="pub-item" data-groups="monte-carlo dynamical-systems">
   <div class="pub-venue">UAI 2021</div>
   <h3 class="pub-title"><a href="https://proceedings.mlr.press/v161/branchini21a.html">Optimized Auxiliary Particle Filters: adapting mixture proposals via convex optimization</a></h3>
   <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
-  <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  <div class="pub-tags">
+    <span class="pub-tag">Monte Carlo</span>
+    <span class="pub-tag">Dynamical systems</span>
+  </div>
   <p class="pub-links"><a href="https://underline.io/speakers/119464-nicola-branchini">Video and slides from UAI</a></p>
   <button type="button" class="collapsible">Details</button>
   <div class="content">
