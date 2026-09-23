@@ -1,0 +1,115 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>Simple Monte Carlo is independent of dimension. Or is it ? - $\mathbb{N}$icola $\mathbb{B}$ranchini</title><link rel=icon type=image/png href=icons/myicon.png><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Simple Monte Carlo is independent of dimension. Or is it ?">
+<meta property="og:description" content="* IMPORTANT NOTE: there was a bug in the original example, thanks to Philipp Hennig for pointing it out, I have now fixed it.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://branchini.fun/posts/monte_carlo_indep/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-11-08T16:16:09+00:00">
+<meta property="article:modified_time" content="2022-11-08T16:16:09+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Simple Monte Carlo is independent of dimension. Or is it ?">
+<meta name=twitter:description content="* IMPORTANT NOTE: there was a bug in the original example, thanks to Philipp Hennig for pointing it out, I have now fixed it.">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet>
+<link rel=stylesheet type=text/css media=screen href=https://branchini.fun/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://branchini.fun/css/main.css><link rel=stylesheet type=text/css href=https://branchini.fun/css/dark.css>
+<link rel=stylesheet type=text/css href="https://branchini.fun/css/modern-style.css?v=20260805b">
+<script src=https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js></script>
+<script src=https://branchini.fun/js/main.js></script>
+<script src=https://code.jquery.com/jquery-3.4.1.js></script>
+<script src=https://branchini.fun/js/collapsible.js></script>
+</head><body>
+<div class="container wrapper post">
+<div class=header>
+<link rel=stylesheet href=/css/academicons.min.css>
+<base href=https://branchini.fun/>
+<h1 class=site-title><a href=https://branchini.fun/>$\mathbb{N}$icola $\mathbb{B}$ranchini</a></h1><div class=site-description><nav class="nav social">
+<ul class=flat><a href=https://github.com/nicola144 title=Github><i data-feather=github></i></a><a href=https://twitter.com/Branchini_Nic title=Twitter><i data-feather=twitter></i></a><a href=https://bsky.app/profile/nicolabranchini.bsky.social title=Bluesky><i data-feather=cloud></i></a><a href="https://scholar.google.com/citations?user=bPtGaVIAAAAJ&hl=en" title=scholar><i class="ai ai-google-scholar ai-1x"></i></a></ul></nav></div><div class=math-decoration style="position:absolute;top:10px;right:20px;opacity:.03;font-size:50px;pointer-events:none;z-index:0;line-height:1;font-family:times new roman,serif;color:var(--accent-primary)">
+∫ ∑ 𝔼
+</div><nav class=nav>
+<ul class=flat>
+<li>
+<a href=/>Home</a>
+</li><li>
+<a href=/posts>Blog posts</a>
+</li><li>
+<a href=/pubs>Publications</a>
+</li><li>
+<a href=/teaching>Teaching activities</a>
+</li></ul></nav></div><div class=post-header>
+<h1 class=title>Simple Monte Carlo is independent of dimension. Or is it ?</h1></div><div class=markdown>
+<p><span style=color:#0695ff>* IMPORTANT NOTE: there was a bug in the original example, thanks to <a href="https://www.youtube.com/watch?v=6sQDHXSTdTc">Philipp Hennig for pointing it out</a>, I have now fixed it. I show a (much) simpler one below also (when the test function is the product of coordinates) * </span></p><p>It is essentially the status quo to claim that the error (Mean Squared Eror = MSE) of Monte Carlo integration is "independent of the dimension" of the variable being integrated, or some equivalent variant of this statement. I will provide evidence and citations later. In this post, I provide a simple reasoning for why this can be misleading, especially for the novice that approaches the Monte Carlo literature with the aim to learn how to chooose among estimators in practice.
+Defining the notation needed for the post, let the integral (expectation) to be estimated as</p><p>$$\begin{equation}\begin{aligned}
+\mu = \mathbb{E}_{p}[f(\mathbf{x})] = \int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x} ,
+\end{aligned}\end{equation}\tag{1}\label{eq1}$$</p><p>where $p(\mathbf{x})$ is a density, $\mathbf{x} \in \mathbb{R}^{D}$, the test function $f(\mathbf{x})$ is normally considered $f: \mathbb{R}^D \rightarrow \mathbb{R}$ and the corresponding Monte Carlo estimator as</p><p>$$\begin{equation}\begin{aligned}
+\widehat{\mu}<em>{\text{MC}} = \frac{1}{N} \sum</em>{n=1}^{N} f(\mathbf{x}^{(n)}) , ~~ \mathbf{x}^{(n)} \sim p(\mathbf{x}) ,
+\end{aligned}\end{equation}\tag{2}\label{eq2}$$</p><p>with samples being i.i.d.</p><p>At this point, many (if not most) authoritative sources proceed with some variant of the following: because the variance (hence the MSE) of $\widehat{\mu}_{\text{MC}}$ is given simply by</p><p>$$\begin{equation}\begin{aligned}
+\mathbb{E}<em>p[(\widehat{\mu}</em>{\text{MC}} - \mu)^2] = \mathbb{V}<em>p[\widehat{\mu}</em>{\text{MC}}] = \frac{\mathbb{V}_p[f(\mathbf{x})]}{N} ,
+\end{aligned}\end{equation}\tag{3}\label{eq3}$$</p><p>which is readily seen to be $\mathcal{O}(1/N)$, then the error is independent of $D$. To start with, the <a href=https://en.wikipedia.org/wiki/Monte_Carlo_integration>Wikipedia page for Monte Carlo</a> states "<span style=color:#0695ff><em>This result does not depend on the number of dimensions of the integral, which is the promised advantage of Monte Carlo integration against most deterministic methods that depend exponentially on the dimension</em> </span>", referring to \eqref{eq3}.</p><p>Further, Art B. Owen in his textbook [1] (my personal favourite source on Monte Carlo) (Chapter 2, page 17) mentions: "<span style=color:#0695ff> <em>A striking feature about the formula [equivalent of our Eq. 3] is that the dimension</em> $D$ <em>does not appear in it anywhere.</em> </span> ".</p><p>Another example, Doucet and Johansen in their (great) tutorial on particle filtering [2], mention: "<span style=color:#0695ff> <em>The main advantage of Monte Carlo methods over standard approximation techniques is that the variance of the approximation error decreases at a rate of</em> $\mathcal{O}(1/N)$ <em>regardless of the dimension of the space</em> </span>". And more, this well-cited tutorial from the respected "Acta Numerica" [3] begins with "<span style=color:#0695ff> <em>Its convergence rate,</em> $\mathcal{O}(1/\sqrt{N})$, <em>[here referring to RMSE] independent of dimension</em> </span>".</p><p>In fact, even proponents of competitor methods to Monte Carlo, seem to list this "independence of dimensionality" property as a potential advantage, see e.g. from the Probabilistic Numerics textbook [4] (page 110): "<span style=color:#0695ff> <em>A defender of Monte Carlo might argue that its most truly desirable characteristic is the fact that its convergence (see Lemma 9.2) does not depend on the dimension of the problem. Performing well even in high dimension is a laudable goal.</em> </span>". They later propose alternative reasons to what I will explain for why this can be misleading; however, they also mention "<span style=color:#0695ff> <em>rather than being equally good for any number of dimensions, Monte Carlo is perhaps better thought of as being equally bad.</em> </span>"; I am not sure I agree with this: as I will show shortly, even for simple integrands it is clear that a higher dimension is generally <strong>worse</strong>, not equally bad.</p><p>I could go on (another example can be found at page 358 here [8]). Iain Murray, in his PhD thesis on MCMC [5], seems to take a more careful stance (although not elaborating on it): " <span style=color:#0695ff> <em>Monte Carlo is usually simple and its</em> $\mathcal{O}(1/\sqrt{N})$ <em>scaling of error bars “independent of dimensionality” may be good enough</em> </span>"; the quotes added here seem to suggest us that there is more to the story.</p><p>And indeed, there is more to the story. Is $\mathbb{V}_p[f(\mathbf{x})]$ really independent of the dimension of $\mathbf{x}$, namely $D$ ? Maybe for some choices of $f$, but clearly also not for many others. What is a simple, perhaps the simplest, way to see that the statements previously mentioned can be very misleading?</p><p>Suppose that the function $f$ is non-negative. This is not very restrictive: it includes e.g. normalizing constant estimation, and much of the particle physics literature uses an adaptive Monte Carlo method, "VEGAS", which requires this assumption. More general functions will be the subject of a future blogpost. Then, the MSE in \eqref{eq3} can be written as</p><p>$$\begin{equation}\begin{aligned}
+\mathbb{E}<em>p[(\widehat{\mu}</em>{\text{MC}} - \mu)^2] = \frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) ,
+\end{aligned}\end{equation}\tag{4}\label{eq4}$$</p><p>where we $p \cdot f$ denotes the <strong>normalized version</strong> of the product $ f(\mathbf{x}) p(\mathbf{x}) $, i.e.</p><p>$$\begin{equation}\begin{aligned}
+p \cdot f = \frac{f(\mathbf{x}) p(\mathbf{x})}{\int f(\mathbf{x}) p(\mathbf{x}) \mathrm{d}\mathbf{x}} = \frac{f(\mathbf{x}) p(\mathbf{x})}{\mu}
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$</p><p>(which is a density) and I have used the chi-squared divergence between densities $p$ and $q$:</p><p>$$\begin{equation}\begin{aligned}
+\chi^{2}(p \mid \mid q) = \int \frac{p(\mathbf{x})^2}{q(\mathbf{x})} \mathrm{d}\mathbf{x} - 1.
+\end{aligned}\end{equation}\tag{6}\label{eq6}$$</p><p>What has changed ? Nothing, essentially, but perhaps people familiar with divergences already start having some intuition, since they usually do not behave well with dimension and in general $p \cdot f$ and $p$ are different densities. I personally like this chi-squared view, among other reasons, because it makes apparent that simple Monte Carlo is a special case of importance sampling. More on this in following posts, likely.</p><p>Now, we take a concrete (and very simple!) example to show how the divergence in \eqref{eq4} can easily scale badly with $D$. Let $f(\mathbf{x})$ be $f(\mathbf{x}) = \exp(-\mathbf{x}^\top \mathbf{x} / 4)$, and let $p(\mathbf{x})$ be an actual Gaussian, $p(\mathbf{x}) = \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} )$.</p><p>We can then expand the MSE of the Monte Carlo estimator as</p><p>$$\begin{equation}\begin{aligned}
+\frac{\mu^2}{N} ~ \chi^{2}(p \cdot f \mid \mid p) &= \frac{1}{N} \left ( \int f(\mathbf{x})^2 p(\mathbf{x}) \mathrm{d}\mathbf{x} - \mu^2 \right ) \\
+&= \frac{1}{N} \left ( \int \exp(-\mathbf{x}^\top \mathbf{x} / 2) \cdot \mathcal{N}(\mathbf{x}; \mathbf{0}, \mathbf{I} ) \mathrm{d}\mathbf{x} - \mu^2 \right ) \\
+&= \frac{1}{N} \mathcal{O}(\text{constant}^{D})
+\end{aligned}\end{equation}\tag{7}\label{eq7}$$</p><p>and we see that there is a very clear <strong>exponential</strong> dependence on the dimension $D$. In the derivation, we have used simple closure properties of Gaussian densities and the closed form solution for the normalizing constant of a Gaussian. Is it fair to characterize this exponential dependence as "independent of dimension" ? The feeling is that it would be more appropriate to consider an error analysis in the spirit of those done in high-dimensional statistics (e.g. [6,7]), where the <strong>ratio</strong> (or similar functions) between the dimension $D$ and the sample size $N$ are studied. Indeed, in \eqref{eq7} as long as $N$ grows exponentially with $D$, the MSE can be controlled to be constant (in $N$ <em>and</em> $D$). This is clearly a strong requirement on the number of samples.</p><h2 id=caveat>Caveat</h2><p>In some contexts, it seems common to emphasize a difference between $ \mathcal{O}(N^{-1/D}) $ and $\mathcal{O}( c^{D} \cdot N^{-1} )$, where $c$ is a constant (in both $N$ and $D$). While both suffer from a "curse" of dimension, the former is generally worse, and is typical of deterministic quadrature rules for integration. It makes sense that Monte Carlo is seen as an improvement, since its error looks like the latter (and for some functions, there need not be an exponential dependence on $D$ at all). However, it is still misleading to claim "independence of dimension" for the error. Some claim that the <em>"rate"</em> $1/N$ is independent of dimension, which to me means that the error does not look like $ \mathcal{O}(N^{-1/D}) $. This is fair, but often the specific reference to the rate (and what it means) is not clear. Also, ultimately what we care about is how the overall error (MSE) scales.</p><h2 id=conclusions>Conclusions</h2><p>The contents of this post are obvious to Monte Carlo experts, for example the authors of the previously cited works. However, I can imagine easily how outsiders from the literature can be misled by the narrative I have described.</p><p>Indeed, perhaps a finishing thought is that this "mantra" of dimensionality independence of Monte Carlo, <strong>together with the other mantra</strong> of importance sampling (IS) suffering from the curse of dimension, has likely hindered research in IS unfairly, as if the problem with dimension is specifically a feature introduced by IS. We saw, it is not. In fact, we know well that not only is MC a special case of IS with $p$ being the proposal (it is made even more obvious by the chi-squared view of the MSE), but also we know that the freedom of choosing a sampling distribution other than $p$ can bring better (not worse) results.</p><p><span style=color:#0695ff> <strong>Addendum</strong> </span></p><p>It has come to my attention after publishing the post, that there is <a href=https://arxiv.org/pdf/2206.09036.pdf>this very nice note on high dimensional Monte Carlo integration</a> by Yanbo Tang [9], using tools from high dimensional statistics.</p><p><span style=color:#0695ff> <strong>Addendum (2)</strong> </span></p><p>An obviously simpler example is to take $f(\mathbf{x}) = x_1 \cdot \dots \cdot x_D $ and $p(\mathbf{x}) = \mathcal{N}(\boldsymbol{0}, \sigma^{2} \cdot \mathbf{I})$, so then $\mathbb{V}_p[f(\mathbf{x})] = (\sigma^{2})^{D}$ and the MSE is $N^{-1} \cdot (\sigma^{2})^{D} $</p><h2 id=references>References</h2><ol>
+<li>Art B. Owen. Monte Carlo theory, methods and examples. 2013</li><li>Doucet, A. and Johansen, A.M., 2009. A tutorial on particle filtering and smoothing: Fifteen years later. Handbook of nonlinear filtering, 12(656-704), p.3.</li><li>Caflisch, R.E., 1998. Monte carlo and quasi-monte carlo methods. Acta numerica, 7, pp.1-49.</li><li>Philipp Hennig, Michael A. Osborne, Hans Kersting. Probabilistic Numerics: Computation as Machine Learning. Cambridge University Press, 2022.</li><li>Murray, I., 2007. Advances in Markov chain Monte Carlo methods. University of London, University College London (United Kingdom).</li><li>H. S. Battey, D. R. Cox. "Some Perspectives on Inference in High Dimensions." Statistical Science, 37(1) 110-122 February 2022.</li><li>Wainwright, M.J., 2019. High-dimensional statistics: A non-asymptotic viewpoint (Vol. 48). Cambridge University Press.</li><li>MacKay, D.J. and Mac Kay, D.J., 2003. Information theory, inference and learning algorithms. Cambridge university press.</li><li>Tang, Y., 2022. A Note on Monte Carlo Integration in High Dimensions. arXiv preprint arXiv:2206.09036.</li></ol><div id=disqus_thread></div><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><p>Cited as:</p><pre tabindex=0><code>@article{branchini2022montecarloindep,
+  title   = Simple Monte Carlo is independent of dimension. Or is it ?,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
+
+		</div>
+
+		<div class=post-tags>
+			
+				
+					<nav class="nav tags">
+							<ul class=flat>
+								
+								<li><a href=/tags/short>Short</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id=disqus_thread></div>
+<script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="personal-website-g7y0elzvjn",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by
+		Disqus.</a></noscript>
+<a href=http://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	
+	<div class=math-decoration-footer style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);opacity:.025;font-size:35px;pointer-events:none;z-index:0;line-height:1;white-space:nowrap;font-family:times new roman,serif;color:var(--accent-primary)">
+		∫ 𝔼 ∑ π
+	</div>
+	<nav class=nav>
+		<div> © Copyright notice |  <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div>
+	</nav>
+</div>
+
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css integrity=sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn crossorigin=anonymous>
+<style>.katex .cancel{text-decoration:line-through;opacity:.6}.katex .enclose-horizontalstrike{text-decoration:line-through;opacity:.6}</style>
+
+
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js integrity=sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx crossorigin=anonymous></script>
+
+
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous></script>
+
+<script>function fixMathDelimiters(){const t=document.querySelector(".markdown");if(!t)return;let e=t.innerHTML;if(!e.includes("$")&&!e.includes("&#36;")&&!e.includes("\\eqref"))return;e.includes("&#36;")&&(e=e.replace(/&#36;/g,"$"));const n=/\$([^$]+?)\$/g;e=e.replace(n,function(n,t){let e=t;return e=e.replace(/<em>\{([^}]*)\}<\/em>/g,"_{$1}"),e=e.replace(/<em>([^<]*)<\/em>/g,"_$1"),"$"+e+"$"}),e=e.replace(/\$\$([\s\S]*?)\$\$/g,function(n,t){let e=t.replace(/<\/?p>/g,'');return e=e.replace(/<em>\{([^}]*)\}<\/em>/g,"_{$1}"),e=e.replace(/<em>([^<]*)<\/em>/g,"_$1"),"$$"+e+"$$"}),e=e.replace(/\\eqref\{([^}]+)\}/g,"$\\eqref{$1}$"),t.innerHTML=e}function renderMath(){if(typeof renderMathInElement!="undefined"){fixMathDelimiters();const e=document.querySelector(".site-title");e&&renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],throwOnError:!1,strict:!1,trust:!0}),renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],ignoredTags:["script","noscript","style","textarea","pre","code"],throwOnError:!1,strict:!1,trust:!0,errorColor:"#cc0000",macros:{"\\color":"\\textcolor","\\require":"\\gdef\\require{}","\\cancel":"\\htmlClass{cancel}{#1}","\\eqref":"\\text{(#1)}","\\ref":"#1","\\enclose":"\\htmlClass{enclose-#1}{#2}"}}),typeof initCollapsibles=="function"&&initCollapsibles()}else setTimeout(renderMath,100)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",renderMath):renderMath()</script>
+
+
+
+<script>feather.replace()</script><script>function initCollapsibles(){var e=document.getElementsByClassName("collapsible"),t;if(!e||e.length===0)return;for(t=0;t<e.length;t++){if(e[t].dataset.collapsibleInit==="1")continue;e[t].dataset.collapsibleInit="1",e[t].addEventListener("click",function(){this.classList.toggle("active");for(var t=this.closest("p")||this.parentElement,e=t?t.nextElementSibling:null;e&&!e.classList.contains("content");)e=e.nextElementSibling;e&&e.classList.contains("content")&&(e.style.maxHeight&&e.style.maxHeight!=="0px"?e.style.maxHeight="0px":e.style.maxHeight=e.scrollHeight+"px")})}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",initCollapsibles):initCollapsibles()</script>
+
+</body>
+</html>

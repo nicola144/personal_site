@@ -84,6 +84,12 @@ type: "page"
     <li class="news-item">
       <div class="news-item-indicator"></div>
       <div class="news-item-content">
+        Happy to share that I passed my PhD viva in June! Many thanks to my examiners <a href="https://statistics.stanford.edu/people/art-b-owen">Art Owen</a> and <a href="https://sites.google.com/view/gregoireclarte/homepage">Grégoire Clarté</a>.
+      </div>
+    </li>
+    <li class="news-item">
+      <div class="news-item-indicator"></div>
+      <div class="news-item-content">
         Our conference paper <strong>Towards Adaptive Self-Normalized Importance Samplers</strong> is accepted at the <a href="https://2025.ieeessp.org/">Statistical Signal Processing Workshop (SSP), 2025</a>.<span class="emoji">✰</span>
       </div>
     </li>
@@ -347,4 +353,3 @@ function toggleCollapsible(button) {
   }
 }
 </script>
-

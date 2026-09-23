@@ -1,0 +1,133 @@
+<!doctype html><html>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge"><title>Combining independent and unbiased estimators - $\mathbb{N}$icola $\mathbb{B}$ranchini</title><link rel=icon type=image/png href=icons/myicon.png><meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:title" content="Combining independent and unbiased estimators">
+<meta property="og:description" content="I came across this 1.25 page paper by Don Rubin and Sanford Weisberg (Rubin & Weisberg) in Biometrika from 1975. Good old times.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://branchini.fun/posts/combining_est/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-05-26T22:10:06+00:00">
+<meta property="article:modified_time" content="2022-05-26T22:10:06+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Combining independent and unbiased estimators">
+<meta name=twitter:description content="I came across this 1.25 page paper by Don Rubin and Sanford Weisberg (Rubin & Weisberg) in Biometrika from 1975. Good old times.">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel=stylesheet>
+<link rel=stylesheet type=text/css media=screen href=https://branchini.fun/css/normalize.css>
+<link rel=stylesheet type=text/css media=screen href=https://branchini.fun/css/main.css><link rel=stylesheet type=text/css href=https://branchini.fun/css/dark.css>
+<link rel=stylesheet type=text/css href="https://branchini.fun/css/modern-style.css?v=20260805b">
+<script src=https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js></script>
+<script src=https://branchini.fun/js/main.js></script>
+<script src=https://code.jquery.com/jquery-3.4.1.js></script>
+<script src=https://branchini.fun/js/collapsible.js></script>
+</head><body>
+<div class="container wrapper post">
+<div class=header>
+<link rel=stylesheet href=/css/academicons.min.css>
+<base href=https://branchini.fun/>
+<h1 class=site-title><a href=https://branchini.fun/>$\mathbb{N}$icola $\mathbb{B}$ranchini</a></h1><div class=site-description><nav class="nav social">
+<ul class=flat><a href=https://github.com/nicola144 title=Github><i data-feather=github></i></a><a href=https://twitter.com/Branchini_Nic title=Twitter><i data-feather=twitter></i></a><a href=https://bsky.app/profile/nicolabranchini.bsky.social title=Bluesky><i data-feather=cloud></i></a><a href="https://scholar.google.com/citations?user=bPtGaVIAAAAJ&hl=en" title=scholar><i class="ai ai-google-scholar ai-1x"></i></a></ul></nav></div><div class=math-decoration style="position:absolute;top:10px;right:20px;opacity:.03;font-size:50px;pointer-events:none;z-index:0;line-height:1;font-family:times new roman,serif;color:var(--accent-primary)">
+∫ ∑ 𝔼
+</div><nav class=nav>
+<ul class=flat>
+<li>
+<a href=/>Home</a>
+</li><li>
+<a href=/posts>Blog posts</a>
+</li><li>
+<a href=/pubs>Publications</a>
+</li><li>
+<a href=/teaching>Teaching activities</a>
+</li></ul></nav></div><div class=post-header>
+<h1 class=title>Combining independent and unbiased estimators</h1></div><div class=markdown>
+<p>I came across this 1.25 page paper by Don Rubin and Sanford Weisberg <a href=https://academic.oup.com/biomet/article-abstract/62/3/708/257707>(Rubin & Weisberg)</a> in Biometrika from 1975. Good old times.</p><p>It considers the problem of finding the "best" linear combination (<em>whose weights sum to 1</em> !) of $K$ estimators of the <em>same</em> quantity. The estimators are all assumed to be unbiased, and independent. I think this is still a very much relevant topic; however, I won't try to convince you of this, because I want to keep this short.
+If anything, it can be seen as a fun little exercise. The result is simple, so probably has been used independently by many authors, without them being aware of this paper (which only has 18 citations!).</p><p>We let $\tau$ be the true, unknown quantity of interest. Estimators of $t$ will just be sub-indexed, as $t_1,\dots,t_K$. These are <em>mutually independent</em> (not necessarily i.i.d.) and <em>unbiased</em>. We will assess the quality of the estimators by their mean squared error. We now define an estimator: $\widehat{t} := \sum_{k=1}^{K} \hat{\alpha}_{k} t_{k} $, with the weights $\hat{\alpha}_k$ be <em><strong>random variables</strong></em> and such that $\sum_{k=1}^{K} \widehat{\alpha_{k}} = 1$. They are independent of $t_1,\dots,t_K$. We will see that the $\hat{\alpha}_k$'s need <em><strong>not</strong></em> be mutually independent in order for the result to hold. That's all the assumptions on the distribution of the weights. We further denote the variance of the individual estimators $t_{k}$ as $V_{k}$.</p><p>Why did they define weights as random variables ? As we shall see, because the optimum weights involve a quantity that needs to be estimated. That is, $\widehat{t}$ is the estimator we can <em>actually</em> use, and we will compare it to some intractable optimum solution.<br>
+We see that $\widehat{t}$ is unbiased by applying the law of iterated expectation (<em>and</em> the law of the unconsciuous statistician):</p><p>$$\begin{equation}\begin{aligned}
+\mathbb{E}[\widehat{t}] = \mathbb{E}_{\mathbf{P}_{\widehat{t}}}[\widehat{t}] = \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}}[\mathbb{E}_{\bigotimes_k \mathbf{P}_{t_{k} | \widehat{\boldsymbol{\alpha}}}}[ \widehat{t} | \widehat{\alpha}_{1}, \dots, \widehat{\alpha}_{K}]] = \tau \cdot \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left[ \left (\sum_{k=1}^{K} \widehat{\alpha_{k}} \right ) \right] = \tau
+\end{aligned}\end{equation}\tag{1}\label{eq1}$$</p><p>where $\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}$ is the joint law of the $ \widehat{\boldsymbol{\alpha}} := [\widehat{\alpha}_{1},\dots,\widehat{\alpha}_{K}]^\top$, $\bigotimes_k \mathbf{P}_{t_{k} | \widehat{\boldsymbol{\alpha}}}$ the conditional of $\widehat{t}$ given $\widehat{\boldsymbol{\alpha}}$, and $\mathbf{P}_{\widehat{t}}$ the marginal of $\widehat{t}$. If you are not familiar with $\bigotimes_k \mathbf{P}$, it just means a joint which factorizes as the product of its $K$ marginals. Note that actually we need the weights to sum to $1$ only in expectation, for unbiasedness. However, we will need that they sum to 1 for <em>all</em> realizations of the random variables for the next derivation.<sup><a href=https://www.branchini.fun/posts/combining_est/#myfootnote1>1</a></sup></p><p>Because of the unbiasedness, the mean squared error of the estimator $\widehat{t}$ will be just equal to its variance, for which we apply the law of total variance:
+$$\begin{equation}\begin{aligned}
+\mathbb{V}[\widehat{t}] = \mathbb{V}_{\mathbf{P}_{\widehat{t}}}[\widehat{t}] &= \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{V}_{\bigotimes_k \mathbf{P}_{t_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}_{1}, \dots, \widehat{\alpha}_{K} \right ] \right ] + \mathbb{V}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{E}_{\bigotimes_k \mathbf{P}_{t_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \widehat{t} | \widehat{\alpha}_{1}, \dots, \widehat{\alpha}_{K} \right ] \right ] \\
+&= \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \mathbb{V}_{\bigotimes_k \mathbf{P}_{t_{k} | \widehat{\boldsymbol{\alpha}}}} \left [ \sum_{k=1}^{K} \hat{\alpha}_{k} t_{k} \right ] \right ] + \tau^2 \cdot \underbrace{\mathbb{V}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum_{k=1}^{K} \widehat{\alpha_{k}} \right ]}_{=~ 0} \\
+&= \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum_{k=1}^{K} \hat{\alpha}_{k}^{2} V_{k} \right ] .
+\end{aligned}\end{equation}\tag{2}\label{eq2}$$
+In the third line, the second term is $0$ since the variance of a constant (here, $1$) is $0$. At this point Rubin & Weisberg use a little trick to link this variance to that of the optimum one. That is, the best variance possible <em>in this setting</em>. Let us define $t^\star := \sum_{k=1}^{K} \alpha_{k}^{\star} t_{k}$ (the paper uses $\alpha_{k}$ instead, but my notation is better). The optimum weights are now <strong>deterministic</strong>, and they can be shown to be equal to $\alpha_{k}^{\star} = \frac{1}{W \cdot V_{k}}$ with $W = \sum_{k=1}^{K} \frac{1}{V_k}$. Therefore, let the optimum estimator be:
+$$\begin{equation}\begin{aligned}
+t^\star := \sum_{k=1}^{K} \alpha_{k}^{\star} t_{k} = \frac{\sum_{k=1}^{K} \frac{1}{V_{k}} t_{k}}{\sum_{k^\prime=1}^{K} \frac{1}{V_{k^\prime}}} .
+\end{aligned}\end{equation}\tag{3}\label{eq3}$$</p><p>Note that by design $\sum_{k=1}^{K} \alpha_{k}^{\star} = 1$. Now that weights are deterministic, it is even more obvious that $\mathbb{E}[t^\star] = \tau$. The variance of $t^\star$ is readily seen as $\mathbb{V}[t^\star] = \mathbb{V}_{\mathbf{P}_{t^\star}}[t^\star]= \mathbb{V}_{\bigotimes_k \mathbf{P}_{t_{k}}}[\sum_{k=1}^{K} \alpha_{k}^{\star} t_{k}] = \sum_{k=1}^{K} (\alpha_{k}^{\star})^2 V_{k}$.
+Now we are going to express the variance of $t^\star$ in a way that will allows us for comparison witht that of $\widehat{t}$ (and indeed, prove $\mathbb{V}[t^\star] \leq \mathbb{V}[\widehat{t}]$). We write:
+$$\begin{equation}\begin{aligned}
+\mathbb{V}[t^\star] = \sum_{k=1}^{K} (\alpha_{k}^{\star})^2 V_{k} = \frac{\sum_{k=1}^{K} \left ( \frac{1}{V_{k}} \right )^2 \cdot V_{k}}{W^2} = \frac{\cancel{\sum_{k=1}^{K} \frac{1}{V_{k}}}}{\cancel{W} \cdot W} = \frac{1}{W} = \frac{1}{V_{k} W} \cdot V_{k} = \alpha_{k} V_{k} .
+\end{aligned}\end{equation}\tag{4}\label{eq4}$$
+Now, the trick is to <em>add and subtract</em> $\mathbb{V}[t^\star]$ from \eqref{eq2}, <em>and</em> replacing $V_{k}$'s for $\frac{\mathbb{V}[t^\star]}{\alpha_{k}^{\star}}$ (given to us by \eqref{eq4}):
+$$\begin{equation}\begin{aligned}
+\mathbb{V}[\widehat{t}] &= \mathbb{V}[t^\star] + \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum_{k=1}^{K} \hat{\alpha}_{k}^{2} \color{LimeGreen}{V_{k}} \right ] - \overbrace{\sum_{k=1}^{K} (\alpha_{k}^{\star})^2 \color{LimeGreen}{V_{k}}}^{=~\mathbb{V}[t^\star]} \\
+&= \mathbb{V}[t^\star] + \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [ \sum_{k=1}^{K} \hat{\alpha}_{k}^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha_{k}^{\star}}} \right ] - \sum_{k=1}^{K} (\alpha_{k}^{\star})^{2} \color{LimeGreen}{\frac{\mathbb{V}[t^\star]}{\alpha_{k}^{\star}}} \\
+&= \mathbb{V}[t^\star] \left [
+1 + \sum_{k=1}^{K} \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [
+\frac{\left ( \widehat{\alpha_{k}} -(\alpha_{k}^{\star})^2 \right )^2}{\alpha_{k}^{\star}}
+\right ]
+\right ] \\
+&= \mathbb{V}[t^\star] \left [
+1 + \sum_{k=1}^{K} \alpha_{k}^{\star} \mathbb{E}_{\mathbf{P}_{\widehat{\boldsymbol{\alpha}}}} \left [
+\left (\frac{ \widehat{\alpha_{k}} -(\alpha_{k}^{\star})^2 }{\alpha_{k}^{\star}} \right )^2
+\right ]
+\right ] .
+\end{aligned}\end{equation}\tag{5}\label{eq5}$$
+Now we see that, indeed, since the rightmost term is always positive, $\mathbb{V}[\widehat{t}] \geq \mathbb{V}[t^\star]$. The authors note that $\mathbb{V}[\widehat{t}]$ depends on $\widehat{\boldsymbol{\alpha}}$ (which we can think of as estimates for the $\alpha_{k}^{\star}$'s) only through their squared error to $\alpha_{k}^{\star}$. Therefore, it does not matter whether the estimators $\widehat{\alpha}_{1},\dots,\widehat{\alpha}_{K}$ are dependent or not.</p><h2 id=thoughts>Thoughts</h2><p>A little food for thought (on which I won't elaborate too much, since well, this is a blogpost).</p><ul>
+<li>From the last line of \eqref{eq5}, we see that it doesn't matter whether the weight estimates are positive or negative. </li><li>We also see that correlation between the weight estimates $\widehat{\alpha}\_{K}$ does not influence the variance</li><li>What is the most restrictive constraint here? The unbiasedness? The independence of the $t\_k$'s ? </li></ul><h3 id=footnotes>Footnotes</h3><p><a name=myfootnote1>1</a>: I could have written \eqref{eq1} as just $\mathbb{E}[\widehat{t}] = \mathbb{E}_{\alpha_{k}}[\mathbb{E}[\widehat{t} | \alpha_{1}, \dots, \alpha_{K}]] = \tau$. Wouldn't that be nicer. Compact notation is great if you know exactly what the writer's doing - I want to force the reader to recall all the assumptions that are being made.</p><h2 id=references>References</h2><p>Rubin, D.B. and Weisberg, S., 1975. The variance of a linear combination of independent estimators using estimated weights. <em>Biometrika</em>, 62(3), pp.708-709.</p><div id=disqus_thread></div><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><p>Cited as:</p><pre tabindex=0><code>@article{branchini2022combining,
+  title   = Combining independent and unbiased estimators,
+  author  = Branchini, Nicola,
+  journal = https://www.branchini.fun,
+  year    = 2022,
+}
+
+		</div>
+
+		<div class=post-tags>
+			
+				
+					<nav class="nav tags">
+							<ul class=flat>
+								
+								<li><a href=/tags/short>Short</a></li>
+								
+								<li><a href=/tags/paper-summary>Paper Summary</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id=disqus_thread></div>
+<script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var e=document.createElement("script"),t;e.type="text/javascript",e.async=!0,t="personal-website-g7y0elzvjn",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by
+		Disqus.</a></noscript>
+<a href=http://disqus.com/ class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	
+	<div class=math-decoration-footer style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);opacity:.025;font-size:35px;pointer-events:none;z-index:0;line-height:1;white-space:nowrap;font-family:times new roman,serif;color:var(--accent-primary)">
+		∫ 𝔼 ∑ π
+	</div>
+	<nav class=nav>
+		<div> © Copyright notice |  <a href=https://github.com/vividvilla/ezhil>Ezhil theme</a> | Built with <a href=https://gohugo.io>Hugo</a></div>
+	</nav>
+</div>
+
+
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css integrity=sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn crossorigin=anonymous>
+<style>.katex .cancel{text-decoration:line-through;opacity:.6}.katex .enclose-horizontalstrike{text-decoration:line-through;opacity:.6}</style>
+
+
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js integrity=sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx crossorigin=anonymous></script>
+
+
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous></script>
+
+<script>function fixMathDelimiters(){const t=document.querySelector(".markdown");if(!t)return;let e=t.innerHTML;if(!e.includes("$")&&!e.includes("&#36;")&&!e.includes("\\eqref"))return;e.includes("&#36;")&&(e=e.replace(/&#36;/g,"$"));const n=/\$([^$]+?)\$/g;e=e.replace(n,function(n,t){let e=t;return e=e.replace(/<em>\{([^}]*)\}<\/em>/g,"_{$1}"),e=e.replace(/<em>([^<]*)<\/em>/g,"_$1"),"$"+e+"$"}),e=e.replace(/\$\$([\s\S]*?)\$\$/g,function(n,t){let e=t.replace(/<\/?p>/g,'');return e=e.replace(/<em>\{([^}]*)\}<\/em>/g,"_{$1}"),e=e.replace(/<em>([^<]*)<\/em>/g,"_$1"),"$$"+e+"$$"}),e=e.replace(/\\eqref\{([^}]+)\}/g,"$\\eqref{$1}$"),t.innerHTML=e}function renderMath(){if(typeof renderMathInElement!="undefined"){fixMathDelimiters();const e=document.querySelector(".site-title");e&&renderMathInElement(e,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],throwOnError:!1,strict:!1,trust:!0}),renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1}],ignoredTags:["script","noscript","style","textarea","pre","code"],throwOnError:!1,strict:!1,trust:!0,errorColor:"#cc0000",macros:{"\\color":"\\textcolor","\\require":"\\gdef\\require{}","\\cancel":"\\htmlClass{cancel}{#1}","\\eqref":"\\text{(#1)}","\\ref":"#1","\\enclose":"\\htmlClass{enclose-#1}{#2}"}}),typeof initCollapsibles=="function"&&initCollapsibles()}else setTimeout(renderMath,100)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",renderMath):renderMath()</script>
+
+
+
+<script>feather.replace()</script><script>function initCollapsibles(){var e=document.getElementsByClassName("collapsible"),t;if(!e||e.length===0)return;for(t=0;t<e.length;t++){if(e[t].dataset.collapsibleInit==="1")continue;e[t].dataset.collapsibleInit="1",e[t].addEventListener("click",function(){this.classList.toggle("active");for(var t=this.closest("p")||this.parentElement,e=t?t.nextElementSibling:null;e&&!e.classList.contains("content");)e=e.nextElementSibling;e&&e.classList.contains("content")&&(e.style.maxHeight&&e.style.maxHeight!=="0px"?e.style.maxHeight="0px":e.style.maxHeight=e.scrollHeight+"px")})}}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",initCollapsibles):initCollapsibles()</script>
+
+</body>
+</html>
