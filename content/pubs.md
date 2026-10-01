@@ -5,6 +5,18 @@ disqus: false
 
 <div class="pub-page">
 
+<div class="pub-section-title">PhD thesis</div>
+
+<div class="pub-featured">
+  <article class="pub-item pub-featured-item">
+    <div class="pub-venue">PhD thesis · University of Edinburgh</div>
+    <h3 class="pub-title"><a href="https://era.ed.ac.uk/items/1d79d56b-e8ae-45d2-88ca-2a9c2db5e9f4">Self-normalized importance sampling</a></h3>
+    <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span></p>
+    <p class="pub-note">Doctor of Philosophy thesis, 2026</p>
+    <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
+  </article>
+</div>
+
 <div class="pub-section-title">Selected papers</div>
 
 <div class="pub-featured">
