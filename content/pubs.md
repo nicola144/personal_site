@@ -13,6 +13,7 @@ disqus: false
     <h3 class="pub-title"><a href="https://era.ed.ac.uk/items/1d79d56b-e8ae-45d2-88ca-2a9c2db5e9f4">On self-normalized importance sampling</a></h3>
     <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span></p>
     <p class="pub-note">Doctor of Philosophy thesis, 2026</p>
+    <p class="pub-note">Examiners: <a href="https://statistics.stanford.edu/people/art-b-owen">Art Owen</a> and <a href="https://sites.google.com/view/gregoireclarte/homepage">Grégoire Clarté</a></p>
     <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   </article>
 </div>
