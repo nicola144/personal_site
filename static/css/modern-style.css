@@ -1418,17 +1418,19 @@ a:hover {
 /* Keep the expanded site navigation legible and show the current page. */
 .header nav ul.flat {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: var(--space-xs) 0.75rem;
 }
 
 .header nav ul.flat li {
   margin-right: 0;
+  flex: 0 0 auto;
 }
 
 .header nav ul.flat li a {
   display: inline-block;
   font-size: 1rem;
+  white-space: nowrap;
   padding-bottom: 0.2rem;
   border-bottom: 2px solid transparent;
 }
