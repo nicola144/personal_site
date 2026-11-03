@@ -1,0 +1,11 @@
+<ul class="news-list">
+  {{ $limit := .limit }}
+  {{ range $index, $item := .items }}
+    {{ if or (eq $limit 0) (lt $index $limit) }}
+      <li class="news-item">
+        <div class="news-item-indicator"></div>
+        <div class="news-item-content">{{ $item.body | markdownify }}</div>
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
