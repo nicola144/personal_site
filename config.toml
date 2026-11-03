@@ -124,6 +124,11 @@ name = "Miscellanea"
 url = "/miscellanea/"
 weight = 10
 
+[[menu.main]]
+name = "CV of Rejections"
+url = "/rejections/"
+weight = 11
+
 
 # Social media links which shows up on site header.
 # Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
