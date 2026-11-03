@@ -1,142 +1,34 @@
 <div class="footer wrapper">
-	<!-- Subtle math symbols decoration -->
-	<div class="math-decoration-footer" style="position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); opacity: 0.025; font-size: 35px; pointer-events: none; z-index: 0; line-height: 1; white-space: nowrap; font-family: 'Times New Roman', serif; color: var(--accent-primary);">
-		∫ 𝔼 ∑ π
-	</div>
 	<nav class="nav">
 		<div>{{ with .Site.Copyright }} {{ . }} | {{ end }} <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
 	</nav>
 </div>
 
-<!-- KaTeX CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
-<style>
-.katex .cancel {
-    text-decoration: line-through;
-    opacity: 0.6;
-}
-.katex .enclose-horizontalstrike {
-    text-decoration: line-through;
-    opacity: 0.6;
-}
-</style>
-
-<!-- KaTeX JavaScript -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O9ctzYFfFr4dgmgccOTx" crossorigin="anonymous"></script>
-
-<!-- KaTeX auto-render extension -->
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
-
+<!-- MathJax renders the LaTeX preserved by Hugo's Goldmark passthrough extension. -->
 <script>
-    // Fix math delimiters broken by Hugo's paragraph tags and underscore conversion
-    function fixMathDelimiters() {
-        const markdown = document.querySelector('.markdown');
-        if (!markdown) return;
-        
-        let html = markdown.innerHTML;
-
-        // Avoid rewriting the DOM when there is no math — innerHTML assignment
-        // destroys event listeners (e.g. publication filters).
-        if (!html.includes('$') && !html.includes('&#36;') && !html.includes('\\eqref')) {
-            return;
+    window.MathJax = {
+        loader: {
+            load: ['[tex]/boldsymbol', '[tex]/cancel', '[tex]/colorv2', '[tex]/enclose']
+        },
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processRefs: true,
+            tags: 'ams',
+            useLabelIds: true,
+            packages: {'[+]': ['ams', 'boldsymbol', 'cancel', 'colorv2', 'enclose']}
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        chtml: {
+            displayAlign: 'center',
+            displayIndent: '0'
         }
-        
-        // Check if Hugo escaped $ signs to HTML entities
-        if (html.includes('&#36;')) {
-            html = html.replace(/&#36;/g, '$');
-        }
-        
-        // First, fix inline math ($...$) - restore underscores from <em> tags
-        // This must be done before display math to avoid conflicts
-        const inlineMathRegex = /\$([^$]+?)\$/g;
-        html = html.replace(inlineMathRegex, function(match, content) {
-            // Fix underscores that Hugo converted to <em> tags
-            let cleaned = content;
-            cleaned = cleaned.replace(/<em>\{([^}]*)\}<\/em>/g, '_{$1}');
-            cleaned = cleaned.replace(/<em>([^<]*)<\/em>/g, '_$1');
-            return '$' + cleaned + '$';
-        });
-        
-        // Then fix display math blocks ($$...$$)
-        html = html.replace(/\$\$([\s\S]*?)\$\$/g, function(match, content) {
-            // Remove all <p> and </p> tags from the content
-            let cleaned = content.replace(/<\/?p>/g, '');
-            // Fix underscores that Hugo converted to <em> tags
-            // Handle both <em>content</em> and <em>{content}</em> patterns
-            cleaned = cleaned.replace(/<em>\{([^}]*)\}<\/em>/g, '_{$1}');
-            cleaned = cleaned.replace(/<em>([^<]*)<\/em>/g, '_$1');
-            return '$$' + cleaned + '$$';
-        });
-        
-        // Convert \eqref{...} outside math mode to inline math
-        html = html.replace(/\\eqref\{([^}]+)\}/g, '$\\eqref{$1}$');
-        
-        markdown.innerHTML = html;
-    }
-    
-    // Wait for both DOM and KaTeX to be ready
-    function renderMath() {
-        if (typeof renderMathInElement !== 'undefined') {
-            // Fix broken delimiters first (this rewrites .markdown innerHTML)
-            fixMathDelimiters();
-            
-            // Render math in site title
-            const siteTitle = document.querySelector('.site-title');
-            if (siteTitle) {
-                renderMathInElement(siteTitle, {
-                    delimiters: [
-                        {left: '$$', right: '$$', display: true},
-                        {left: '$', right: '$', display: false}
-                    ],
-                    throwOnError: false,
-                    strict: false,
-                    trust: true
-                });
-            }
-            
-            renderMathInElement(document.body, {
-                // Inline math delimiters - using $ for inline, $$ for display
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false}
-                ],
-                // Don't render math inside these tags
-                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-                // Allow line breaks in display math
-                throwOnError: false,
-                // Additional options
-                strict: false,
-                trust: true,
-                // Debug: log errors
-                errorColor: '#cc0000',
-                // Support for \color, \colorbox, etc.
-                macros: {
-                    "\\color": "\\textcolor",
-                    "\\require": "\\gdef\\require{}",
-                    "\\cancel": "\\htmlClass{cancel}{#1}",
-                    "\\eqref": "\\text{(#1)}",
-                    "\\ref": "#1",
-                    "\\enclose": "\\htmlClass{enclose-#1}{#2}"
-                }
-            });
-
-            // After math rendering potentially rewrites the DOM, (re)attach collapsible handlers
-            if (typeof initCollapsibles === 'function') {
-                initCollapsibles();
-            }
-        } else {
-            // If KaTeX not loaded yet, wait a bit and try again
-            setTimeout(renderMath, 100);
-        }
-    }
-    
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', renderMath);
-    } else {
-        // DOM already loaded, just wait for KaTeX
-        renderMath();
-    }
+    };
 </script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 {{ if not .Site.IsServer }}
 {{ template "_internal/google_analytics.html" . }}

@@ -17,16 +17,16 @@ Importance Sampling !!
 ### Numerical integration
 The general idea that an average approximates an expectation is pervasive. Similarly so, is the idea that observations (data, samples, etc.) can be modelled/interpreted as realizations of an underlying random variable. The idea of Monte Carlo is related to both.
 Traditionally, Monte Carlo methods come up in the context of numerical integration. Here, the problem to solve is simply to approximate the value of an integral:
-$$
+\[
 \int_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x}
 \tag{1}\label{eq1}
-$$
+\]
   Notice there is nothing inherently statistical about this problem (I should write a blogpost about this too). Deterministic algorithms like *[Simpson's](https://en.wikipedia.org/wiki/Simpson%27s_rule)* or the *[trapezoid](https://en.wikipedia.org/wiki/Trapezoidal_rule)* rules scale terribly with the dimension of the integration variable. These rely on dividing the space into grid: not a good idea when the dimension increases.
  Monte Carlo provides a framework to develop *randomized* algorithms that are more efficient, theoretically and practically. Often, the integral of interest is already in the form of an expectation:
- $$
- \int\_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int\_{\mathcal{X}} f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
+ \[
+ \int_{\mathcal{X}} h(\mathbf{x}) \mathrm{d}\mathbf{x} = \int_{\mathcal{X}} f(\mathbf{x}) \cdot \pi(\mathbf{x}) \mathrm{d}\mathbf{x} .
  \tag{2}\label{eq2}
- $$
+ \]
 In these cases, it is natural to think of generating points distributed according to $\pi(\mathbf{x})$: this leads to approximating \eqref{eq2} with an arithmetic average (convenient), and many things can be proved about this solution (also convenient). When the integral of interest is *not* an expectation, which is in the more general setting of numerical integration \eqref{eq1}, things become more interesting.
 
 ### Importance Sampling as a randomized algorithm for numerical integration
@@ -41,7 +41,7 @@ Let me start going through the applications, beyond explicit numerical integrati
 
 A classic example where the IS idea comes up all over the place is Reinforcement Learning, where the objective function (that needs to be *maximized*, and not *estimated*) is an expectation. More specifically, it is an expectation w.r.t, among other things, a quantity that can be controlled by the algorithm (i.e. , the *policy* of the agent). Similarly to how an IS algorithm gets to choose the proposal, i.e. decide how samples are generated. More concretely, in RL the IS idea has been used to derive certain estimators of the gradient of this objective function (see e.g. [(Tang \& Abbeel, 2010)](https://proceedings.neurips.cc/paper/2010/hash/35cf8659cfcb13224cbd47863a34fc58-Abstract.html)), to derive *policy gradient algorithms*. In fact, recently [Parmas \& Sugiyama (2021)](https://proceedings.mlr.press/v130/parmas21a) unify both the common  *REINFORCE/score function* (AKA the log-derivative trick) and the pathwise/reparametrization estimators under an importance sampling perspective, in the general setting (not restricted to RL objectives). Quoting from the paper: "<span style="color:#0695FF">*We on the other hand, suggest importance sampling as a key component
 of any gradient estimator,[...]*</span>"  .
-In off-policy evaluation, where the objective is to estimate the state-value function $V\_{\pi}$, using samples from policies *other* than that used by the agent to take actions. The function $V\_{\pi}$ is then used as a building block of many algorithms to optimize the RL objective.  
+In off-policy evaluation, where the objective is to estimate the state-value function $V_{\pi}$, using samples from policies *other* than that used by the agent to take actions. The function $V_{\pi}$ is then used as a building block of many algorithms to optimize the RL objective.  
 Off-policy evaluation is a particular task within the more general field of *offline RL* [(Levine et al., (2021)](https://arxiv.org/abs/2005.01643). Many of the techniques in this field are based on what they call "Marginalized" Importance Sampling, where the agent's action random variables are (approximately) integrated out from the importance ratio to reduce variance (related to the "Rao-Blackwellization" idea in Monte Carlo [(Robert \& Roberts, 2021)](https://onlinelibrary.wiley.com/doi/abs/10.1111/insr.12463)), obtaining a "state-marginal importance ratio".
 In particular, [Metelli et al. (2021)](https://www.jmlr.org/papers/volume21/20-124/20-124.pdf) develop an IS-based framework to develop model-free (i.e. not using knowledge of how the environment responds to the agent's actions) policy optimization algorithms that mix on–line and off–line optimization. [Kuzborskij et al. (2021)](http://proceedings.mlr.press/v130/kuzborskij21a.html) ..
 A very exciting recent work [(Metelli et al., 2022)](https://openreview.net/forum?id=5y35LXrRMMz) starts using the more advanced IS idea of taking into account *the whole integrand*, as opposed to the target distribution only, when designing a sampling scheme. All in order to improve RL algorithms, which interestigly (recall), do not try to estimate an integral but to optimize it. Also (Understanding the Curse of Horizon in Off-Policy Evaluation via Conditional Importance Sampling)

@@ -10,20 +10,15 @@
 			<ul class="flat">
 				{{- range $index, $key := .Site.Params.Social -}}
         {{- if eq $key.name "scholar" -}}
-        <a href="{{ $key.url }}" title="{{ $key.name }}"><i class="ai ai-google-scholar ai-1x"></i></a>
+        <a href="{{ $key.url }}" title="{{ $key.name }}" aria-label="{{ $key.name }}"><i class="ai ai-google-scholar ai-1x"></i></a>
         {{- else -}}
-				<a href="{{ $key.url }}" title="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
+				<a href="{{ $key.url }}" title="{{ $key.name }}" aria-label="{{ $key.name }}"><i data-feather="{{ $key.icon }}"></i></a>
         {{- end -}}
 				{{- end -}}
 			</ul>
 		</nav>
 	</div>
 	
-	<!-- Subtle math symbols decoration -->
-	<div class="math-decoration" style="position: absolute; top: 10px; right: 20px; opacity: 0.03; font-size: 50px; pointer-events: none; z-index: 0; line-height: 1; font-family: 'Times New Roman', serif; color: var(--accent-primary);">
-		∫ ∑ 𝔼
-	</div>
-
 	<nav class="nav">
 		<ul class="flat">
 			{{ range .Site.Menus.main }}

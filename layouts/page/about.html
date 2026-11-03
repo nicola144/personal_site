@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/modern-style.css?v=20260805e">
+    <link rel="stylesheet" href="/css/modern-style.css?v=20261103a">
 
     <style>
       body {
@@ -23,17 +23,19 @@
       .post .markdown {
         max-width: none;
       }
+
+      .hero-text {
+        max-width: 60ch;
+      }
     </style>
 
     <div class="modern-container">
       <section class="hero-section">
         <div class="hero-content">
           <div class="hero-text">
-            <h1>Nicola Branchini</h1>
             <p class="hero-subtitle">Research Fellow in the <a href="https://warwick.ac.uk/fac/sci/statistics">Department of Statistics</a> at the University of Warwick, working with <a href="https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/roberts/">Gareth Roberts</a> under the <a href="https://www.probai.uk/">ProbAI Hub</a></p>
 
             <div class="action-buttons">
-              <a href="https://drive.google.com/file/d/1bAozo15YfdYsJAv2xRXeM_HTxb-uQf1x/view?usp=sharing" class="btn btn-primary">📄 Resume</a>
               <div class="email-container">
                 <span>📧 nicola[dot]branchini[at]warwick[dot]ac[dot]uk</span>
               </div>
@@ -49,9 +51,9 @@
       <section class="content-section">
         <div class="section-title">About</div>
 
-        <div class="grid-2">
+        <div class="about-grid grid-2">
           <div>
-            <p>Hello! I am a Research Fellow in the <a href="https://warwick.ac.uk/fac/sci/statistics">Department of Statistics at the University of Warwick</a>, working with <a href="https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/roberts/">Gareth Roberts</a> under the <a href="https://www.probai.uk/">ProbAI Hub</a>. Sometimes I blog as well here.</p>
+            <p>Ciao! I am Nicola Branchini, a Research Fellow in the <a href="https://warwick.ac.uk/fac/sci/statistics">Department of Statistics at the University of Warwick</a>, working with <a href="https://warwick.ac.uk/fac/sci/statistics/staff/academic-research/roberts/">Gareth Roberts</a> under the <a href="https://www.probai.uk/">ProbAI Hub</a>. Sometimes I blog as well <a href="{{ "/posts/" | relURL }}">here</a>.</p>
             <p>Previously, I was a PhD student in Statistics in the <a href="https://www.maths.ed.ac.uk/school-of-mathematics/research/data-decisions/statistics/stats-people">School of Mathematics at the University of Edinburgh</a>, advised by <a href="https://victorelvira.github.io/">Víctor Elvira</a>, and an <a href="https://ellis.eu/student/2025-nicola-branchini">ELLIS</a> PhD student co-advised by <a href="https://users.aalto.fi/~ave/">Aki Vehtari</a> at Aalto University.</p>
           </div>
 
@@ -60,7 +62,7 @@
           </div>
         </div>
 
-        <div style="margin-top: 1.5rem;">
+        <div class="interests-section" style="margin-top: 1.5rem;">
           <p>A sample of some specific interests:</p>
           <ul class="interests-list" style="margin-top: 0; margin-bottom: 0.6rem; padding-left: 1.2rem;">
             <li style="margin-bottom: 2px;"><strong>Importance sampling ∩ Markov chain Monte Carlo:</strong> IS is often viewed as a classical, somewhat “naive” method that struggles with complex problems such as high dimensions. Yet it remains central to applications ranging from Boltzmann generators and LLM training to estimating rare outputs of generative models. More advanced methods, such as Sequential Monte Carlo, are fundamentally based on IS. I remain interested in the mathematical properties of IS estimators: when they can work in high dimensions, which population- and sample-based metrics are appropriate, how they behave with infinite variance or heavy-tailed targets, and how combinations such as MCMC-IS can be understood. Ultimately, MC methods are used wherever an <em>accurate answer</em> matters, and understanding how much an answer can be trusted requires mathematics.</li>
@@ -77,6 +79,7 @@
         {{ partial "news-list.html" (dict "items" .Site.Data.news "limit" 6) }}
         <p class="section-link"><a href="{{ "/news/" | relURL }}">See all news →</a></p>
       </section>
+
     </div>
   </div>
   {{ partial "footer.html" . }}
