@@ -95,14 +95,24 @@ url = "/reviewing/"
 weight = 5
 
 [[menu.main]]
-name = "Background"
-url = "/background/"
+name = "Talks & posters"
+url = "/talks/"
 weight = 6
 
 [[menu.main]]
-name = "Reading & inspiration"
-url = "/reading/"
+name = "Some awards & funding"
+url = "/awards/"
 weight = 7
+
+[[menu.main]]
+name = "Background"
+url = "/background/"
+weight = 8
+
+[[menu.main]]
+name = "Miscellanea"
+url = "/miscellanea/"
+weight = 9
 
 
 # Social media links which shows up on site header.

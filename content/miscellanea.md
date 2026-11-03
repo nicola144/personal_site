@@ -1,5 +1,5 @@
 ---
-title: "Reading & inspiration"
+title: "Miscellanea"
 layout: "info"
 type: "page"
 disqus: false
