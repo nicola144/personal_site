@@ -5,19 +5,6 @@ disqus: false
 
 <div class="pub-page">
 
-<div class="pub-section-title">PhD thesis</div>
-
-<div class="pub-featured">
-  <article class="pub-item pub-featured-item">
-    <div class="pub-venue">PhD thesis · University of Edinburgh</div>
-    <h3 class="pub-title"><a href="https://era.ed.ac.uk/items/1d79d56b-e8ae-45d2-88ca-2a9c2db5e9f4">On self-normalized importance sampling</a></h3>
-    <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span></p>
-    <p class="pub-note">Doctor of Philosophy thesis, 2026</p>
-    <p class="pub-note">Examiners: <a href="https://statistics.stanford.edu/people/art-b-owen">Art Owen</a> and <a href="https://sites.google.com/view/gregoireclarte/homepage">Grégoire Clarté</a></p>
-    <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
-  </article>
-</div>
-
 <div class="pub-section-title">Selected papers</div>
 
 <div class="pub-featured">
@@ -64,6 +51,19 @@ disqus: false
     <div class="content">
       <p>To estimate posterior expectations consistently, we need to use self-normalized importance sampling (or MCMC, but SNIS has a better variance lower bound). It is a ratio of two IS estimators. Typical diagnostics forget this, and only look at IS-weights for numerator or denominator separately. We try to capture this information with the concept of tail dependence of random variables, which applies in heavy-tailed scenarios. Ongoing journal extension.</p>
     </div>
+  </article>
+</div>
+
+<div class="pub-section-title">PhD thesis</div>
+
+<div class="pub-featured">
+  <article class="pub-item pub-featured-item">
+    <div class="pub-venue">PhD thesis · University of Edinburgh</div>
+    <h3 class="pub-title"><a href="https://era.ed.ac.uk/items/1d79d56b-e8ae-45d2-88ca-2a9c2db5e9f4">On self-normalized importance sampling</a></h3>
+    <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span></p>
+    <p class="pub-note">Doctor of Philosophy thesis, 2026</p>
+    <p class="pub-note">Examiners: <a href="https://statistics.stanford.edu/people/art-b-owen">Art Owen</a> and <a href="https://sites.google.com/view/gregoireclarte/homepage">Grégoire Clarté</a></p>
+    <div class="pub-tags"><span class="pub-tag">Monte Carlo</span></div>
   </article>
 </div>
 
