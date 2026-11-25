@@ -16,13 +16,9 @@ disqus: false
       <span class="pub-tag">Monte Carlo</span>
       <span class="pub-tag">Optimal transport</span>
     </div>
-    <p class="pub-links">
-      <a href="https://www.youtube.com/watch?v=tG9mjp6GgtE&amp;list=PLUbgZHsSoMEUq6vqSLjwuXfrGDBNLbZRu&amp;index=11">Video from SMC 2024</a>
-      <a href="https://xianblog.wordpress.com/2024/06/05/6th-workshop-on-sequential-monte-carlo-methods-2/">Xi'an's blog comments</a>
-    </p>
     <button type="button" class="collapsible">Details</button>
     <div class="content">
-      <p>The self-normalized IS estimator is widely used to estimate expectations with intractable normalizing constants, for example, in Bayesian leave-one-out cross validation or likelihood free inference. In this paper, we propose a framework to understand when SNIS works and when it does not, with a generalization that allows us to overcome its limitations, with connections to continuous optimal transport.</p>
+      <p>There is a lack of general methods to select a proposal tailored to self-normalized IS (SNIS). We introduce a generalization of SNIS by exploiting its interpretation as a ratio of two IS estimators. We sample from a joint distribution, whose marginals play the role of proposals for numerator and denominator, thereby including existing two-proposal methods as special cases. Our perspective allows us to develop new theory for SNIS. We show that an appropriate selection of the joint can bring the asymptotic variance from infinite to finite. We prove sufficient and necessary sample size results for generalized SNIS valid under infinite variance, inspired by Chatterjee \& Diaconis (2018). Differently from existing results: ours further apply for non-square integrable functions, show the role of the dependence between numerator and denominator, and connect with the known optimal SNIS proposal of Hesterberg (1988). We demonstrate the benefits of the proposed methodology across applications in Bayesian sensitivity and outlier analysis..</p>
     </div>
   </article>
 
