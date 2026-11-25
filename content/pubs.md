@@ -10,7 +10,7 @@ disqus: false
 <div class="pub-featured">
   <article class="pub-item pub-featured-item" data-groups="monte-carlo optimal-transport">
     <div class="pub-venue">Preprint</div>
-    <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalized self-normalized importance sampling</a></h3>
+    <h3 class="pub-title"><a href="https://arxiv.org/abs/2406.19974">Generalizing self-normalized importance sampling with couplings</a></h3>
     <p class="pub-authors"><span class="pub-me">Branchini, Nicola</span> and Elvira, Víctor</p>
     <div class="pub-tags">
       <span class="pub-tag">Monte Carlo</span>
